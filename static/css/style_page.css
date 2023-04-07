@@ -1,0 +1,76 @@
+ body {
+    background: #00586e;
+}
+a, a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+.tilesWrapb {
+    margin: auto;
+    max-width: 800px;
+}
+.tilesWrap {
+    padding: 0;
+    margin: 50px auto;
+    list-style: none;
+    text-align: center;
+}
+.tilesWrap a li {
+    display: inline-block;
+    width: 20%;
+    min-width: 200px;
+    max-width: 230px;
+    padding: 80px 20px 40px;
+    position: relative;
+    vertical-align: top;
+    margin: 10px;
+    font-family: 'helvetica', san-serif;
+    min-height: 20vh;
+    background: #00586e;
+    border: 1px solid #00586e;
+    text-align: left;
+}
+.tilesWrap a li h2 {
+    font-size: 114px;
+    margin: 0;
+    position: absolute;
+    opacity: 0.2;
+    top: 40px;
+    right: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.tilesWrap a li h3 {
+    font-size: 22px;
+    color: #f7f7f7;
+}
+.tilesWrap a li:hover h2 {
+    top: 0px;
+    opacity: 0.6;
+}
+
+.tilesWrap a li:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    transform: skew(2deg, 2deg);
+    background: #fff700;
+    background: -webkit-linear-gradient(to right, #00e1ff, #fff700);
+    background: linear-gradient(to right, #00e1ff, #fff700);
+}
+.tilesWrap a li:after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+.tilesWrap a li:nth-child(2n):before {
+    background: #C9FFBF;
+    background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
+    background: linear-gradient(to right, #FFAFBD, #C9FFBF);

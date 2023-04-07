@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Главная</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="../static/css/style_client.min.css?_v=20230331104513">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- 	&display=swap -->
+	<!-- 	&subset=cyrillic-ext -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<a href="/user_client" class="header__logo">
+						AI
+						<span>4G</span>
+					</a>
+					<div class="header_menu menu" data-da=".header__profile,991.98">
+						<button type="button" class="menu__icon icon-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item menu__item_logo">
+									<a href="/user_client" class="header__logo">
+										AI
+										<span>4G</span>
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="/user_client" class="menu__link">Главная</a>
+								</li>
+								<li class="menu__item">
+									<a href="" class="menu__link">Мои программы</a>
+								</li>
+								<li class="menu__item">
+									<a href="" class="menu__link">Все курсы</a>
+								</li>
+								<li class="menu__item">
+									<a href="/my_events" class="menu__link">Мои события</a>
+								</li>
+								<li class="menu__item">
+									<a href="/client_settings" class="menu__link">Настройки</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="header__profile">
+						<div data-da=".menu__body,767.98" class="header__search">
+							<input placeholder="Поиск" type="text" name="text" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="255" class="header__input">
+							<button class="header__button _icon-search"></button>
+						</div>
+						<a class="header__bell _icon-bell" href=""></a>
+						<div class="header__image-box">
+							<a href="/client_settings" class="header__image">
+								<span class="header__word">К</span>
+								<span class="header__word_hidden">Изменить фото</span>
+							</a>
+						</div>
+						<a class="header__exit _icon-exit" href="/login"></a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+			<section class="account">
+				<div class="account__container">
+					<div class="account__body">
+						<div class="account__column-left">
+							<div class="account__logo">
+								<div class="account__image-box">
+									<a href="" class="account__image">
+										<span class="account__word">А</span>
+										<span class="account__word_hidden">Изменить фото</span>
+									</a>
+									<img src="../static/img/camera.svg" alt="">
+								</div>
+								<a href="" class="account__name">
+									<div>{{user[0][0]}}</div>
+									<div>{{user[0][2]}}</div>
+								</a>
+							</div>
+							<ul class="account__sidebar-list">
+								<li class="account__sidebar-item ">
+									<a href="/user_client" class="account__sidebar-link">Главная</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/my_events" class="account__sidebar-link">Мои события</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/user_client" class="account__sidebar-link">Записаться на ДС</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/client_meeting_link" class="account__sidebar-link">Подключиться к сессии</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/feedback" class="account__sidebar-link">Обратная связь</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/execution_schedule" class="account__sidebar-link">График выполнения</a>
+								</li>
+								<li class="account__sidebar-item ">
+									<a href="/client_settings" class="account__sidebar-link">Настройки</a>
+								</li>
+							</ul>
+						</div>
+						<div class="account__user-data user-data">
+							<div class="user-data-main">
+								<div class="user-data-main__title">
+									Календарь
+								</div>
+								<div class="user-data-main__content">
+									<div style='clear:both;'></div>
+									<script src='https://hesus.ru/hesus/visorJs/id/WKIKwnCY0gaS6_sHnj'></script>
+                                    <iframe id='fhesus4WKIKwnCY0gaS6_sHnj' src='https://hesus.ru/hesus/visor/id/WKIKwnCY0gaS6_sHnj' style='width: 105%;height:700px;margin: 0 auto;display: block;' frameborder=0 marginheight=0 marginwidth=0 onload="getData()"></iframe>
+									<div style='clear:both;'></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script>
+		async function getData() {
+			let data;
+			await fetch(window.location.origin + "/get_client_contact_data")
+				.then((response) => response.json())
+				.then((json) => data = json)
+				.catch((error) => {
+					console.error('Error:', error)
+				});
+			window.frames['fhesus4WKIKwnCY0gaS6_sHnj'].document.getElementById('Rentact_name').value = data['name'];
+			window.frames['fhesus4WKIKwnCY0gaS6_sHnj'].document.getElementById('Rentact_phone').value = data['phone'];
+		}
+	</script>
+	<script src="../static/js/app_client.min.js?_v=20230331104513"></script>
+</body>
+
+</html>
