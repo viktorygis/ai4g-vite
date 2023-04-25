@@ -113,7 +113,7 @@ try {
   $mail->SMTPAuth   = true;
 
   // Настройки вашей почты
-  $mail->Host       = 'mail.ai4g.ru'; // SMTP сервера вашей почты
+  $mail->Host       = 'mail.nic.ru'; // SMTP сервера вашей почты
   $mail->Username   = 'no-reply@ai4g.ru'; // Логин на почте
   $mail->Password   = '5tgbNHY^'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
