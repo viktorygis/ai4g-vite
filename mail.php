@@ -6,7 +6,7 @@ require 'phpmailer/Exception.php';
 
 $title = "Заявка на serf-сессию";
 $file = $_FILES['file'];
-
+$body = "";
 $c = true;
 // Формирование самого письма
 // $title = "Заголовок письма";
