@@ -9,7 +9,7 @@ $file = $_FILES['file'];
 
 $c = true;
 // Формирование самого письма
-$title = "Заголовок письма";
+// $title = "Заголовок письма";
 foreach ( $_POST as $key => $value ) {
   if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
     $body .= "
@@ -32,13 +32,13 @@ try {
   $mail->SMTPAuth   = true;
 
   // Настройки вашей почты
-  $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = 'logomotivandroid@gmail.com'; // Логин на почте
-  $mail->Password   = 'vtequmgcvzllovcp'; // Пароль на почте
+  $mail->Host       = 'mail.ai4g.ru'; // SMTP сервера вашей почты
+  $mail->Username   = 'no-reply@ai4g.ru'; // Логин на почте
+  $mail->Password   = '5tgbNHY^'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('no-reply@ai4g.ru', 'Заявка с сайта'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
   $mail->addAddress('info@ai4g.ru');
