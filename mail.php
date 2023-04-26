@@ -105,7 +105,7 @@ try {
 }
 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
-httpPost("/registration", array('nickname' => $user_login, 'phone' => $_POST['Телефон'], 'email' => $_POST['email'], 'birthdate' => "2023-04-04", 'pass' => $user_password, 'checkpass' => $user_password));
+httpPost("/autoregister", array('name' => $_POST['Имя'], 'nickname' => $user_login, 'phone' => $_POST['Телефон'], 'email' => $_POST['email'], 'birthdate' => "2023-04-04", 'pass' => $user_password, 'checkpass' => $user_password));
 
 try {
   $mail->isSMTP();
