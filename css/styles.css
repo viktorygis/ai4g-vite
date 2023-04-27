@@ -1035,7 +1035,7 @@ h6 {
 }
 
 .footer__items {
-  max-width: 210px;
+  max-width: 250px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1049,7 +1049,10 @@ h6 {
 }
 
 .footer__item:first-child {
-  margin-bottom: 27px;
+  margin-bottom: 24px;
+}
+.footer__item:last-child {
+  margin-top: 24px;
 }
 
 .footer__item img {
@@ -1064,7 +1067,12 @@ h6 {
 }
 
 .footer__logo {
-  margin-top: 77px;
+  margin-top: 60px;
+  display: block;
+  text-align: center;
+}
+.footer__logo2 {
+  margin-top: 30px;
   display: block;
   text-align: center;
 }
@@ -2000,6 +2008,9 @@ input:-webkit-autofill:focus {
     display: inline-block;
   }
 
+  .footer__logo {
+    margin-top: 40px;
+  }
   .footer__logo {
     margin-top: 40px;
   }
