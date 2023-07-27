@@ -7,8 +7,12 @@
   "icons": [
     {
       "src": "https://ai4g.ru/img/favicon.ico",
-      "sizes": "512x512 64x64 32x32 24x24 16x16",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "https://ai4g.ru/img/logo512x512.png",
+      "sizes": "512x512"
     },
     {
       "src": "https://ai4g.ru/static/img/header/logo-header.svg",
