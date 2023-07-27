@@ -1,0 +1,18 @@
+{
+  "name": "Личный кабинет AI4G",
+  "short_name": "AI4G",
+  "start_url": "https://ai4g.ru/login",
+  "display": "standalone",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "https://ai4g.ru/static/icon48x48.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://ai4g.ru/static/img/header/logo-header.svg",
+      "sizes": "any"
+    }
+  ]
+}
