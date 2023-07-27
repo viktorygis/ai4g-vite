@@ -6,7 +6,7 @@
   "background_color": "#fff",
   "icons": [
     {
-      "src": "https://ai4g.ru/static/icon48x48.ico",
+      "src": "https://ai4g.ru/img/favicon.ico",
       "sizes": "512x512 64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
