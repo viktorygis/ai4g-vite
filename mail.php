@@ -47,7 +47,7 @@ foreach ( $_POST as $key => $value ) {
 
 $body = "<table style='width: 100%;'>$body</table>";
 
-$client_body .= "
+$client_body = "
 <tr>
   <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Ваш логин для входа:</b></td>
   <td style='padding: 10px; border: #e9e9e9 1px solid;'>$user_login</td>
@@ -105,7 +105,7 @@ try {
 }
 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
-httpPost("/autoregister", array('name' => $_POST['Имя'], 'nickname' => $user_login, 'phone' => $_POST['Телефон'], 'email' => $_POST['email'], 'birthdate' => "2023-04-04", 'pass' => $user_password, 'checkpass' => $user_password));
+httpPost("https://ai4g.ru/autoregister", array('name' => $_POST['Имя'], 'nickname' => $user_login, 'phone' => $_POST['Телефон'], 'email' => $_POST['email'], 'birthdate' => "2023-04-04", 'pass' => $user_password, 'checkpass' => $user_password));
 
 try {
   $mail->isSMTP();
