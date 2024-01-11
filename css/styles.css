@@ -2004,6 +2004,11 @@ input:-webkit-autofill:focus {
     display: none;
   }
 
+  .footer2__logo-desktop {
+    display: none;
+    width: 316px;
+  }
+
   .footer__logo-mobile {
     display: inline-block;
   }
@@ -2014,6 +2019,20 @@ input:-webkit-autofill:focus {
   .footer__logo {
     margin-top: 40px;
   }
+
+  .footer2__logo {
+    margin-top: 40px;
+  }
+  .footer2__logo {
+    margin-top: 40px;
+  }
+  .footer2__logo {
+    margin-left: 300px;
+  }
+  .footer2__logo {
+    margin-right: : 300px;
+  }
+
 
   .footer__wrapper {
     padding: 25px 0 30px;
