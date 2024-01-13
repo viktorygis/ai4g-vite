@@ -230,6 +230,8 @@ function btnValidation() {
   const inputName = document.querySelector('.modal-request__name');
   const inputPhone = document.querySelector('.modal-request__phone');
 
+
+
   inputName.addEventListener('input', (e) => {
     checkLength();
   });

@@ -539,8 +539,32 @@ h6 {
   text-align: center;
 }
 
+.fairway__title_2 {
+  max-width: 660px;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.fairway__title_3 {
+  max-width: 660px;
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+}
+
 .fairway__item {
   margin-bottom: 60px;
+  display: flex;
+  position: relative;
+}
+
+.fairway__item_1 {
+  margin-bottom: 30px;
   display: flex;
   position: relative;
 }
@@ -594,11 +618,29 @@ h6 {
   color: #ff008a;
 }
 
+.fairway__item-left_1 {
+  width: 20px;
+  margin-right: 44px;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 30px;
+  text-align: center;
+  color: #06ea6f;
+}
+
 .fairway__item-title {
   margin-bottom: 8px;
   font-weight: 900;
   font-size: 38px;
   line-height: 46px;
+  color: #06ea6f;
+}
+
+.fairway__item-title_1 {
+  /*margin-bottom: 3px;*/
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
   color: #06ea6f;
 }
 
@@ -1108,6 +1150,13 @@ h6 {
 }
 
 .modal-request {
+  display: none;
+  width: 610px;
+  padding: 68px 59px 35px;
+  border-radius: 20px;
+}
+
+.modal-request_2 {
   display: none;
   width: 610px;
   padding: 68px 59px 35px;
