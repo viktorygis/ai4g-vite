@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-delay: 1
+Host: www.ai4g.ru
+Sitemap: http://ai4g.ru/sitemap.xml

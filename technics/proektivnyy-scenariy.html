@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Проективный сценарий"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+        https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+        ?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Проективный сценарий</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Проективный сценарий"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-27.jpg" alt="">
+							</div>
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Проективный сценарий» способствует избавлению от чувства вины и беспомощности, принятию жизни, накоплению позитивных
+								переживаний и ответственности за свою жизнь.</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Изменения через смыслы</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>10 минут</p>
+						</div>
+
+						<!-- Зачем -->
+						<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content">
+								<ul>
+									<li>для избавления от чувства вины, беспомощности и внутреннего конфликта;</li>
+									<li>для осознания и принятия обстоятельств окружающего мира;</li>
+									<li>для накопления позитивных переживаний, которые придают силы двигаться к цели;</li>
+									<li>для принятия большей ответственности за свою жизнь;</li>
+									<li>для личностного роста, включая свободу выбирать то, что нужно именно вам, выбирать лучшее из всех возможных вариантов.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Как это работает -->
+						<div>
+							<h2 class="technics__label label">Как это работает:</h2>
+							<p>Согласно гештальтподходу в психотерапии, в основе развития психологических проблем лежит неудовлетворенность какой-­либо потребности: в
+								еде, сне, безопасности, самореализации, уважении и т. д. Как следствие, происходит «застревание» в каких-то ситуациях или представлениях
+								о себе.</p>
+
+							<p>Например, столкнувшийся с агрессией родителя ребенок, чувствуя страх за свою жизнь, вынужден использовать различные способы защиты
+								(бегство, оцепенение, мышечное напряжение), чтобы как-то справиться с этой ситуацией. Повзрослев, он может демонстрировать такую же
+								первичную реакцию каждый раз, когда встречает человека, даже отдаленно напоминающего ему родителя.</p>
+
+							<p>Несмотря на отсутствие угрозы в настоящем, сложившиеся паттерны поведения будут в похожих ситуациях запускать всю совокупность
+								соответствующих телесных ощущений (мышечных зажимов) и переживаний. Как правило, они выражаются в чувстве беспричинного страха или
+								тревоги, часто маскируемом под скуку, беспокойство или раздражение. В результате этого утрачивается полнота переживания опыта «здесь и
+								сейчас».</p>
+
+							<p>Прерывание контакта с реальностью может происходить также вследствие приписывания окружающим чувств, присущих нам самим, то есть через
+								проекцию. Так, если мы чувствуем тревогу или агрессию, то с большой долей вероятности будем замечать вокруг себя тех людей, чьи лица
+								также выражают беспокойство или злость. А если мы полны любви, то неувидим ненависти и в других. Важно отметить, что мы не можем
+								проецировать на других то, чего не испытываем сами, и можем не заметить у окружающих то чувство или качество, которым мы не обладаем.
+							</p>
+
+							<p>Проекции основаны на скрытых процессах в нашем бессознательном, которые мы по каким-то причинам не осознаем. Обычно это что-то, что не
+								нравится, запрещено или постыдно. Техники, направленные на развитие осознавания, помогут встретиться с тем, чего мы избегаем
+								(чувствительной темой, опасностью, фрустрирующей ситуацией), и творчески приспособиться к ней «здесь и сейчас». Для этого не требуется
+								насильно менять себя или кого-то. Достаточно быть тем, кто ты есть на самом деле, и там, где ты есть. Это позволяет принять себя и быть
+								с самим собой в гармонии.</p>
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div class="technics__list">
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<ol>
+								<li>
+									<p class="item-title">Подготовка</p>
+
+									<p>Перед использованием психотехники рекомендуем вам выполнить следующие подготовительные упражнения.</p>
+
+									<p class="item-subtitle">Упражнение 1</p>
+
+									<p>Упражнение взято из книги Ф. Перлза, П. Хефферлина и Р. Гудмэна «Опыты психологии самосознания. Практикум по гештальттерапии»
+										[93].</p>
+
+									<p>В течение нескольких минут попробуйте составлять фразы, начинающиеся со слов: «сейчас», «в этот момент», «здесь и сейчас». Это
+										позволит вам выразить
+										то,
+										что вы в данный момент осознаете и замечаете.</p>
+
+									<p class="item-subtitle">Упражнение 2</p>
+
+									<p>Упражнение взято из книги Ф. Джойса и Ш. Силлза «Гештальттерапия шаг за шагом. Навыки в гештальттерапии» [94].</p>
+
+									<p>Постарайтесь сосредоточиться на своем теле: почувствуйте его вес на стуле, свои ноги на полу, напряжение в мышцах.
+										Сконцентрируйтесь на дыхании
+										(вдох-выдох), отметьте, какое оно: прерывистое или спокойное? Постарайтесь осознать то, что происходит внутри вас, и позвольте
+										этому происходить.</p>
+
+									<p>Воспользуйтесь вопросами:</p>
+
+									<p>1. Течет ли энергия в теле свободно или ее течение нарушается сожалением о прошлом и ожиданием будущего?</p>
+									<p>2. Чего больше: чувств, ощущений или мыслей?</p>
+									<p>3. Какие из ваших забот и тревог не относятся к настоящему? Можете ли вы от них избавиться?</p>
+
+									<p>Сосредоточьтесь на окружающей вас обстановке (картинках, звуках) и собственных ощущениях. Побудьте целиком «здесь и сейчас».</p>
+								</li>
+
+								<li>
+									<p class="item-title">Описание объекта</p>
+
+									<p>Оглядитесь по сторонам и выберите любой предмет, который привлечет вас. Затем в течение нескольких минут рассказывайте об этом
+										предмете (его цвете,
+										форме,
+										размере, расположении и т. д.). Сформулируйте и запомните ответы на следующие вопросы:</p>
+
+									<p>Как живется этому предмету?</p>
+
+									<p>Каково ему находиться в этом месте? Хорошо ли с ним обращаются?</p>
+
+									<p>Чего он боится?</p>
+								</li>
+
+								<li>
+									<p class="item-title">Отождествление с объектом</p>
+
+									<p>А теперь постарайтесь повторить этот текст, но уже от первого лица, то есть, описывая предмет, говорить «я…». Сравните, насколько
+										история предмета,
+										которую вы рассказали, перекликается с вашей жизнью. Почти всегда есть совпадения, которые дадут вам новое понимание вашей текущей
+										жизненной ситуации.
+									</p>
+								</li>
+							</ol>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<!-- 		<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+
+							<div class="technics__content"> </div>
+
+
+						</div> -->
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+								<li>Булюбаш И. Д. Руководство по гештальт-терапии. — М.: Психотерапия, 2011.</li>
+								<li>Гингер, Серж. Гештальт: искусство контакта. Новый оптимистический подход к человеческим отношениям. — М.: ПЕР СЭ, 2002.</li>
+								<li>Джойс, Фил. Гештальт-терапия шаг за шагом. — М.: Институт общегуманитарных исследований, 2014.</li>
+								<li>Лебедева Н. М. Путешествие в гештальт. Теория и практика. — СПб.: Речь, 2021.</li>
+								<li>Малкина-Пых И. Г. Техники гештальта и когнитивной терапии. — М.: Эксмо, 2004.</li>
+								<li>Олдхейм, Джеймс. Техники гештальт-терапии на каждый день. Рискните быть живым. — М.: Психотерапия, 2016.</li>
+								<li>Перлз Ф. Практикум по гештальт-терапия. — М.: Академический проект, 2016.</li>
+								<li>Успенский П. Д. В поисках чудесного. Четвертый путь Георгия Гуджиева. — М.: АСТ, 2017.</li>
+								<li>Шиффман М. Гештальт-самотерапия. Новые техники личностного роста. — М.: Психотерапия, 2010.</li>
+								<li>Энрайт Дж. Гештальт, ведущий к просветлению, или Пробуждение от кошмара. — М.: Медков С.Б., 2016.</li>
+								<li>Yontef, Gary. Awareness dialogue &amp; process. — Highland, NY: Gestalt Journal Press, 1993.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+							<ul>
+								<li>Блейк У. Бракосочетание Рая и Ада. Избранные стихотворения и поэмы. — М.: Эксмо, 2006.</li>
+								<li>Джойс Ф., Силлз Ш. Гештальт-терапия шаг за шагом. Навыки в гештальт-терапии. — М.: Ин-т общегуманитарных исследований, 2017.</li>
+								<li>Федоренко Е. Ю., Островская Е. В. Личностная автономия и возможности ее развития средствами групповой гештальт-терапии //
+									Международный журнал экспериментального образования. — 2017. — № 5;</li>
+								<li>Польстер И. Интегрированная гештальт-терапия: Контуры теории и практики. — М.: Класс, 2004.</li>
+								<li>Джойс Ф., Силлз Ш. Осознавание в гештальт-терапии. Веб-публикация: <a target="_blank"
+										href="https://vitaliyeliseev.com">https://vitaliyeliseev.com</a>. Yontef G. Awareness, Dialogue and
+									Process. — Highland, NY: Gestalt Journal Press, 1993.</li>
+								<li>Гештальт 2011. Сборник материков Московского гештальт-института за 2000 год. — М., 2001.</li>
+								<li>Уайльд, Оскар. Мысли, афоризмы и фразы. — М.: Эксмо, 2018.</li>
+								<li>Джойс Ф., Силлз Ш. Гештальт-терапия шаг за шагом. Навыки в гештальт-терапии.</li>
+								<li>Перлз Ф., Хефферлин П., Гудмэн Р. Опыты психологии самосознания. Практикум по гештальт-терапии. — М.: Академический проект, 2020.
+								</li>
+								<li>Джойс Ф., Силлз Ш. Указ. соч.</li>
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links"><a href="/technics.html?category=meanings">#Изменения через смыслы</a>
+							<a href="">#Чувства</a>
+							<a href="">#Мысли</a>
+							<a href="">#Телесные ощущения</a>
+							<a href="">#Осознавание</a>
+							<a href="">#Энергия</a>
+							<a href="">#Окружение</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

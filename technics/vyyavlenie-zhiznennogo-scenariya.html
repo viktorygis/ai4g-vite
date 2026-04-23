@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Выявление жизненного сценария"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+        https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+        ?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Выявление жизненного сценария</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Выявление жизненного сценария"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-31.jpg" alt="">
+							</div>
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Выявление жизненного сценария» помогает осознавать и анализировать свой жизненный путь, выявлять паттерны поведения и принимать
+								осознанные решения.</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Мотивация</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>10 минут</p>
+						</div>
+
+						<!-- Зачем -->
+						<!-- 		<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content"></div>
+						</div>
+ -->
+						<!-- Как это работает -->
+						<div>
+							<h2 class="technics__label label">Как это работает:</h2>
+							<p>Техника помогает отследить сценарии в своей жизни, проанализировать, какие люди повлияли на их формирование, глубже понять себя и найти
+								внутренние ресурсы. Если у человека есть глубинные проблемы, тяжелое состояние, то мы советуем работать со специалистом. Если речь идет
+								о самопознании, можно работать самостоятельно, с партнером или в группе.</p>
+
+							<p>Для выполнения техники мы предлагаем вам использовать чистый лист бумаги и ручку, чтобы записывать ваши ответы на вопросы, указанные в
+								описании</p>
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div class="technics__list">
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<ol>
+								<li>Ответьте на вопрос: как звучал главный жизненный принцип ваших родителей?</li>
+								<li>Вспомните, какую жизнь вели родители? Напишите краткое изложение. Пишите все, что придет в голову, — это будет отголоском вашего
+									восприятия.</li>
+								<li>В чем состоял главный родительский запрет? Человек может смириться и принять этот запрет либо действовать ему вопреки. Необходимо
+									вспомнить конкретный пример, событие.</li>
+								<li>Какие ваши действия вызывали у родителей улыбку и смех? (Что родителям на самом деле было приятным в вашем поведении?) Если вы
+									пережили трагические события, у вас не было контакта с родителями и сложно вспомнить, можно записать, по какому поводу родители
+									улыбались, если это касалось вашего брата, сестры, племянника.</li>
+								<li>Какие драматические события сформировали вашу жизнь, повлияли на нее?</li>
+								<li>Какие жизненные принципы доставляют вам неудобства, но вы продолжаете их исповедовать? Какие негативно окрашенные события
+									повторяются в вашей жизни? События, которые вызывают гнев, печаль, тоску, разочарование, отвращение? Проанализируйте, кто вызывает у
+									вас гнев в этих событиях. Если события почти одинаковые, а люди в них разные — это сценарий.</li>
+								<li>Какая выгода от этой игры? Когда вы впервые начали играть в игры? Важно вспомнить, что это было за событие и что послужило ключевым
+									фактором, запустившим реакцию. Нужно вспомнить первую неудачу, изменить свое отношение к ней и осознать, что никто не несет
+									ответственность за это событие, кроме вас самих.</li>
+								<li>Сформулируйте выгоду своего сценария. Что будет в результате реализации сценария? Проанализируйте, какую роль вы играете в этом
+									процессе. Какие роли отведены другим участникам? С чего начинается сценарий и к чему приводит? Главная задача — осознать роль
+									значимых фигур в сценарии и переосмыслить собственную роль. Чтобы изменить сценарий, надо понять, что невозможно бесконечно обижаться
+									на участников игры, ошибки совершают все — и это нормально, ненормально — терпеть последствия этих ошибок.</li>
+							</ol>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<!-- 				<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+
+							<div class="technics__content"> </div>
+
+
+						</div> -->
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+								<li>Абдрахманова А. Н. ОН МОЙ: транзактный анализ зависимых отношений. Веб-публикация: <a target="_blank"
+										href="https://www.b17.ru/article/65291/">https://www.b17.ru/article/65291/</a> [17.05.2020].
+								</li>
+								<li>Берн Э. Игры, в которые играют люди. — СПб.: Лениздат, 1992.</li>
+								<li>Берн Э. Игры, в которые играют люди. Психология человеческих взаимоотношений. — М.: Эксмо, 1964.</li>
+								<li>Берн Э. Люди, которые играют в игры (книга 2). Веб-публикация: <a target="_blank"
+										href="http://www.syktsu.ru/baby/Psychologist/Literature/Berne/01.htm">http://www.syktsu.ru/baby/Psychologist/Literature/Berne/01.htm</a>
+									[24.06.2020].</li>
+								<li>Берн Э. Что вы говорите после того, как сказали «привет», или Психология человеческой судьбы. — М.: РИПОЛ классик, 2004.</li>
+								<li>Берчард, Брендон. Путь выдающихся людей. Убеждения, принципы, привычки. — М.: Манн, Иванов и Фербер, 2018.</li>
+								<li>Власть стереотипов и межкультурная коммуникация // Центр гуманитарных технологий. — 2006. Веб-публикация:
+									<a target="_blank" href="http://gtmarket.ru/laboratory/expertize/2006/718">http://gtmarket.ru/laboratory/expertize/2006/718</a>
+									[18.06.2020]
+								</li>
+								<li>Грицай М. Н. Поглаживания. Веб-публикация: <a target="_blank"
+										href="https://www.b17.ru/article/30244/">https://www.b17.ru/article/30244/</a>
+									[24.06.2020]</li>
+								<li>Докинз Р. Эгоистичный ген. Веб-публикация: <a target="_blank"
+										href="http://www.litres.ru/pages/biblio_book/?art=129015">http://www.litres.ru/pages/biblio_book/?art=129015</a> [26.06.2020].
+								</li>
+								<li>Заряднов Ю. Использование техники «Парафраз» в управлении конфликтными коммуникациями. Веб-публикация:
+									<a target="_blank"
+										href="https://vsetreningi.ru/articles/ispolzovanie_tehniki_parafraz_v_upravlenii_konfliktnymi_komm/">https://vsetreningi.ru/articles/ispolzovanie_tehniki_parafraz_v_upravlenii_konfliktnymi_komm/</a>[26.06.2020].
+								</li>
+								<li>Киприянова Е. С. Я-высказывания и Активное слушание в воспитании с позиции транзактного анализа. Веб-публикация:
+									https://www.b17.ru/article/105863/ [27.06.2020].</li>
+								<li>Курбатова М. В. Трансактный анализ в работе с клиентами с заниженной самооценкой. — Екатеринбург: областной центр реабилитации
+									инвалидов, 2011.</li>
+								<li>Малкина-Пых И. Техники транзактного анализа и психосинтеза. — М.: Эксмо, 2004.</li>
+								<li>Мартынова М. Ю. Мир традиций и межкультурное общение: В помощь школьному учителю. — М.: РУДН, 2004.</li>
+								<li>О’Шей Н. А. Сказки, рассказанные в октябре. Кельтские легенды — опыт традиционного нарратива. — М.: Навигатор Рекордс, 2015.</li>
+								<li>Петровский В. Транзактный анализ. Веб-публикация: <a target="_blank"
+										href="https://www.psychologies.ru/standpoint/tranzaktnyiy-analiz1/">https://www.psychologies.ru/standpoint/tranzaktnyiy-analiz1/</a>
+									[10.06.2020].</li>
+								<li>Смолина Т. Л. Адаптация к инокультурной среде: анализ родственных понятий. Психология человека: интегративный подход: Сб. ст. —
+									СПб.: АНО ИПП, 2007.</li>
+								<li>Соглаева М. Как можно самостоятельно решать свои проблемы? Транзактный анализ. Веб-публикация: <a target="_blank"
+										href="https://www.b17.ru/article/109130/">https://www.b17.ru/article/109130/</a>
+									[10.06.2020].</li>
+								<li>Стефаненко Т. Г. Этнопсихология. — М.: Аспект Пресс, 2014.</li>
+								<li>Столяренко Л. Д. Основы психологии. — М.: Феникс, 2000.</li>
+								<li>Сценарная матрица. ВикиЧтение. Веб-публикация: <a target="_blank"
+										href="https://psy.wikireading.ru/48760">https://psy.wikireading.ru/48760</a>
+									[12.06.2020].</li>
+								<li>Уваров Е. А. Теоретические и практические основы психотехник в современной психологии. — Тамбовский гос. ун-т имени Г. Р. Державина,
+									2010.</li>
+								<li>Харрис, Томас Е. Я — О'кей, Ты — О'кей. — М.: Академический проект, 2014.</li>
+								<li>Шейнов В. Тайны поведения человека. Секретные ниточки, кнопки и рычаги. Транзактный анализ — просто, понятно, интересно. — М.: АСТ,
+									2016.</li>
+								<li>Шелудяков С. Игры, в которые играют пары. Веб-публикация:<a target="_blank"
+										href="https://www.b17.ru/article/144715/">https://www.b17.ru/article/144715/</a> [15.06.2020].</li>
+								<li>Штайнер К. Сценарии жизни людей. Школа Эрика Берна. — СПб.: Питер, 2003.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+							<ul>
+								<li>Ануров Д., Маслова Ю. Архетип Счастья: все, что нужно знать об архетипах и их влиянии на нашу жизнь. — М.: Медков С.Б., 2017.</li>
+								<li>Юнг К. Г. Символы трансформации. — М.: Академический проект, 2021.</li>
+								<li>Карл Густав Юнг. Цитаты. Веб-публикация: <a target="_blank"
+										href="https://ru.citaty.net/avtory/karl-gustav-iung/">https://ru.citaty.net/avtory/karl-gustav-iung/</a>.</li>
+								<li>Кэмпбелл Дж. Тысячеликий герой. — СПб.: Питер, 2018.</li>
+								<li>Тойч Ч. К., Тойч Дж. М. Второе рождение, или Искусство познать и изменить себя. — СПб.: Санрэй, 1998.</li>
+								<li>Штайнер К. Сценарии жизни людей. Школа Эрика Берна. — СПб.: Питер, 2019.</li>
+								<li>Берн Э. Игры, в которые играют люди. — СПб.: Лениздат, 1992.</li>
+								<li>Шейнов В. Тайны поведения человека. Секретные ниточки, кнопки и рычаги. Трансактный анализ — просто, понятно, интересно. — М.: АСТ,
+									2017.</li>
+								<li>Штайнер К. Указ. соч.</li>
+								<li>Малкина-Пых И. Техники транзактного анализа и психосинтеза. — М.: Эксмо, 2004.</li>
+								<li>Сафарли Э. Мне тебя обещали. — М.: АСТ, 2015.</li>
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links"><a href="/technics.html?category=motives">#Мотивация</a>
+							<a href="">#Эго-состояния</a>
+							<a href="">#Жизненный план</a>
+							<a href="">#Личностное развитие</a>
+							<a href="">#Ребенок</a>
+							<a href="">#Родитель</a>
+							<a href="">#Взрослый</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

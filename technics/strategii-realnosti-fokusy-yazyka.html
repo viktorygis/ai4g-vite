@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Стратегии реальности (фокусы языка)"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+	https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+	?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Стратегии реальности (фокусы языка)</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Стратегии реальности (фокусы языка)"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-18.jpg" alt="">
+							</div>
+
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Стратегии реальности (фокусы языка)» помогает лучше понимать свои мысли и чувства, развивать точку зрения и осознавать истинную
+								ценность убеждений.
+							</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Изменения через слова</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>15 минут</p>
+						</div>
+
+						<!-- Зачем -->
+						<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content">
+								<p>Стратегии реальности помогают лучше понимать свои мысли и чувства, развивать свою точку зрения и укреплять уверенность в ней. С
+									помощью стратегий можно формировать «реальность» для своих будущих переживаний, тем самым воплощая их в действительность.</p>
+
+								<p>Исследуя собственные стратегии реальности, вы можете определить истинную ценность любых ваших убеждений и суждений и осознать,
+									насколько они совпадают с реальностью.</p>
+
+								<p>Применяя психотехнику «Стратегии реальности», вы научитесь в любой ситуации «сканировать» свои убеждения: «Действительно ли это то,
+									во что я верю?», «Стоит ли отстаивать это убеждение или я не настолько уверен в собственных переживаниях, из которых оно появилось?»
+								</p>
+							</div>
+
+
+						</div>
+
+						<!-- Как это работает -->
+						<div>
+							<h2 class="technics__label label">Как это работает:</h2>
+							<p>У каждого из нас найдутся яркие воспоминания (чаще всего из детства), связанные с ощущением чего-то необычного, волшебного, чудесного.
+								Но далеко не все смогут четко сказать, было ли это все на самом деле. Дело в том, что наш мозг не отличает воображаемые переживания от
+								реальных воспоминаний, потому что за эти процессы отвечают одни и те же его участки. При этом сенсорные данные для реальных переживаний
+								кодируются тщательнее, чем для фантазий, что, по мнению Дилтса, помогает обнаружить стратегии реальности.</p>
+
+							<p>Дилтс понимает под стратегиями реальности совокупность внутренних критериев и мысленных тестов, которые позволяют людям отличить
+								фантазии от действительности. Одна из основных тем НЛП — изучение особенностей функционирования наших карт реальности: что их
+								стабилизирует, а что делает неэф­фективными. Именно стратегии реальности «склеивают» наши карты и помогают увидеть, что истинно, а что
+								нет.</p>
+
+							<p>Часто на тренингах участникам предлагается представить себя в образе успешных людей и таким образом запрограммировать себя на успех. Но
+								этот способ может сработать только для тех, чьей ведущей репрезентативной системой является визуальная. Для аудиалов, кинестетиков и
+								дигиталов нужны другие подходы, и поэтому прежде всего необходимо убедиться, что предлагаемые способы соответствуют конкретной личности
+								и ее модели мира. Для того чтобы изменить свое поведение или отношение к чему-то, обрести уверенность в чем-то, нужно для начала
+								определить собственную стратегию реальности.</p>
+
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div>
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<p class="item-title">Часть I</p>
+
+							<ol class="technics__list">
+								<li>
+									<p> Вспомните какое-нибудь привычное действие, которое вы вчера совершили, и еще одно действие, которое могли бы совершить, но не
+										сделали этого
+										(в пределах
+										24 часов).</p>
+
+									<p>ПРИМЕР. Вчера утром я почистил(а) зубы. Вчера вечером я хотел(а) выпить чаю, но не сделал(а) этого.</p>
+								</li>
+
+								<li>
+									<p> Подумайте, как вы определяете разницу между тем, что делали и что могли бы делать, но не делали. Сравните их. Проведите
+										тестирование на реальность
+										события.</p>
+
+									<p> ПРИМЕР. Можно воссоздать зрительный образ этих действий. Скорее всего, реальное действие будет напоминать видеозапись, а образ
+										несовершенного действия
+										будет статичным. Образ реального события будет ярче, в нем будет больше цвета. И т. д.</p>
+								</li>
+
+								<li>
+									<p>Попробуйте «приложить» каждое найденное отличие реального события к ложному воспоминанию. Подумайте, как теперь вы определяете,
+										что одно из них
+										произошло
+										на самом деле, а другое — нет? Продолжайте придавать образу выдуманного события все большее сходство с образом реального до тех
+										пор, пока вы не сможете
+										отличить один от другого.</p>
+
+									<p>Способы, которые помогают убедиться в реальности произошедшего:</p>
+
+									<p>1. Хронология. Что именно вы вспомнили в первую очередь? Часто переживание кажется реальным, потому что оказывается первой
+										ассоциацией, которая
+										появляется
+										как ответ на предложение подумать о чем-либо.</p>
+									<p> 2. Участие нескольких репрезентативных систем. Когда действие сопровождается целым набором каких-то звуков, запахов, образов и
+										чувств, оно лучше
+										запоминается. Чем больше органов чувств задействовано в воспоминании, тем более реальным оно кажется.</p>
+									<p> 3. Субмодальности. Сенсорное качество внутреннего опыта является одной из наиболее распространенных стратегий реальности. Если
+										мысленный образ наделен
+										ассоциативными связями, насыщенный, четкий, его элементы соответствуют реальному масштабу, он кажется более реальным.</p>
+									<p>4. Непрерывность. Если событие не хочет логически встраиваться в ряд других воспоминаний, оно кажется менее реальным. За
+										«реальность» отвечает
+										согласованность конкретного переживания с воспоминаниями о событиях, которые непосредственно предшествовали ему или шли следом
+										(«логическая
+										плавность»).
+									</p>
+									<p> 5. Правдоподобие. Некоторые события кажутся нереальными, потому что не соответствуют вашим стратегиям и привычному поведению.
+										Правдоподобие является
+										оценкой вероятности того или иного события на основе имеющейся у вас информации о предыдущем поведении.</p>
+									<p>6. Контекст. Важной составляющей «реальности» произошедшего становятся определенные детали обстановки или фона. В нереальных
+										переживаниях детали
+										окружающей обстановки могут попросту отсутствовать.</p>
+									<p> 7. Конгруэнтность. Сложно считать реальным переживание, которое не вписывается в ваши представления о собственных привычках и
+										ценностях. «Реальность»
+										воспоминания возрастает, если оно соответствует вашим личным представлениям о себе.</p>
+									<p> 8. Метавоспоминание. У вас могут сохраняться воспоминания о том, как вы создаете и манипулируете воображаемым переживанием. Это
+										метавоспоминание может
+										оказаться основной составляющей стратегии реальности. Такие процессы можно усилить, если научиться каким-то особенным способом
+										«помечать» искусственно
+										созданные переживания, скажем, заключать их, как картину, в воображаемую рамку.</p>
+									<p> 9. Ключи доступа. Физиологические реакции являются одной из самых значимых составляющих стратегий реальности. Как правило,
+										вспоминая что-то, человек
+										(правша) двигает глазами влево и вверх, а когда фантазирует — вправо и вверх. Это происходит бессознательно.</p>
+								</li>
+							</ol>
+
+							<p class="item-title">Часть II</p>
+
+							<ol class="technics__list">
+								<li>
+									Вспомните несколько событий из вашего детства. Подумайте, по каким признакам вы определяете их реальность. Работать с мысленными
+									образами далекого
+									прошлого непросто. Часто люди определяют реальность отдаленных воспоминаний по особой расплывчатости, смазанности, не свойственной
+									четким и ясным
+									воображаемым
+									воспоминаниям.
+								</li>
+
+								<li>
+									Подумайте о чем-нибудь важном, что могло бы произойти в вашем детстве и повлиять на дальнейшую жизнь, но не произошло. Создайте
+									внутреннюю репрезентацию
+									этого события. Затем согласуйте субмодальности и другие качества этой фантазии с качествами, на которых строится ваша стратегия
+									реальности. Меняет ли это
+									ваше
+									восприятие прошлого?
+								</li>
+							</ol>
+
+							<p>
+								ВАЖНО! Цель данного упражнения — выявить вашу стратегию реальности, понять, каким способом именно вы устанавливаете подлинность
+								воспоминания. Ни в коем
+								случае
+								нельзя обманывать или разрушать стратегию реальности.
+
+							</p>
+							<p>
+								Выполняя первую и вторую части психотехники, старайтесь отследить момент, когда вы всерьез задумываетесь о реальности переживания.
+								Будьте осторожны, изменяя
+								качества вымышленных переживаний и приближая их к реальным.
+							</p>
+							<p>
+
+								Если вам вдруг станет страшно, вы почувствуете головокружение или услышите свистящий звук, практику стоит прервать на некоторое время.
+							</p>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<!-- 			<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+							<div class="technics__content">
+								<ul>
+									<li>Техника «Избавление от фобий» </li>
+									<li>Техника «Хорошо сформулированный результат» </li>
+									<li>Техника «Расслоения внимания»</li>
+								</ul>
+							</div>
+						</div> -->
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+
+								<li>Бендлер Р. Большая энциклопедия НЛП. Структура магии. — М.: АСТ, 2019.</li>
+								<li>Дилтс Р. Фокусы языка. Изменение убеждений с помощью НЛП. — СПб.: Питер, 2014.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+
+							<ul>
+
+								<li>Басё М. Цитаты. Веб-публикация: <a target="_blank"
+										href="https://ru.citaty.net/avtory/matsuo-basio/">https://ru.citaty.net/avtory/matsuo-basio/</a>.</li>
+								<li>Бендлер Р., Гриндер Д. Большая энциклопедия НЛП. Структура магии. — М.: АСТ, 2019.</li>
+								<li>Фрейд З. Введение в психоанализ. — М.: АСТ, 2021.</li>
+								<li>Дилтс Р. Фокусы языка. Изменение убеждений с помощью НЛП. — СПб.: Питер, 2022.</li>
+								<li>Словарь практического психолога. — Минск: АСТ, Харвест, 1998;</li>
+								<li>Дилтс Р. Фокусы языка. Изменение убеждений с помощью НЛП.</li>
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links">
+							<a href="/technics.html?category=words">#Изменения через слова</a>
+							<a href="">#Мировоззрение</a>
+							<a href="">#Человеческое сознание</a>
+							<a href="">#Психический опыт</a>
+							<a href="">#Речевые стратегии</a>
+							<a href="">#Воображаемые переживания</a>
+							<a href="">#Воспоминания</a>
+							<a href="">#Стратегия реальности</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

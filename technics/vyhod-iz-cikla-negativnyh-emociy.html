@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Выход из цикла негативных эмоций"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+        https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+        ?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Выход из цикла негативных эмоций</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Выход из цикла негативных эмоций"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-43.jpg" alt="">
+							</div>
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Выход из цикла негативных эмоций» помогает балансировать жизнь, улучшать осознанность, прорабатывать мышечные зажимы и
+								трансформировать негативные мысли.</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Изменения через процессы</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>43 минуты</p>
+						</div>
+
+						<!-- Зачем -->
+						<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content">
+								<ul>
+									<li>понять, насколько сбалансирована и наполнена ваша жизнь в настоящий момент;</li>
+									<li>увидеть, какие конкретно области вашей жизни нуждаются в улучшении;</li>
+									<li>стать более осознанными и мотивированными к изменениям, чтобы создать гармоничную жизнь;</li>
+									<li>проследить прогресс в личностных изменениях на временнóм отрезке (если использовать технику постоянно);</li>
+									<li>проработать мышечные зажимы и блоки в теле;</li>
+									<li>научиться правильной оценке стрессовой ситуации путем отслеживания и трансформации негативных мыслей;</li>
+									<li>осознать, принять и проработать свои сильные эмоции (как негативные, так и положительные);</li>
+									<li>прояснить уровень стресса в вашей жизни;</li>
+									<li>освоить стратегии по преодолению и снижению уровня воздействия на организм стрессогенных факторов.</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Как это работает -->
+						<div>
+							<h2 class="technics__label label">Как это работает:</h2>
+							<p>Задача нашей вегетативной нервной системы — поддерживать постоянство состава и функций организма (гомеостаз). Но с увеличением уровня
+								стресса наша иммунная защита снижается, что может привести к сбою в работе внутренних органов и систем.</p>
+
+							<p>Безусловно, не каждый стресс вреден. В умеренных количествах он может быть даже полезным. Например, эустресс — небольшой стресс, с
+								которым мы сталкиваемся довольно часто, держит нас в тонусе, мобилизует и мотивирует к развитию. В моменты, когда мы переживаем
+								небольшие потрясения, наши надпочечники выделяют целый ряд гормонов (адреналин, кортизол), которые повышают нашу работоспособность и
+								активизируют иммунную систему.</p>
+
+							<p>Однако если влияние стрессовых факторов превосходит наши приспособительные возможности или мы испытываем влияние стресса постоянно в
+								течение нескольких недель или месяцев, то возникают болезни. Длительное воздействие стрессогенных факторов может приводить к
+								гипертонической и язвенной болезням, новообразованиям в щитовидной железе, различным формам сосудистой патологии (инфаркт, инсульт,
+								стенокардия, сердечная аритмия, нефросклероз, спастический колит и др.), инфекционным и воспалительным процессам. Вот почему так важно
+								обучение стратегиям преодоления или снижения уровня стресса. Благодаря им существенно снижается риск возникновения и развития
+								психосоматических расстройств, особенно в тех случаях, когда полностью избежать стрессоров невозможно (например, уйти с работы,
+								отказаться от обязательств по ипотеке и т. п.).</p>
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div class="technics__list">
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<ol>
+								<p class="item-title">Этап I. Определение степени удовлетворенности жизнью</p>
+
+								<li>
+									<p>Нарисуйте круговую диаграмму («Колесо жизни»). Выделите семь или более сегментов (областей), которые вы считаете необходимыми для
+										полноценной и
+										гармоничной жизни.</p>
+
+									<p>Единого, подходящего для всех набора категорий нет. Мужчины, как правило, более ориентированы на развитие, бизнес, работу и
+										карьеру. Женщины — на
+										финансы
+										(в
+										плане получения финансовой защиты), семью, детей. К стандартному набору сегментов обычно относятся:</p>
+
+									<p>личные отношения;</p>
+
+									<p>финансы и карьера;</p>
+
+									<p>семья и дети;</p>
+
+									<p>искусство, творчество, хобби;</p>
+
+									<p>отношения с друзьями;</p>
+
+									<p>саморазвитие и образование;</p>
+
+									<p>здоровье;</p>
+
+									<p>дом.</p>
+
+									<p>Дополнительные сферы: спорт, окружение, общение, обстановка, духовный рост, отдых и развлечения, яркость жизни, жизненные цели,
+										благосостояние и т. д.
+									</p>
+								</li>
+
+								<li>
+									<p>Подпишите каждый сегмент на диаграмме и оцените в процентном соотношении его роль в вашей жизни. При необходимости разделите
+										некоторые сегменты надвое
+										для более полной детализации (например, если у вас две работы, разделите сферу «Карьера»).</p>
+
+									<p>С помощью рисунка вы получите наглядную картину того, что работает для вас в вашей жизни, а что нет.</p>
+
+									<p>Вы можете нарисовать «Колесо жизни» на бумаге. Или скачать в интернете и распечатать; заполнить онлайн на специальных сайтах или
+										использовать для этого
+										специальное приложение на телефоне.</p>
+								</li>
+
+								<p class="item-title">Этап II. Определение уровня стресса и стрессовых реакций</p>
+
+								<li>
+									<p>Для каждого сегмента колеса определите три основных стрессовых фактора. Например, вы испытываете сильное напряжение на работе
+										вследствие конфликта с
+										руководителем, низкой зарплаты и сильного шума.</p>
+								</li>
+
+								<li>
+									<p>Определите список стрессовых реакций для каждого из факторов (по каждому сегменту). Для этого вспомните и запишитесвои ощущения на
+										уровне тела,
+										эмоции, мысли и поведение под воздействием стрессора.</p>
+
+									<p>Например, после неприятного разговора с начальником у вас поднимается давление (ощущения), возникает обида (эмоции), представление
+										о том, что вас не
+										ценят
+										(мысли), и вы съедаете кусок торта (поведение). Проследите, повторяются ли эти реакции каждый раз при встрече с начальником?</p>
+
+								</li>
+
+
+								<li>
+									<p>Выпишите другие способы борьбы со стрессом, которые вы постоянно используете. Например, просмотр сериалов, поход к психотерапевту,
+										употребление
+										алкоголя и т. д. Проанализируйте, как они влияют на вашу жизнь в перспективе. Какими более экологичными способами можно добиться
+										того же результата
+										(снижения
+										или устранения стресса)?</p>
+								</li>
+
+								<p class="item-title">Этап III. Трансформация копинг-стратегий</p>
+
+								<p>Для профилактики и лечения психосоматических расстройств мы рекомендуем использовать комплексную психологическую стратегию
+									(копинг-стратегию), которая
+									включает в себя инструменты по работе на нескольких уровнях: телесном (практики телесного расслабления), эмоциональном (техники
+									эмоциональной
+									саморегуляции),
+									ментальном (когнитивные методики) и поведенческом, с целью завершения цикла стресса.</p>
+
+								<p>Выбор конкретных техник для работы с психосоматическими симптомами зависит как от ваших личных предпочтений (или вашего психолога,
+									коуча), так и от
+									уровня,
+									на котором возникла проблема. Например, если анализ «Колеса жизни» показал, что болезнь запускают негативные мысли, то необходимо
+									использовать в первую
+									очередь когнитивные методики по их изменению. Список возможных копинг-стратегий приведен ниже.</p>
+
+								<li>
+									<p>Осознав свой уровень стресса и те реакции, которые вы в данный момент используете для его преодоления, определите список новых
+										копинг-стратегий
+										для
+										конкретной стрессовой ситуации.</p>
+								</li>
+
+								<li>
+									<p>Проверьте, с какими препятствиями вы можете столкнуться при их реализации (по шкале от 1 до 10). Какие меры помогут вам их
+										преодолеть?</p>
+								</li>
+
+								<li>
+									<p>Оцените важность для вас новых копинг-стратегий (по шкале от 1 до 10) и вашу уверенность в том, что вы сможете их реализовать (по
+										шкале от 1 до
+										10).
+										Что придаст вам больше уверенности: люди, обстановка и т. д.?</p>
+
+									<p>Если оценка для какого-либо из пунктов менее шести, значит, ваша копинг-стратегия нуждается в улучшении. Если какая-либо из оценок
+										колеблется в районе
+										6–7,
+										то необходимо наметить способы ее улучшения.</p>
+								</li>
+
+								<li>
+									<p>Составьте план действий для движения в выбранном направлении и приступайте к его реализации.</p>
+
+									<p>Каждую копинг-стратегию нужно применять не единожды, а в течение минимум двух-трех недель. После чего переходить к освоению новых
+										приемов. Например,
+										если
+										вы
+										освоили техники телесного расслабления, переходите к работе с мыслями. Затем потренируйтесь работать с эмоциональными состояниями.
+										Проверяйте
+										эффективность
+										своих копинг-стратегий в разные периоды жизни, отслеживая динамику.</p>
+
+									<p>Если вы коуч и используете данную технику постоянно с одним клиентом, вы можете проследить прогресс в результате коучингового
+										взаимодействия в
+										приведении
+										стресса к такому уровню, который позволит клиенту избежать неприятных психосоматических реакций.</p>
+								</li>
+							</ol>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<!-- 		<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+
+							<div class="technics__content"> </div>
+
+
+						</div> -->
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+								<li>Кулаков С. А. Основы психосоматики. — М.: Речь, 2007.</li>
+								<li>Леви В. Ошибки здоровья. — М.: Торобоан, 2009.</li>
+								<li>Лоуэн А. Депрессия и тело. — М.: Велигор, 2015.</li>
+								<li>Малкина-Пых И. Г. Психосоматика. — М.: Кнорус, 2022.</li>
+								<li>Синельников В. В. Возлюби болезнь свою. Как стать здоровым, познав радость жизни. — М.: Центрполиграф, 2002.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+							<ul>
+								<li>Гиппократ. Цитаты. Веб-публикация: <a target="_blank"
+										href="https://ru.citaty.net/avtory/gippokrat/">https://ru.citaty.net/avtory/gippokrat/</a>.</li>
+								<li>Тик Н. Х., Сумедо А. Гнев. Счастье внутренней тишины. — Москва: ИПЛ, 2018.</li>
+								<li>Calhoun, John. Death Squared: The Explosive Growth and Demise of a Mouse Population // Proc. roy. Soc. Med. — 1973. — Vol. 66;
+									Утопия для мышей: 53 года эксперименту «Вселенная-25» // Портал «Научная Россия». Веб-публикация:
+									<a target="_blank"
+										href="https://scientificrussia.ru/articles/utopiya-dlya-myshej-53-goda-eksperimentu-vselennaya-25">https://scientificrussia.ru/articles/utopiya-dlya-myshej-53-goda-eksperimentu-vselennaya-25</a>.
+								</li>
+								<li>Селье Г. Стресс без дистресса. — СПб.: Виеда, 1992.</li>
+								<li>Морозов А. В. Деловая психология. Учебник для студентов высш. и сред. учеб. заведений. — М.: Академический проект, 2005.</li>
+								<li>Сафарли Э. Когда я вернусь, будь дома. — М.: АСТ, 2017.</li>
+								<li>Берцбах Ф. Не упустить свою жизнь. Практика осознанности в творчестве. — М.: МИФ, 2019.</li>
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links"><a href="/technics.html?category=processes">#Изменения через процессы</a>
+							<a href="">#Тело</a>
+							<a href="">#Стресс</a>
+							<a href="">#Страхи</a>
+							<a href="">#Психосоматика</a>
+							<a href="">#Эмоциональные переживания</a>
+							<a href="">#Мобилизация</a>
+							<a href="">#Тонус</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

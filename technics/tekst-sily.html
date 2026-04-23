@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Текст силы"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+	https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+	?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Текст силы</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Текст силы"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-11.jpg" alt="">
+							</div>
+
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Текст силы» помогает избавиться от дефицитарного мышления, быть в контакте с собой и ценностями, повысить эффективность и
+								понять свою личность.
+
+
+							</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Изменения через слова</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>26 минут</p>
+						</div>
+
+						<!-- Зачем -->
+						<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content">
+								<p class="item-title">С помощью техники «Текст силы» можно достичь следующих результатов:</p>
+
+								<ul>
+									<li>Избавиться от дефицитарного мышления (ментальной установки, которая заставляет нас верить, что количество ресурсов строго
+										ограничено, и бояться, что нам их не достанется) и начать мыслить изобильно.</li>
+									<li>Увидеть новые возможности.</li>
+									<li>Научиться быть в контакте с собой.</li>
+									<li>Научиться быть в контакте со своими глубинными ценностями;</li>
+									<li>Вернуться в себя.</li>
+								</ul>
+
+								<p class="item-title">Она также помогает справиться со следующими жизненными задачами:</p>
+
+								<ul>
+									<li>Адаптация в современном мире.</li>
+									<li>Ощущение потока.</li>
+									<li>Расширение сознания.</li>
+									<li>Креативность.</li>
+									<li>Повышение эффективности в работе.</li>
+									<li>Избавление от страха неизвестности.</li>
+									<li>Понимание своей личности.</li>
+									<li>Начать делать только то, что нравится, и делать это лучше всех.</li>
+									<li>Выстроить здоровые личные границы.</li>
+									<li>Повышение степени внутренней свободы.</li>
+									<li>Принятие себя.</li>
+									<li>Самодостаточность.</li>
+								</ul>
+							</div>
+
+
+						</div>
+
+						<!-- Как это работает -->
+						<div>
+							<h2 class="technics__label label">Как это работает:</h2>
+							<p>Предложенная техника помогает осознать существующий образ мира и образ своего «Я» и затем сформировать их заново — целостно и
+								упорядоченно.</p>
+
+							<p>«Текст силы» работает как зеркало, в котором человек сможет внимательно рассмотреть себя со стороны и проанализировать свою жизнь,
+								ответив на вопросы «Кто Я?» и «Какой Я?», осознать и принять себя.</p>
+
+							<p>Кроме того, данная техника опосредованно развивает такое качество, как жизнестойкость, напрямую влияющее на наше соматическое и душевное
+								здоровье, на успешность нашей деятельности.</p>
+
+							<p>Понятие hardiness («мужество быть») введено американскими психологами Сьюзен Кобейза и Сальваторе Мадди, позднее Дмитрий Алексеевич
+								Леонтьев предложил обозначать его как жизнестойкость.</p>
+
+							<p>С. Мадди писал: «Жизнестойкость формирует мужество признавать (а не отрицать) стресс и мужество пытаться превратить его в преимущество».
+							</p>
+
+							<p>По мнению психотерапевта Елены Рассказовой, жизнестойкость связана с устойчивым переживанием человеком своих действий и происходящих
+								вокруг событий как интересных и радостных (вовлеченность), как результатов личностного выбора и инициативы (контроль) и как важного
+								стимула к усвоению нового (принятие риска).</p>
+
+							<p>Гармоничное сочетание этих элементов помогает нам справляться со стрессовыми ситуациями.</p>
+
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div>
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<ol class="technics__list">
+								<li>
+									<p>
+										Напишите эссе о своей жизни (лучше делать это вечером). Должна получиться связанная история со своим сюжетом. Пишите эссе, отвечая
+										на
+										следующие вопросы:
+									</p>
+									<p>
+										1. В какой семье вы родились (возможно, существует какой-то миф о том, как вы родились, что было с этим связано, история вашего
+										имени и т. п.)?
+									</p>
+
+									<p>2. Каковы главные ценности, заложенные в вашей семье?</p>
+
+									<p>3. В чем особый колорит вашей семьи (традиции, летучие выражения, семейные шутки и т. п.)?</p>
+									<p>
+										4. Самые главные (ключевые) события и аспекты в жизни, которые сильно повлияли на формирование вашей личности?
+									</p>
+
+									<p>5. Какие самые любимые увлечения и занятия у вас были и какие есть сейчас?</p>
+
+									<p>6. О чем вы мечтали в детстве и на протяжении жизни?</p>
+
+									<p>7. Что эмоционально важного (встречи, люди, фильмы, книги, события и т. п.) происходило с вами в течение жизни — то, что сильно
+										повлияло на становление вашей
+										личности?</p>
+
+									<p>8. Вспомните случаи, когда вы были в состоянии эмоционального подъема. Например, ваши достижения или успехи, случаи, когда вы
+										чувствовали себя в силе, на
+										вершине счастья, в эйфории?</p>
+
+									<p>9. Вспомните случаи, когда вы были в состоянии эмоционального спада, когда ощущали себя несчастным и раздавленным?</p>
+
+									<p>10. Вспомните случаи, когда ваши действия причиняли вред или какой-либо ущерб миру/близким/окружающим?</p>
+								</li>
+
+								<li>
+									Отложите написанный текст (можно даже на несколько дней). Затем посмотрите на эссе, как будто его написал незнакомый вам человек.
+									Проведите анализ написанного:
+									Что это за чудесная история? О чьей жизни она? Как она характеризует героя?
+									Замысел автора: для чего нужны были события, в которых участвовал герой, в чем смысл его испытаний?
+								</li>
+
+								<li>
+									Запишите ваши выводы на диктофон и прослушайте. Затем прослушайте повторно через несколько дней.
+									ПРИМЕР. Успешный менеджер сети отелей, который несколько лет занимал топовые позиции, никак не мог понять, почему с ним происходит
+									одна и та же история. Его приглашали в новый строящийся отель, где он должен был организовывать весь процесс работы гостиницы. И он
+									хорошо справлялся. Но, как только отель начинал работать, ему становилось скучно. Он продолжал работать, но неизменно в процессе
+									заболевал — астма, заболевания кожи. И в конце концов его увольняли. Мужчина написал свой текст силы и увидел, что истории в нем
+									повторяются. Он назвал себя «Я тот, кто прыгает в пустоту». Он осознал, что его ум и свойства личности были нацелены на то, чтобы
+									запускать проекты. Он решил, что больше не будет работать в найме, собрал команду и начал осуществлять свои проекты. В результате он
+									перестал болеть и начал жить полноценной жизнью.
+								</li>
+							</ol>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<!-- 			<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+							<div class="technics__content">
+								<ul>
+									<li>Техника «Избавление от фобий» </li>
+									<li>Техника «Хорошо сформулированный результат» </li>
+									<li>Техника «Расслоения внимания»</li>
+								</ul>
+							</div>
+						</div> -->
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+
+								<li>Лев О. Молитва врача. Почему мы болеем, или Как запрограммировать себя на здоровье. — М.: РИПОЛ классик, 2016.</li>
+								<li>Леонтьев Д. А. Психология смысла. — М.: Смысл, 1999.</li>
+								<li>Леонтьев Д. А. Рассказова Е. И. Тест жизнестойкости. — М.: Смысл, 2006.</li>
+								<li>Maddi S. The Courage and Strategies of Hardiness as Helpful in Growing Despite Major, Disruptive Stresses // American Psychologist.
+									— 2008. — Vol. 63. Issue 6.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+
+							<ul>
+
+								<li>Чиксентмихайи М. Эволюция личности. — М.: Альпина нон-фикшн, 2013.</li>
+								<li>Леонтьев Д. А. Рефлексия как предпосылка самодетерминации. В кн. А. Л. Журавлев (ред.), Психология человека в современном мире:
+									Материалы Всероссийской юбилейной научной конференции, посвященной 120-летию со дня рождения С. Л. Рубинштейна. — М.: Институт
+									психологии РАН, 2009.</li>
+								<li>Локк Дж. Сочинения. — М.: Мысль, 1985.</li>
+								<li>Розанов В. Цель человеческой жизни. — М.: RUGRAM, 2011.</li>
+								<li>Бахтин М. М. Эстетика словесного творчества. — М.: Искусство, 1979.</li>
+								<li>Леонтьев Д. А., Рассказова Е. И. Тест жизнестойкости. — М.: Смысл, 2006.</li>
+								<li>Maddi S. The Courage and Strategies of Hardiness as Helpful in Growing Despite Major, Disruptive Stresses // American Psychologist,
+									2008.</li>
+								<li>Рассказова Е. Жизнестойкость: неявный навык для преодоления трудностей. Веб-публикация:
+									<a target="_blank" href="http://www.elitarium.ru/zhiznestojkost_navyk/">http://www.elitarium.ru/zhiznestojkost_navyk/</a>.
+								</li>
+								<li>Леонтьев Д. А. Психология смысла. — М.: Смысл, 1999.</li>
+								<li>Джеймс У. Психология. — М.: Амрита-Русь, 2019.</li>
+								<li>Бернс Р. Развитие Я-концепции и воспитание. — М.: Прогресс, 1986.</li>
+								<li>Практикум по социальной психологии / Под ред. И. С. Клециной. — СПб.: Питер, 2008.</li>
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links">
+							<a href="/technics.html?category=words">#Изменения через слова</a>
+
+
+							<a href="">#Самопознание</a>
+							<a href="">#Личностное развитие</a>
+							<a href="">#Возможности</a>
+							<a href="">#Расширение сознания</a>
+							<a href="">#Креативность</a>
+							<a href="">#Самодостаточность</a>
+							<a href="">#Принятие себя</a>
+							<a href="">#Жизнестойкость</a>
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,465 @@
+.title {
+  color: #150931;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0 0 15px 0;
+  line-height: 40px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+    line-height: 130%;
+  }
+}
+
+.subtitle {
+  font-size: 23px;
+  font-weight: 600;
+  color: #0386ff;
+  text-align: center;
+  line-height: 130%;
+}
+
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 20px;
+  }
+}
+
+/* --------------------------------------------------- */
+
+body.page-vozmozhnosti {
+  background: #fff;
+}
+
+/* --------------------------------------------------- */
+.vozmozhnosti {
+  padding: 50px 0;
+  margin: 90px 0px 0px 0px;
+  @media (max-width: 980px) {
+    padding: 30px 0;
+    margin: 80px 0px 0px 0px;
+  }
+}
+
+.vozmozhnosti__container {
+  max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+  .vozmozhnosti__container {
+    padding: 0 15px;
+  }
+}
+
+.vozmozhnosti__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.vozmozhnosti__title span {
+  font-size: 18px;
+  text-align: left;
+  font-weight: 400;
+  line-height: 150%;
+  padding: 0 0 0 10px;
+  border-left: 2px solid #93cbff;
+}
+
+@media (max-width: 768px) {
+  .vozmozhnosti__title span {
+    font-size: 16px;
+  }
+}
+
+.vozmozhnosti__header {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.vozmozhnosti__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.vozmozhnosti__category span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.vozmozhnosti__category p {
+  color: #555;
+  line-height: 1.4;
+  max-width: 70%;
+  display: none;
+}
+
+.vozmozhnosti__category:hover p {
+  color: #150931;
+}
+
+/* Мобильные адаптивные стили */
+@media (max-width: 768px) {
+  .vozmozhnosti__title span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vozmozhnosti__title {
+    gap: 5px;
+  }
+
+  .vozmozhnosti__category span {
+    font-size: 16px;
+  }
+
+  .vozmozhnosti__header p {
+    font-size: 14px;
+  }
+}
+
+.vozmozhnosti__head {
+  position: relative;
+}
+
+.vozmozhnosti__head img {
+  position: absolute;
+  top: -46px;
+  left: 189px;
+  width: 160px;
+  height: auto;
+  opacity: 0.07;
+  filter: invert(34%) sepia(65%) saturate(2381%) hue-rotate(194deg) brightness(102%) contrast(108%);
+}
+
+.vozmozhnosti__head svg {
+  fill: #0386ff;
+}
+
+.vozmozhnosti__subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.vozmozhnosti__subtitle span {
+  font-size: 14px;
+  color: #150931;
+  text-align: center;
+  font-weight: 400;
+  line-height: 150%;
+  max-width: 680px;
+}
+
+.vozmozhnosti__content {
+  position: relative;
+  z-index: 10;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.vozmozhnosti__content:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .vozmozhnosti__content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .vozmozhnosti__content:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .vozmozhnosti__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+.vozmozhnosti__item {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  height: 100%;
+  transition: all 0.3s ease 0s;
+  top: 0;
+  position: relative;
+}
+
+.vozmozhnosti__item:hover {
+  top: -3px;
+}
+
+.vozmozhnosti__item img {
+  height: 200px;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.vozmozhnosti__text {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid #ff008a;
+  border-top: none;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  border-top: none !important;
+}
+
+.vozmozhnosti__name {
+  font-weight: 600;
+  color: #ff008a;
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: center;
+}
+
+.vozmozhnosti__description {
+  color: #666;
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+}
+
+.vozmozhnosti__box {
+  position: relative;
+  top: -180px;
+}
+
+@media (max-width: 768px) {
+  .vozmozhnosti__box {
+    top: -100px;
+  }
+}
+
+.vozmozhnosti__top-category {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 5px 15px;
+  margin: 0px 0px 5px 0px;
+  border: 1px solid #60a5fa;
+}
+
+.vozmozhnosti__top-category:hover {
+  background: #60a5fa;
+}
+
+.vozmozhnosti__top-category:hover .vozmozhnosti__top-text span {
+  color: #fff;
+}
+
+.toggle-sign {
+  color: #60a5fa;
+}
+
+.vozmozhnosti__top-category:hover .toggle-sign {
+  color: #fff;
+}
+
+.vozmozhnosti__top-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .toggle-arrow {
+	width: 12px;
+	transform: rotate(180deg);
+	transition: transform 0.3s ease;
+	opacity: 0.7;
+}
+
+.vozmozhnosti__category.active .toggle-arrow {
+	transform: rotate(360deg);
+}
+ */
+.toggle-sign::before {
+  content: "+";
+  display: inline-block;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+}
+
+.vozmozhnosti__category.active .toggle-sign::before {
+  content: "-";
+}
+
+@keyframes expand {
+  from {
+    height: 0;
+    opacity: 0;
+    padding: 0 20px;
+  }
+
+  to {
+    height: auto;
+    opacity: 1;
+    padding: 20px;
+  }
+}
+
+@keyframes collapse {
+  from {
+    height: auto;
+    opacity: 1;
+    padding: 20px;
+  }
+
+  to {
+    height: 0;
+    opacity: 0;
+    padding: 0 20px;
+  }
+}
+
+.vozmozhnosti__bottom {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vozmozhnosti__category.active .vozmozhnosti__bottom {
+  animation: expand 0.8s ease forwards;
+  display: block;
+  opacity: 1;
+}
+
+.vozmozhnosti__category:not(.active) .vozmozhnosti__bottom {
+  animation: collapse 0.8s ease forwards;
+}
+
+/* Category 1 */
+
+.vozmozhnosti__category_01 .subtitle,
+.vozmozhnosti__category_01 .vozmozhnosti__name {
+  color: #1f618d;
+  /* Тёмно-голубой */
+}
+
+.vozmozhnosti__category_01 .vozmozhnosti__text {
+  border: 1px solid #1f618d;
+}
+
+/* Category 2 */
+
+.vozmozhnosti__category_02 .subtitle,
+.vozmozhnosti__category_02 .vozmozhnosti__name {
+  color: #c0392b;
+  /* Тёмно-красный */
+}
+
+.vozmozhnosti__category_02 .vozmozhnosti__text {
+  border: 1px solid #c0392b;
+}
+
+/* Category 3 */
+
+.vozmozhnosti__category_03 .subtitle,
+.vozmozhnosti__category_03 .vozmozhnosti__name {
+  color: #28b463;
+  /* Тёмно-зелёный */
+}
+
+.vozmozhnosti__category_03 .vozmozhnosti__text {
+  border: 1px solid #28b463;
+}
+
+/* Category 4 */
+
+.vozmozhnosti__category_04 .subtitle,
+.vozmozhnosti__category_04 .vozmozhnosti__name {
+  color: #d68910;
+  /* Тёмно-оранжевый */
+}
+
+.vozmozhnosti__category_04 .vozmozhnosti__text {
+  border: 1px solid #d68910;
+}
+
+/* Category 5 */
+
+.vozmozhnosti__category_05 .subtitle,
+.vozmozhnosti__category_05 .vozmozhnosti__name {
+  color: #c0392b;
+  /* Тёмно-красный */
+}
+
+.vozmozhnosti__category_05 .vozmozhnosti__text {
+  border: 1px solid #c0392b;
+}
+
+/* Category 6 */
+
+.vozmozhnosti__category_06 .subtitle,
+.vozmozhnosti__category_06 .vozmozhnosti__name {
+  color: #7d3c98;
+  /* Тёмно-фиолетовый */
+}
+
+.vozmozhnosti__category_06 .vozmozhnosti__text {
+  border: 1px solid #7d3c98;
+}
+
+/* Category 7 */
+
+.vozmozhnosti__category_07 .subtitle,
+.vozmozhnosti__category_07 .vozmozhnosti__name {
+  color: #239b56;
+  /* Тёмно-зелёный */
+}
+
+.vozmozhnosti__category_07 .vozmozhnosti__text {
+  border: 1px solid #239b56;
+}
+
+/* Category 8 */
+
+.vozmozhnosti__category_08 .subtitle,
+.vozmozhnosti__category_08 .vozmozhnosti__name {
+  color: #2874a6;
+  /* Тёмно-голубой */
+}
+
+.vozmozhnosti__category_08 .vozmozhnosti__text {
+  border: 1px solid #2874a6;
+}

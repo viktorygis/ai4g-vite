@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Техника "Кодирование времени"</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&_v=20240805113626"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css?_v=20240805113626" />
+	<link rel="stylesheet" href="../css/styles.css">
+	  <link rel="stylesheet" href="../css/technics.css">
+  <link rel="stylesheet" href="../css/header.css" />
+
+	<link rel="icon" href="../img/favicon.ico">
+
+	<!-- Facebook Pixel Code -->
+	<script>
+		! function (f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '632030395545001');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" src="https://www.facebook.com/tr?id=632030395545001&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(93953514, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true
+		});
+	</script>
+	<noscript>
+		<div>
+			<picture>
+				<source srcset="https://mc.yandex.ru/watch/93953514" type="image/webp"><img src="https://mc.yandex.ru/watch/93953514"
+					style="position:absolute; left:-9999px;" alt="" />
+			</picture>
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js?_v=20240805113626" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+		crossorigin="anonymous"></script>
+	<script src="
+	https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js
+	?_v=20240805113626"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js?_v=20240805113626"
+		integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?_v=20240805113626"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js?_v=20240805113626"></script>
+
+
+
+</head>
+
+<body class="page-technics">
+	<div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__body">
+          <!-- логотип -->
+          <a class="header__logo" href="../index.html">
+            <div class="header__square">
+              <img src="../img/logo-square.svg" alt="logo" width="51" height="47.6" />
+            </div>
+            <div class="header__logo-title">
+              <div class="header__Ai4G">
+                <img src="../img/logo-Ai4G.svg" alt="logo" />
+              </div>
+              <span class="header__logo-suptitle">Фарватер успешного развития</span>
+            </div>
+            <div class="header__triangle">
+              <img src="../img/logo-triangle.svg" alt="logo" />
+            </div>
+          </a>
+          <div class="header__right">
+            <!-- меню -->
+
+            <div class="header__menu menu">
+              <button type="button" class="menu_icon icon-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item"><a href="../index.html" class="menu__link">Главная</a></li>
+                  <li class="menu__item"><a href="../services.html" class="menu__link">Услуги</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Продукты
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../art-coaching.html" class="submenu__link">Арт-коучинг</a></li>
+                      <li class="submenu__item"><a href="../coaching-session.html" class="submenu__link">Бизнес-коучинг</a></li>
+                      <li class="submenu__item"><a href="../career-advice.html" class="submenu__link">Карьерная консультация</a></li>
+                      <li class="submenu__item">
+                        <a href="../serf-session.html" class="submenu__link">Serf-сессия</a>
+                      </li>
+                      <li class="submenu__item"><a href="../allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
+                      <li class="submenu__item"><a href="../pattern-test.html" class="submenu__link">Тест паттернов</a></li>
+                      <li class="submenu__item"><a href="../personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
+                    </ul>
+                  </li>
+                  <li class="menu__item"><a href="../mentors.html" class="menu__link">Наставники</a></li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Справочная
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../vozmozhnosti.html" class="submenu__link">Возможности</a></li>
+                      <li class="submenu__item"><a href="../patterns.html" class="submenu__link">Паттерны</a></li>
+                      <li class="submenu__item"><a href="../technics.html" class="submenu__link">Техники развития</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="menu__item menu__item--dropdown">
+                    <a href="#" class="menu__link menu__link--dropdown">Клиенту
+                      <img src="../img/arrow.svg" class="arrow" alt="" />
+                    </a>
+                    <ul class="submenu">
+                      <li class="submenu__item"><a href="../oferta.html" class="submenu__link">Договор оферты</a></li>
+                      <li class="submenu__item"><a href="../oplata.html" class="submenu__link">Правила оплаты и возврата</a></li>
+                      <li class="submenu__item"><a href="../requisites.html" class="submenu__link">Реквизиты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="header__icons header__icons_mob">
+                  <a href="mailto:info@ai4g.ru" class="header__icon">
+                    <img src="../img/email.svg" alt="email" loading="lazy" />
+                    <span>info@ai4g.ru</span>
+                  </a>
+                  <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                    <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                    <span>+7 985 2000434</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <!-- иконки -->
+            <div class="header__icons">
+              <a href="mailto:info@ai4g.ru" class="header__icon">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <!--  <span>info@ai4g.ru</span> -->
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="header__icon">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <!--   <span>+7 985 2000434</span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+		<main>
+
+
+			<section class="technics" id="top">
+				<div class="technics__container">
+					<ul class="technics__bread-crumbs">
+						<li><a href="../index.html">Главная</a></li>
+						<li><a href="../technics.html">Техники</a></li>
+						<li>Кодирование времени</li>
+					</ul>
+					<div class="technics__body">
+
+						<div class="technics__top">
+							<h1 class="technics__title title">Техника "Кодирование времени"</h1>
+
+							<div class="technics__img">
+								<img src="../img/technics/technics-4.jpg" alt="">
+							</div>
+
+						</div>
+
+						<!-- Описание -->
+						<div>
+							<h2 class="technics__label label">Описание:</h2>
+							<p>Техника «Кодирование времени» помогает проработать восприятие времени, травмы и связанные с ними решения, улучшить оценку жизни и
+								трансформировать отношение к прошлому.
+
+							</p>
+						</div>
+
+						<!-- Категория техники -->
+						<div>
+							<h2 class="technics__label label">Категория техники:</h2>
+							<p>Изменения через смыслы</p>
+						</div>
+
+						<!-- Время -->
+						<div>
+							<h2 class="technics__label label">Время:</h2>
+							<p>10 минут</p>
+						</div>
+
+						<!-- Зачем -->
+						<div>
+							<h2 class="technics__label label">Зачем:</h2>
+
+							<div class="technics__content">
+								<ul>
+
+									<li>проработать субъективное восприятие времени в психике человека;</li>
+
+									<li>проработать травмирующие события и связанные с ними ограничивающие решения, принятые в момент сильного стресса;</li>
+
+									<li>изменить восприятие прошлого, настоящего и будущего, улучшив, таким образом, оценку жизни в целом;</li>
+									<li>запрограммировать желаемый образ цели на временной линии будущего;</li>
+
+									<li>излечивать депрессии (создавая линию времени в будущем);</li>
+
+									<li>прояснить спонтанно возникающие ассоциации (иррациональные чувства), связанные с ситуациями детства;</li>
+
+									<li>провести самодиагностику личностной истории, трансформировав отношение к прошлому, как к полезному опыту (а не источнику
+										проблем);</li>
+
+									<li>подключить естественную способность организма к самоисцелению.</li>
+								</ul>
+							</div>
+
+
+						</div>
+
+						<!-- Как это работает -->
+						<div class="technics__how-do-it">
+							<h2 class="technics__label label">Как это работает:</h2>
+
+							<p>Исследования в области НЛП показывают, что на способ кодирования времени влияет наш уникальный опыт, наша совокупность воспоминаний и
+								культурных
+								представлений о времени. Эта индивидуальная линия времени во многом определяет то, как наш мозг будет записывать в памяти те или иные
+								воспоминания (произошли
+								они пять минут или пять лет назад; случились они в действительности или это воображаемые события будущего).</p>
+
+							<p>Согласно модели памяти Аткинсона–Шиффрина(также известной, как многоэтажная модель памяти), наша память состоит из трех основных
+								хранилищ:</p>
+
+							<ul>
+								<li>сенсорная память (где обрабатывается информация от органов чувств: менее чем 0,5 секунды для визуальной информации и 2 секунд для
+									звуковой);</li>
+
+								<li>кратковременная память (куда помещается информация о 5–7 объектах за последние 20 секунд);</li>
+
+								<li>долгосрочная память (где все наши воспоминания хранятся вплоть до смерти).</li>
+							</ul>
+
+							<p>Первичная обработка сигналов происходит в сенсорном хранилище, где разрозненная информация кодируется с помощью субмодальностей
+								(зрительных, звуковых,
+								кинестетических и др.) в зависимости от ее признаков (важно, плохо, неприятно, восхитительно, верно, интересно и др.). Оттуда она
+								попадает в кратковременную
+								память, а уже после обработки в кратковременной памяти возможен переход информации в долгосрочную память.</p>
+
+							<p>Проблемы могут возникать в тех случаях, когда новая информация не остается в специально отведенном для этого месте, а как бы
+								застревает
+								по пути в
+								долговременное хранилище. В результате воспоминания, особенно связанные с сильной эмоциональной реакцией (насилие, травма, неприятный
+								разговор и др.), не
+								переходят в долговременную память, а продолжают снова и снова прокручиваться в сознании, в результате чего человек многократно
+								испытывает психологический
+								стресс.</p>
+
+							<p>Другой негативный вариант связан с тревогой и переживанием за будущее (например, страх заболеть или попасть в ДТП). Такое
+								конструирование образа неудачи в
+								мозге приводит к негативному самопрограммированию. Запомнив негативный вариант и наполнив его живыми деталями, мозг начнет
+								реализовывать
+								его в реальной
+								ситуации, тем самым подтверждая негативные ожидания (до тех пор, пока человек не проработает размытые временны´е границы будущего).
+							</p>
+						</div>
+
+						<!-- Алгоритм выполнения-->
+						<div>
+							<h2 class="technics__label label">Алгоритм выполнения:</h2>
+							<ol class="technics__list">
+								<li>
+									<p class="item-title">Линия времени</p>
+									Выясните свой базовый способ кодирования времени: «сквозь время» (слева-направо) или «во времени» (вверх-вниз). Для удобства вы
+									можете начертить линию
+									времени (ее часть) мелом на полу, а также воспользоваться подручными материалами (маркером, листами бумаги), чтобы отмечать на ней
+									важные вехи своей жизни.
+								</li>
+								<li>
+									<p class="item-title">Период</p>
+									Определите проблемный период времени. Он может быть связан с каким-то человеком, местом (например, работой в определенной
+									организации) и т. д.
+								</li>
+								<li>
+									<p class="item-title">Сопротивление частей</p>
+									Проверьте, не сопротивляетесь ли вы внутренне проработке события. Для этого спросите себя: «Не возражает ли какая-нибудь из моих
+									частей этому?» Если
+									внутренний ответ из подсознания будет «нет», переходите к следующему этапу. Если ответ будет «да», то выясните, что нежелательное
+									произойдет с вами, если
+									изменится ваше отношение к неприятному событию. Возможно, вы используете травму прошлого как причину или оправдание своих неудач.
+									В
+									таком случае вам стоит
+									обратиться к технике работы с частями, описанной в главе «Волшебный подарок».
+								</li>
+								<li>
+									<p class="item-title">Диссоциация</p>
+									Мысленно пройдитесь по линии времени, диссоциированно (то есть со стороны) отмечая любые важные события своей жизни на ней.
+								</li>
+								<li>
+									<p class="item-title">Сортировка</p>
+									Вспомните более раннее событие (эпизод), которое привело к неприятной ситуации.
+								</li>
+								<li>
+									<p class="item-title">Ассоциация</p>
+									Прочувствуйте эту ситуацию изнутри (ассоциированно). Осознайте эмоции, которые она у вас вызывала. Если нужно, извлеките из этого
+									опыта необходимые уроки.
+								</li>
+								<li>
+									<p class="item-title">Диссоциация</p>
+									Произведите необходимые изменения в памяти. Еще раз пройдитесь по линии времени, только на этот раз диссоциируясь от неприятного
+									эпизода (цепочки событий) в
+									прошлом. Вы также можете воспользоваться техникой работы с субмодальностями, чтобы сделать картинку неприятной ситуации темнее,
+									размытее и разместить ее
+									дальше от себя.
+								</li>
+								<li>
+									<p class="item-title">Новое восприятие</p>
+									Теперь еще несколько раз повторите на линии времени шаги 5 и 7. Весьма вероятно, что после нескольких повторений ранние эпизоды
+									перестанут вызывать у вас
+									неприятные эмоции и будут проживаться как нейтральные (либо даже вызовут улыбку). В таком случае можно переходить к следующему
+									пункту.
+								</li>
+								<li>
+									<p class="item-title">Настоящее</p>
+									Вернитесь в настоящий момент. Сойдите с линии времени и подумайте о чем-то «здесь и сейчас».
+								</li>
+								<li>
+									<p class="item-title">Привязка к будущему</p>
+									Еще раз представьте проблемную ситуацию в будущем и сравните ее с тем, как вы воспринимали ее раньше. Что изменилось в результате
+									этой техники? Придумайте
+									еще один пример проблемной ситуации в будущем, чтобы убедиться в том, что ситуация воспринимается по-новому.
+									Данную технику можно делать как для отдельных отрезков времени, так и для всей жизни (в этом случае она займет больше времени). Вы
+									можете выполнять эту
+									технику как мысленно, так и с использованием подручных материалов (бумаги, поверхности, карандашей). Если речь идет о проработке
+									каких-то серьезных
+									психотравм, алгоритм полезно повторять ежедневно или еженедельно до тех пор, пока восприятие ситуации полностью не изменится.
+								</li>
+							</ol>
+						</div>
+
+						<!-- Дополнительные упражнения -->
+						<div>
+							<h2 class="technics__label label">Дополнительные упражнения:</h2>
+
+							<div class="technics__content">
+								<ul>
+									<li>Техника «Создания неотразимого будущего»</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Почитать больше о технике -->
+						<div class="technics__catalog">
+							<div class="technics__line">
+								<img src="../img/choice-bg-1.svg" alt="">
+							</div>
+							<div class="technics__label label">Почитать больше о технике:
+							</div>
+							<ul>
+								<li>Андреас К. Измените свое мышление и воспользуйтесь результатами. Новейшие субмодальные вмешательства НЛП. — СПб.: Прайм-Еврознак,
+									2004.</li>
+
+
+								<li>Аткинсон М. Материалы тренинга, проведенного в Институте групповой и семейной психотерапии 4–6 октября 1996 г. — М.: ИГИСП, 1996.
+								</li>
+
+
+								<li>Аткинсон Р. Трехкомпонентная теория памяти. Веб-публикация: <a target="_blank"
+										href="https://www.psychology-online.net/articles/doc-356.html">https://www.psychology-online.net/articles/doc-356.html</a>.
+									[17.01.2020].</li>
+
+
+								<li>Камэрон-Бендлер, Лесли. Ноу-хау. Руководство по исправлению своей жизни. — СПб.: Прайм-Еврознак, 2004.</li>
+
+
+								<li>Дилтс Р. НЛП-2: поколение Next. — СПб.: Питер, 2012.</li>
+
+
+								<li>Ковалев С. В. Нейропрограммирование успешной судьбы. — М.: Твои книги, 2017.</li>
+
+
+								<li>Олдер Г. NLP. Полное практическое руководство. — Киев: София, 2000.</li>
+
+
+								<li>Ситников А. П. Акмеологический тренинг: Теория, методика, психотехнологии. — М.: Технологическая школа бизнеса, 1996.</li>
+
+
+								<li>Холл М. Структура личности. — М.: КСП+, 2003.</li>
+
+
+								<li>Щербатых Ю. Психология стресса и методы коррекции. — СПб.: Питер, 2006.</li>
+							</ul>
+						</div>
+
+						<!-- Рекомендуем прочитать -->
+						<div class="technics__catalog">
+							<div class="technics__label label">Рекомендуем прочитать:
+							</div>
+
+							<ul>
+								<li>Олдер, Гарри, Берил, Хэзер. NLP. Полное практическое руководство. Вводный курс. — М.: София, 2001.</li>
+
+								<li>Ситников А. П. Акмеологический тренинг: Теория, методика, психотехнологии. — М.: Технологическая школа бизнеса, 1996.</li>
+
+								<li>Аристотель. Физика. — Наука, 2022.</li>
+
+								<li>Hall Edward T. The Silent Language. — Random House, 1988.</li>
+
+								<li>Atkinson R.C.; Shiffrin R.M. Chapter: Human memory: A proposed system and its control processes // The psychology of learning and
+									motivation (Volume 2) / Spence K.W.; Spence J.T. — N.Y: Academic Press, 1968.</li>
+
+								<li>Чойс Р. Т., Аткинсон М. Мастерство жизни. Внутренняя динамика развития. — М.: Альпина Паблишер, 2020.</li>
+
+								<li>Балыко Диана. Переговоры... обреченные на успех. Техники НЛП в действии. — М.: Эксмо, 2008.</li>
+
+								<li>Ковалев С. В. Нейропрограммирование успешной судьбы. — М.: ИП Пирогов С.А., 2021.</li>
+
+								<li>Ковалев С. В. Семь шагов от пропасти. НЛП-терапия наркотических зависимостей. — М.: Твои книги, 2000.</li>
+
+
+							</ul>
+						</div>
+
+						<!-- Ссылки -->
+						<div class="technics__links">
+							<a href="">#Изменения через смыслы</a>
+							<a href="">#Негативный опыт</a>
+							<a href="">#Восприятие времени</a>
+							<a href="">#Прошлое</a>
+							<a href="">#Настоящее</a>
+							<a href="">#Будущее</a>
+							<a href="">#Сенсорная память</a>
+							<a href="">#Кратковременная память</a>
+							<a href="">#Долгосрочная память</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+    <footer class="footer">
+      <div class="footer__super-wrapper">
+        <div class="footer__wrapper">
+          <div class="container">
+            <h2 class="footer__title">Контактная информация</h2>
+            <!--  Ссылки на почту, телеграм и личный кабинет -->
+            <div class="footer__items">
+              <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;" class="footer__item">
+                <img src="../img/email.svg" alt="email" loading="lazy" />
+                <span>&#105;&#110;&#102;&#111;&#64;&#97;&#105;&#52;&#103;&#46;&#114;&#117;</span>
+              </a>
+              <a href="https://t.me/+79852000434" target="_blank" class="footer__item">
+                <img src="../img/telegram.svg" alt="telegram" loading="lazy" />
+                <span>+7 985 2000434</span>
+              </a>
+              <a href="https://ai4g.ru/login" target="_blank" class="footer__item">
+                <img src="../img/lk.svg" alt="личный кабинет" loading="lazy" />
+                <span>Личный кабинет</span>
+              </a>
+            </div>
+
+            <!-- ссылки на каналы -->
+            <div class="footer__socials">
+              <a href="https://t.me/pattern4g" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Паттерны"
+              </a>
+              <!--     <a href="" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+              Подписаться на дайджест Ai4G
+            </a> -->
+              <a href="https://t.me/life_watch" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                Телеграм канал "Внутренний мир"
+              </a>
+            </div>
+
+            <div class="footer__logo">
+              <a class="footer__logo2" href="https://fasie.ru">
+                <img class="footer__logo-desktop" src="../img/footer-logo2.svg" alt="fond" loading="lazy" />
+              </a>
+            </div>
+            <div class="footer__pay">
+              <img class="footer2__logo-desktop" src="../img/logo3h.png" alt="fond" loading="lazy" />
+              <img class="footer__logo-mobile" src="../img/logo3v.png" alt="Ai4G" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="/oferta.html" class="footer__link">
+            Договор оферты
+          </a>
+          <a href="/oplata.html" class="footer__link">
+            Правила оплаты и возврата
+          </a>
+          <a href="/requisites.html" class="footer__link">
+            Реквизиты
+          </a>
+        </div>
+      </div>
+
+    </footer>
+
+		<div class="scrollUp">
+			<img src="../img/arrow-up-dark.svg" alt="scrollUp" />
+		</div>
+
+	</div>
+	<script src="../js/technic.js"></script>
+<script src="../js/header.js"></script>
+</body>
+
+</html>

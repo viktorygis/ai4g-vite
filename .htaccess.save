@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Если путь не указывает на существующий файл или папку — отправляем index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+# Включаем модуль перезаписи URL
+RewriteEngine On
+
+# Перенаправление с http на https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Перенаправление с www на без www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Правило для 301 перенаправления старых страниц на новые
+# Redirect 301 /old-page http://www.ai4g.ru/new-page
+
+# Настройка страницы ошибки 404
+ErrorDocument 404 /404.html
+
+# Запрет доступа к .htaccess и другим конфиденциальным файлам
+# <Files ".htaccess">
+#   Order Allow,Deny
+#   Deny from all
+</Files>
+
+# Настройка кеширования для статических файлов
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Запрет доступа из конкретных IP адресов
+# Deny from 192.168.1.1
