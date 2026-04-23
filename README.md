@@ -7,26 +7,38 @@
 
 npm run dev
 
-
-
-
 5. Откройте браузер и перейдите по адресу `http://localhost:3000` (или по адресу, который Vite выведет в терминале).
 
 ## Структура проекта
 
 ```
 /
-├── index.html                  # Главная страница
-├── patterns.html, allegro.html, vozmozhnosti.html  # Основные разделы
-├── technics/                   # Папка с техниками (html)
-│   ├── vzmah.html
-│   ├── muzey-ubezhdeniy.html
-│   ├── ... (и др)
-├── img/                        # Картинки, графика
-├── css/ или styles/            # Основные стили (если есть; возможно в корне или в каждой html)
-├── js/                         # JS-скрипты (если есть)
-├── vendor/, php/               # PHP и сторонние зависимости (если проект используется на сервере)
-├── ... другие вспомогательные файлы
+ai4g-vite/
+├── src/
+│   ├── index.html
+│   ├── another-page.html
+│   ├── main.js  - главный JS-файл, который импортирует стили и другие модули
+│   ├── styles/
+│   │   ├── main.scss
+│   │   ├── base/
+│   │   │   ├── _variables.scss
+│   │   │   ├── _reset.scss
+│   │   │   ├── _mixins.scss
+│   │   │   ├── _global.scss
+│   │   ├── components/
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   ├── _partners.scss
+│   ├── scripts/
+│   │   ├── custom.js       // (по желанию, если JS разбит на отдельные файлы)
+│   ├── img/
+│   │   └── logo.svg
+│   ├── partials/
+│   │   ├── header.html
+│   │   ├── footer.html
+│   │   └── ...
+├── package.json
+├── vite.config.js
 ```
 
 - Почти все страницы используют **внешние библиотеки по CDN**: jQuery, Fancybox, Swiper и другие.
