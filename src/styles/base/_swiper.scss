@@ -1,0 +1,114 @@
+@use '../base/variables' as *;
+
+// Модальное окно слайдера
+.modal-swiper {
+  display: none;
+  width: 610px;
+  padding: 80px;
+  background: $color-text;
+  border-radius: 20px;
+
+  &__name {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000;
+  }
+
+  &__text {
+    font-family: $font-alt, sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
+  }
+}
+
+.swiper-item {
+  display: flex;
+  justify-content: center;
+
+  &__left {
+    margin-right: 40px;
+    display: flex;
+
+    img {
+      width: 72px;
+      height: 87px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: $color-text;
+    font-family: $font-main;
+  }
+
+  &__text {
+    max-width: 442px;
+    max-height: 162px;
+    font-family: $font-alt, sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba($color-text, 0.85); // или rgba(255,255,255,0.85)
+    overflow-y: hidden;
+  }
+
+  &__link {
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    border-bottom: 1px dashed;
+    color: $color-link;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+}
+
+// Кастомные стрелки слайдера
+.swiper-button-prev,
+.swiper-button-next {
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 53px;
+  top: 35%;
+  transition: all 0.3s;
+
+  &::after {
+    display: none;
+  }
+}
+
+.swiper-button-prev {
+  background-image: url("../img/slider-active-left.svg");
+  left: 0;
+
+  &.swiper-button-disabled {
+    background-image: url("../img/slider-disable-left.svg");
+  }
+}
+
+.swiper-button-next {
+  background-image: url("../img/slider-active-right.svg");
+  right: 0;
+
+  &.swiper-button-disabled {
+    background-image: url("../img/slider-disable-right.svg");
+  }
+}
+
+.swiper-arrows {
+  display: none;
+}

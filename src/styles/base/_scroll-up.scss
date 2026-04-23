@@ -1,0 +1,19 @@
+.scrollUp {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  bottom: 65px;
+  right: 65px;
+  opacity: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.scrollUp.active {
+  opacity: 1;
+}
+
+.scrollUp:hover {
+  transform: translateY(-5px);
+}

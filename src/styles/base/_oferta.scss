@@ -1,0 +1,112 @@
+@use '../base/variables' as *;
+
+.oferta {
+  line-height: 150%;
+  font-size: 14px;
+  padding: 140px 0 0;
+
+  @media (max-width: 980px) {
+    padding: 120px 0 0;
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 28px;
+
+    @media (max-width: 768px) {
+      padding: 0 15px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 140%;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
+  &__suptitle {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 40px 0;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 20px 0;
+    }
+  }
+
+  h2 {
+    margin: 0 0 10px 0;
+    font-size: 19px;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 17px;
+      margin: 0 0 20px 0;
+    }
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+  }
+
+  span {
+    font-weight: 500;
+  }
+
+  a {
+    color: $color-link;
+  }
+
+  &__text {
+    &:not(:last-child) {
+      margin: 0 0 40px 0;
+      text-align: justify;
+    }
+
+    p:not(:last-child) {
+      margin: 0 0 15px 0;
+    }
+
+    &_small {
+      font-size: 13px;
+      margin: 0 0 40px 0;
+      text-align: justify;
+    }
+  }
+
+  &__list {
+    margin: 10px 0 0 20px;
+
+    @media (max-width: 768px) {
+      margin: 10px 0 0 10px;
+    }
+
+    li {
+      margin: 0 0 10px 0;
+    }
+  }
+
+  &__contact {
+    margin: 0 0 20px 0;
+
+    li {
+      margin: 0 0 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
