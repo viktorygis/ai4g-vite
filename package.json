@@ -1,0 +1,25 @@
+{
+  "name": "ai4g-vite",
+  "version": "1.0.0",
+  "description": "Многостраничный сайт с упражнениями и техниками.   В проекте используются HTML, PHP, CSS, JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorygis/ai4g-vite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/viktorygis/ai4g-vite/issues"
+  },
+  "homepage": "https://github.com/viktorygis/ai4g-vite#readme",
+  "dependencies": {
+    "sass": "^1.99.0",
+    "vite": "^8.0.10"
+  }
+}
