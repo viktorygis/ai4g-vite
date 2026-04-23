@@ -1,0 +1,19 @@
+//  _variables.scss
+
+@use 'sass:map';
+
+// ======= SCSS ПЕРЕМЕННЫЕ =======
+$color-bg: #150931;
+$color-accent: #ff008a;
+$color-secondary: #06ea6f;
+$color-text: #fff;
+$color-header-gradient1: #ff008a;
+$color-header-gradient2: #2bf29f;
+$color-link: #0386ff;
+$color-link-hover: #93cbff;
+$color-container-bg: #2c334b;
+$font-main: 'Montserrat', sans-serif;
+$font-size-base: 1.125rem; // 18px
+$font-size-mobile: 1rem; // 16px
+$container-max-width: 850px;
+$border-radius-main: 37px;

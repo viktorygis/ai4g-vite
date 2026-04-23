@@ -4,6 +4,9 @@
   "description": "Многостраничный сайт с упражнениями и техниками.   В проекте используются HTML, PHP, CSS, JavaScript.",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
