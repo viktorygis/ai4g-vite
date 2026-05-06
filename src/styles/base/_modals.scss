@@ -1,30 +1,6 @@
 @use '../base/variables' as *;
 
-// --- Модальное окно слайдера ---
-.modal-swiper {
-  display: none;
-  width: 610px;
-  padding: 80px;
-  background: $color-text;
-  border-radius: 20px;
 
-  &__name {
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 21px;
-    color: #000;
-  }
-
-  &__text {
-    font-family: $font-alt, sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    color: #000;
-  }
-}
 
 // --- Модальное окно заявок ---
 .modal-request,

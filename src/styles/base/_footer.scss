@@ -1,12 +1,15 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
 .footer {
   background: $color-bg;
 
+  //.footer__super-wrapper
   &__super-wrapper {
     background: linear-gradient(180deg, #4a006c 0%, rgba(44, 51, 75, 0) 102.81%);
   }
 
+  //.footer__wrapper
   &__wrapper {
     padding: 45px 0 35px;
     background-image: url("../img/footer-bg.svg");
@@ -40,6 +43,7 @@
     &:first-child {
       margin-bottom: 24px;
     }
+
     &:last-child {
       margin-top: 24px;
     }
@@ -96,5 +100,71 @@
     @media (max-width: 600px) {
       display: block;
     }
+  }
+}
+
+.footer__links {
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+
+  @include respond-to(504px) {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+}
+
+.footer__link {
+  color: $color-link;
+  font-size: 14px;
+  line-height: 17px;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+.footer__socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 60px;
+
+  @include respond-to(768px) {
+    margin-top: 40px;
+  }
+}
+
+.footer__social-link {
+  width: 600px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: $color-text;
+  border: 1px solid $color-text;
+  border-radius: $border-radius-main;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-text;
+    color: $color-bg;
+  }
+
+  @include respond-to(768px) {
+    width: 100%;
+    font-size: 14px;
+    height: 50px;
   }
 }

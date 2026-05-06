@@ -1,0 +1,55 @@
+@use '../base/variables' as *;
+
+/* btn ------------------------------ */
+.btn {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 60px;
+  border: 2px solid #ff018a;
+  border-radius: $border-radius-main;
+  background: #ff018a;
+  color: $color-text;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 110%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-secondary;
+    border-color: $color-secondary;
+    color: #000;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.link {
+  width: 822px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #06ea6f;
+  color: #150931;
+  border-radius: 37px;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 37px;
+  position: relative;
+  z-index: 10;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  background: #ff008a;
+}

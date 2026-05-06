@@ -1,15 +1,89 @@
 @use '../base/variables' as *;
 
+/* page-personal-strategy ---------------------- */
+.page-personal-strategy {
+  background-color: #fff;
 
+  .session {
+    padding: 143px 0 100px;
+    color: #000;
+    background-color: #fff;
+  }
 
+  .session__text-block::after {
+    background: transparent;
+  }
 
-@use '../../base/variables' as *;
+  .session__link:hover {
+    background: $color-accent;
+  }
+
+  .session__subtitle {
+    margin: 3px 158px 50px 0;
+  }
+
+  .top {
+    height: 200px;
+  }
+
+  .top__inner {
+    display: flex;
+    justify-content: center;
+    padding-top: 85px;
+  }
+
+  .top__title {
+    min-width: 95px;
+    margin-right: 10px;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .top__suptitle {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .header__line {
+    margin-bottom: 11px;
+  }
+}
+
+@keyframes header-suptext-new-year {
+  0% {
+    opacity: 0;
+  }
+
+  55% {
+    top: 38px;
+    left: 90px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 38px;
+    left: 22px;
+    opacity: 1;
+  }
+}
+
+@keyframes header-triangle-new-year {
+  0% {
+    transform: translate(-140px, 0);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: translate(-32px, 0);
+    opacity: 1;
+  }
+}
 
 // Предложение
 .offer {
   margin: 80px 0 0 0;
-  background: $color-text;                  // #ffffff
-  color: #000;                              // чёрный текст (нет переменной)
+  background: $color-text; // #ffffff
+  color: #000; // чёрный текст (нет переменной)
   padding: 50px 0;
 
   @media (max-width: 768px) {
@@ -115,6 +189,7 @@
   }
 
   &__btn {
+
     // Основные стили заданы в другом месте (кнопка), здесь только адаптив
     @media (max-width: 768px) {
       font-size: 16px;
@@ -150,9 +225,7 @@
   }
 }
 
-// ==============================
-// TREE (интерактивное дерево)
-// ==============================
+//интерактивное дерево
 .tree {
   background: $color-text;
   color: #000;
@@ -167,6 +240,7 @@
     &_comp {
       display: none;
     }
+
     &_mob {
       display: block;
     }
@@ -191,7 +265,7 @@
   &__hotspot {
     width: 25px;
     height: 25px;
-    background-color: $color-accent;          // #ff008a
+    background-color: $color-accent; // #ff008a
     border-radius: 50%;
     position: absolute;
     cursor: pointer;
@@ -229,9 +303,11 @@
     transform: scale(0.5);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     transform: scale(1.2);
     opacity: 0;
@@ -251,6 +327,7 @@
   max-width: 412px;
   text-align: center;
 }
+
 //анимированная линия
 .ng-line {
   padding: 30px 0;
