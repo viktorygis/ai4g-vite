@@ -1,0 +1,186 @@
+/* ---------------partners-----------------*/
+@use '../../base/variables' as *;
+.partners {
+  margin-bottom: 100px;
+  overflow-x: hidden;
+
+  &__title {
+    margin-bottom: 58px;
+    font-weight: 700;
+    font-size: $choice-title-size; // 38px
+    line-height: 46px;
+    text-align: center;
+    font-family: $font-main;
+    color: $color-text;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 100px;
+    gap: 20px;
+  }
+
+  &__item {
+    opacity: 0; // скрыт до анимации
+
+    &-img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      font-size: 14px;
+      line-height: 21px;
+      font-family: $font-main;
+      color: $color-text;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 23px;
+      margin-bottom: 10px;
+      font-family: $font-main;
+      color: $color-text;
+    }
+  }
+
+  &__link {
+    margin: 75px 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-centr {
+      margin: 0 8px;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      white-space: nowrap;
+      position: relative;
+      top: -11px;
+      font-family: $font-main;
+      color: $color-text;
+    }
+
+    &-left,
+    &-right {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 2px;
+      }
+    }
+  }
+
+  // Анимационные классы (добавляются при скролле)
+  .pi-1 {
+    animation: pi-anim-1 0.5s ease forwards;
+  }
+  .pi-2 {
+    animation: pi-anim-2 0.5s ease forwards;
+  }
+  .pi-3 {
+    animation: pi-anim-3 0.5s ease forwards;
+  }
+}
+
+// Ключевые кадры анимаций
+@keyframes pi-anim-1 {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes pi-anim-2 {
+  0% {
+    transform: translateX(-250px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes pi-anim-3 {
+  0% {
+    transform: translateX(-290px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+// Планшеты
+@media (max-width: 980px) {
+  .partners {
+    &__items {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 55px;
+    }
+
+    .pi-3 {
+      grid-column: span 2;
+      justify-self: center;
+    }
+
+    &__footer-centr {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}
+
+// Мобильные
+@media (max-width: 600px) {
+  .partners {
+    margin-bottom: 33px;
+
+    &__title {
+      font-size: $choice-title-size-mobile; // 22px
+      line-height: 27px;
+      margin-bottom: 40px;
+    }
+
+    &__items {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .pi-1,
+    .pi-2,
+    .pi-3 {
+      justify-self: center;
+      grid-column: span 1;
+    }
+
+    &__footer-centr {
+      white-space: normal; // заменено с ошибочного 'wrap'
+      text-align: center;
+      top: -5px;
+    }
+
+    &__footer-left,
+    &__footer-right {
+      width: 15%;
+    }
+
+    &__footer-right img,
+    &__footer-left img {
+      width: 100%;
+      height: 2px;
+    }
+  }
+}
