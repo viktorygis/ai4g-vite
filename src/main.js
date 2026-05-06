@@ -14,6 +14,7 @@ import { firefoxFix } from "./scripts/modules/firefox-fix.js";
 import { formValidation } from "./scripts/modules/form-validation.js";
 import { btnValidation } from "./scripts/modules/btn-validation.js";
 import { scrollUp2 } from "./scripts/modules/scroll-up.js";
+import { initMenu } from "./scripts/modules/menu.js";
 
 // ============== ЛОКАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ Swiper (если нужно) ==========
 if (document.querySelector(".swiper")) {
@@ -40,3 +41,4 @@ if (document.querySelector(".swiper")) {
 formValidation();
 btnValidation();
 scrollUp2();
+initMenu();
