@@ -11,7 +11,7 @@ export function formValidation() {
     inputMask.mask(telSelector);
   }
 
-  const validation = new window.JustValidate(".modal-request__form", {
+  const validation = new JustValidate(".modal-request__form", {
     errorFieldCssClass: "is-invalid",
     successFieldCssClass: "is-valid",
   });
