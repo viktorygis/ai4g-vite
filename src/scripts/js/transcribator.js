@@ -1,49 +1,8 @@
-// Обработчик события touchstart
-function handleTouchStart(event) {
-  // Ваш код для обработки события touchstart
-  console.log("Touch start event:", event);
-}
-
-// Обработчик события touchmove
-function handleTouchMove(event) {
-  // Ваш код для обработки события touchmove
-  console.log("Touch move event:", event);
-}
-
-// Обработчик события wheel
-function handleWheel(event) {
-  // Ваш код для обработки события wheel
-  console.log("Wheel event:", event);
-}
-
-// Обработчик события mousewheel
-function handleMouseWheel(event) {
-  // Ваш код для обработки события mousewheel
-  console.log("Mouse wheel event:", event);
-}
-
-// Добавляем обработчики событий с опцией passive: true
-document.addEventListener("touchstart", handleTouchStart, { passive: true });
-document.addEventListener("touchmove", handleTouchMove, { passive: true });
-document.addEventListener("wheel", handleWheel, { passive: true });
-document.addEventListener("mousewheel", handleMouseWheel, { passive: true });
+import { initAnimations } from '../modules/init-animations.js';
+import { isValidEmail } from '../modules/utils.js';
+import { scrollUp } from '../modules/scroll-up.js';
 
 /* Стрелка ------------------------------------------------------------------------*/
-function scrollUp() {
-  const scrollUp = document.querySelector(".scrollUp");
-  window.addEventListener("scroll", () => {
-    if (scrollY > 499) scrollUp.classList.add("active");
-    else scrollUp.classList.remove("active");
-  });
-  scrollUp.addEventListener("click", () => {
-    $("html, body").animate(
-      {
-        scrollTop: $("#top").offset().top,
-      },
-      "slow"
-    );
-  });
-}
 scrollUp();
 
 let uploadedFiles = [];
@@ -492,8 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
           let seconds = Math.floor(duration % 60);
 
           durationInfo.textContent = `Длительность: ${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-          console.log(`Длительность файла: ${minutes}:${seconds < 10 ? "0" + seconds : seconds}`);
-          console.log(`Длительность файла: ${minutes}:${seconds < 10 ? "0" + seconds : seconds} (${duration} секунд)`);
 
           file.duration = duration; // сохраняем длительность файла в свойство
           totalDuration += duration; // Увеличиваем общую длительность
@@ -541,9 +498,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           if (response.uuid) {
-            console.log(response.uuid);
             uploadedFiles.push(response.uuid); // Добавляем UUID файла в массив
-            console.log("Загруженные файлы:", uploadedFiles);
 
             // Сохранение UUID в файле для дальнейшего использования
             file.serverId = response.uuid;
@@ -559,7 +514,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Удаляем файл из массива при его удалении из Dropzone
         if (file.serverId) {
           uploadedFiles = uploadedFiles.filter((f) => f !== file.serverId);
-          console.log("Обновленный список загруженных файлов:", uploadedFiles);
         }
       });
 
@@ -700,7 +654,6 @@ function btnValidationOplata() {
   const selectedform = document.querySelector('input[name="format"]:checked');
   const pricetext = document.getElementById("price-info");
   const text = pricetext.textContent;
-  console.log(text); // Получаем текст из элемента
   const match = text.match(/\d+/); // Ищем числовое значение в строке
 
   let price = 0; // Инициализируем переменную по умолчанию
@@ -721,11 +674,6 @@ function btnValidationOplata() {
     }
   }
 
-  function isValidEmail(email) {
-    // Регулярное выражение для проверки email-адреса
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
   btn.addEventListener("click", function (e) {
     e.preventDefault(); // Предотвращаем стандартное поведение кнопки
 
@@ -773,45 +721,4 @@ $(document).ready(function () {
 });
 
 /* Анимация ------------------------------------------*/
-function initAnimations({
-  animSelector = "._anim-items",
-  observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3,
-  },
-  animDuration = 1.5,
-} = {}) {
-  const animItems = document.querySelectorAll(animSelector);
-
-  if (animItems.length > 0) {
-    // Устанавливаем начальное состояние элемента при загрузке
-    animItems.forEach((item) => {
-      item.classList.add("_hidden");
-    });
-
-    const animCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.transition = `opacity ${animDuration}s ease, transform ${animDuration}s ease`;
-          entry.target.classList.remove("_hidden"); // Убираем класс скрытия
-          entry.target.classList.add("_active");
-          if (!entry.target.classList.contains("_anim-no-hide")) {
-            observer.unobserve(entry.target);
-          }
-        } else {
-          if (!entry.target.classList.contains("_anim-no-hide")) {
-            entry.target.classList.remove("_active");
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(animCallback, observerOptions);
-
-    animItems.forEach((animItem) => {
-      observer.observe(animItem);
-    });
-  }
-}
 initAnimations();
