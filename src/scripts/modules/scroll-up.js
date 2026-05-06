@@ -1,3 +1,15 @@
+export function scrollUp() {
+  const el = document.querySelector(".scrollUp");
+  if (!el) return;
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 499) el.classList.add("active");
+    else el.classList.remove("active");
+  });
+  el.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 export function scrollUp2() {
   const scrollUp = document.querySelector(".scrollUp");
   window.addEventListener("scroll", () => {

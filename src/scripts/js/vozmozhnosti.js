@@ -1,27 +1,6 @@
+import { scrollUp } from '../modules/scroll-up.js';
+
 /* Стрелка */
-function scrollUp() {
-	const scrollUp = document.querySelector(".scrollUp");
-
-	// Добавляем обработчик события скролла
-	window.addEventListener("scroll", () => {
-		// Если прокрутка больше 499 пикселей, добавляем класс active
-		if (window.scrollY > 499) {
-			scrollUp.classList.add("active");
-		} else {
-			scrollUp.classList.remove("active");
-		}
-	});
-
-	// Добавляем обработчик клика на элемент scrollUp
-	scrollUp.addEventListener("click", () => {
-		// Плавная прокрутка к началу страницы
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth"
-		});
-	});
-}
-
 // Вызываем функцию
 scrollUp();
 

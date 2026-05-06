@@ -7,3 +7,8 @@ export function offset(el) {
     left: rect.left + scrollLeft,
   };
 }
+
+export function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}

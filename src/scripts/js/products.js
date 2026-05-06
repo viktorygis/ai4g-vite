@@ -1,3 +1,7 @@
+import { initAnimations } from '../modules/init-animations.js';
+import { offset, isValidEmail } from '../modules/utils.js';
+import { scrollUp } from '../modules/scroll-up.js';
+
 document.addEventListener("DOMContentLoaded", function () {
   function animateSolution(containerSelector, itemSelector, initialDelay, itemDelay, threshold) {
     const items = document.querySelectorAll(itemSelector);
@@ -68,47 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* Анимация ------------------------------------------*/
-function initAnimations({
-  animSelector = "._anim-items",
-  observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3,
-  },
-  animDuration = 1.5,
-} = {}) {
-  const animItems = document.querySelectorAll(animSelector);
-
-  if (animItems.length > 0) {
-    // Устанавливаем начальное состояние элемента при загрузке
-    animItems.forEach((item) => {
-      item.classList.add("_hidden");
-    });
-
-    const animCallback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.transition = `opacity ${animDuration}s ease, transform ${animDuration}s ease`;
-          entry.target.classList.remove("_hidden"); // Убираем класс скрытия
-          entry.target.classList.add("_active");
-          if (!entry.target.classList.contains("_anim-no-hide")) {
-            observer.unobserve(entry.target);
-          }
-        } else {
-          if (!entry.target.classList.contains("_anim-no-hide")) {
-            entry.target.classList.remove("_active");
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(animCallback, observerOptions);
-
-    animItems.forEach((animItem) => {
-      observer.observe(animItem);
-    });
-  }
-}
 initAnimations();
 /*  ------------------------------------------*/
 
@@ -159,11 +122,9 @@ function formValidation() {
     .onSuccess((event) => {
       let formData = new FormData(event.target);
       let xhr = new XMLHttpRequest();
-      console.log(...formData);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          console.log("Отправлено");
         }
         $.fancybox.close("fancybox-content");
         $.fancybox.open({
@@ -194,12 +155,6 @@ function btnValidation() {
     } else {
       btn.classList.remove("active");
     }
-  }
-
-  function isValidEmail(email) {
-    // Регулярное выражение для проверки email-адреса
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
   }
 }
 
@@ -271,34 +226,13 @@ function btnValidationPayment() {
       btn.classList.remove("active");
     }
   }
-
-  function isValidEmail(email) {
-    // Регулярное выражение для проверки email-адреса
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
 }
 
 formValidationPayment();
 btnValidationPayment();
 
 // Функция для плавной прокрутки вверх
-function scrollUp2() {
-  const scrollUp = document.querySelector(".scrollUp");
-  window.addEventListener("scroll", () => {
-    if (scrollY > 499) scrollUp.classList.add("active");
-    else scrollUp.classList.remove("active");
-  });
-  scrollUp.addEventListener("click", () => {
-    $("html, body").animate(
-      {
-        scrollTop: $("#top").offset().top,
-      },
-      "slow"
-    );
-  });
-}
-scrollUp2();
+scrollUp();
 
 function animateNgLine() {
   // Получаем элементы: контейнер линии и само изображение.
@@ -325,14 +259,6 @@ function animateNgLine() {
   } else {
     console.error("Element .ng-line or .ng-line-bg not found!");
   }
-}
-
-// Функция для вычисления позиции элемента относительно страницы
-function offset(el) {
-  const rect = el.getBoundingClientRect(),
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
 
 // Запуск анимации для линии
