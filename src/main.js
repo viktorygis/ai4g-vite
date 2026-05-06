@@ -2,7 +2,6 @@ import "./styles/main.scss";
 
 import Swiper from "swiper";
 import Inputmask from "inputmask";
-import JustValidate from "just-validate";
 
 import { showMore } from "./scripts/modules/show-more.js";
 import { fairwayAnim } from "./scripts/modules/fairway-anim.js";
