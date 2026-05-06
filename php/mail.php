@@ -1,6 +1,8 @@
 <?php
+require __DIR__ . '/env.php';
+
 // ============== RECAPTCHA VALIDATION ==============
-$recaptchaSecret = '6LfKg1osAAAAAD4DUGLMEThRJuXYzWv-95TJWLQh'; // <-- подставьте ваш реальный SECRET KEY
+$recaptchaSecret = getenv('RECAPTCHA_SECRET');
 $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
 if (!$recaptchaResponse) {
@@ -32,13 +34,13 @@ use PHPMailer\PHPMailer\Exception;
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
 
-// --- Настройки (лучше хранить в env)
-$smtpLogin = 'no-reply@ai4g.ru';
-$smtpPass = 'Dxv-7zJ-g2g-vAY';
+// --- Настройки из переменных окружения (.env)
+$smtpLogin        = getenv('SMTP_LOGIN');
+$smtpPass         = getenv('SMTP_PASS');
 
 // Предпочтительный хост (совпадает с сертификатом)
-$smtpHostPrimary = 'sm26.hosting.reg.ru';
-$smtpHostFallback = 'mail.ai4g.ru'; // fallback, если нужно
+$smtpHostPrimary  = getenv('SMTP_HOST_PRIMARY');
+$smtpHostFallback = getenv('SMTP_HOST_FALLBACK');
 
 function generateRandomString($length = 10)
 {

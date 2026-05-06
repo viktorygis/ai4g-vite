@@ -1,5 +1,7 @@
 <?php
-$secret_seed = "DnZtwUU_MH1ZjaZ";
+require __DIR__ . '/env.php';
+
+$secret_seed = getenv('PAYKEEPER_SECRET');
 $id = $_POST['id'];
 $sum = $_POST['sum'];
 $clientid = $_POST['clientid'];
@@ -13,10 +15,10 @@ if ($key != md5 ($id.number_format($sum, 2, ".", "")
     exit;
 }
 
-$dbHost = 'localhost';
-$dbUsername = 'dly';
-$dbPassword = '20piter05';
-$dbName = 'nirdb';
+$dbHost     = getenv('DB_HOST');
+$dbUsername = getenv('DB_USER');
+$dbPassword = getenv('DB_PASS');
+$dbName     = getenv('DB_NAME');
 
 $conn = pg_connect("host=$dbHost dbname=$dbName user=$dbUsername password=$dbPassword");
 
