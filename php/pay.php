@@ -1,8 +1,10 @@
 <?php
-$dbHost = 'localhost';
-$dbUsername = 'dly';
-$dbPassword = '20piter05';
-$dbName = 'nirdb';
+require __DIR__ . '/env.php';
+
+$dbHost     = getenv('DB_HOST');
+$dbUsername = getenv('DB_USER');
+$dbPassword = getenv('DB_PASS');
+$dbName     = getenv('DB_NAME');
 
 $conn = pg_connect("host=$dbHost dbname=$dbName user=$dbUsername password=$dbPassword");
 
@@ -32,8 +34,8 @@ pg_close($conn);
 
 // оплата
 
-$user="admin";
-$password="ade246013433";
+$user     = getenv('PAYKEEPER_USER');
+$password = getenv('PAYKEEPER_PASS');
 
 # Basic-авторизация передаётся как base64
 $base64=base64_encode("$user:$password");
