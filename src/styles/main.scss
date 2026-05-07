@@ -7,8 +7,9 @@
 @use 'base/scroll-up';
 @use 'base/swiper';
 @use 'base/typography';
-@use 'base/footer';
-@use 'base/header';
+@use 'base/animations';
+@use 'base/page-themes';
+
 
 //components-----------------
 
@@ -28,7 +29,8 @@
 //layout-----------------
 @use 'layout/_container.scss';
 @use 'layout/_wrapper.scss';
-
+@use 'base/footer';
+@use 'base/header';
 
 //utilities-----------------
 @use 'utilities/_helpers.scss';
@@ -42,6 +44,7 @@
 @use 'pages/technics';
 @use 'pages/personal-strategy';
 @use 'pages/error';
+@use 'pages/mentors-page';
 
 //form
 @use 'form/modal-oplata';

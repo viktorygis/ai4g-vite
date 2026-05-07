@@ -1,13 +1,15 @@
 @use '../../base/variables' as *;
+@use '../../base/mixins' as *;
+@use '../../base/animations' as *;
 
 // ==============================
 // CAPABILITY
 // ==============================
 .capability {
   padding: 80px 0;
-  background: linear-gradient(2deg, #e2ddd6 0%, rgba(44, 51, 75, 0) 100%);
+  background: linear-gradient(2deg, $color-capability-gradient 0%, rgba(44, 51, 75, 0) 100%);
 
-  @media (max-width: 768px) {
+  @include respond-to(768px) {
     padding: 25px 0;
   }
 
@@ -17,9 +19,9 @@
     font-size: 29px;
     line-height: 35px;
     text-align: center;
-    color: $color-text; // #fff
+    color: $color-text;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       font-size: 20px;
       line-height: 24px;
       margin-bottom: 20px;
@@ -32,7 +34,7 @@
     align-items: center;
     gap: 40px;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       gap: 0;
     }
   }
@@ -42,7 +44,7 @@
     justify-content: space-between;
     gap: 40px;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       flex-direction: column;
       align-items: center;
       gap: 20px;
@@ -54,7 +56,7 @@
     height: auto;
     border-radius: 9px;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       max-width: 200px;
     }
   }
@@ -64,8 +66,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(1, 1fr);
+    @include respond-to(768px) {
+      grid-template-columns: 1fr;
       gap: 20px;
     }
   }
@@ -84,69 +86,25 @@
     font-size: 16px;
   }
 
-  &__link {
-    border-radius: 37px;
-    position: relative;
-    z-index: 10;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: $color-accent; // #ff008a (заменено с #ff018a)
-    color: $color-text;
-    transition: all 0.3s ease;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 110%;
-    max-width: 330px;
-    height: 60px;
-    border: 2px solid $color-accent;
-
-    // Исправление: убираем вложенный .link, применяем стили непосредственно к кнопке
-    @media (max-width: 768px) {
-      width: 316px;
-      font-size: 18px;
-      line-height: 22px;
-    }
-
-    &:hover {
-      background-color: $color-text;
-      color: $color-accent;
-    }
-
-    // Зелёный вариант
-    &_green {
-      background: $color-secondary; // #06ea6f
-      color: #000;
-      border: 2px solid $color-secondary;
-
-      &:hover {
-        background-color: $color-text;
-        color: #000;
-      }
-    }
-  }
-
   &__description {
     list-style: none;
 
     li {
       position: relative;
-      font-size: 18px;
+      font-size: $font-size-base;
       font-weight: 400;
       line-height: 1.8;
       color: $color-text;
       margin-bottom: 10px;
       padding-left: 25px;
 
-      @media (max-width: 768px) {
-        font-size: 16px;
+      @include respond-to(768px) {
+        font-size: $font-size-mobile;
         line-height: 22px;
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 10px;
         left: 0;
@@ -157,35 +115,4 @@
       }
     }
   }
-}
-
-// ==============================
-// АНИМАЦИИ (общие классы)
-// ==============================
-._anim-items {
-  opacity: 1;
-  transform: translateY(0);
-
-  &._hidden {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-
-  &._active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// ==============================
-// СТРАНИЦЫ С БЕЛЫМ ФОНОМ
-// ==============================
-.page-oferta,
-.page-requisites,
-.page-oplata,
-.page-personal,
-.page-agreement,
-.page-strategy-new-year {
-  background: $color-text;
-  color: $color-bg;
 }

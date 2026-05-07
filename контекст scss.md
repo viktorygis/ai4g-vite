@@ -1,4 +1,4 @@
-//  _variables.scss
+## _variables.scss
 
 @use 'sass:map';
 
@@ -19,8 +19,6 @@ $container-max-width: 850px;
 $border-radius-main: 37px;
 $choice-title-size: 38px;
 $choice-title-size-mobile: 22px;
-$color-capability-gradient: #e2ddd6;
-$color-dark: #000;
 
 $color-headerSubtext: #a99ec2;
 $font-main: 'Montserrat', sans-serif;
@@ -39,3 +37,19 @@ $footer-bg-img: "../img/footer-bg.svg";
 $color-drop-list-gradient: #4a006c;
 $color-drop-list-divider: #71717a;
 $color-drop-list-accent: #2bf29f;
+
+
+
+##  src/styles/base/_mixins.scss
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+##  src/styles/base/_mixins.scss
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+//_animations.scss
+._anim-items {
+  opacity: 1;
+  transform: translateY(0);
+
+  &._hidden {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  &._active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
