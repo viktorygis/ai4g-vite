@@ -78,9 +78,7 @@
     }
   }
 }
-.swiper-arrows {
- // position: relative; // если нужно разместить стрелки внутри контейнера
-}
+
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -92,7 +90,14 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  &::after { display: none; }
+  &::after {
+    display: none;
+  }
+
+  //для мобильной версии
+  @media (max-width: 767px) {
+    top: 80%;
+  }
 }
 
 .swiper-button-prev {
