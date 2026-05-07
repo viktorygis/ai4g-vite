@@ -1,5 +1,6 @@
 @use '../../base/variables' as *;
 @use '../../base/mixins' as *;
+@use '../../base/animations' as *;
 
 .fairway {
   overflow: hidden;
@@ -342,15 +343,5 @@
   &__link {
     margin-top: -7px;
     z-index: 11;
-  }
-}
-
-@keyframes fairway {
-  0% {
-    left: 0;
-  }
-
-  100% {
-    left: 100%;
   }
 }

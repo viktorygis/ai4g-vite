@@ -1,5 +1,8 @@
 @use '../../base/variables' as *;
 @use '../../base/mixins' as *;
+@use '../../base/animations' as *;
+
+
 .choice {
   margin-bottom: 100px;
   overflow-x: hidden;
@@ -181,40 +184,4 @@
 
 .ci-3 {
   transform: translateX(-290px);
-}
-
-@keyframes ci-1 {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-@keyframes ci-2 {
-  0% {
-    transform: translateX(-250px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-@keyframes ci-3 {
-  0% {
-    transform: translateX(-290px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
 }

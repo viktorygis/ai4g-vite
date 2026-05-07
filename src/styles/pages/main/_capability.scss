@@ -2,9 +2,7 @@
 @use '../../base/mixins' as *;
 @use '../../base/animations' as *;
 
-// ==============================
 // CAPABILITY
-// ==============================
 .capability {
   padding: 80px 0;
   background: linear-gradient(2deg, $color-capability-gradient 0%, rgba(44, 51, 75, 0) 100%);

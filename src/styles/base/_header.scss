@@ -1,9 +1,10 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+@use '../base/animations' as *;
 
 /* ========== HEADER ========== */
 .header {
-  height: 160px;
+  height: 90px;
   width: 100%;
   position: fixed;
   text-align: center;
@@ -153,107 +154,7 @@
   }
 }
 
-/* ========== KEYFRAMES ========== */
-@keyframes header-triangle {
-  0% {
-    transform: translate(-140px, 0);
-    opacity: 0.1;
-  }
 
-  100% {
-    transform: translate(-32px, 0);
-    opacity: 1;
-  }
-}
-
-@keyframes header-text {
-  0% {
-    opacity: 0;
-  }
-
-  60% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes header-suptext {
-  0% {
-    opacity: 0;
-  }
-
-  55% {
-    top: 38px;
-    left: 90px;
-    opacity: 0;
-  }
-
-  100% {
-    top: 38px;
-    left: 22px;
-    opacity: 1;
-  }
-}
-
-@keyframes header-line {
-  0% {
-    background-position: 0% 0%;
-  }
-
-  50% {
-    background-position: 100% 0%;
-  }
-
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-/* ========== TOP ========== */
-.top {
-  height: 330px;
-
-  &__inner {
-    height: 100%;
-    padding-top: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @include respond-to(980px) {
-      padding-top: 85px;
-    }
-  }
-
-  &__title {
-    margin-right: 25px;
-    font-weight: 900;
-    font-size: 43px;
-    line-height: 53px;
-
-    @include respond-to(980px) {
-      min-width: 95px;
-      margin-right: 10px;
-      font-size: 24px;
-      line-height: 29px;
-    }
-  }
-
-  &__suptitle {
-    max-width: 580px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-
-    @include respond-to(980px) {
-      font-size: 18px;
-      line-height: 22px;
-    }
-  }
-}
 
 /* ========== MENU ========== */
 .menu {

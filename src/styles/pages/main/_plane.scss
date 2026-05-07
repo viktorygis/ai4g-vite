@@ -1,5 +1,7 @@
 @use '../../base/variables' as *;
 @use '../../base/mixins' as *;
+@use '../../base/animations' as *;
+
 
 // ==============================
 // PLANE
@@ -320,56 +322,5 @@
       height: 221px;
       margin-top: 5px;
     }
-  }
-}
-
-@keyframes plane1 {
-  0% {
-    transform: translateX(-50px);
-  }
-
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes plane2 {
-  0% {
-    transform: translateX(-107px);
-    opacity: 0;
-  }
-
-  10% {
-    transform: translateX(-97px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(-1px);
-    opacity: 1;
-  }
-}
-
-@keyframes plane3 {
-  0% {
-    transform: translateX(-101px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(-1px);
-    opacity: 1;
-  }
-}
-
-@keyframes plane4 {
-  0% {
-    transform: translateX(-101px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(-6px);
-    opacity: 1;
   }
 }
