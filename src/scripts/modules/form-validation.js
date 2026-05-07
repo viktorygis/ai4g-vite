@@ -51,20 +51,35 @@ export function formValidation() {
       const xhr = new XMLHttpRequest();
 
       xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          if (window.$ && $.fancybox) {
-            $.fancybox.close("fancybox-content");
-            $.fancybox.open({ src: "#modal-thanks", type: "inline" });
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            try {
+              const response = JSON.parse(xhr.responseText);
+              if (response.status === 'ok') {
+                if (window.$ && $.fancybox) {
+                  $.fancybox.close("fancybox-content");
+                  $.fancybox.open({ src: "#modal-thanks", type: "inline" });
+                } else {
+                  const thanks = document.getElementById("modal-thanks");
+                  if (thanks) thanks.style.display = "block";
+                }
+                if (typeof grecaptcha !== "undefined") grecaptcha.reset();
+                event.target.reset();
+              } else {
+                console.error("Ошибка отправки формы:", response);
+                alert("Произошла ошибка при отправке. Попробуйте позже.");
+              }
+            } catch (e) {
+              console.error("Ошибка парсинга ответа:", e);
+              alert("Произошла ошибка при отправке. Попробуйте позже.");
+            }
           } else {
-            const thanks = document.getElementById("modal-thanks");
-            if (thanks) thanks.style.display = "block";
+            alert("Ошибка сети. Попробуйте позже.");
           }
-          if (typeof grecaptcha !== "undefined") grecaptcha.reset();
-          event.target.reset();
         }
       };
 
-      xhr.open("POST", "mail.php", true);
+      xhr.open("POST", "/php/mail.php", true);
       xhr.send(formData);
     });
 }
