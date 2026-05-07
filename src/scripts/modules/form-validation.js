@@ -96,7 +96,7 @@ export function formValidation() {
     });
 
   if (window.$) {
-    $(document).on('afterLoad.fb', function () {
+    $(document).off('afterLoad.fb.modalRequest').on('afterLoad.fb.modalRequest', function () {
       const form = document.querySelector(".modal-request__form");
       if (form && !form.dataset.utmAdded) {
         appendUtmFields(form);
@@ -113,6 +113,7 @@ export function formValidation() {
 function appendUtmFields(form) {
   const params = new URLSearchParams(window.location.search);
   ['bc', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term'].forEach((key) => {
+    if (form.querySelector(`input[name="${key}"]`)) return;
     const input = document.createElement('input');
     input.type = 'hidden';
     input.name = key;
