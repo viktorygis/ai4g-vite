@@ -1,6 +1,8 @@
 import { initAnimations } from '../modules/init-animations.js';
 import { offset, isValidEmail } from '../modules/utils.js';
 import { scrollUp } from '../modules/scroll-up.js';
+import { formValidation } from '../modules/form-validation.js';
+import { btnValidation } from '../modules/btn-validation.js';
 
 document.addEventListener("DOMContentLoaded", function () {
   function animateSolution(containerSelector, itemSelector, initialDelay, itemDelay, threshold) {
@@ -74,89 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /* Анимация ------------------------------------------*/
 initAnimations();
 /*  ------------------------------------------*/
-
-// Валидация формы записи в продуктах (аналогична formValidation)
-function formValidation() {
-  const validation = new JustValidate(".modal-request__form");
-
-  // Маска для телефона
-  const inputMask = new Inputmask("+7 (999) 999-99-99");
-  const telSelector = document.querySelector(".modal-request__phone");
-  inputMask.mask(telSelector);
-
-  validation
-    .addField(".modal-request__name", [
-      {
-        rule: "minLength",
-        value: 2,
-      },
-      {
-        rule: "maxLength",
-        value: 50,
-      },
-      {
-        rule: "required",
-        value: true,
-        errorMessage: "Введите имя",
-      },
-    ])
-    .addField(".modal-request__phone", [
-      {
-        rule: "required",
-        value: true,
-        errorMessage: "Введите телефон",
-      },
-    ])
-    .addField(".modal-request__email", [
-      {
-        rule: "required",
-        value: true,
-        errorMessage: "Введите электронную почту",
-      },
-      {
-        rule: "email",
-        value: true,
-        errorMessage: "Введите корректную электронную почту",
-      },
-    ])
-    .onSuccess((event) => {
-      let formData = new FormData(event.target);
-      let xhr = new XMLHttpRequest();
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-        }
-        $.fancybox.close("fancybox-content");
-        $.fancybox.open({
-          src: "#modal-thanks",
-          type: "inline",
-        });
-      };
-
-      xhr.open("POST", "mail.php", true);
-      xhr.send(formData);
-      event.target.reset();
-    });
-}
-
-function btnValidation() {
-  const btn = document.querySelector(".modal-request__btn");
-  const inputName = document.querySelector(".modal-request__name");
-  const inputPhone = document.querySelector(".modal-request__phone");
-  const inputEmail = document.querySelector(".modal-request__email");
-
-  inputName.addEventListener("input", checkLength);
-  inputPhone.addEventListener("input", checkLength);
-  inputEmail.addEventListener("input", checkLength);
-
-  function checkLength() {
-    if (inputName.value.length > 1 && inputPhone.value.length > 1 && inputEmail.value.length > 1 && isValidEmail(inputEmail.value)) {
-      btn.classList.add("active");
-    } else {
-      btn.classList.remove("active");
-    }
-  }
-}
 
 formValidation();
 btnValidation();

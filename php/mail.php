@@ -23,6 +23,12 @@ if (!$responseData || empty($responseData->success)) {
 }
 // ============== /RECAPTCHA VALIDATION ==============
 
+// Honeypot: если скрытое поле заполнено — это бот
+if (!empty($_POST['hidden_field'])) {
+  http_response_code(403);
+  echo json_encode(['status' => 'error', 'message' => 'Bot detected']);
+  exit;
+}
 
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
@@ -195,13 +201,6 @@ if ($clientEmail !== '') {
 
 //Итоговый ответ в формате JSON
 header('Content-Type: application/json; charset=utf-8');
-
-// Проверка на бота (если скрытое поле заполнено, то это бот и не нужно отправлять письма)
-if (!empty($_POST['hidden_field'])) {
-  http_response_code(403);
-  echo json_encode(['status' => 'error', 'message' => 'Bot detected']);
-  exit;
-}
 
 //Итоговый ответ
 if (($result['ok'] ?? false) && ($clientSendResult['ok'] ?? true)) {
