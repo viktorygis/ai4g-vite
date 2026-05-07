@@ -108,56 +108,10 @@
       </section>
     </main>
     @@include('partials/footer.html', {})
-  @@include('partials/js.html', {})
-
-
+    @@include('partials/js.html', {})
     @@include('partials/popup.html', {})
+    @@include('partials/payment-form.html', {})
 
-    <!-- Форма оплаты на сессию -->
-    <div class="payment" id="payment">
-      <h3 class="payment__title">Оплата коуч-сессии</h3>
-      <form class="payment__form" action="https://ai4g.server.paykeeper.ru/create/" enctype="multipart/form-data" method="POST" id="payment-form">
-        <input type="hidden" id="sum" name="sum" value="15000" readonly />
-        <input type="hidden" name="orderid" id="orderid" />
-        <input type="hidden" name="service_name" value="Коуч-сессия" />
-
-        <!--Имя  -->
-        <input class="payment__name" data-validate-field="name" name="clientid" type="text" placeholder="Имя и Фамилия" required />
-
-        <!-- Телефон -->
-        <input class="payment__phone" data-validate-field="tel" name="client_phone" type="tel" placeholder="Телефон" required />
-
-        <!-- email-->
-        <input class="payment__phone payment__email" data-validate-field="email" name="client_email" type="email" placeholder="Электронная почта" required />
-
-        <div class="payment__choice">
-          <div class="payment__left">Предпочтительный способ связи:</div>
-          <div class="payment__right">
-            <label class="payment__label"><input class="payment__radio" type="radio" id="contactChoice1" name="contact" value="Телефон" checked /><span>Телефон</span></label>
-            <label class="payment__label"><input class="payment__radio" type="radio" id="contactChoice2" name="contact" value="WhatsApp" /><span>WhatsApp</span></label>
-            <label class="payment__label"><input class="payment__radio" type="radio" id="contactChoice3" name="contact" value="Telegram" /><span>Telegram</span></label>
-          </div>
-        </div>
-        <button class="payment__btn" type="submit" onclick="generateOrderId()">Оплатить</button>
-      </form>
-      <div class="payment__agree">
-        Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-        <a href="https://ai4g.ru/oferta.html" target="_blank">
-          <span>условиями договора-оферты</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- popup об успешной оплате -->
-    <div class="modal-thanks" id="successful-payment">
-      <div class="modal-thanks__logo">
-        <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
-      </div>
-      <h3 class="modal-thanks__title">Вы&nbsp;успешно оплатили &nbsp;коучинговую сессию.</h3>
-      <div class="modal-thanks__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами указанным способом</div>
-    </div>
   </div>
-
 </body>
-
 </html>
