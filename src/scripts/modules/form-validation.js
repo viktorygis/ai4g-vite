@@ -110,8 +110,10 @@ export function formValidation() {
         }
       };
     }
-    $(document).off('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
-    $(document).on('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
+    if (!window.ai4gFormHandlers.afterLoadBound) {
+      $(document).on('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
+      window.ai4gFormHandlers.afterLoadBound = true;
+    }
   }
 }
 
