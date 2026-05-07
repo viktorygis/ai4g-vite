@@ -112,15 +112,24 @@
 }
 
 
-.swiper-arrows {
+.desktop-arrow {
+  display: block;
+}
+
+.mobile-arrow {
   display: none;
 }
 
 @media (max-width: 600px) {
+  .desktop-arrow {
+    display: none;
+  }
+
+  .mobile-arrow {
+    display: block;
+  }
+
   .swiper-arrows {
     display: flex;
-    justify-content: center;
-    bottom: 0;
-    position: absolute;
   }
 }

@@ -491,11 +491,13 @@
               </div>
             </div>
           </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <!-- Десктопные стрелки -->
+          <div class="swiper-button-prev desktop-arrow"></div>
+          <div class="swiper-button-next desktop-arrow"></div>
+          <!-- Мобильный блок, видимый только на мобильных -->
           <div class="swiper-arrows">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev mobile-arrow"></div>
+            <div class="swiper-button-next mobile-arrow"></div>
           </div>
         </div>
       </div>
@@ -695,12 +697,9 @@
       </div>
     </div>
   </main>
-
-  @@include('partials/footer.html', {})
   @@include('partials/popup.html', {})
-
-
-
+  @@include('partials/footer.html', {})
+  @@include('partials/js.html', {})
 </body>
 
 </html>

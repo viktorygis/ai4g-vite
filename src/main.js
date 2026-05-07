@@ -23,8 +23,24 @@ if (document.querySelector(".swiper")) {
     slidesPerView: 1,
     allowTouchMove: false,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".desktop-arrow",
+      prevEl: ".desktop-arrow",
+    },
+    breakpoints: {
+      // от 0 и шире
+      0: {
+        navigation: {
+          nextEl: ".mobile-arrow",
+          prevEl: ".mobile-arrow",
+        },
+      },
+      // от 601 и шире
+      601: {
+        navigation: {
+          nextEl: ".desktop-arrow",
+          prevEl: ".desktop-arrow",
+        },
+      },
     },
   });
 
