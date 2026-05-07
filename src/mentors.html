@@ -117,71 +117,7 @@
 
 
 
-  <!-- Форма записи на сессию -->
-  <div class="modal-request" id="modal-request">
-    <h3 class="modal-request__title">Запись на&nbsp;serf-сессию</h3>
-    <form class="modal-request__form" action="mail.php" enctype="multipart/form-data" method="POST">
-      <div class="modal-request__item">
-        <input class="modal-request__name" data-validate-field="name" name="Имя" type="text" placeholder="Представьтесь, пожалуйста" />
-      </div>
-      <div class="modal-request__item">
-        <input class="modal-request__phone" data-validate-field="tel" name="Телефон" type="tel" placeholder="Телефон" />
-      </div>
-      <div class="modal-request__item">
-        <input class="modal-request__phone modal-request__email" data-validate-field="email" name="email" type="email" placeholder="Электронная почта" />
-      </div>
-      <input type="hidden" name="page_title" value="Запись на serf-сессию со страницы 'Менторы'" />
-      <input type="text" name="hidden_field" style="display: none" />
-
-      <div class="modal-request__choice">
-        <div class="modal-request__left">Предпочтительный способ связи:</div>
-        <div class="modal-request__right">
-          <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Телефон" checked /><span>Телефон</span></label>
-          <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="WhatsApp" /><span>WhatsApp</span></label>
-          <label class="modal-request__label">
-            <input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Telegram" /><span>Telegram</span></label>
-        </div>
-      </div>
-      <!-- reCAPTCHA -->
-      <div class="modal-request__captcha">
-        <div class="g-recaptcha" data-sitekey="6LfKg1osAAAAAM3K2KcCVneFAbBfcsBCwvpBbOhM"></div>
-      </div>
-      <button class="modal-request__btn" type="submit">Записаться</button>
-
-      <script>
-        let params = new URLSearchParams(window.location.search);
-        let bc = params.get("bc"); //код партнера, который был передан в url (?bc=12345)
-        document.writeln("<input type='hidden' name='bc' value='" + bc + "'>");
-        let utm_campaign = params.get("utm_campaign");
-        document.writeln("<input type='hidden' name='utm_campaign' value='" + utm_campaign + "'>");
-        let utm_content = params.get("utm_content");
-        document.writeln("<input type='hidden' name='utm_content' value='" + utm_content + "'>");
-        let utm_medium = params.get("utm_medium");
-        document.writeln("<input type='hidden' name='utm_medium' value='" + utm_medium + "'>");
-        let utm_source = params.get("utm_source");
-        document.writeln("<input type='hidden' name='utm_source' value='" + utm_source + "'>");
-        let utm_term = params.get("utm_term");
-        document.writeln("<input type='hidden' name='utm_term' value='" + utm_term + "'>");
-      </script>
-    </form>
-    <div class="modal-request__agree">
-      Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-      <a href="https://ai4g.ru/oferta.html" target="_blank">
-        <span>условиями договора-оферты</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- popup об успешной записи -->
-  <div class="modal-thanks" id="modal-thanks">
-    <div class="modal-thanks__logo">
-      <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
-    </div>
-    <h3 class="modal-thanks__title">Вы&nbsp;успешно записались на&nbsp;serf-сессию.</h3>
-    <div class="modal-thanks__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами указанным способом</div>
-  </div>
-
-
+  @@include('partials/popup.html', {})
 
 </body>
 

@@ -1,296 +1,58 @@
 
-  <!-- Попап -->
-  <!--     <div class="popup-overlay" id="popup">
-      <div class="popup-overlay__content">
-        <div class="popup-overlay__close" id="popup-close">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
-          </svg>
-        </div>
+<!-- Форма записи на сессию -->
+<div class="modal-request" id="modal-request">
+  <h3 class="modal-request__title">Запись на&nbsp;сессию</h3>
+  <form class="modal-request__form" action="/php/mail.php" enctype="multipart/form-data" method="POST">
+    <div class="modal-request__item">
+      <input class="modal-request__name" data-validate-field="name" name="Имя" type="text" placeholder="Представьтесь, пожалуйста" />
+    </div>
+    <div class="modal-request__item">
+      <input class="modal-request__phone" data-validate-field="tel" name="Телефон" type="tel" placeholder="Телефон" />
+    </div>
+    <div class="modal-request__item">
+      <input class="modal-request__phone modal-request__email" data-validate-field="email" name="email" type="email" placeholder="Электронная почта" />
+    </div>
 
-        <div class="popup-overlay__block">
-          <div class="popup-overlay__title">Дерево Года 2026</div>
-          <div class="popup-overlay__text">Начните 2026 с четким планом, чтобы <strong>достичь своих целей</strong>!</div>
+    <input type="hidden" name="page_title" value="" />
+    <input type="text" name="hidden_field" style="display: none" />
 
-          <ul class="popup-overlay__list">
-            <li>Определите 12 главных желаний на год.</li>
-            <li>Создайте пошаговый план, ведущий к успеху.</li>
-            <li>Достигните результата уже в первые месяцы!</li>
-          </ul>
-
-          <div class="popup-overlay__text">✨ Вдохновляйтесь, выстраивайте стратегию и воплощайте мечты.</div>
-          <div class="popup-overlay__text">💡 Начать легко — сделайте первый шаг прямо сейчас!</div>
-
-          <a href="personal-strategy.html" class="popup-overlay__button">Узнать больше</a>
-        </div>
+    <div class="modal-request__choice">
+      <div class="modal-request__left">Предпочтительный способ связи:</div>
+      <div class="modal-request__right">
+        <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Телефон" checked /><span>Телефон</span></label>
+        <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="WhatsApp" /><span>WhatsApp</span></label>
+        <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Telegram" /><span>Telegram</span></label>
       </div>
     </div>
 
-    <script>
-      // Показываем попап через 2 секунды после загрузки страницы
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          document.getElementById("popup").style.display = "flex";
-        }, 200);
-      });
-
-      // Закрываем попап, если нажали на кнопку закрытия
-      document.getElementById("popup-close").addEventListener("click", function () {
-        document.getElementById("popup").style.display = "none";
-      });
-
-      // Закрываем попап, если кликнули вне его
-      document.getElementById("popup").addEventListener("click", function (event) {
-        if (event.target.id === "popup") {
-          document.getElementById("popup").style.display = "none";
-        }
-      });
-    </script>
-
-    <style>
-      /* Стили для затемнения фона */
-      .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-
-      .popup-overlay__block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .popup-overlay__content {
-        position: relative;
-        background: #fff;
-        padding: 20px;
-        color: #150931;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        width: 610px;
-        padding: 60px;
-        border-radius: 20px;
-      }
-
-      .popup-overlay__title {
-        font-size: 37px;
-        font-weight: 700;
-        margin: 0px 0px 20px 0px;
-        line-height: 150%;
-      }
-
-      .popup-overlay__text {
-        font-size: 22px;
-        margin: 0px 0px 20px 0px;
-        line-height: 150%;
-      }
-
-      .popup-overlay__button {
-        width: 490px;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #06ea6f;
-        color: #150931;
-        border-radius: 37px;
-        font-weight: 800;
-        font-size: 30px;
-        line-height: 37px;
-        text-transform: uppercase;
-        border: none;
-        transition: all 0.3s ease 0s;
-        margin: 20px 0px 0px 0px;
-      }
-
-      .popup-overlay__button:hover {
-        background: #ff018a;
-      }
-
-      .popup-overlay__close {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        /* Анимация при наведении */
-      }
-
-      .popup-overlay__close svg {
-        width: 100%;
-        height: 100%;
-        fill: #444;
-        /* Цвет иконки */
-        transition: fill 0.3s ease;
-        /* Плавное изменение цвета */
-      }
-
-      .popup-overlay__close:hover {
-        transform: scale(1.1);
-        /* Увеличение кнопки при наведении */
-        opacity: 0.8;
-      }
-
-      .popup-overlay__close:hover svg {
-        fill: #ff018a;
-        /* Изменение цвета иконки при наведении */
-      }
-
-      .popup-overlay__list {
-        margin: 0px 0px 20px 0px;
-      }
-
-      .popup-overlay__list li {
-        position: relative;
-        margin: 0px 0px 10px 0px;
-        font-size: 18px;
-        line-height: 140%;
-        padding: 0px 0px 0px 20px;
-        text-align: left;
-      }
-
-      .popup-overlay__list li::before {
-        position: absolute;
-        content: "";
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        left: 0;
-        top: 7px;
-        background-color: #150931;
-        border-radius: 50%;
-      }
-
-      @media (max-width: 650px) {
-        .popup-overlay__content {
-          width: 98%;
-          padding: 30px;
-        }
-
-        .popup-overlay__title {
-          font-size: 24px;
-        }
-
-        .popup-overlay__text {
-          font-size: 18px;
-        }
-
-        .popup-overlay__button {
-          width: 260px;
-          font-size: 18px;
-          line-height: 22px;
-          height: 60px;
-        }
-
-        .popup-overlay__list li {
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 400px) {
-        .popup-overlay__content {
-          padding: 30px 15px;
-        }
-      }
-    </style> -->
-
-  <!-- Форма записи на сессию -->
-  <div class="modal-request" id="modal-request">
-    <!-- Заголовок -->
-    <h3 class="modal-request__title">Запись на&nbsp;serf-сессию</h3>
-
-    <!-- Форма -->
-    <form class="modal-request__form" action="mail.php" enctype="multipart/form-data" method="POST">
-
-      <!-- Имя -->
-      <div class="modal-request__item">
-        <input class="modal-request__name" data-validate-field="name" name="Имя" type="text" placeholder="Представьтесь, пожалуйста" />
+    <div class="modal-request__captcha">
+      <div class="g-recaptcha" data-sitekey="6LfKg1osAAAAAM3K2KcCVneFAbBfcsBCwvpBbOhM"></div>
+      <div id="recaptchaError" style="display:none; color:#e24343; font-size:14px; margin-top:8px;">
+        Пожалуйста, подтвердите, что вы не робот
       </div>
-
-      <!-- Телефон -->
-      <div class="modal-request__item">
-        <input class="modal-request__phone" data-validate-field="tel" name="Телефон" type="tel" placeholder="Телефон" />
-      </div>
-
-      <!-- Email -->
-      <div class="modal-request__item">
-        <input class="modal-request__phone modal-request__email" data-validate-field="email" name="email" type="email" placeholder="Электронная почта" />
-      </div>
-
-      <!-- Скрытое поле для страницы -->
-      <input type="hidden" name="page_title" value="Запись на serf-сессию с главной страницы" />
-
-      <!-- Скрытое поле для ботов -->
-      <input type="text" name="hidden_field" style="display: none" />
-
-      <!--  Выбор способа связи -->
-      <div class="modal-request__choice">
-        <div class="modal-request__left">Предпочтительный способ связи:</div>
-        <div class="modal-request__right">
-          <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Телефон" checked /><span>Телефон</span></label>
-          <label class="modal-request__label"><input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="WhatsApp" /><span>WhatsApp</span></label>
-          <label class="modal-request__label">
-            <input class="modal-request__radio" type="radio" name="Предпочтительный способ связи:" value="Telegram" /><span>Telegram</span></label>
-        </div>
-      </div>
-
-      <!-- reCAPTCHA -->
-      <div class="modal-request__captcha">
-        <div class="g-recaptcha" data-sitekey="6LfKg1osAAAAAM3K2KcCVneFAbBfcsBCwvpBbOhM"></div>
-      </div>
-
-      <!-- Кнопка отправки формы -->
-      <button class="modal-request__btn" type="submit">Записаться</button>
-
-      <script>
-        let params = new URLSearchParams(window.location.search);
-        let bc = params.get("bc"); //код партнера, который был передан в url (?bc=12345)
-        document.writeln("<input type='hidden' name='bc' value='" + bc + "'>");
-        let utm_campaign = params.get("utm_campaign");
-        document.writeln("<input type='hidden' name='utm_campaign' value='" + utm_campaign + "'>");
-        let utm_content = params.get("utm_content");
-        document.writeln("<input type='hidden' name='utm_content' value='" + utm_content + "'>");
-        let utm_medium = params.get("utm_medium");
-        document.writeln("<input type='hidden' name='utm_medium' value='" + utm_medium + "'>");
-        let utm_source = params.get("utm_source");
-        document.writeln("<input type='hidden' name='utm_source' value='" + utm_source + "'>");
-        let utm_term = params.get("utm_term");
-        document.writeln("<input type='hidden' name='utm_term' value='" + utm_term + "'>");
-      </script>
-    </form>
-
-    <!-- Соглашение на обработку персональных данных -->
-    <div class="modal-request__agree">
-      Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-      <a href="https://ai4g.ru/oferta.html" target="_blank">
-        <span>условиями договора-оферты</span>
-      </a>
     </div>
+
+    <button class="modal-request__btn" type="submit">Записаться</button>
+  </form>
+
+  <div class="modal-request__agree">
+    Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
+    <a href="https://ai4g.ru/oferta.html" target="_blank">
+      <span>условиями договора-оферты</span>
+    </a>
   </div>
+</div>
 
-  <!-- popup об успешной записи -->
-  <div class="modal-thanks" id="modal-thanks">
-    <div class="modal-thanks__logo">
-      <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
-    </div>
-    <h3 class="modal-thanks__title">Вы&nbsp;успешно записались на&nbsp;serf-сессию.</h3>
-    <div class="modal-thanks__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами указанным способом</div>
+<!-- popup об успешной записи -->
+<div class="modal-thanks" id="modal-thanks">
+  <div class="modal-thanks__logo">
+    <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
   </div>
+  <h3 class="modal-thanks__title">Вы&nbsp;успешно отправили заявку.</h3>
+  <div class="modal-thanks__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами указанным способом</div>
+</div>
 
-  <!-- Полный отзыв в слайдере -->
+<!-- Полный отзыв в слайдере (только для index.html) -->
   <div class="modal-swiper" id="modal-swiper-1">
     <div class="modal-swiper__name">Татьяна Андреева</div>
     <div class="modal-swiper__text">

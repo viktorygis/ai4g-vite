@@ -5,6 +5,14 @@ export function formValidation() {
   const form = document.querySelector(".modal-request__form");
   if (!form) return;
 
+  const pageTitleField = form.querySelector('[name="page_title"]');
+  if (pageTitleField) {
+    pageTitleField.value = document.title;
+  }
+
+  appendUtmFields(form);
+  form.dataset.utmAdded = 'true';
+
   const telSelector = form.querySelector(".modal-request__phone");
   if (telSelector) {
     const inputMask = new Inputmask("+7 (999) 999-99-99");
@@ -57,7 +65,7 @@ export function formValidation() {
               const response = JSON.parse(xhr.responseText);
               if (response.status === 'ok') {
                 if (window.$ && $.fancybox) {
-                  $.fancybox.close("fancybox-content");
+                  $.fancybox.close();
                   $.fancybox.open({ src: "#modal-thanks", type: "inline" });
                 } else {
                   const thanks = document.getElementById("modal-thanks");
@@ -65,6 +73,10 @@ export function formValidation() {
                 }
                 if (typeof grecaptcha !== "undefined") grecaptcha.reset();
                 event.target.reset();
+                const resetPageTitleField = event.target.querySelector('[name="page_title"]');
+                if (resetPageTitleField) {
+                  resetPageTitleField.value = document.title;
+                }
               } else {
                 console.error("Ошибка отправки формы:", response);
                 alert("Произошла ошибка при отправке. Попробуйте позже.");
@@ -82,4 +94,29 @@ export function formValidation() {
       xhr.open("POST", "/php/mail.php", true);
       xhr.send(formData);
     });
+
+  if (window.$) {
+    $(document).on('afterLoad.fb', function () {
+      const form = document.querySelector(".modal-request__form");
+      if (form && !form.dataset.utmAdded) {
+        appendUtmFields(form);
+        form.dataset.utmAdded = 'true';
+        const pageTitleField = form.querySelector('[name="page_title"]');
+        if (pageTitleField && !pageTitleField.value) {
+          pageTitleField.value = document.title;
+        }
+      }
+    });
+  }
+}
+
+function appendUtmFields(form) {
+  const params = new URLSearchParams(window.location.search);
+  ['bc', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term'].forEach((key) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = params.get(key) || '';
+    form.appendChild(input);
+  });
 }
