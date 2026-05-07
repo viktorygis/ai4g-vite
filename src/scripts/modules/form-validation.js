@@ -95,19 +95,23 @@ export function formValidation() {
       xhr.send(formData);
     });
 
-  if (window.$ && !window.__modalRequestAfterLoadBound) {
-    window.__modalRequestAfterLoadBound = true;
-    $(document).on('afterLoad.fb', function () {
-      const form = document.querySelector(".modal-request__form");
-      if (form && !form.dataset.utmAdded) {
-        appendUtmFields(form);
-        form.dataset.utmAdded = 'true';
-        const pageTitleField = form.querySelector('[name="page_title"]');
-        if (pageTitleField && !pageTitleField.value) {
-          pageTitleField.value = document.title;
+  if (window.$) {
+    window.ai4gFormHandlers = window.ai4gFormHandlers || {};
+    if (!window.ai4gFormHandlers.afterLoadHandler) {
+      window.ai4gFormHandlers.afterLoadHandler = function () {
+        const form = document.querySelector(".modal-request__form");
+        if (form && !form.dataset.utmAdded) {
+          appendUtmFields(form);
+          form.dataset.utmAdded = 'true';
+          const pageTitleField = form.querySelector('[name="page_title"]');
+          if (pageTitleField && !pageTitleField.value) {
+            pageTitleField.value = document.title;
+          }
         }
-      }
-    });
+      };
+    }
+    $(document).off('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
+    $(document).on('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
   }
 }
 
