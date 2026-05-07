@@ -78,24 +78,26 @@
     }
   }
 }
+.swiper-arrows {
+ // position: relative; // если нужно разместить стрелки внутри контейнера
+}
 
-// Кастомные стрелки слайдера
 .swiper-button-prev,
 .swiper-button-next {
-  background-repeat: no-repeat;
+  position: absolute;
   width: 48px;
   height: 53px;
   top: 35%;
-  transition: all 0.3s;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-position: center;
 
-  &::after {
-    display: none;
-  }
+  &::after { display: none; }
 }
 
 .swiper-button-prev {
-  background-image: url("../img/slider-active-left.svg");
   left: 0;
+  background-image: url("../img/slider-active-left.svg");
 
   &.swiper-button-disabled {
     background-image: url("../img/slider-disable-left.svg");
@@ -103,33 +105,15 @@
 }
 
 .swiper-button-next {
-  background-image: url("../img/slider-active-right.svg");
   right: 0;
+  background-image: url("../img/slider-active-right.svg");
 
   &.swiper-button-disabled {
     background-image: url("../img/slider-disable-right.svg");
   }
 }
 
-
-.desktop-arrow {
-  display: block;
-}
-
-.mobile-arrow {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .desktop-arrow {
-    display: none;
-  }
-
-  .mobile-arrow {
-    display: block;
-  }
-
-  .swiper-arrows {
-    display: flex;
-  }
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  display: none !important;
 }

@@ -26,25 +26,10 @@ new Swiper(".swiper", {
   slidesPerView: 1,
   allowTouchMove: false,
   navigation: {
-    nextEl: ".swiper-button-next.desktop-arrow",
-    prevEl: ".swiper-button-prev.desktop-arrow",
-  },
-  breakpoints: {
-    0: {
-      navigation: {
-        nextEl: ".swiper-button-next.mobile-arrow",
-        prevEl: ".swiper-button-prev.mobile-arrow",
-      },
-    },
-    601: {
-      navigation: {
-        nextEl: ".swiper-button-next.desktop-arrow",
-        prevEl: ".swiper-button-prev.desktop-arrow",
-      },
-    },
+ nextEl: ".swiper-arrows .swiper-button-next",
+    prevEl: ".swiper-arrows .swiper-button-prev",
   },
 });
-console.log("Swiper init");
 showMore();
 fairwayAnim();
 mentorsAnim();
