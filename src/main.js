@@ -1,6 +1,9 @@
 import "./styles/main.scss";
-import "swiper/css";
+
 import Swiper from "swiper";
+import "swiper/css";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+Swiper.use([Navigation, Pagination, Autoplay]);
 import Inputmask from "inputmask";
 
 import { showMore } from "./scripts/modules/show-more.js";
@@ -16,40 +19,39 @@ import { scrollUp2 } from "./scripts/modules/scroll-up.js";
 import { initMenu } from "./scripts/modules/menu.js";
 
 // ============== ЛОКАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ Swiper (если нужно) ==========
-if (document.querySelector(".swiper")) {
-  new Swiper(".swiper", {
-    speed: 400,
-    spaceBetween: 50,
-    slidesPerView: 1,
-    allowTouchMove: false,
-    navigation: {
-      nextEl: ".swiper-button-next.desktop-arrow",
-      prevEl: ".swiper-button-prev.desktop-arrow",
-    },
-    breakpoints: {
-      0: {
-        navigation: {
-          nextEl: ".swiper-button-next.mobile-arrow",
-          prevEl: ".swiper-button-prev.mobile-arrow",
-        },
-      },
-      601: {
-        navigation: {
-          nextEl: ".swiper-button-next.desktop-arrow",
-          prevEl: ".swiper-button-prev.desktop-arrow",
-        },
-      },
-    },
-  });
 
-  showMore();
-  fairwayAnim();
-  mentorsAnim();
-  choiceAnim();
-  partnersAnim();
-  cutText();
-  firefoxFix();
-}
+new Swiper(".swiper", {
+  speed: 400,
+  spaceBetween: 50,
+  slidesPerView: 1,
+  allowTouchMove: false,
+  navigation: {
+    nextEl: ".swiper-button-next.desktop-arrow",
+    prevEl: ".swiper-button-prev.desktop-arrow",
+  },
+  breakpoints: {
+    0: {
+      navigation: {
+        nextEl: ".swiper-button-next.mobile-arrow",
+        prevEl: ".swiper-button-prev.mobile-arrow",
+      },
+    },
+    601: {
+      navigation: {
+        nextEl: ".swiper-button-next.desktop-arrow",
+        prevEl: ".swiper-button-prev.desktop-arrow",
+      },
+    },
+  },
+});
+console.log("Swiper init");
+showMore();
+fairwayAnim();
+mentorsAnim();
+choiceAnim();
+partnersAnim();
+cutText();
+firefoxFix();
 
 formValidation();
 btnValidation();
