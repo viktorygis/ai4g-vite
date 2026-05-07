@@ -95,8 +95,9 @@ export function formValidation() {
       xhr.send(formData);
     });
 
-  if (window.$) {
-    $(document).off('afterLoad.fb.modalRequest').on('afterLoad.fb.modalRequest', function () {
+  if (window.$ && !window.__modalRequestAfterLoadBound) {
+    window.__modalRequestAfterLoadBound = true;
+    $(document).on('afterLoad.fb', function () {
       const form = document.querySelector(".modal-request__form");
       if (form && !form.dataset.utmAdded) {
         appendUtmFields(form);
