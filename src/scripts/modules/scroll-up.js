@@ -1,3 +1,5 @@
+//scrollUp - функция для отображения кнопки "scrollUp" при прокрутке страницы вниз и плавного скролла вверх при клике на эту кнопку.
+
 export function scrollUp() {
   const el = document.querySelector(".scrollUp");
   if (!el) return;

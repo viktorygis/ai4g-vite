@@ -23,22 +23,20 @@ if (document.querySelector(".swiper")) {
     slidesPerView: 1,
     allowTouchMove: false,
     navigation: {
-      nextEl: ".desktop-arrow",
-      prevEl: ".desktop-arrow",
+      nextEl: ".swiper-button-next.desktop-arrow",
+      prevEl: ".swiper-button-prev.desktop-arrow",
     },
     breakpoints: {
-      // от 0 и шире
       0: {
         navigation: {
-          nextEl: ".mobile-arrow",
-          prevEl: ".mobile-arrow",
+          nextEl: ".swiper-button-next.mobile-arrow",
+          prevEl: ".swiper-button-prev.mobile-arrow",
         },
       },
-      // от 601 и шире
       601: {
         navigation: {
-          nextEl: ".desktop-arrow",
-          prevEl: ".desktop-arrow",
+          nextEl: ".swiper-button-next.desktop-arrow",
+          prevEl: ".swiper-button-prev.desktop-arrow",
         },
       },
     },
