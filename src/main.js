@@ -1,5 +1,5 @@
 import "./styles/main.scss";
-
+import "swiper/css";
 import Swiper from "swiper";
 import Inputmask from "inputmask";
 

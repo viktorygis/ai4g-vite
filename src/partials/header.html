@@ -19,21 +19,29 @@
 
       <div class="header__right">
         <div class="header__menu menu">
-          <button
-            type="button"
-            class="icon-menu"
-            aria-label="Открыть меню"
-            aria-expanded="false"
-            aria-controls="main-menu"
-          >
+          <button type="button" class="icon-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
             <span></span>
           </button>
 
           <nav class="menu__body" id="main-menu" aria-label="Основная навигация">
             <ul class="menu__list">
-              <li class="menu__item"><a href="/" class="menu__link">Главная</a></li>
+
+              <!-- Услуги -->
               <li class="menu__item"><a href="/services.html" class="menu__link">Услуги</a></li>
 
+              <!-- Тесты -->
+              <li class="menu__item menu__item--dropdown">
+                <a href="#" class="menu__link menu__link--dropdown" aria-haspopup="true" aria-expanded="false">
+                  Тесты
+                  <img src="img/arrow.svg" class="menu__arrow" alt="" width="16" height="16" />
+                </a>
+                <ul class="submenu" aria-hidden="true" hidden>
+                  <li class="submenu__item"><a href="/pattern-test" class="submenu__link">Тест паттернов</a></li>
+                  <li class="submenu__item"><a href="/mbi-test/" class="submenu__link">Тест на выгорание</a></li>
+                </ul>
+              </li>
+
+              <!-- Продукты -->
               <li class="menu__item menu__item--dropdown">
                 <a href="#" class="menu__link menu__link--dropdown" aria-haspopup="true" aria-expanded="false">
                   Продукты
@@ -45,13 +53,14 @@
                   <li class="submenu__item"><a href="/career-advice.html" class="submenu__link">Карьерная консультация</a></li>
                   <li class="submenu__item"><a href="/serf-session.html" class="submenu__link">Serf-сессия</a></li>
                   <li class="submenu__item"><a href="/allegro.html" class="submenu__link">Транскрибатор «Аллегро»</a></li>
-                  <li class="submenu__item"><a href="/pattern-test.html" class="submenu__link">Тест паттернов</a></li>
                   <li class="submenu__item"><a href="/personal-strategy.html" class="submenu__link">Персональная стратегия</a></li>
                 </ul>
               </li>
 
+              <!-- Наставники -->
               <li class="menu__item"><a href="/mentors.html" class="menu__link">Наставники</a></li>
 
+              <!-- Справочная -->
               <li class="menu__item menu__item--dropdown">
                 <a href="#" class="menu__link menu__link--dropdown" aria-haspopup="true" aria-expanded="false">
                   Справочная
@@ -64,6 +73,7 @@
                 </ul>
               </li>
 
+              <!-- Клиенту -->
               <li class="menu__item menu__item--dropdown">
                 <a href="#" class="menu__link menu__link--dropdown" aria-haspopup="true" aria-expanded="false">
                   Клиенту
