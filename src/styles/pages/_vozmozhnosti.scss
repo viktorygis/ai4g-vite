@@ -1,17 +1,19 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use '../base/animations' as *;
 
-// ==============================
+// ================
 // ОБЩИЕ КЛАССЫ
-// ==============================
+// ================
 .title {
-  color: $color-bg; // #150931
+  color: $color-bg;
   text-align: center;
   font-weight: 700;
   font-size: 30px;
   margin: 0 0 15px 0;
   line-height: 40px;
 
-  @media (max-width: 768px) {
+  @include respond-to(768px) {
     font-size: 24px;
     line-height: 130%;
   }
@@ -20,28 +22,27 @@
 .subtitle {
   font-size: 23px;
   font-weight: 600;
-  color: $color-link; // #0386ff
+  color: $color-link;
   text-align: center;
   line-height: 130%;
 
-  @media (max-width: 768px) {
+  @include respond-to(768px) {
     font-size: 20px;
   }
 }
 
-// ==============================
+// ====================
 // СТРАНИЦА ВОЗМОЖНОСТЕЙ
-// ==============================
+// ====================
 body.page-vozmozhnosti {
-  background: $color-text; // #fff
+  background: $color-text;
 }
 
-// ---------------------------------------------------
 .vozmozhnosti {
   padding: 50px 0;
   margin: 90px 0 0 0;
 
-  @media (max-width: 980px) {
+  @include respond-to(980px) {
     padding: 30px 0;
     margin: 80px 0 0 0;
   }
@@ -49,7 +50,7 @@ body.page-vozmozhnosti {
   &__container {
     max-width: 1000px;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       padding: 0 15px;
     }
   }
@@ -65,15 +66,15 @@ body.page-vozmozhnosti {
       text-align: left;
       font-weight: 400;
       line-height: 150%;
-      padding: 0 0 0 10px;
-      border-left: 2px solid $color-link-hover; // #93cbff
+      padding-left: 10px;
+      border-left: 2px solid $color-link-hover;
 
-      @media (max-width: 768px) {
+      @include respond-to(768px) {
         font-size: 16px;
       }
     }
 
-    @media (max-width: 480px) {
+    @include respond-to(480px) {
       gap: 5px;
     }
   }
@@ -84,7 +85,7 @@ body.page-vozmozhnosti {
     line-height: 1.6;
 
     p {
-      @media (max-width: 480px) {
+      @include respond-to(480px) {
         font-size: 14px;
       }
     }
@@ -102,7 +103,7 @@ body.page-vozmozhnosti {
       font-weight: 600;
       font-size: 18px;
 
-      @media (max-width: 480px) {
+      @include respond-to(480px) {
         font-size: 16px;
       }
     }
@@ -115,10 +116,9 @@ body.page-vozmozhnosti {
     }
 
     &:hover p {
-      color: $color-bg; // #150931
+      color: $color-bg;
     }
 
-    // Активное состояние (раскрытый блок)
     &.active .vozmozhnosti__bottom {
       animation: expand 0.8s ease forwards;
       display: block;
@@ -129,7 +129,6 @@ body.page-vozmozhnosti {
       animation: collapse 0.8s ease forwards;
     }
 
-    // Цветовые темы категорий
     &_01 {
 
       .subtitle,
@@ -241,7 +240,7 @@ body.page-vozmozhnosti {
     }
 
     svg {
-      fill: $color-link; // #0386ff
+      fill: $color-link;
     }
   }
 
@@ -253,7 +252,7 @@ body.page-vozmozhnosti {
 
     span {
       font-size: 14px;
-      color: $color-bg; // #150931
+      color: $color-bg;
       text-align: center;
       font-weight: 400;
       line-height: 150%;
@@ -273,7 +272,7 @@ body.page-vozmozhnosti {
       margin-bottom: 100px;
     }
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
 
@@ -282,7 +281,7 @@ body.page-vozmozhnosti {
       }
     }
 
-    @media (max-width: 500px) {
+    @include respond-to(500px) {
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -294,7 +293,7 @@ body.page-vozmozhnosti {
   }
 
   &__item {
-    background-color: #ffffff;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -318,22 +317,21 @@ body.page-vozmozhnosti {
   }
 
   &__text {
-    background-color: #ffffff;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 0 0 20px 20px;
-    border: 1px solid $color-accent; // #ff008a
+    border: 1px solid $color-accent;
     border-top: none;
     height: 100%;
     width: 100%;
     padding: 15px;
-    // border-top: none !important; (уже задано)
   }
 
   &__name {
     font-weight: 600;
-    color: $color-accent; // #ff008a
+    color: $color-accent;
     margin-bottom: 5px;
     font-size: 18px;
     line-height: 130%;
@@ -351,12 +349,11 @@ body.page-vozmozhnosti {
     position: relative;
     top: -180px;
 
-    @media (max-width: 768px) {
+    @include respond-to(768px) {
       top: -100px;
     }
   }
 
-  // Верхняя категория (аккордеон)
   &__top-category {
     background: #fff;
     display: flex;
@@ -387,7 +384,6 @@ body.page-vozmozhnosti {
     flex-direction: column;
   }
 
-  // Знак переключения
   .toggle-sign {
     color: #60a5fa;
 
@@ -406,7 +402,6 @@ body.page-vozmozhnosti {
     content: "-";
   }
 
-  // Раскрывающийся блок
   &__bottom {
     height: 0;
     opacity: 0;
@@ -415,36 +410,5 @@ body.page-vozmozhnosti {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-}
-
-// ==============================
-// АНИМАЦИИ
-// ==============================
-@keyframes expand {
-  from {
-    height: 0;
-    opacity: 0;
-    padding: 0 20px;
-  }
-
-  to {
-    height: auto;
-    opacity: 1;
-    padding: 20px;
-  }
-}
-
-@keyframes collapse {
-  from {
-    height: auto;
-    opacity: 1;
-    padding: 20px;
-  }
-
-  to {
-    height: 0;
-    opacity: 0;
-    padding: 0 20px;
   }
 }

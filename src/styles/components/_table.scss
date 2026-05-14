@@ -1,4 +1,6 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
+
 .table {
   margin: 20px 0 50px 0;
   width: 100%;
