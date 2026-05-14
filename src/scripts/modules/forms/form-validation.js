@@ -1,7 +1,7 @@
 // form-validation.js - Валидация формы в модальном окне, маска для телефона, отправка данных через AJAX и отображение сообщений об ошибках и успехе
 
-import Inputmask from 'inputmask';
-import JustValidate from 'just-validate';
+import Inputmask from "inputmask";
+import JustValidate from "just-validate";
 
 export function formValidation() {
   const form = document.querySelector(".modal-request__form");
@@ -13,7 +13,7 @@ export function formValidation() {
   }
 
   appendUtmFields(form);
-  form.dataset.utmAdded = 'true';
+  form.dataset.utmAdded = "true";
 
   const telSelector = form.querySelector(".modal-request__phone");
   if (telSelector) {
@@ -32,9 +32,7 @@ export function formValidation() {
       { rule: "maxLength", value: 50 },
       { rule: "required", value: true, errorMessage: "Введите имя" },
     ])
-    .addField(".modal-request__phone", [
-      { rule: "required", value: true, errorMessage: "Введите телефон" },
-    ])
+    .addField(".modal-request__phone", [{ rule: "required", value: true, errorMessage: "Введите телефон" }])
     .addField(".modal-request__email", [
       { rule: "required", value: true, errorMessage: "Введите электронную почту" },
       { rule: "email", value: true, errorMessage: "Введите корректную электронную почту" },
@@ -65,7 +63,7 @@ export function formValidation() {
           if (xhr.status === 200) {
             try {
               const response = JSON.parse(xhr.responseText);
-              if (response.status === 'ok') {
+              if (response.status === "ok") {
                 if (window.$ && $.fancybox) {
                   $.fancybox.close();
                   $.fancybox.open({ src: "#modal-thanks", type: "inline" });
@@ -99,21 +97,78 @@ export function formValidation() {
 
   if (window.$) {
     window.ai4gFormHandlers = window.ai4gFormHandlers || {};
-    if (!window.ai4gFormHandlers.afterLoadHandler) {
-      window.ai4gFormHandlers.afterLoadHandler = function () {
-        const form = document.querySelector(".modal-request__form");
-        if (form && !form.dataset.utmAdded) {
-          appendUtmFields(form);
-          form.dataset.utmAdded = 'true';
-          const pageTitleField = form.querySelector('[name="page_title"]');
-          if (pageTitleField && !pageTitleField.value) {
-            pageTitleField.value = document.title;
-          }
+
+  if (!window.ai4gFormHandlers.afterLoadHandler) {
+
+  window.ai4gFormHandlers.afterLoadHandler =
+    function (instance, slide) {
+
+      // =========================
+      // UTM
+      // =========================
+
+      const form = document.querySelector(
+        ".modal-request__form"
+      );
+
+      if (form && !form.dataset.utmAdded) {
+
+        appendUtmFields(form);
+
+        form.dataset.utmAdded = "true";
+
+        const pageTitleField =
+          form.querySelector(
+            '[name="page_title"]'
+          );
+
+        if (
+          pageTitleField &&
+          !pageTitleField.value
+        ) {
+          pageTitleField.value =
+            document.title;
         }
-      };
-    }
+      }
+
+      // =========================
+      // DYNAMIC MODAL TITLE
+      // =========================
+
+      let trigger = null;
+
+      if (
+        instance &&
+        instance.$trigger &&
+        instance.$trigger.length
+      ) {
+        trigger = instance.$trigger[0];
+      }
+
+      if (!trigger) return;
+
+      const modalTitle =
+        trigger.dataset.modalTitle;
+
+      if (!modalTitle) return;
+
+      // ВАЖНО:
+      // Ищем title внутри fancybox slide
+
+      const titleEl =
+        instance.$slide.find(
+          ".modal-request__title"
+        );
+
+      if (titleEl.length) {
+
+        titleEl.html(modalTitle);
+      }
+    };
+}
+
     if (!window.ai4gFormHandlers.afterLoadBound) {
-      $(document).on('afterLoad.fb', window.ai4gFormHandlers.afterLoadHandler);
+      $(document).on("afterLoad.fb", window.ai4gFormHandlers.afterLoadHandler);
       window.ai4gFormHandlers.afterLoadBound = true;
     }
   }
@@ -121,12 +176,12 @@ export function formValidation() {
 
 function appendUtmFields(form) {
   const params = new URLSearchParams(window.location.search);
-  ['bc', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term'].forEach((key) => {
+  ["bc", "utm_campaign", "utm_content", "utm_medium", "utm_source", "utm_term"].forEach((key) => {
     if (form.querySelector(`input[name="${key}"]`)) return;
-    const input = document.createElement('input');
-    input.type = 'hidden';
+    const input = document.createElement("input");
+    input.type = "hidden";
     input.name = key;
-    input.value = params.get(key) || '';
+    input.value = params.get(key) || "";
     form.appendChild(input);
   });
 }
