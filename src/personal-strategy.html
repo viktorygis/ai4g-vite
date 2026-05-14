@@ -47,7 +47,7 @@
               </div>
               <div class="offer__bottom">
                 <!-- ссылка на модальное окно записи на сессию -->
-                <a href="#modal-request" class="offer__btn btn _anim-items _anim-no-hide" data-fancybox> записаться </a>
+                <a href="#modal-request" class="offer__btn btn _anim-items _anim-no-hide" data-fancybox data-modal-title="Запись на он-лайн встречу"> записаться </a>
                 <div class="offer__clarification _anim-items _anim-no-hide">Запись на он-лайн встречу</div>
               </div>
             </div>
@@ -344,8 +344,11 @@
             <div class="call-quote__text _anim-items _anim-no-hide">🔥 Пока другие гадают, чего хотят в новом году, вы уже начнете путь к своей мечте.</div>
             <div class="call-quote__text _anim-items _anim-no-hide"><span>👉 Запишитесь на стартовую встречу и сделайте первый шаг к успеху!</span></div>
             <div class="call-quote__bottom">
-              <a href="#modal-request" class="call-quote__btn btn btn_request _anim-items _anim-no-hide" data-fancybox> Записаться </a>
-              <a href="#payment" class="call-quote__btn btn btn_payment _anim-items _anim-no-hide" data-fancybox>Оплатить</a>
+              <a href="#modal-request" class="call-quote__btn btn btn_request _anim-items _anim-no-hide" data-fancybox data-modal-title="Запись на он-лайн встречу"> Записаться </a>
+
+              <a href="#payment" class="call-quote__btn btn btn_payment _anim-items _anim-no-hide" data-fancybox data-modal-title="Оплата коуч-сессии" data-sum="4500" data-service="Коуч-сессия">
+                Оплатить
+              </a>
             </div>
           </div>
         </div>
@@ -354,10 +357,11 @@
     @@include('partials/footer.html', {})
     @@include('partials/js.html', {})
     @@include('partials/popup.html', {})
-        @@include('partials/payment-form.html', {})
+    @@include('partials/payment-form.html', {})
 
     <script type="module" src="/scripts/js/products.js"></script>
 
   </div>
 </body>
+
 </html>

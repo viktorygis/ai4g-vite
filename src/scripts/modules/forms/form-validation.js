@@ -1,8 +1,97 @@
-// form-validation.js - Валидация формы в модальном окне, маска для телефона, отправка данных через AJAX и отображение сообщений об ошибках и успехе
+// form-validation.js - Валидация формы, маска телефона, отправка AJAX, динамический заголовок
 
 import Inputmask from "inputmask";
 import JustValidate from "just-validate";
 
+// ============ ГЛОБАЛЬНАЯ ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ПОСЛЕДНЕГО ТРИГГЕРА ============
+let lastModalTrigger = null;
+
+// ============ ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ============
+
+function appendUtmFields(form) {
+  const params = new URLSearchParams(window.location.search);
+  ["bc", "utm_campaign", "utm_content", "utm_medium", "utm_source", "utm_term"].forEach((key) => {
+    if (form.querySelector(`input[name="${key}"]`)) return;
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = params.get(key) || "";
+    form.appendChild(input);
+  });
+}
+
+function updateModalContent() {
+  // UTM
+  const form = document.querySelector(".modal-request__form");
+  if (form && !form.dataset.utmAdded) {
+    appendUtmFields(form);
+    form.dataset.utmAdded = "true";
+    const pageTitleField = form.querySelector('[name="page_title"]');
+    if (pageTitleField && !pageTitleField.value) {
+      pageTitleField.value = document.title;
+    }
+  }
+
+  const trigger = lastModalTrigger;
+  if (!trigger) return;
+
+  const newTitle =
+    trigger.getAttribute("data-modal-title") ||
+    trigger.textContent.trim();
+
+  if (!newTitle) return;
+
+  // Ищем заголовок внутри открытого fancybox слайда
+  const titleEl = document.querySelector(
+    ".fancybox-slide--current .modal-request__title"
+  );
+
+  if (titleEl) {
+    titleEl.textContent = newTitle;
+    // Для отладки:
+    // console.log("Заголовок изменён на:", newTitle);
+  } else {
+    // Если не найден, попробуем найти внутри любого видимого слайда
+    const visibleTitle = document.querySelector(
+      ".fancybox-slide:not([style*='display: none']) .modal-request__title"
+    );
+    if (visibleTitle) {
+      visibleTitle.textContent = newTitle;
+    }
+  }
+}
+
+function bindFancyboxHandler() {
+  if (!window.$ || !$.fancybox) {
+    setTimeout(bindFancyboxHandler, 50);
+    return;
+  }
+
+  window.ai4gFormHandlers = window.ai4gFormHandlers || {};
+
+  if (!window.ai4gFormHandlers.afterLoadHandler) {
+    window.ai4gFormHandlers.afterLoadHandler = function (instance, slide) {
+      updateModalContent();
+    };
+  }
+
+  if (!window.ai4gFormHandlers.afterLoadBound) {
+    $(document).on("afterLoad.fb", window.ai4gFormHandlers.afterLoadHandler);
+    window.ai4gFormHandlers.afterLoadBound = true;
+  }
+}
+
+// ============ ЗАПОМИНАНИЕ ТРИГГЕРА ПРИ КЛИКЕ ============
+function trackTriggerClicks() {
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[data-fancybox][href="#modal-request"]');
+    if (link) {
+      lastModalTrigger = link;
+    }
+  }, true); // true – фаза захвата, чтобы перехватить до fancybox
+}
+
+// ============ ОСНОВНАЯ ФУНКЦИЯ ============
 export function formValidation() {
   const form = document.querySelector(".modal-request__form");
   if (!form) return;
@@ -95,93 +184,8 @@ export function formValidation() {
       xhr.send(formData);
     });
 
-  if (window.$) {
-    window.ai4gFormHandlers = window.ai4gFormHandlers || {};
-
-  if (!window.ai4gFormHandlers.afterLoadHandler) {
-
-  window.ai4gFormHandlers.afterLoadHandler =
-    function (instance, slide) {
-
-      // =========================
-      // UTM
-      // =========================
-
-      const form = document.querySelector(
-        ".modal-request__form"
-      );
-
-      if (form && !form.dataset.utmAdded) {
-
-        appendUtmFields(form);
-
-        form.dataset.utmAdded = "true";
-
-        const pageTitleField =
-          form.querySelector(
-            '[name="page_title"]'
-          );
-
-        if (
-          pageTitleField &&
-          !pageTitleField.value
-        ) {
-          pageTitleField.value =
-            document.title;
-        }
-      }
-
-      // =========================
-      // DYNAMIC MODAL TITLE
-      // =========================
-
-      let trigger = null;
-
-      if (
-        instance &&
-        instance.$trigger &&
-        instance.$trigger.length
-      ) {
-        trigger = instance.$trigger[0];
-      }
-
-      if (!trigger) return;
-
-      const modalTitle =
-        trigger.dataset.modalTitle;
-
-      if (!modalTitle) return;
-
-      // ВАЖНО:
-      // Ищем title внутри fancybox slide
-
-      const titleEl =
-        instance.$slide.find(
-          ".modal-request__title"
-        );
-
-      if (titleEl.length) {
-
-        titleEl.html(modalTitle);
-      }
-    };
-}
-
-    if (!window.ai4gFormHandlers.afterLoadBound) {
-      $(document).on("afterLoad.fb", window.ai4gFormHandlers.afterLoadHandler);
-      window.ai4gFormHandlers.afterLoadBound = true;
-    }
-  }
-}
-
-function appendUtmFields(form) {
-  const params = new URLSearchParams(window.location.search);
-  ["bc", "utm_campaign", "utm_content", "utm_medium", "utm_source", "utm_term"].forEach((key) => {
-    if (form.querySelector(`input[name="${key}"]`)) return;
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = key;
-    input.value = params.get(key) || "";
-    form.appendChild(input);
-  });
+  // Запоминаем ссылки, открывающие модалку
+  trackTriggerClicks();
+  // Запускаем ожидание fancybox и привязку обработчика afterLoad
+  bindFancyboxHandler();
 }

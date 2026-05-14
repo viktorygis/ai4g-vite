@@ -1,14 +1,27 @@
+// src/styles/blocks/_payment.scss
+
 @use '../base/variables' as *;
 
-/* payment ------------------ */
+/* ------------------- */
+/*   Оплата (Payment)  */
+/* ------------------- */
+
 .payment {
   display: none;
   width: 610px;
   padding: 68px 59px 35px;
-  border-radius: 20px;
+  border-radius: $border-radius-main;
+
+  &__summary {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: $color-bg;
+    text-align: center;
+  }
 
   &__title {
-    margin-bottom: 47px;
+    margin-bottom: 30px;
     font-weight: 800;
     font-size: 30px;
     line-height: 37px;
@@ -18,7 +31,8 @@
   }
 
   &__name,
-  &__phone {
+  &__phone,
+  &__email {
     width: 100%;
     margin-bottom: 45px;
     padding-bottom: 10px;
@@ -60,8 +74,8 @@
     input {
       z-index: 5;
 
-      &:hover + .just-validate-error-label,
-      &:focus + .just-validate-error-label {
+      &:hover+.just-validate-error-label,
+      &:focus+.just-validate-error-label {
         display: none;
       }
     }
@@ -119,7 +133,7 @@
     color: $color-bg;
 
     span {
-      color: rgb(3, 89, 255);
+      color: $color-link;
     }
   }
 
@@ -150,6 +164,7 @@
     }
   }
 
+  // --- Mobile ---
   @media (max-width: 640px) {
     padding: 40px 20px 25px;
 
@@ -160,7 +175,8 @@
     }
 
     &__name,
-    &__phone {
+    &__phone,
+    &__email {
       margin-bottom: 25px;
       padding-bottom: 5px;
       font-size: 20px;
