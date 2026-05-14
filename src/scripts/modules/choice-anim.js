@@ -1,4 +1,6 @@
-import { offset } from './offset.js';
+// Модуль для анимации блоков на странице index.html в разделе "choice" "Ai4G выбирают"
+
+import { offset } from "./offset.js";
 
 export function choiceAnim() {
   const choiceBlock = document.querySelector(".choice__items");
@@ -12,10 +14,7 @@ export function choiceAnim() {
       const animItemOffset = offset(choiceBlock).top;
       const animStart = 4;
       const animItemPoint = window.innerHeight - animItemHeight / animStart;
-      if (
-        window.scrollY > animItemOffset - animItemPoint &&
-        window.scrollY < animItemOffset + animItemHeight
-      ) {
+      if (window.scrollY > animItemOffset - animItemPoint && window.scrollY < animItemOffset + animItemHeight) {
         block1.style.animation = "ci-1 0.5s forwards";
         block2.style.animation = "ci-2 0.5s forwards";
         block2.style.animationDelay = "0.5s";

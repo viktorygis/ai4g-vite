@@ -1,4 +1,4 @@
-// modules/menu.js
+// modules/menu.js - Логика для основного меню и подменю (открытие/закрытие, клики вне меню)
 export function initMenu() {
   const menuToggle = document.querySelector(".icon-menu");
   const menuBody = document.querySelector(".menu__body");

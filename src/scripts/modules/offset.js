@@ -1,3 +1,5 @@
+// Модуль для получения координат элемента относительно документа
+
 export function offset(el) {
   const rect = el.getBoundingClientRect();
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;

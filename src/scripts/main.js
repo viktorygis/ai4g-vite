@@ -1,4 +1,4 @@
-import "./styles/main.scss";
+import "../styles/main.scss";
 
 import Swiper from "swiper";
 import "swiper/css";
@@ -6,17 +6,17 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 Swiper.use([Navigation, Pagination, Autoplay]);
 import Inputmask from "inputmask";
 
-import { showMore } from "./scripts/modules/show-more.js";
-import { fairwayAnim } from "./scripts/modules/fairway-anim.js";
-import { mentorsAnim } from "./scripts/modules/mentors-anim.js";
-import { choiceAnim } from "./scripts/modules/choice-anim.js";
-import { partnersAnim } from "./scripts/modules/partners-anim.js";
-import { cutText } from "./scripts/modules/cut-text.js";
-import { firefoxFix } from "./scripts/modules/firefox-fix.js";
-import { formValidation } from "./scripts/modules/form-validation.js";
-import { btnValidation } from "./scripts/modules/btn-validation.js";
-import { scrollUp2 } from "./scripts/modules/scroll-up.js";
-import { initMenu } from "./scripts/modules/menu.js";
+import { showMore } from "./modules/show-more.js";
+import { fairwayAnim } from "./modules/fairway-anim.js";
+import { mentorsAnim } from "./modules/mentors-anim.js";
+import { choiceAnim } from "./modules/choice-anim.js";
+import { partnersAnim } from "./modules/partners-anim.js";
+import { cutText } from "./modules/cut-text.js";
+import { firefoxFix } from "./modules/firefox-fix.js";
+import { formValidation } from "./modules/form-validation.js";
+import { btnValidation } from "./modules/btn-validation.js";
+import { scrollUp2 } from "./modules/scroll-up.js";
+import { initMenu } from "./modules/menu.js";
 
 // ============== ЛОКАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ Swiper (если нужно) ==========
 
@@ -42,7 +42,6 @@ formValidation();
 btnValidation();
 scrollUp2();
 initMenu();
-
 
 document.querySelectorAll(".open-payment").forEach((btn) => {
   btn.addEventListener("click", function () {

@@ -1,3 +1,5 @@
+// Валидация форм (используется в нескольких местах) modal-request modal-thanks
+
 import Inputmask from 'inputmask';
 import JustValidate from 'just-validate';
 

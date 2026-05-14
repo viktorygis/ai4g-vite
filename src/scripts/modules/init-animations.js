@@ -1,3 +1,5 @@
+
+// Инициализация анимаций при скролле
 export function initAnimations({
   animSelector = "._anim-items",
   observerOptions = { root: null, rootMargin: "0px", threshold: 0.3 },

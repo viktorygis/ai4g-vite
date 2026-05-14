@@ -1,3 +1,4 @@
+// Исправление для Firefox (плавная прокрутка и др.)
 export function firefoxFix() {
   const userAgent = navigator.userAgent.toLowerCase();
   const mozila = /firefox/.test(userAgent);

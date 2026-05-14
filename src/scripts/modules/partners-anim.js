@@ -1,3 +1,5 @@
+
+// Анимация в блоке "Наши партнёры"
 import { offset } from './offset.js';
 
 export function partnersAnim() {

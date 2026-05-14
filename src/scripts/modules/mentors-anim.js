@@ -1,3 +1,5 @@
+// Анимация в блоке "Наставники"
+
 import { offset } from "./offset.js";
 
 export function mentorsAnim() {
