@@ -1,5 +1,5 @@
 // Модуль для анимации блока "фарватер Ai4G" на странице index.html
-import { offset } from "./offset.js";
+import { offset } from "../offset.js";
 
 export function fairwayAnim() {
   const fairwayBlock = document.querySelector(".fairway__row");

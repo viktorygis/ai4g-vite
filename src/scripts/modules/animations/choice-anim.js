@@ -1,6 +1,6 @@
 // Модуль для анимации блоков на странице index.html в разделе "choice" "Ai4G выбирают"
 
-import { offset } from "./offset.js";
+import { offset } from "../offset.js";
 
 export function choiceAnim() {
   const choiceBlock = document.querySelector(".choice__items");

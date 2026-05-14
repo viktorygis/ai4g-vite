@@ -1,6 +1,6 @@
 
 // Анимация в блоке "Наши партнёры"
-import { offset } from './offset.js';
+import { offset } from '../offset.js';
 
 export function partnersAnim() {
   const partnersBlock = document.querySelector(".partners__items");

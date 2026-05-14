@@ -1,108 +1,46 @@
 import "../styles/main.scss";
 
-import Swiper from "swiper";
-import "swiper/css";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-Swiper.use([Navigation, Pagination, Autoplay]);
+// ==================== LIBS ====================
 import Inputmask from "inputmask";
 
-//Главная страница-----------
-//фарватер Ai4G
-import { fairwayAnim } from "./modules/fairway-anim.js";
-//4G плоскости подробно
-import { showMore } from "./modules/show-more.js";
-//Наставники
-import { mentorsAnim } from "./modules/mentors-anim.js";
-//Ai4G выбирают
-import { choiceAnim } from "./modules/choice-anim.js";
-//Наши партнёры
-import { partnersAnim } from "./modules/partners-anim.js";
+// ==================== UI ====================
+import { initMenu } from "./modules/ui/menu.js";
+import { scrollUp } from "./modules/ui/scroll-up.js";
+import { showMore } from "./modules/ui/show-more.js";
+import { cutText } from "./modules/ui/cut-text.js";
 
-//Все страницы ----------------
-//menu - для адаптивного меню (бургер и т.д.)
-import { initMenu } from "./modules/menu.js";
-//scrollUp - кнопка "Наверх"
-import { scrollUp } from "./modules/scroll-up.js";
+// ==================== ANIMATIONS ====================
+import { fairwayAnim } from "./modules/animations/fairway-anim.js";
+import { mentorsAnim } from "./modules/animations/mentors-anim.js";
+import { choiceAnim } from "./modules/animations/choice-anim.js";
+import { partnersAnim } from "./modules/animations/partners-anim.js";
 
-//---------------------------------
-import { cutText } from "./modules/cut-text.js";
-import { firefoxFix } from "./modules/firefox-fix.js";
-import { formValidation } from "./modules/form-validation.js";
-import { btnValidation } from "./modules/btn-validation.js";
+// ==================== FORMS ====================
+import { formValidation } from "./modules/forms/form-validation.js";
+import { btnValidation } from "./modules/forms/btn-validation.js";
+import { initPaymentModal } from "./modules/forms/payment-modal.js";
 
-// ============== ЛОКАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ Swiper (если нужно) ==========
+// ==================== SLIDERS ====================
+import { initSwiper } from "./modules/sliders/init-swiper.js";
 
-new Swiper(".swiper", {
-  speed: 400,
-  spaceBetween: 50,
-  slidesPerView: 1,
-  allowTouchMove: false,
-  navigation: {
-    nextEl: ".swiper-arrows .swiper-button-next",
-    prevEl: ".swiper-arrows .swiper-button-prev",
-  },
-});
+// ==================== UTILS ====================
+import { firefoxFix } from "./modules/utils/firefox-fix.js";
+
+// ==================== INIT ====================
+initSwiper();
+
 showMore();
+cutText();
+scrollUp();
+initMenu();
+
 fairwayAnim();
 mentorsAnim();
 choiceAnim();
 partnersAnim();
-cutText();
+
 firefoxFix();
 
 formValidation();
 btnValidation();
-scrollUp();
-initMenu();
-
-document.querySelectorAll(".open-payment").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    // Заголовок, сумма, услуга:
-    document.getElementById("payment-title").innerHTML = btn.dataset.title || "Оплата";
-    document.getElementById("sum").value = btn.dataset.sum || "";
-    document.getElementById("service_name").value = btn.dataset.service || "";
-
-    // Выбор цены (если нужен)
-    const priceChoices = btn.dataset.priceChoices;
-    const priceChoicesDiv = document.getElementById("price-choices");
-    if (priceChoices) {
-      priceChoicesDiv.innerHTML = "";
-      priceChoicesDiv.style.display = "";
-      priceChoices.split(",").forEach((pair) => {
-        const [price, label] = pair.split(":");
-        priceChoicesDiv.innerHTML += `
-          <label class="payment__label">
-            <input class="payment__radio" type="radio" name="payment_option" value="${price}" onchange="document.getElementById('sum').value=${price}" required />
-            <span>${label} - ${price.replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</span>
-          </label>
-        `;
-      });
-      // Дефолт — поставить сумму первой опции
-      const firstVal = priceChoices.split(",")[0].split(":")[0];
-      document.getElementById("sum").value = firstVal;
-    } else {
-      priceChoicesDiv.style.display = "none";
-    }
-
-    // Сохраняем параметры для окна "Спасибо"
-    document.getElementById("thanks-title").innerHTML = btn.dataset.thanksTitle || "Спасибо!";
-    document.getElementById("thanks-text").innerHTML = btn.dataset.thanksText || "";
-
-    // Сброс формы
-    document.getElementById("payment-form").reset();
-
-    // Покажи попап оплаты (зависит от реализации!)
-    document.getElementById("payment-modal").style.display = "";
-    // Для плавного закрытия можешь сделать через класс и transition, а не через display.
-  });
-});
-
-const payForm = document.getElementById("payment-form");
-if (payForm) {
-  payForm.addEventListener("submit", function (e) {
-    // e.preventDefault();
-    // document.getElementById('payment-modal').style.display = 'none';
-    // document.getElementById('successful-payment-modal').style.display = '';
-    // setTimeout(() => document.getElementById('successful-payment-modal').style.display = 'none', 4000);
-  });
-}
+initPaymentModal();

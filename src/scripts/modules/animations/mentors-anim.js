@@ -1,6 +1,6 @@
 // Анимация в блоке "Наставники"
 
-import { offset } from "./offset.js";
+import { offset } from "../offset.js";
 
 export function mentorsAnim() {
   const mentorsBlock = document.querySelector(".mentors__line");
