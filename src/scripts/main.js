@@ -6,17 +6,29 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 Swiper.use([Navigation, Pagination, Autoplay]);
 import Inputmask from "inputmask";
 
-import { showMore } from "./modules/show-more.js";
+//Главная страница-----------
+//фарватер Ai4G
 import { fairwayAnim } from "./modules/fairway-anim.js";
+//4G плоскости подробно
+import { showMore } from "./modules/show-more.js";
+//Наставники
 import { mentorsAnim } from "./modules/mentors-anim.js";
+//Ai4G выбирают
 import { choiceAnim } from "./modules/choice-anim.js";
+//Наши партнёры
 import { partnersAnim } from "./modules/partners-anim.js";
+
+//Все страницы ----------------
+//menu - для адаптивного меню (бургер и т.д.)
+import { initMenu } from "./modules/menu.js";
+//scrollUp - кнопка "Наверх"
+import { scrollUp } from "./modules/scroll-up.js";
+
+//---------------------------------
 import { cutText } from "./modules/cut-text.js";
 import { firefoxFix } from "./modules/firefox-fix.js";
 import { formValidation } from "./modules/form-validation.js";
 import { btnValidation } from "./modules/btn-validation.js";
-import { scrollUp2 } from "./modules/scroll-up.js";
-import { initMenu } from "./modules/menu.js";
 
 // ============== ЛОКАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ Swiper (если нужно) ==========
 
@@ -40,7 +52,7 @@ firefoxFix();
 
 formValidation();
 btnValidation();
-scrollUp2();
+scrollUp();
 initMenu();
 
 document.querySelectorAll(".open-payment").forEach((btn) => {

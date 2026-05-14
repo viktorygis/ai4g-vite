@@ -1,27 +1,18 @@
-//scrollUp - Появление кнопки "Наверх" при прокрутке вниз и плавная прокрутка вверх при клике на кнопку
+// scroll-up.js - Появление кнопки "Наверх" при прокрутке вниз и плавная прокрутка вверх при клике на кнопку
 
 export function scrollUp() {
-  const el = document.querySelector(".scrollUp");
-  if (!el) return;
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 499) el.classList.add("active");
-    else el.classList.remove("active");
-  });
-  el.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
+  const btn = document.querySelector(".scrollUp");
 
-export function scrollUp2() {
-  const scrollUp = document.querySelector(".scrollUp");
+  if (!btn) return;
+
   window.addEventListener("scroll", () => {
-    if (scrollY > 499) scrollUp.classList.add("active");
-    else scrollUp.classList.remove("active");
+    btn.classList.toggle("active", window.scrollY > 499);
   });
-  scrollUp.addEventListener("click", () => {
-    $("html, body").animate(
-      { scrollTop: $("#top").offset().top },
-      "slow"
-    );
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   });
 }
