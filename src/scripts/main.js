@@ -1,7 +1,5 @@
+//main.js - Главный файл, который импортирует все модули и запускает их
 import "../styles/main.scss";
-
-// ==================== LIBS ====================
-import Inputmask from "inputmask";
 
 // ==================== UI ====================
 import { initMenu } from "./modules/ui/menu.js";

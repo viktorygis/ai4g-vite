@@ -1,4 +1,4 @@
-// Валидация форм (используется в нескольких местах) modal-request modal-thanks
+// form-validation.js - Валидация формы в модальном окне, маска для телефона, отправка данных через AJAX и отображение сообщений об ошибках и успехе
 
 import Inputmask from 'inputmask';
 import JustValidate from 'just-validate';

@@ -3,8 +3,7 @@
 
 
 // --- Модальное окно заявок ---
-.modal-request,
-.modal-request_2 {
+.modal-request {
   display: none;
   width: 610px;
   padding: 68px 59px 35px;
@@ -26,21 +25,25 @@
     width: 100%;
     margin-bottom: 45px;
     padding-bottom: 10px;
+
     font-family: $font-alt, sans-serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
+
     color: $color-bg;
+
     outline: none;
     border: none;
     border-bottom: 1px solid $color-accent;
 
-    &::placeholder,
-    &:-moz-placeholder {
+    &::placeholder {
+      font-family: $font-alt, sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 21px;
       color: #737373;
+      opacity: 1;
     }
   }
 
