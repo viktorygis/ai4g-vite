@@ -51,7 +51,29 @@ ai4g-vite/
 │   │   │   ├─menu.js             # Скрипт для мобильного меню
 │   │   │   ├─offset.js           # Модуль для получения координат элемента
 
-
+│   ├── modules/
+│   │   ├── animations/
+│   │   │   ├── fairway-anim.js
+│   │   │   ├── mentors-anim.js
+│   │   │   ├── choice-anim.js
+│   │   │   └── partners-anim.js
+│   │   │
+│   │   ├── forms/
+│   │   │   ├── form-validation.js
+│   │   │   ├── btn-validation.js
+│   │   │   └── payment-modal.js
+│   │   │
+│   │   ├── sliders/
+│   │   │   └── init-swiper.js
+│   │   │
+│   │   ├── ui/
+│   │   │   ├── menu.js
+│   │   │   ├── scroll-up.js
+│   │   │   ├── show-more.js
+│   │   │   └── cut-text.js
+│   │   │
+│   │   └── utils/
+│   │       └── firefox-fix.js
 
 
 относительно документа
