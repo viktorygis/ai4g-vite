@@ -48,8 +48,7 @@ function updateModalContent() {
 
   if (titleEl) {
     titleEl.textContent = newTitle;
-    // Для отладки:
-    // console.log("Заголовок изменён на:", newTitle);
+
   } else {
     // Если не найден, попробуем найти внутри любого видимого слайда
     const visibleTitle = document.querySelector(

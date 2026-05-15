@@ -1,414 +1,316 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
-@use '../base/animations' as *;
 
-// ================
-// ОБЩИЕ КЛАССЫ
-// ================
-.title {
-  color: $color-bg;
-  text-align: center;
-  font-weight: 700;
-  font-size: 30px;
-  margin: 0 0 15px 0;
-  line-height: 40px;
-
-  @include respond-to(768px) {
-    font-size: 24px;
-    line-height: 130%;
-  }
-}
-
-.subtitle {
-  font-size: 23px;
-  font-weight: 600;
-  color: $color-link;
-  text-align: center;
-  line-height: 130%;
-
-  @include respond-to(768px) {
-    font-size: 20px;
-  }
-}
-
-// ====================
-// СТРАНИЦА ВОЗМОЖНОСТЕЙ
-// ====================
 body.page-vozmozhnosti {
-  background: $color-text;
+  background: $color-bg;
 }
 
-.vozmozhnosti {
-  padding: 50px 0;
-  margin: 90px 0 0 0;
+//.vozmozhnosti-intro
+.vozmozhnosti-intro {
+  padding: 50px 0 30px;
+  margin-top: 90px;
+  text-align: center;
 
   @include respond-to(980px) {
     padding: 30px 0;
-    margin: 80px 0 0 0;
+    margin-top: 80px;
   }
 
   &__container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    color: $color-text;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+
+    @include respond-to(768px) {
+      font-size: 24px;
+    }
+  }
+
+  &__description {
+    max-width: 700px;
+    margin: 0 auto 12px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $color-text;
+
+    @include respond-to(768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__paragraph {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-accent;
+  }
+}
+
+//.vozmozhnosti
+.vozmozhnosti {
+  padding-bottom: 50px;
+
+  @include respond-to(980px) {
+    padding-bottom: 30px;
+  }
+
+  // .vozmozhnosti__container
+  &__container {
     max-width: 1000px;
+    margin: 0 auto;
 
     @include respond-to(768px) {
       padding: 0 15px;
     }
   }
 
-  &__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-    span {
-      font-size: 18px;
-      text-align: left;
-      font-weight: 400;
-      line-height: 150%;
-      padding-left: 10px;
-      border-left: 2px solid $color-link-hover;
-
-      @include respond-to(768px) {
-        font-size: 16px;
-      }
-    }
-
-    @include respond-to(480px) {
-      gap: 5px;
-    }
-  }
-
+  // .vozmozhnosti__header
   &__header {
-    color: #333;
+    color: rgba($color-text, 0.9);
     font-size: 16px;
     line-height: 1.6;
+  }
 
-    p {
-      @include respond-to(480px) {
-        font-size: 14px;
-      }
+  //.vozmozhnosti__header-text
+  &__header-text {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-text;
+    text-align: center;
+  }
+
+  // .vozmozhnosti__filters
+  &__filters {
+    background: $color-bg;
+    padding: 10px 0;
+    margin: 0 0 30px 0;
+
+
+    &.swiper {
+      overflow: hidden;
     }
   }
 
-  &__categories {
+  &__filters-scroll {
+    &.swiper-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+
+  //.vozmozhnosti__filter-chip
+  &__filter-chip {
+    width: auto;
+    /* обязательно */
+    min-width: 0;
+    /* важно */
+    max-width: 100%;
+    flex-shrink: 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 15px 0;
-  }
-
-  &__category {
-    span {
-      font-weight: 600;
-      font-size: 18px;
-
-      @include respond-to(480px) {
-        font-size: 16px;
-      }
-    }
-
-    p {
-      color: #555;
-      line-height: 1.4;
-      max-width: 70%;
-      display: none;
-    }
-
-    &:hover p {
-      color: $color-bg;
-    }
-
-    &.active .vozmozhnosti__bottom {
-      animation: expand 0.8s ease forwards;
-      display: block;
-      opacity: 1;
-    }
-
-    &:not(.active) .vozmozhnosti__bottom {
-      animation: collapse 0.8s ease forwards;
-    }
-
-    &_01 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #1f618d;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #1f618d;
-      }
-    }
-
-    &_02 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #c0392b;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #c0392b;
-      }
-    }
-
-    &_03 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #28b463;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #28b463;
-      }
-    }
-
-    &_04 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #d68910;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #d68910;
-      }
-    }
-
-    &_05 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #c0392b;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #c0392b;
-      }
-    }
-
-    &_06 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #7d3c98;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #7d3c98;
-      }
-    }
-
-    &_07 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #239b56;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #239b56;
-      }
-    }
-
-    &_08 {
-
-      .subtitle,
-      .vozmozhnosti__name {
-        color: #2874a6;
-      }
-
-      .vozmozhnosti__text {
-        border: 1px solid #2874a6;
-      }
-    }
-  }
-
-  &__head {
-    position: relative;
-
-    img {
-      position: absolute;
-      top: -46px;
-      left: 189px;
-      width: 160px;
-      height: auto;
-      opacity: 0.07;
-      filter: invert(34%) sepia(65%) saturate(2381%) hue-rotate(194deg) brightness(102%) contrast(108%);
-    }
-
-    svg {
-      fill: $color-link;
-    }
-  }
-
-  &__subtitle {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 5px;
+    padding: 10px 20px;
+    min-height: 44px;
+    border: 1px solid $color-link;
+    background: transparent;
+    color: $color-link;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+    /* обязательно */
+    min-width: 0;
+    /* важно */
+    max-width: 100%;
 
-    span {
-      font-size: 14px;
-      color: $color-bg;
-      text-align: center;
-      font-weight: 400;
-      line-height: 150%;
-      max-width: 680px;
+    &:hover {
+      background: rgba($color-link, 0.1);
     }
-  }
 
-  &__content {
-    position: relative;
-    z-index: 10;
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    &:focus-visible {
+      outline: 2px solid $color-link-hover;
+      outline-offset: 2px;
+    }
 
-    &:not(:last-child) {
-      margin-bottom: 100px;
+    &.active,
+    &[aria-current="true"] {
+      background: $color-accent;
+      color: $color-text;
+      border-color: $color-accent;
     }
 
     @include respond-to(768px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+  }
 
-      &:not(:last-child) {
-        margin-bottom: 40px;
-      }
+  &__scroll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid $color-link;
+    background: transparent;
+    color: $color-link;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &--left {
+      margin-right: 8px;
+    }
+
+    &--right {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background: rgba($color-link, 0.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-link-hover;
+      outline-offset: 2px;
+    }
+
+    @include respond-to(768px) {
+      display: none;
+    }
+  }
+
+  &__category-section {
+    margin-bottom: 50px;
+    scroll-margin-top: 120px;
+  }
+
+  &__category-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  &__category-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-link-hover;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+
+    @include respond-to(768px) {
+      font-size: 20px;
+    }
+  }
+
+  &__category-toptext {
+    font-size: 16px;
+    color: rgba($color-text, 0.7);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  &__category-desc {
+    font-size: 16px;
+    color: $color-text;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+
+    @include respond-to(768px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
     }
 
     @include respond-to(500px) {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 0;
+      grid-template-columns: 1fr;
     }
   }
 
   &__item {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: $color-container-bg;
     border-radius: 20px;
-    height: 100%;
-    transition: all 0.3s ease 0s;
-    top: 0;
-    position: relative;
+    transition: all 0.2s ease;
+    overflow: hidden;
 
     &:hover {
-      top: -3px;
-    }
-
-    img {
-      height: 200px;
-      border-radius: 20px 20px 0 0;
-      width: 100%;
-      object-fit: cover;
-      opacity: 0.9;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba($color-accent, 0.15);
     }
   }
 
   &__text {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0 0 20px 20px;
-    border: 1px solid $color-accent;
-    border-top: none;
-    height: 100%;
-    width: 100%;
     padding: 15px;
+    text-align: center;
   }
 
   &__name {
     font-weight: 600;
-    color: $color-accent;
+    color: $color-link-hover;
     margin-bottom: 5px;
     font-size: 18px;
-    line-height: 130%;
-    text-align: center;
   }
 
-  &__description {
-    color: #666;
+  &__item-desc {
+    color: rgba($color-text, 0.8);
     font-size: 14px;
-    line-height: 130%;
+    line-height: 1.4;
+  }
+
+  &__footer-text {
+    @include respond-to(480px) {
+      font-size: 14px;
+    }
+  }
+
+  &__loading,
+  &__error {
     text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: $color-headerSubtext;
+    grid-column: 1 / -1;
   }
+}
 
-  &__box {
-    position: relative;
-    top: -180px;
+.vozmozhnosti__filters {
+  /* Ширина панели — блоковая панель */
+  width: 100%;
+  /* по желанию: overflow-x: auto; */
+}
 
-    @include respond-to(768px) {
-      top: -100px;
-    }
-  }
+.vozmozhnosti__filters-scroll,
+.swiper-wrapper {
+  display: flex;
+  /* Не давайте width: 100%! */
+}
 
-  &__top-category {
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    padding: 5px 15px;
-    margin: 0 0 5px 0;
-    border: 1px solid #60a5fa;
-
-    &:hover {
-      background: #60a5fa;
-
-      .vozmozhnosti__top-text span {
-        color: #fff;
-      }
-
-      .toggle-sign {
-        color: #fff;
-      }
-    }
-  }
-
-  &__top-text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .toggle-sign {
-    color: #60a5fa;
-
-    &::before {
-      content: "+";
-      display: inline-block;
-      font-size: 24px;
-      transition: transform 0.3s ease;
-      opacity: 0.7;
-      width: 12px;
-      height: 12px;
-    }
-  }
-
-  .vozmozhnosti__category.active .toggle-sign::before {
-    content: "-";
-  }
-
-  &__bottom {
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
+.vozmozhnosti__filter-chip,
+.swiper-slide {
+  width: auto !important;
+  /* ВАЖНО, если Swiper насильно дает width */
+  min-width: 0;
+  max-width: 100%;
+  flex-shrink: 0;
+  /* ваши стили */
 }

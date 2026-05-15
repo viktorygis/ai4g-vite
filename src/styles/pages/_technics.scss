@@ -5,7 +5,7 @@
 // ==============================
 .title {
   font-size: 26px;
-  color: $color-bg;                // #150931
+  color: $color-bg; // #150931
   text-align: center;
   line-height: 140%;
 
@@ -27,7 +27,7 @@
 .label {
   font-size: 16px;
   margin: 0 0 5px 0;
-  color: $color-accent;           // #ff008a
+  color: $color-accent; // #ff008a
   font-weight: 600;
   line-height: 140%;
 }
@@ -60,7 +60,7 @@
 // ==============================
 body.page-tekhniki,
 body.page-technics {
-  background: $color-text;       // #fff
+  background: $color-text; // #fff
   color: $color-bg;
   font-size: 16px;
   line-height: 24px;
@@ -248,17 +248,21 @@ body.page-technics {
     }
 
     &.motives {
-      background: $color-secondary;   // #06ea6f
+      background: $color-secondary; // #06ea6f
     }
+
     &.meanings {
-      background: $color-link-hover;  // #93cbff
+      background: $color-link-hover; // #93cbff
     }
+
     &.words {
-      background: $color-link;        // #0386ff
+      background: $color-link; // #0386ff
     }
+
     &.processes {
       background: $color-bg-footer-gradient; // #4a006c
     }
+
     &.states {
       background: #ff9900;
     }
@@ -277,6 +281,7 @@ body.page-technics {
     &:hover {
       color: $color-link-hover;
     }
+
     &:active {
       color: $color-bg;
     }
@@ -567,7 +572,7 @@ body.page-technics {
     align-items: center;
     font-size: 14px;
     color: #045db1;
-    font-family: $font-alt;                    // PT Sans
+    font-family: $font-alt; // PT Sans
     margin: 0 0 30px 0;
 
     @media (max-width: 768px) {
@@ -703,6 +708,7 @@ body.page-technics {
       align-self: flex-end;
       margin: 20px 0 0 0;
     }
+
     @media (max-width: 630px) {
       align-self: flex-start;
       margin: 10px 0 0 0;
@@ -718,7 +724,8 @@ body.page-technics {
   cursor: pointer;
   margin: 32px 0 10px 0;
   transition: color 0.3s;
-  display: none; /* скрыта по умолчанию */
+  display: none;
+  /* скрыта по умолчанию */
 
   @media (max-width: 980px) {
     margin: 0;
