@@ -1,6 +1,7 @@
 [
   {
     "id": "B1",
+    "slug": "volshebnyy-podarok",
     "category": "Смыслы",
     "tag": "meanings",
     "subtitle": "Волшебный подарок",
@@ -24,6 +25,7 @@
   },
   {
     "id": "B2",
+    "slug": "kinoteatr",
     "category": "Смыслы",
     "tag": "meanings",
     "subtitle": "Кинотеатр",
