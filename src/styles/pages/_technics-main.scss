@@ -5,8 +5,6 @@
 // ОБЩИЕ КЛАССЫ
 // ==============================
 
-
-
 .subtitle {
   font-size: 20px;
   color: $color-bg;
@@ -48,29 +46,22 @@
 }
 
 // ==============================
-// PAGE TECHNICS
+// ФОН СТРАНИЦЫ ТЕХНИК
 // ==============================
-
-body.page-technics-main,
-body.page-technics {
-  font-size: 16px;
-  line-height: 24px;
-  background: $color-text;
-  color: $color-bg;
-}
-
 .page-technics {
-
-
-  .technics__container {
-    padding: 0 15px;
-  }
+  background: linear-gradient(145deg, #f0f4f8 0%, #d9e2ec 100%);
 }
 
 // ==============================
-// technics-main
+// КОНТЕЙНЕР
 // ==============================
+.technics__container {
+  padding: 0 15px;
+}
 
+// ==============================
+// ОСНОВНАЯ СЕТКА ТЕХНИК
+// ==============================
 .technics-main {
   margin-top: 90px;
   padding: 50px 0;
@@ -110,7 +101,7 @@ body.page-technics {
     font-weight: 700;
     line-height: 40px;
     text-align: center;
-    color: $color-bg;
+    color: $color-text;
 
     @include respond-to(980px) {
       font-size: 24px;
@@ -126,20 +117,22 @@ body.page-technics {
 }
 
 // ==============================
-// CARD
+// КАРТОЧКИ (СТЕКЛЯННЫЙ ЭФФЕКТ)
 // ==============================
-
 .card {
   position: relative;
   padding: 24px;
   border-radius: 12px;
-  background-color: $color-text;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  color: #333;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
   transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(2px);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
   }
 
   &.hidden {
@@ -186,6 +179,7 @@ body.page-technics {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
+    color: #fff;
 
     @include respond-to(768px) {
       font-size: 14px;
@@ -196,7 +190,7 @@ body.page-technics {
     font-size: 14px;
     line-height: 150%;
     text-align: center;
-    color: #949494;
+    color: rgba(255, 255, 255, 0.8);
 
     @include respond-to(768px) {
       font-size: 12px;
@@ -218,6 +212,7 @@ body.page-technics {
     font-weight: 500;
     line-height: 20px;
     text-align: center;
+    backdrop-filter: blur(4px);
 
     @include respond-to(768px) {
       top: 5px;
@@ -228,39 +223,39 @@ body.page-technics {
 
   &__category {
     left: 10px;
-    color: $color-text;
-    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
 
     @include respond-to(768px) {
       left: 5px;
     }
 
     &.motives {
-      background: $color-secondary;
+      background: rgba($color-secondary, 0.85);
     }
 
     &.meanings {
-      background: $color-link-hover;
+      background: rgba($color-link-hover, 0.85);
     }
 
     &.words {
-      background: $color-link;
+      background: rgba($color-link, 0.85);
     }
 
     &.processes {
-      background: $color-bg-footer-gradient;
+      background: rgba($color-bg-footer-gradient, 0.85);
     }
 
     &.states {
-      background: #ff9900;
+      background: rgba(#ff9900, 0.85);
     }
   }
 
   &__time {
     right: 10px;
-    border: 1px solid $color-link;
-    background: $color-text;
-    color: $color-link;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
 
     @include respond-to(768px) {
       right: 5px;
@@ -273,12 +268,12 @@ body.page-technics {
     font-size: 14px;
     font-weight: 700;
     line-height: 17px;
-    color: $color-link;
+    color: #ffdd77;
     transition: all 0.3s;
     z-index: 5;
 
     &:hover {
-      color: $color-link-hover;
+      color: #ffaa33;
     }
 
     &:active {
@@ -293,9 +288,8 @@ body.page-technics {
 }
 
 // ==============================
-// FILTER
+// ФИЛЬТРЫ И СОРТИРОВКА
 // ==============================
-
 .filter {
   display: flex;
   justify-content: space-between;
@@ -320,12 +314,14 @@ body.page-technics {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background: transparent;
   }
 
   &__title {
     margin-bottom: 5px;
     font-size: 12px;
     font-weight: 600;
+    color: #fff;
   }
 
   &__content {
@@ -346,10 +342,11 @@ body.page-technics {
     justify-content: center;
     align-self: center;
     padding: 2px 10px;
-    border: 1px solid #949494;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
-    background: $color-text;
-    color: $color-bg;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    color: #fff;
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
@@ -357,15 +354,10 @@ body.page-technics {
     transition: all 0.3s ease;
 
     &:hover,
-    &.active,
-    &:active {
-      background: #949494;
-      color: $color-text;
-    }
-
     &.active {
-      border-color: #949494;
-      transform: translateY(0);
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #fff;
+      color: #000;
     }
 
     &:active {
@@ -398,13 +390,13 @@ body.page-technics {
   margin: 32px 0 10px;
   border: none;
   background: none;
-  color: $color-link;
+  color: #ffdd77;
   font-size: 12px;
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: #e60076;
+    color: #fff;
   }
 
   @include respond-to(980px) {
@@ -417,9 +409,9 @@ body.page-technics {
   margin: 0 auto;
   padding: 50px;
   border-radius: 12px;
-  background-color: $color-text;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  color: $color-bg;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #fff;
   font-size: 20px;
   line-height: 140%;
   text-align: center;
@@ -431,17 +423,17 @@ body.page-technics {
 }
 
 // ==============================
-// SORT DROPDOWN
+// ВЫПАДАЮЩИЙ СПИСОК СОРТИРОВКИ
 // ==============================
-
 .sort {
   &__dropdown {
     position: relative;
     display: inline-block;
     width: 200px;
     font-size: 12px;
-    color: $color-bg;
+    color: #fff;
     cursor: pointer;
+    background: transparent;
   }
 
   &__selected {
@@ -449,14 +441,11 @@ body.page-technics {
     align-items: center;
     justify-content: center;
     padding: 6px 10px;
-    border: 1px solid #949494;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
-    background: $color-text;
-    color: $color-bg;
-  }
-
-  &__sort {
-    align-self: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    color: #fff;
   }
 
   &__options {
@@ -466,10 +455,11 @@ body.page-technics {
     z-index: 11;
     display: none;
     width: 100%;
-    border: 1px solid #e4e4e7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
-    background-color: $color-text;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: rgba(30, 30, 40, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   &__option {
@@ -477,10 +467,11 @@ body.page-technics {
     align-items: center;
     justify-content: space-between;
     padding: 6px 10px;
+    color: #fff;
     cursor: pointer;
 
     &:hover {
-      background-color: #f5f5f5;
+      background: rgba(255, 255, 255, 0.2);
     }
 
     img {
@@ -489,10 +480,8 @@ body.page-technics {
       margin-left: 10px;
     }
 
-    &_02 {
-      img {
-        transform: rotate(180deg);
-      }
+    &_02 img {
+      transform: rotate(180deg);
     }
   }
 

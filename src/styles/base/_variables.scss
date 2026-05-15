@@ -39,3 +39,7 @@ $footer-bg-img: "../img/footer-bg.svg";
 $color-drop-list-gradient: #4a006c;
 $color-drop-list-divider: #71717a;
 $color-drop-list-accent: #2bf29f;
+
+$card-bg: #f8f9fa;        // светло-серый, не белый
+$filter-bg: #ffffff;      // для фильтров можно оставить белый, но если хотите убрать – см. ниже
+$body-bg: #eef2f5;        // фон всей страницы (если ещё не задан)

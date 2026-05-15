@@ -48,6 +48,7 @@
 @use 'pages/error';
 @use 'pages/mentors-page';
 
+
 //form
 @use 'form/modal-oplata';
 @use 'form/modal-pay';
@@ -84,4 +85,10 @@
 
 //--------------------------------------------
 //Продукты - сессии
-@use 'pages/session';
+@use 'pages/coaching-session';
+
+//Карьерная консультация
+@use 'pages/career-advice';
+
+//Serf-сессия
+@use 'pages/serf-session';

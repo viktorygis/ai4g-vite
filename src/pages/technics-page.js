@@ -4,11 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // ЭЛЕМЕНТЫ
   // =========================
-
   const sortDropdown = document.querySelector(".sort__dropdown");
+  const cardsContainer = document.querySelector(".technics-main__body");
+  const noCardsPlaceholder = document.getElementById("no-cards-placeholder");
 
-  if (!sortDropdown) {
-    console.warn("sort__dropdown не найден");
+  if (!sortDropdown || !cardsContainer) {
+    console.warn("Не найдены необходимые элементы");
     return;
   }
 
@@ -17,367 +18,251 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortOptions = sortDropdown.querySelector(".sort__options");
   const sortOptionElements = sortDropdown.querySelectorAll(".sort__option");
 
-  const cardsContainer = document.querySelector(".technics-main__body");
-
-  const noCardsPlaceholder = document.getElementById("no-cards-placeholder");
-
   // =========================
   // СОСТОЯНИЕ
   // =========================
-
   let activeCategory = null;
   let activeTimeRange = null;
   let activeSortOrder = "default";
 
   // =========================
-  // URL PARAMS
+  // URL PARAMS (с нормализацией "all" → null)
   // =========================
-
   const urlParams = new URLSearchParams(window.location.search);
+  const rawCategory = urlParams.get("category");
+  const rawTime = urlParams.get("time");
 
-  activeCategory = urlParams.get("category") || null;
-  activeTimeRange = urlParams.get("time") || null;
-
-  // =========================
-  // INIT
-  // =========================
-
-  loadJsonFile();
+  activeCategory = rawCategory && rawCategory !== "all" ? rawCategory : null;
+  activeTimeRange = rawTime && rawTime !== "all" ? rawTime : null;
 
   // =========================
-  // SORT DROPDOWN
+  // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
   // =========================
-
-  sortSelected.addEventListener("click", () => {
-    sortOptions.style.display = sortOptions.style.display === "block" ? "none" : "block";
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!sortDropdown.contains(event.target)) {
-      sortOptions.style.display = "none";
-    }
-  });
-
-  sortOptionElements.forEach((option) => {
-    option.addEventListener("click", () => {
-      updateActiveClass(option, sortOptionElements);
-
-      activeSortOrder = option.dataset.value;
-
-      sortOptions.style.display = "none";
-
-      sortCards(activeSortOrder);
-    });
-  });
-
-  // =========================
-  // FILTER BUTTONS
-  // =========================
-
-  document.querySelectorAll(".filter__btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      toggleFilter(btn.dataset.category, btn.dataset.time);
-
-      applyFiltersAndSorting();
-    });
-  });
-
-  // =========================
-  // RESET BUTTON
-  // =========================
-
-  const resetFilterButton = document.querySelector('.reset-filter[data-reset="all"]');
-
-  if (resetFilterButton) {
-    resetFilterButton.addEventListener("click", () => {
-      activeCategory = null;
-      activeTimeRange = null;
-      activeSortOrder = "default";
-
-      filterCards(activeCategory, activeTimeRange);
-
-      updateResetButtonVisibility();
-
-      const defaultOption = sortDropdown.querySelector('.sort__option[data-value="default"]');
-
-      if (defaultOption) {
-        updateActiveClass(defaultOption, sortOptionElements);
-
-        sortCards(activeSortOrder);
-      }
-    });
-  }
-
-  // =========================
-  // FUNCTIONS
-  // =========================
-
   function updateActiveClass(element, elements) {
     elements.forEach((opt) => opt.classList.remove("active"));
-
     element.classList.add("active");
-
     updateSortSelected(element);
   }
 
   function updateSortSelected(option) {
-    const selectedSpan = sortSelected.querySelector("span");
-
+    const selectedSpan = sortSelected?.querySelector("span");
     if (selectedSpan) {
-      selectedSpan.textContent = option.querySelector("span").textContent;
+      selectedSpan.textContent = option.querySelector("span")?.textContent || "По умолчанию";
     }
-
-    const selectedValue = option.dataset.value;
-
-    sortSelectedArrow.style.display = selectedValue !== "default" ? "inline-block" : "none";
-
-    sortSelectedArrow.classList.toggle("sort__option_02", selectedValue === "desc");
-  }
-
-  function toggleFilter(category, timeRange) {
-    if (category !== "all") {
-      activeCategory = activeCategory === category ? null : category;
-    }
-
-    if (timeRange !== "all") {
-      activeTimeRange = activeTimeRange === timeRange ? null : timeRange;
+    const value = option.dataset.value;
+    if (sortSelectedArrow) {
+      sortSelectedArrow.style.display = value !== "default" ? "inline-block" : "none";
+      sortSelectedArrow.classList.toggle("sort__option_02", value === "desc");
     }
   }
 
-  function applyFiltersAndSorting() {
-    filterCards(activeCategory, activeTimeRange);
+  function getTimeRange(minutes) {
+    const mins = parseInt(minutes, 10);
+    if (mins < 10) return "lt10";
+    if (mins >= 10 && mins < 30) return "10-30";
+    if (mins >= 30 && mins < 60) return "30-60";
+    return "60+";
+  }
 
-    sortCards(activeSortOrder);
+  // Обновление URL без перезагрузки
+  function updateURL() {
+    const params = new URLSearchParams();
+    if (activeCategory) params.set("category", activeCategory);
+    if (activeTimeRange) params.set("time", activeTimeRange);
+    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+    history.replaceState(null, "", newUrl);
+  }
 
-    updateResetButtonVisibility();
-
-    const activeOption = sortDropdown.querySelector(`.sort__option[data-value="${activeSortOrder}"]`);
-
-    if (activeOption) {
-      updateSortSelected(activeOption);
+  // Показать/скрыть кнопку сброса
+  function updateResetButtonVisibility() {
+    const resetButton = document.querySelector('.reset-filter[data-reset="all"]');
+    if (resetButton) {
+      resetButton.style.display = activeCategory || activeTimeRange ? "inline-block" : "none";
     }
   }
 
-  // =========================
-  // FILTER
-  // =========================
-
-  function filterCards(category, timeRange) {
+  // Фильтрация карточек (DOM)
+  function filterCards() {
     const cards = document.querySelectorAll(".card");
+    let hasVisible = false;
 
-    let hasVisibleCards = false;
+    // Активные классы для кнопок фильтров
+    document.querySelectorAll(".filter__btn").forEach((btn) => btn.classList.remove("active"));
 
-    document.querySelectorAll(".filter__btn").forEach((btn) => {
-      btn.classList.remove("active");
-    });
-
-    if (category) {
-      const categoryButton = document.querySelector(`.filter__btn[data-category="${category}"]`);
-
-      if (categoryButton) {
-        categoryButton.classList.add("active");
-      }
+    if (activeCategory) {
+      const categoryBtn = document.querySelector(`.filter__btn[data-category="${activeCategory}"]`);
+      if (categoryBtn) categoryBtn.classList.add("active");
     }
-
-    if (timeRange) {
-      const timeButton = document.querySelector(`.filter__btn[data-time="${timeRange}"]`);
-
-      if (timeButton) {
-        timeButton.classList.add("active");
-      }
+    if (activeTimeRange) {
+      const timeBtn = document.querySelector(`.filter__btn[data-time="${activeTimeRange}"]`);
+      if (timeBtn) timeBtn.classList.add("active");
     }
 
     cards.forEach((card) => {
       const cardCategory = card.dataset.tag;
       const cardTime = card.dataset.time;
-
-      const categoryMatch = !category || cardCategory === category;
-
-      const timeMatch = !timeRange || cardTime === timeRange;
+      const categoryMatch = !activeCategory || cardCategory === activeCategory;
+      const timeMatch = !activeTimeRange || cardTime === activeTimeRange;
 
       if (categoryMatch && timeMatch) {
         card.classList.remove("hidden");
-
-        hasVisibleCards = true;
+        hasVisible = true;
       } else {
         card.classList.add("hidden");
       }
     });
 
     if (noCardsPlaceholder) {
-      noCardsPlaceholder.style.display = hasVisibleCards ? "none" : "block";
+      noCardsPlaceholder.style.display = hasVisible ? "none" : "block";
     }
 
-    updateURL(category, timeRange);
+    updateURL();
+    updateResetButtonVisibility();
   }
 
-  // =========================
-  // SORT
-  // =========================
-
-  function sortCards(order) {
-    const cards = Array.from(cardsContainer.querySelectorAll(".card"));
-
-    if (order === "default") {
-      cards.sort((a, b) => {
-        return parseInt(a.dataset.index) - parseInt(b.dataset.index);
-      });
+  // Сортировка карточек (перестановка в DOM)
+  function sortCards() {
+    const cards = Array.from(cardsContainer.querySelectorAll(".card:not(.hidden)"));
+    if (activeSortOrder === "default") {
+      cards.sort((a, b) => parseInt(a.dataset.index, 10) - parseInt(b.dataset.index, 10));
     } else {
       cards.sort((a, b) => {
-        const titleA = a.querySelector(".card__subtitle").textContent.trim().toLowerCase();
-
-        const titleB = b.querySelector(".card__subtitle").textContent.trim().toLowerCase();
-
-        return order === "asc" ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
+        const titleA = a.querySelector(".card__subtitle")?.textContent.trim().toLowerCase() || "";
+        const titleB = b.querySelector(".card__subtitle")?.textContent.trim().toLowerCase() || "";
+        return activeSortOrder === "asc" ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
       });
     }
+    // Перемещаем отсортированные карточки в контейнер
+    cards.forEach((card) => cardsContainer.appendChild(card));
+  }
 
-    cards.forEach((card) => {
-      cardsContainer.appendChild(card);
-    });
+  // Полное обновление: фильтрация + сортировка
+  function refresh() {
+    filterCards();
+    sortCards();
   }
 
   // =========================
-  // RESET BUTTON VISIBILITY
+  // ЗАГРУЗКА JSON И ОТРИСОВКА КАРТОЧЕК
   // =========================
-
-  function updateResetButtonVisibility() {
-    const resetButton = document.querySelector('.reset-filter[data-reset="all"]');
-
-    if (!resetButton) return;
-
-    resetButton.style.display = activeCategory || activeTimeRange ? "inline-block" : "none";
-  }
-
-  // =========================
-  // URL UPDATE
-  // =========================
-
-  function updateURL(category, timeRange) {
-    const params = new URLSearchParams();
-
-    if (category) {
-      params.set("category", category);
-    }
-
-    if (timeRange) {
-      params.set("time", timeRange);
-    }
-
-    const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
-
-    history.replaceState(null, "", newUrl);
-  }
-
-  // =========================
-  // LOAD JSON
-  // =========================
-
-  function loadJsonFile() {
+  function loadAndRenderCards() {
     cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
 
     fetch("/data/technics.json")
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Ошибка загрузки JSON: ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       })
-
       .then((data) => {
         cardsContainer.innerHTML = "";
-
         if (!data.length) {
           cardsContainer.innerHTML = "<p>Нет данных</p>";
-
           return;
         }
 
         data.forEach((item, index) => {
           const card = document.createElement("div");
-
           card.className = "card";
-
-          card.dataset.tag = item.tag;
-
+          card.dataset.tag = item.tag || "";
           card.dataset.time = getTimeRange(item.time);
-
           card.dataset.index = index;
-
           card.innerHTML = `
             <div class="card__body">
-
               <div class="card__top">
-
                 <div class="card__img">
-                  <img src="${item.image}" alt="${item.subtitle}">
+                  <img src="${item.image}" alt="${item.subtitle || ""}">
                 </div>
-
-                <h3 class="card__subtitle">
-                  ${item.subtitle}
-                </h3>
-
-                <div class="card__description">
-                  ${item.description}
-                </div>
-
-                <div class="card__category ${item.tag}">
-                  ${item.category}
-                </div>
-
+                <h3 class="card__subtitle">${item.subtitle || ""}</h3>
+                <div class="card__description">${item.description || ""}</div>
+                <div class="card__category ${item.tag || ""}">${item.category || ""}</div>
               </div>
-
-              <div class="card__time">
-                ${item.time} мин
-              </div>
-
-              <a href="technic.html?slug=${item.slug}" class="card__link">
-                Подробнее
-              </a>
-
+              <div class="card__time">${item.time || 0} мин</div>
+              <a href="technic.html?slug=${item.slug}" class="card__link">Подробнее</a>
             </div>
           `;
-
           cardsContainer.appendChild(card);
         });
 
-        // ВАЖНО:
-        // фильтрация и сортировка только ПОСЛЕ загрузки карточек
+        // Синхронизация интерфейса после загрузки
+        refresh();
 
-        filterCards(activeCategory, activeTimeRange);
-
-        sortCards(activeSortOrder);
-
-        updateResetButtonVisibility();
+        // Активировать опцию сортировки в дропдауне
+        const defaultOption = sortDropdown.querySelector('.sort__option[data-value="default"]');
+        if (defaultOption) updateActiveClass(defaultOption, sortOptionElements);
       })
-
       .catch((error) => {
-        console.error("Ошибка загрузки JSON:", error);
-
+        console.error("Ошибка загрузки:", error);
         cardsContainer.innerHTML = '<div class="error">Ошибка загрузки данных</div>';
       });
   }
 
   // =========================
-  // TIME RANGE
+  // СОБЫТИЯ
   // =========================
+  // Дропдаун: открыть/закрыть
+  sortSelected.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sortOptions.style.display = sortOptions.style.display === "block" ? "none" : "block";
+  });
+  document.addEventListener("click", () => {
+    sortOptions.style.display = "none";
+  });
 
-  function getTimeRange(time) {
-    const minutes = parseInt(time);
+  // Выбор опции сортировки
+  sortOptionElements.forEach((option) => {
+    option.addEventListener("click", () => {
+      const newOrder = option.dataset.value;
+      if (newOrder === activeSortOrder) {
+        sortOptions.style.display = "none";
+        return;
+      }
+      activeSortOrder = newOrder;
+      updateActiveClass(option, sortOptionElements);
+      sortCards(); // только сортировка, фильтры не меняются
+      sortOptions.style.display = "none";
+    });
+  });
 
-    if (minutes < 10) {
-      return "lt10";
-    }
+  // Фильтры (категория и время)
+  document.querySelectorAll(".filter__btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.dataset.category;
+      const timeRange = btn.dataset.time;
 
-    if (minutes >= 10 && minutes < 30) {
-      return "10-30";
-    }
+      if (category && category !== "all") {
+        activeCategory = activeCategory === category ? null : category;
+      } else if (category === "all") {
+        activeCategory = null;
+      }
 
-    if (minutes >= 30 && minutes < 60) {
-      return "30-60";
-    }
+      if (timeRange && timeRange !== "all") {
+        activeTimeRange = activeTimeRange === timeRange ? null : timeRange;
+      } else if (timeRange === "all") {
+        activeTimeRange = null;
+      }
 
-    return "all";
+      refresh();
+    });
+  });
+
+  // Кнопка сброса всех фильтров
+  const resetBtn = document.querySelector('.reset-filter[data-reset="all"]');
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      activeCategory = null;
+      activeTimeRange = null;
+      activeSortOrder = "default";
+
+      // Сбросить активный класс в дропдауне
+      const defaultOption = sortDropdown.querySelector('.sort__option[data-value="default"]');
+      if (defaultOption) updateActiveClass(defaultOption, sortOptionElements);
+
+      refresh();
+
+      // Дополнительно убрать активные классы с кнопок фильтров (refresh уже делает это через filterCards)
+    });
   }
+
+  // Старт
+  loadAndRenderCards();
 });
