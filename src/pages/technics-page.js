@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortOptions = sortDropdown.querySelector(".sort__options");
   const sortOptionElements = sortDropdown.querySelectorAll(".sort__option");
 
-  const cardsContainer = document.querySelector(".tekhniki__body");
+  const cardsContainer = document.querySelector(".technics-main__body");
 
   const noCardsPlaceholder = document.getElementById("no-cards-placeholder");
 
