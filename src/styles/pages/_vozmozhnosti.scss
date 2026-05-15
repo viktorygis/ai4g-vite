@@ -5,7 +5,7 @@ body.page-vozmozhnosti {
   background: $color-bg;
 }
 
-//.vozmozhnosti-intro
+// .vozmozhnosti-intro
 .vozmozhnosti-intro {
   padding: 50px 0 30px;
   margin-top: 90px;
@@ -55,7 +55,6 @@ body.page-vozmozhnosti {
   }
 }
 
-//.vozmozhnosti
 .vozmozhnosti {
   padding-bottom: 50px;
 
@@ -63,7 +62,6 @@ body.page-vozmozhnosti {
     padding-bottom: 30px;
   }
 
-  // .vozmozhnosti__container
   &__container {
     max-width: 1000px;
     margin: 0 auto;
@@ -73,14 +71,12 @@ body.page-vozmozhnosti {
     }
   }
 
-  // .vozmozhnosti__header
   &__header {
     color: rgba($color-text, 0.9);
     font-size: 16px;
     line-height: 1.6;
   }
 
-  //.vozmozhnosti__header-text
   &__header-text {
     margin: 0 0 10px;
     font-size: 14px;
@@ -89,12 +85,10 @@ body.page-vozmozhnosti {
     text-align: center;
   }
 
-  // .vozmozhnosti__filters
   &__filters {
     background: $color-bg;
     padding: 10px 0;
     margin: 0 0 30px 0;
-
 
     &.swiper {
       overflow: hidden;
@@ -108,14 +102,7 @@ body.page-vozmozhnosti {
     }
   }
 
-  //.vozmozhnosti__filter-chip
   &__filter-chip {
-    width: auto;
-    /* обязательно */
-    min-width: 0;
-    /* важно */
-    max-width: 100%;
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -130,10 +117,9 @@ body.page-vozmozhnosti {
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
+    flex-shrink: 0;
     width: auto;
-    /* обязательно */
     min-width: 0;
-    /* важно */
     max-width: 100%;
 
     &:hover {
@@ -155,42 +141,6 @@ body.page-vozmozhnosti {
     @include respond-to(768px) {
       padding: 10px 16px;
       font-size: 13px;
-    }
-  }
-
-  &__scroll-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid $color-link;
-    background: transparent;
-    color: $color-link;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    &--left {
-      margin-right: 8px;
-    }
-
-    &--right {
-      margin-left: 8px;
-    }
-
-    &:hover {
-      background: rgba($color-link, 0.1);
-    }
-
-    &:focus-visible {
-      outline: 2px solid $color-link-hover;
-      outline-offset: 2px;
-    }
-
-    @include respond-to(768px) {
-      display: none;
     }
   }
 
@@ -291,26 +241,29 @@ body.page-vozmozhnosti {
     color: $color-headerSubtext;
     grid-column: 1 / -1;
   }
-}
 
-.vozmozhnosti__filters {
-  /* Ширина панели — блоковая панель */
-  width: 100%;
-  /* по желанию: overflow-x: auto; */
-}
+  // Swiper-контейнеры — ширина 100%
+  .vozmozhnosti {
 
-.vozmozhnosti__filters-scroll,
-.swiper-wrapper {
-  display: flex;
-  /* Не давайте width: 100%! */
-}
+    &__filters,
+    .swiper {
+      width: 100%;
+    }
 
-.vozmozhnosti__filter-chip,
-.swiper-slide {
-  width: auto !important;
-  /* ВАЖНО, если Swiper насильно дает width */
-  min-width: 0;
-  max-width: 100%;
-  flex-shrink: 0;
-  /* ваши стили */
+    // Swiper-wrapper и скролл — всегда flex (Swiper требует)
+    &__filters-scroll,
+    .swiper-wrapper {
+      display: flex;
+
+    }
+
+    // Слайды — только auto, иначе может быть баг с шириной
+    &__filter-chip,
+    .swiper-slide {
+      width: auto !important; // Автоматическая ширина по контенту
+      min-width: 0; // Не ограничивать минимальную ширину
+      max-width: 100%; // Не выходить за пределы контейнера
+      flex-shrink: 0; // Не сжимать при нехватке места
+    }
+  }
 }

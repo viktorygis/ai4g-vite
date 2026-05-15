@@ -1,7 +1,4 @@
-import { scrollUp } from '../modules/scroll-up.js';
 
-/* Стрелка */
-scrollUp();
 
 /* sort---------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Применяем начальные настройки фильтра
 	filterCards(activeCategory, activeTimeRange);
 	updateResetButtonVisibility();
-	loadExcelFile();
+	loadJsonFile();
 
 	// Функция для управления классами активности и обновления выбранного элемента сортировки
 	function updateActiveClass(element, elements) {
@@ -215,74 +212,85 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-	// Загрузка данных из Excel-файла
-	function loadExcelFile() {
-		// Вспомогательная функция для определения диапазона времени
-		const getTimeRange = (time) => {
-			const minutes = parseInt(time);
-			if (minutes < 10) return 'lt10';
-			if (minutes >= 10 && minutes < 30) return '10-30';
-			if (minutes >= 30 && minutes < 60) return '30-60';
-			return 'all';
-		};
+	// Загрузка данных из  JSON-файла и создание карточек
+function loadJsonFile() {
+  // Определение диапазона времени
+  const getTimeRange = (time) => {
+    const minutes = parseInt(time);
 
-		fetch('technics.xlsx')
-			.then(response => response.arrayBuffer())
-			.then(data => {
-				const workbook = XLSX.read(data, { type: 'array' });
-				const firstSheetName = workbook.SheetNames[0];
-				const worksheet = workbook.Sheets[firstSheetName];
-				const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+    if (minutes < 10) return 'lt10';
+    if (minutes >= 10 && minutes < 30) return '10-30';
+    if (minutes >= 30 && minutes < 60) return '30-60';
 
-				const cardsContainer = document.querySelector('.tekhniki__body');
-				cardsContainer.innerHTML = ''; // Очищаем контейнер
+    return 'all';
+  };
 
-				// Создаём карточки на основе данных
-				for (let i = 1; i < jsonData.length; i++) {
-					const row = jsonData[i];
-					const dataTag = row[3];
-					const subtitle = row[4];
-					const description = row[5];
-					const category = row[2];
-					const time = row[8];
-					const link = row[6];
-					const imageUrl = row[7];
+  fetch('/data/technics.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Ошибка загрузки JSON: ${response.status}`);
+      }
 
-					// Создаем новую карточку и заполняем её данными
-					const card = document.createElement('div');
-					card.className = 'card';
-					card.setAttribute('data-tag', dataTag);
-					card.setAttribute('data-time', getTimeRange(time));
-					card.setAttribute('data-index', i);
+      return response.json();
+    })
+    .then(data => {
+      const cardsContainer = document.querySelector('.tekhniki__body');
 
-					card.innerHTML = `
-			  <div class="card__body">
-				 <div class="card__top">
-					<div class="card__img">
-					  <img src="${imageUrl}" alt="">
-					</div>
-					<h3 class="card__subtitle">${subtitle}</h3>
-					<div class="card__description">${description}</div>
-					<div class="card__category ${dataTag}">${category}</div>
-				 </div>
-				 <div class="card__time">${time}</div>
-				 <a href="${link}" class="card__link">
-					Подробнее
-				 </a>
-			  </div>
-			`;
+      cardsContainer.innerHTML = '';
 
-					cardsContainer.appendChild(card); // Добавляем карточку в контейнер
-				}
+      data.forEach((item, index) => {
+        const card = document.createElement('div');
 
-				// Применяем фильтрацию и сортировку после загрузки карточек
-				filterCards(activeCategory, activeTimeRange);
-				sortCards(activeSortOrder);
-				updateResetButtonVisibility();
-			})
-			.catch(error => console.error('Ошибка при загрузке или обработке файла Excel:', error));
-	}
+        card.className = 'card';
 
+        card.setAttribute('data-tag', item.tag);
+        card.setAttribute('data-time', getTimeRange(item.time));
+        card.setAttribute('data-index', index);
+
+        card.innerHTML = `
+          <div class="card__body">
+            <div class="card__top">
+
+              <div class="card__img">
+                <img src="${item.image}" alt="${item.subtitle}">
+              </div>
+
+              <h3 class="card__subtitle">
+                ${item.subtitle}
+              </h3>
+
+              <div class="card__description">
+                ${item.description}
+              </div>
+
+              <div class="card__category ${item.tag}">
+                ${item.category}
+              </div>
+
+            </div>
+
+            <div class="card__time">
+              ${item.time} мин
+            </div>
+
+            <a href="${item.link}" class="card__link">
+              Подробнее
+            </a>
+          </div>
+        `;
+
+        cardsContainer.appendChild(card);
+      });
+
+      // После загрузки
+      filterCards(activeCategory, activeTimeRange);
+      sortCards(activeSortOrder);
+      updateResetButtonVisibility();
+    })
+    .catch(error => {
+      console.error('Ошибка загрузки JSON:', error);
+    });
+}
 	// Применяем начальную сортировку
 	sortCards(activeSortOrder);
 });
