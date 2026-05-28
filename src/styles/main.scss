@@ -19,10 +19,6 @@
 //services.html  index.html
 @use 'components/products';
 
-//agreement.html personal.html
-@use 'components/personal';
-
-
 //Кнопки
 @use 'components/buttons';
 @use 'components/table';
@@ -39,7 +35,7 @@
 //pages-----------------
 @use 'pages/allegro.scss';
 @use 'pages/art-coaching';
-@use 'pages/oferta';
+@use 'pages/legal';
 @use 'pages/patterns';
 @use 'pages/vozmozhnosti';
 @use 'pages/technics-main';

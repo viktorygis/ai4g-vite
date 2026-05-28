@@ -1,7 +1,7 @@
 # AI4G Vite
 
-Многостраничный сайт с упражнениями и техниками.
-Технологии: **HTML · PHP · SCSS · JavaScript · Vite**.
+Многостраничный сайт с упражнениями, техниками и сервисами для личностного развития.
+Проект построен на базе **Vite** с модульной архитектурой фронта и серверной поддержкой через PHP.
 
 ---
 
@@ -28,109 +28,171 @@ npm run dev
 
 ```
 ai4g-vite/
-├── src/                          # Исходники (root для Vite)
-│   └── img/                      # Изображения
-│   ├── partials/                 # HTML-фрагменты (подключаются через плагин)
-│   │   ├── footer.html           # Футер (общий для всех страниц)
-│   │   ├── head.html             # Секция <head> (метатеги, стили, шрифты)
-│   │   ├── header.html           # Хедер (общий для всех страниц)
-│   │   ├── js.html               # Скрипты
-│   │   ├── request-form.html            # Всплывающее окно (замена на форму записи?)
-│   │   └── payment-form.html     # Форма оплаты
-│   ├── scripts/                  # JavaScript-модули
-│   │   ├── js/                   # Дополнительные скрипты - не используются
-│   │   ├── modules/              # Отдельные модули
-│   │   │   ├─btn-validation.js   # Валидация кнопки "Записаться" (проверка чекбокса)
-│   │   │   ├─choice-anim.js      # Анимация для блока "Ai4G выбирают"
-│   │   │   ├─cut-text.js         # Обрезка текста в карточках техник  technics.html
-│   │   │   ├─fairway-anim.js     # Анимация для блока  "fairway" фарватер Ai4G
-│   │   │   ├─firefox-fix.js      # Исправление для Firefox (плавная прокрутка и др.)
-│   │   │   ├─form-validation.js  # Валидация форм modal-thanks и modal-request
-│   │   │   ├─init-animations.js  # Инициализация анимаций при скролле
-│   │   │   ├─mentors-anim.js     # Анимация для блока "Менторы" на главной странице
-│   │   │   ├─menu.js             # Скрипт для мобильного меню
-│   │   │   ├─offset.js           # Модуль для получения координат элемента
-
-│   ├── modules/
-│   │   ├── animations/
-│   │   │   ├── fairway-anim.js
-│   │   │   ├── mentors-anim.js
-│   │   │   ├── choice-anim.js
-│   │   │   └── partners-anim.js
-│   │   │
-│   │   ├── forms/
-│   │   │   ├── form-validation.js
-│   │   │   ├── btn-validation.js
-│   │   │   └── payment-modal.js
-│   │   │
-│   │   ├── sliders/
-│   │   │   └── init-swiper.js
-│   │   │
-│   │   ├── ui/
-│   │   │   ├── menu.js
-│   │   │   ├── scroll-up.js
-│   │   │   ├── show-more.js
-│   │   │   └── cut-text.js
-│   │   │
-│   │   └── utils/
-│   │       └── firefox-fix.js
-
-
-относительно документа
-│   │   │   ├─partners-anim.js    # Анимация для блока "Наши партнёры"
-│   │   │   ├─scroll-up.js        # Плавная прокрутка к началу страницы (кнопка "Наверх")
-│   │   │   └─show-more.js        # Логика для кнопки "4G плоскости подробно" на главной странице
-│   │   └── main.js               # Точка входа(инициализация из файла partials/js.html)
-│   ├── styles/                 # SCSS-стили
-│   │   ├── base/               # Переменные, reset, миксины, глобальные стили
-│   │   ├── components/         # Компоненты (header, footer, партнёры и др.)
-│   │   ├── form/               # Стили форм
-│   │   ├── layout/             # Сетка и структура страниц
-│   │   ├── pages/              # Стили отдельных страниц
-│   │   ├── utilities/          # Утилитарные классы
-│   │   └── main.scss           # Главный файл, импортирует всё остальное
-│   ├── index.html              # Главная страница
-│   ├── services.html           # Услуги
-│   ├── technics.html           # Техники (список)
-│   ├── technics/               # Страницы отдельных техник
-│   ├── patterns.html           # Паттерны
-│   ├── personal.html           # Персональная страница
-│   ├── personal-strategy.html  # Персональная стратегия
-│   ├── allegro.html            # Allegro
-│   ├── art-coaching.html       # Арт-коучинг
-│   ├── career-advice.html      # Карьерный совет
-│   ├── coaching-session.html   # Коучинг-сессия
-│   ├── serf-session.html       # SERF-сессия
-│   ├── mentors.html            # Менторы
-│   ├── vozmozhnosti.html       # Возможности
-│   ├── agreement.html          # Согласие
-│   ├── oferta.html             # Оферта
-│   ├── oplata.html             # Оплата
-│   ├── requisites.html         # Реквизиты
-│   ├── 404.html                # Страница ошибки
-├── scripts/
-│   └── vite-plugin-html-include.js  # Кастомный Vite-плагин для @@include
-├── php/                        # PHP-скрипты (обработка форм и др.)
-├── phpmailer/                  # PHPMailer (отправка почты)
-├── PHPMailer/                  # PHPMailer (библиотека)
-├── seo/                        # SEO-файлы
-├── public/                     # Статика, копируется в корень dist без обработки
-├── vite.config.js              # Конфигурация Vite (MPA, порт 5173)
-├── package.json
-└── technics.xlsx               # Таблица техник
+├── .github/                   # Workflows GitHub Actions (CI/CD)
+├── .well-known/               # SSL- и доменные проверки (например, LetsEncrypt)
+├── dist/                      # Продакшн-сборка (результат `npm run build`)
+├── node_modules/              # Зависимости npm
+├── php/                       # Серверные скрипты для обработки форм (mail, оплаты)
+│   ├── mail.php
+│   ├── payment.php
+│   └── config.php
+├── PHPMailer/                 # Библиотека PHPMailer (отправка писем)
+│   ├── language/
+│   └── src/
+├── public/                    # Необрабатываемые статики: favicon, robots.txt, иконки
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── js/
+├── scripts/                   # Служебные и build-скрипты
+│   └── vite-plugin-html-include.js   # Плагин для @@include in Vite
+├── seo/                       # SEO-файлы и sitemap
+│   ├── sitemap.xml
+│   └── ...
+├── src/                       # Главный каталог исходников
+│   ├── data/                  # JSON-данные (например, technics.json)
+│   │   └── technics.json
+│   ├── img/                   # Картинки и все иллюстрации по подпапкам:
+│   │   ├── art-coaching/
+│   │   ├── career-advice/
+│   │   ├── coaching-session/
+│   │   ├── files/
+│   │   ├── main/
+│   │   ├── partners/
+│   │   ├── serf-session/
+│   │   ├── technics/
+│   │   └── ...
+│   ├── pages/                 # JS-логика для страниц (например, technics-page.js)
+│   │   ├── technics-page.js
+│   │   ├── technic-page.js
+│   │   └── ...
+│   ├── partials/              # HTML-фрагменты (header, footer, формы, подключение js)
+│   │   ├── head.html
+│   │   ├── header.html
+│   │   ├── footer.html
+│   │   ├── js.html
+│   │   ├── request-form.html
+│   │   └── payment-form.html
+│   ├── scripts/               # Крупные JS-модули и инициализация, устаревшие/резервные
+│   │   ├── js/                # (Неиспользуемое/архив)
+│   │   └── modules/           # Модули по смыслу
+│   │       ├── animations/    # Анимации по секциям (fairway, mentors, partners)
+│   │       ├── forms/         # Валидация и кнопки форм
+│   │       ├── sliders/       # Swiper-инициализация
+│   │       ├── ui/            # Меню, scroll-up, show-more и т.д.
+│   │       └── utils/         # Вспомогательные утилиты (offset, firefox-fix...)
+│   └── styles/                # SCSS-архитектура
+│       ├── base/              # Переменные, сброс, миксины
+│       ├── components/        # Компоненты (header, footer, card, filter и т.д.)
+│       ├── form/              # Формы
+│       ├── layout/            # Общие сетки и разметка
+│       ├── pages/             # Стили отдельных страниц (technics, patterns, ...)
+│       ├── utilities/         # Микроутилитарные классы
+│       └── main.scss          # Главный файл для импорта всех SCSS
+│   # HTML-страницы (в корне src/)
+│   ├── index.html
+│   ├── services.html
+│   ├── technics.html
+│   ├── technics/              # Детальные страницы техник (генерация)
+│   ├── patterns.html
+│   ├── vozmozhnosti.html
+│   ├── mentors.html
+│   ├── allegro.html
+│   ├── art-coaching.html
+│   ├── career-advice.html
+│   ├── coaching-session.html
+│   ├── serf-session.html
+│   ├── personal.html
+│   ├── personal-strategy.html
+│   ├── oferta.html
+│   ├── oplata.html
+│   ├── requisites.html
+│   ├── 404.html
+│   └── ...
+├── technics.xlsx              # Таблица с техниками для массового импорта/обновления
+├── vite.config.js             # Главный конфиг Vite
+├── package.json               # Описания npm-зависимостей и скриптов
+└── README.md                  # Этот файл
 ```
+
+---
+
+## Подробное описание основных папок и файлов
+
+- **src/partials/** — Header, Footer, head, формы, модальные окна, подключение JS. Все фрагменты встраиваются в страницы через @@include.
+- **src/pages/** — Логика для страниц с интерактивностью и динамикой (technics, детальные страницы техник).
+- **src/data/technics.json** — Данные по техникам, фильтры, справочники.
+- **src/img/technics/** — Картинки для техник.
+- **src/styles/** — Все слои стилей: базовые (base), компоненты, layout, формы, страницы (pages), утилиты.
+- **public/** — Все файлы, которые копируются в production без сборки (favicon, robots.txt, иконки и др.).
+- **php/**, **PHPMailer/** — Сервер: backend-обработчики форм, отправка почты, настройка SMTP.
+- **seo/** — SEO-файлы, включая sitemap.
+- **scripts/** — Кастомные сборочные скрипты, включая vite-plugin-html-include.js.
+- **technics.xlsx** — Мастер-таблица техник для редактирования и конвертации в JSON.
+
+## Основные страницы и разделы
+
+- **index.html** — Главная страница (герой, этапы, наставники, отзывы, продукты)
+- **technics.html** — Каталог техник (фильтрация, поиск, категории, сортировка)
+- **technics/** — Детальные страницы техник с загрузкой по slug
+- **patterns.html** — Каталог паттернов поведения
+- **vozmozhnosti.html** — Каталог возможностей, фильтры, категории
+- **mentors.html** — Наставники
+- **allegro.html** — Транскрибатор
+- **services.html** — Услуги: коучинг, консультации, стратегия и др.
+- **art-coaching.html** — Арт-коучинг
+- **coaching-session.html** — Коучинг-сессия
+- **career-advice.html** — Карьерная консультация
+- **serf-session.html** — SERF-сессия
+- **personal.html** — Персональная страница
+- **personal-strategy.html** — Персональная стратегия
+- **oferta.html** — Договор оферты
+- **oplata.html** — Оплата
+- **requisites.html** — Реквизиты
+- **404.html** — Страница ошибки, fallback
+
+## Стек технологий
+
+- **HTML5**
+- **SCSS** — слоистая архитектура (base, components, pages, utils и др.)
+- **JavaScript (ES Modules)** — структура по блокам/страницам, динамика и анимации
+- **PHP** — серверная часть для обработки форм и e-mail
+- **Vite** — быстрый сборщик и dev-сервер, поддержка множества страниц (MPA)
+- **Swiper** — слайдеры
+- **Fancybox** — модальные окна, галереи
+- **PHPMailer** — отправка e-mail с форм
 
 ---
 
 ## Особенности проекта
 
-- **MPA (Multi-Page Application)** — Vite автоматически подхватывает все `.html` файлы в `src/` (кроме папки `partials/`).
-- **Кастомный плагин `vite-plugin-html-include.js`** — позволяет подключать HTML-фрагменты (партиалы) через `@@include`.
-- **SCSS** — стили разбиты по слоям: `base`, `components`, `layout`, `form`, `pages`, `utilities`, все импортируются в `src/styles/main.scss`.
-- **JS-зависимости (npm):** `swiper`, `just-validate`, `inputmask`, `sass`.
-- **PHP** — используется для обработки форм, письма отправляются через PHPMailer.
+- **MPA (Multi-Page Application):**
+Каждая страница — отдельная точка входа. Vite автоматически подключает все `.html`-файлы внутри `src/` и его подпапок,
+кроме директорий `partials/`.
+
+- **SCSS-инфраструктура:**
+Строгое разделение — базовые стили, компоненты, layout, страницы, утилиты.
+
+- **Модульный JS:**
+Выделенные папки по функционалу (animations, forms, sliders, ui, utils).
+
+- **HTML-фрагменты (partials):**
+Включаются в любую страницу через собственный плагин (@@include).
+
+- **PHP / PHPMailer:**
+Для всех форм (почта, оплата).
+
+- **SEO:**
+Отдельная папка с sitemap и robots.txt.
 
 ---
+
+
+## Каталоги техник: фильтрация и детали
+- **technics.html** — каталог с фильтрацией, поиском, сортировкой (данные берутся из src/data/technics.json).
+- **technics/technic.html?slug=...** — детальная страница техники (данные подгружаются по slug).
+- **technics.xlsx** — для массовых обновлений/редактирования техник (конвертация в JSON).
+- **Картинки техник** — загружаются в src/img/technics/.
+
 
 ## Развёртывание
 
@@ -147,6 +209,100 @@ npm run build
 Выложить на хостинг/сервер с PHP. Файлы `php/*.php` (обработчики форм) будут выполняться на стороне сервера. В `php/`-скриптах используется PHPMailer для отправки писем.
 
 ---
+
+
+## Автоматическое подключение HTML-страниц
+
+В vite.config.js используется функция `collectHtmlInputs()`,
+которая рекурсивно сканирует папку `src/`
+и автоматически подключает все `.html`-страницы в качестве entry points для `Rollup/Vite`.
+
+Исключаются только директории `partials/`.
+
+Это позволяет:
+- не прописывать страницы вручную;
+- свободно создавать новые страницы и вложенные разделы;
+- поддерживать полноценную MPA-архитектуру.
+
+
+## Alias
+
+В проекте используется alias:
+
+/@src
+
+Пример:
+
+import data from "/@src/data/technics.json";
+
+Alias указывает на папку src/.
+
+## Папка public/
+
+Все файлы из public/ копируются в dist/
+без обработки и хеширования Vite.
+
+Используется для:
+
+favicon
+robots.txt
+sitemap
+внешних JS
+статических иконок
+.well-known
+
+## Root-директория Vite
+
+Проект использует:
+
+root: "src"
+
+Поэтому все HTML-страницы, стили и клиентские скрипты располагаются внутри src/.
+
+Это упрощает структуру MPA-проекта и отделяет исходники от служебных файлов.
+
+## Production build
+
+После выполнения:
+`npm run build`
+
+Vite:
+- собирает JS/CSS;
+- оптимизирует ассеты;
+- добавляет hash к файлам;
+- копирует public/;
+- сохраняет результат в dist/.
+
+## Архитектурные решения
+
+### Почему MPA вместо SPA
+Проект использует Multi-Page Architecture (MPA), потому что:
+- страницы имеют независимый SEO;
+- проще масштабировать контентные разделы;
+- меньше JS на клиенте;
+- быстрее initial load;
+- проще поддерживать лендинги и продуктовые страницы.
+
+### Почему HTML + Vite вместо React
+Проект ориентирован на:
+- высокую скорость загрузки;
+- SEO;
+- минимальный runtime;
+- простую генерацию страниц;
+- лёгкое масштабирование контента.
+
+## Добавление новой страницы
+Создать .html внутри src/
+Подключить partials через @@include
+Создать SCSS в styles/pages/
+При необходимости добавить JS в pages/
+
+Никаких изменений в vite.config.js не требуется —
+страница подключится автоматически.
+
+## Динамические страницы техник
+- Добавить technics.json по параметру slug (например, "deep-work").
+
 
 ## Контакты
 

@@ -6,6 +6,7 @@
 $color-bg: #150931;
 $color-accent: #ff008a;
 $color-secondary: #06ea6f;
+$color-gray: #71717a;
 $color-text: #fff;
 $color-header-gradient1: #ff008a;
 $color-header-gradient2: #2bf29f;
@@ -41,5 +42,5 @@ $color-drop-list-divider: #71717a;
 $color-drop-list-accent: #2bf29f;
 
 $card-bg: #f8f9fa;        // светло-серый, не белый
-$filter-bg: #ffffff;      // для фильтров можно оставить белый, но если хотите убрать – см. ниже
-$body-bg: #eef2f5;        // фон всей страницы (если ещё не задан)
+$filter-bg: #ffffff;
+$body-bg: #eef2f5;        // фон всей страницы

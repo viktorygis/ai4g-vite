@@ -141,6 +141,7 @@
     align-items: center;
   }
 
+  // .session-download__item
   &__item {
     display: flex;
     gap: 30px;
@@ -186,10 +187,12 @@
 
   .session-download__item:hover &__img_01 {
     background: url(../img/serf-session/download-hover01.png) 0 0 no-repeat;
+    background-size: 40px 70px;
   }
 
   .session-download__item:hover &__img_02 {
     background: url(../img/serf-session/download-hover02.png) 0 0 no-repeat;
+    background-size: 40px 70px;
   }
 
   &__block {
