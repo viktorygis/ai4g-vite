@@ -199,21 +199,6 @@
   }
 }
 
-//--------------------------------
-._anim-items {
-  opacity: 1;
-  transform: translateY(0);
-
-  &._hidden {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-
-  &._active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 // возможности --------------
 @keyframes expand {
@@ -242,4 +227,17 @@
     opacity: 0;
     padding: 0 20px;
   }
+}
+
+//----personal-strategy-----transcribator-----------------------
+
+._anim-items {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+._anim-items._active {
+  opacity: 1;
+  transform: translateY(0);
 }
