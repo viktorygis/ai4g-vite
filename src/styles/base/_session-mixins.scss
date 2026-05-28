@@ -1,0 +1,203 @@
+// src/styles/base/_session-mixins.scss
+// ===================================
+// Переиспользуемые миксины для сессионных страниц
+// Содержат анимации и общие стили для session, solution, servise-session, serf-session
+// ===================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==============================
+// Миксин для анимации элементов каскадом
+// ==============================
+@mixin cascade-animation($delay: 0.9s, $duration: 0.9s) {
+  opacity: 0;
+  transform: translateY(-70px);
+  transition: opacity $duration ease, transform $duration ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==============================
+// Миксин для анимации справа (для блоков servise)
+// ==============================
+@mixin slide-from-left-animation($delay: 0.5s, $duration: 0.5s) {
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity $duration ease $delay, transform $duration ease $delay;
+
+  &.show,
+  &._active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin slide-from-right-animation($delay: 0.5s, $duration: 0.5s) {
+  opacity: 0;
+  transform: translateX(200px);
+  transition: opacity $duration ease $delay, transform $duration ease $delay;
+
+  &.show,
+  &._active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ==============================
+// Миксин для анимации снизу (для декоративных элементов)
+// ==============================
+@mixin slide-up-animation($delay: 1s, $duration: 0.9s) {
+  opacity: 0;
+  transform: translateY(-270px);
+  transition: opacity $duration ease $delay, transform $duration ease $delay;
+
+  &.show,
+  &._active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==============================
+// Миксин для простой анимации по появлению (serf-session)
+// ==============================
+@mixin fade-in-animation($delay: 0s, $duration: 0.8s) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity $duration ease $delay, transform $duration ease $delay;
+
+  &._active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==============================
+// Миксин для текста с иконками (solution)
+// ==============================
+@mixin solution-item-styles() {
+  display: flex;
+  @include cascade-animation(0.9s, 0.9s);
+
+  @include respond-to(768px) {
+    flex-direction: column;
+  }
+}
+
+// ==============================
+// Миксин для service-session блоков
+// ==============================
+@mixin service-item-styles() {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 0.5306rem + 3.5971vw, 2.5rem);
+}
+
+// ==============================
+// Миксин для контейнера блоков с промежутком
+// ==============================
+@mixin service-container-styles() {
+  display: flex;
+  flex-direction: column;
+  width: 620px;
+  gap: 75px;
+  position: relative;
+
+  @include respond-to(768px) {
+    gap: 30px;
+  }
+}
+
+// ==============================
+// Миксин для изображения в service блоке
+// ==============================
+@mixin service-image-styles() {
+  height: 75px;
+  margin: 10px 0 0 0;
+  @include slide-from-left-animation(0.5s, 0.5s);
+
+  @include respond-to(920px) {
+    height: clamp(2.5rem, 1.6007rem + 4.4964vw, 4.0625rem);
+  }
+
+  @include respond-to(768px) {
+    margin: 0;
+  }
+}
+
+// ==============================
+// Миксин для текстового блока в service
+// ==============================
+@mixin service-block-styles() {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 49px;
+  @include slide-from-right-animation(0.5s, 0.5s);
+
+  @include respond-to(920px) {
+    margin: 0;
+    font-size: clamp(1.25rem, 0.8903rem + 1.7986vw, 1.875rem);
+    line-height: clamp(2.125rem, 1.9451rem + 0.8993vw, 2.4375rem);
+  }
+
+  @include respond-to(350px) {
+    font-size: 16px;
+  }
+}
+
+// ==============================
+// Миксин для заголовков в service блоке
+// ==============================
+@mixin service-title-styles() {
+  color: $color-text;
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+  }
+}
+
+// ==============================
+// Миксин для layout session (основной контейнер)
+// ==============================
+@mixin session-main-styles($bg-color) {
+  background-color: $bg-color;
+  padding: 90px 0 100px 0;
+
+  @include respond-to(980px) {
+    padding: 90px 0 100px 0;
+  }
+  @include respond-to(768px) {
+    padding: 90px 0 50px 0;
+  }
+}
+
+// ==============================
+// Миксин для кнопок сессии
+// ==============================
+@mixin session-link-styles($bg: $color-accent, $text: $color-text, $hover-bg: $color-secondary, $hover-text: $color-text) {
+  background: $bg;
+  color: $text;
+
+  &:hover {
+    background: $hover-bg;
+    color: $hover-text;
+  }
+}
+
+// ==============================
+// Миксин для варианта кнопки (inverted)
+// ==============================
+@mixin session-link-variant-styles($bg: $color-secondary, $text: $color-bg, $hover-bg: $color-accent, $hover-text: $color-text) {
+  background: $bg;
+  color: $text;
+
+  &:hover {
+    background: $hover-bg;
+    color: $hover-text;
+  }
+}

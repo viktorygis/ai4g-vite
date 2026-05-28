@@ -1,4 +1,4 @@
-// main.scss
+// src/styles/main.scss
 
 //base-----------------
 @use 'base/global';
@@ -9,7 +9,7 @@
 @use 'base/typography';
 @use 'base/animations';
 @use 'base/page-themes';
-
+@use 'base/session-mixins'; // Новые миксины для сессий
 
 //components-----------------
 

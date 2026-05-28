@@ -1,76 +1,87 @@
-// src/scss/pages/career-advice.scss
+// src/styles/pages/_career-advice.scss
+// Стили для страницы карьерной консультации
+// Использует базовые стили из session-base и миксины из session-mixins
+
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+@use '../base/session-mixins' as *;
 @use 'session-base';
 
-.session {
-  background-color: #077df0;
+// ==============================
+// СПЕЦИФИЧНЫЕ ЦВЕТА И СТИЛИ
+// ==============================
 
-  &__text-block::after {
-    background: linear-gradient(180deg, #0a48a2, rgba($color-container-bg, 0) 100%);
-  }
+.page-career-advice {
+  .session {
+    @include session-main-styles(#077df0);
 
-  &__link {
-    background: $color-accent;
-    color: $color-text;
-    &:hover {
-      background: $color-secondary;
+    &__text-block::after {
+      background: linear-gradient(180deg, #0a48a2, rgba($color-container-bg, 0) 100%);
     }
-    &_green {
-      background: $color-secondary;
-      color: $color-bg;
-      &:hover {
-        background: $color-accent;
-        color: $color-text;
+
+    &__link {
+      @include session-link-styles($color-accent, $color-text, $color-secondary, $color-text);
+
+      &_green {
+        @include session-link-variant-styles($color-secondary, $color-bg, $color-accent, $color-text);
       }
     }
-  }
 
-  &__subtitle {
-    max-width: 550px;
-  }
-}
-
-.solution {
-  row-gap: 30px;
-  &__item_04,
-  &__item_06 {
-    top: 0;
-  }
-  &__img {
-    margin: 2px 20px 0 5px;
-    &_triangle {
-      margin: 2px 16px 0 0;
+    &__subtitle {
+      max-width: 550px;
     }
   }
-  &__text {
-    font-size: 18px;
-    line-height: 25px;
-  }
-}
 
-.servise-session {
-  margin: 70px 0 100px 0;
-  &__text {
-    color: $color-secondary;
+  .solution {
+    row-gap: 30px;
+
+    &__item_04,
+    &__item_06 {
+      top: 0;
+    }
+
+    &__img {
+      margin: 2px 20px 0 5px;
+
+      &_triangle {
+        margin: 2px 16px 0 0;
+      }
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 25px;
+    }
   }
-  &__decor-img {
-    left: -332px;
-    top: 28px;
-    width: 216px;
-    @include respond-to(920px) {
-      left: 507px;
-      top: 27px;
-      width: 165px;
+
+  .servise-session {
+    margin: 70px 0 100px 0;
+
+    &__text {
+      color: $color-secondary;
     }
-    @include respond-to(768px) {
-      left: 471px;
-      top: 30px;
-      width: 136px;
-    }
-    @include respond-to(650px) {
-      left: 375px;
-      width: 136px;
+
+    &__decor-img {
+      left: -332px;
+      top: 28px;
+      width: 216px;
+
+      @include respond-to(920px) {
+        left: 507px;
+        top: 27px;
+        width: 165px;
+      }
+
+      @include respond-to(768px) {
+        left: 471px;
+        top: 30px;
+        width: 136px;
+      }
+
+      @include respond-to(650px) {
+        left: 375px;
+        width: 136px;
+      }
     }
   }
 }

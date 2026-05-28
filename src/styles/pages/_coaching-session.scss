@@ -1,78 +1,76 @@
-// src/scss/pages/coaching-session.scss
+// src/styles/pages/_coaching-session.scss
+// Стили для страницы коучинговой сессии
+// Использует базовые стили из session-base и миксины из session-mixins
+
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+@use '../base/session-mixins' as *;
 @use 'session-base';
 
-// Специфика для coaching-session
-.session {
-  background-color: #bc03cc;
+// ==============================
+// СПЕЦИФИЧНЫЕ ЦВЕТА И СТИЛИ
+// ==============================
 
-  &__text-block::after {
-    background: linear-gradient(180deg, $color-bg-footer-gradient, rgba($color-container-bg, 0) 100%);
-  }
+.page-coaching-session {
+  .session {
+    @include session-main-styles(#bc03cc);
 
-  &__link {
-    background: $color-link;
-    color: $color-text;
-
-    &:hover {
-      background: $color-secondary;
+    &__text-block::after {
+      background: linear-gradient(180deg, $color-bg-footer-gradient, rgba($color-container-bg, 0) 100%);
     }
 
-    &_green {
-      background: $color-secondary;
-      color: $color-bg;
+    &__link {
+      @include session-link-styles($color-link, $color-text, $color-secondary, $color-text);
 
-      &:hover {
-        background: $color-link;
-        color: $color-text;
+      &_green {
+        @include session-link-variant-styles($color-secondary, $color-bg, $color-link, $color-text);
       }
     }
   }
-}
 
-.solution {
-  &__item_04 {
-    position: relative;
-    top: 35px;
+  .solution {
+    &__item_04 {
+      position: relative;
+      top: 35px;
 
-    @include respond-to(920px) {
-      top: 0;
+      @include respond-to(920px) {
+        top: 0;
+      }
     }
   }
-}
 
-.servise-session {
-  &__text {
-    color: #3ca1ff;
-  }
-
-  &__decor-img {
-    height: auto;
-    position: absolute;
-    left: -373px;
-    top: 29px;
-    width: 309px;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.5s;
-
-    &.show {
-      opacity: 1;
+  .servise-session {
+    &__text {
+      color: #3ca1ff;
     }
 
-    @include respond-to(920px) {
-      left: 450px;
+    &__decor-img {
+      height: auto;
+      position: absolute;
+      left: -373px;
       top: 29px;
-      width: 253px;
-    }
+      width: 309px;
+      opacity: 0;
+      transition: opacity 0.5s ease 0.5s;
 
-    @include respond-to(768px) {
-      top: 29px;
-      width: 203px;
-    }
+      &.show {
+        opacity: 1;
+      }
 
-    @include respond-to(450px) {
-      display: none;
+      @include respond-to(920px) {
+        left: 450px;
+        top: 29px;
+        width: 253px;
+      }
+
+      @include respond-to(768px) {
+        top: 29px;
+        width: 203px;
+      }
+
+      @include respond-to(450px) {
+        display: none;
+      }
     }
   }
 }
