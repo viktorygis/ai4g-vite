@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/viktorygis/ai4g-vite#readme",
   "dependencies": {
+    "dropzone": "^6.0.0-beta.2",
     "inputmask": "^5.0.9",
     "just-validate": "^4.3.0",
     "sass": "^1.99.0",

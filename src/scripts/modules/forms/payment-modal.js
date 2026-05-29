@@ -1,3 +1,4 @@
+//src\scripts\modules\forms\payment-modal.js
 let lastPaymentTrigger = null;
 
 function trackPaymentClicks() {

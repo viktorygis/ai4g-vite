@@ -1,4 +1,4 @@
-// form-validation.js - Валидация формы, маска телефона, отправка AJAX, динамический заголовок
+//src\scripts\modules\forms\form-validation.js
 
 import Inputmask from "inputmask";
 import JustValidate from "just-validate";

@@ -5,7 +5,9 @@
 
 <body class="body page-transcribator">
   <div class="wrapper">
-  @@include('partials/header.html', {})
+    @@include('partials/header.html', {})
+
+
 
 
     <main class="page">
@@ -89,13 +91,14 @@
               </div>
               <div class="trancrib__text trancrib-text"></div>
             </form>
-            <button class="trancrib__link" id="upload-button">Загрузить файл</button>
+
+            <button type="button" class="trancrib__link" id="upload-button">Загрузить файл</button>
             <div class="trancrib__bottom">
-              <button class="trancrib__link trancrib__link_add" id="button-add">
+              <button type="button" class="trancrib__link trancrib__link_add" id="button-add">
                 <img src="img/transcribator/plus.svg" alt="" />
                 Добавить еще файлы
               </button>
-              <button class="trancrib__link trancrib__link_proccess" id="button-proccess">
+              <button type="button" class="trancrib__link trancrib__link_proccess" id="button-proccess">
                 Конвертировать
                 <img src="img/transcribator/arrow-right.svg" alt="" />
               </button>
@@ -396,103 +399,15 @@
         </div>
       </section>
     </main>
-  @@include('partials/footer.html', {})
-  @@include('partials/js.html', {})
+    @@include('partials/footer.html', {})
+    @@include('partials/js.html', {})
+@@include('partials/payment-form.html', {})
 
 
-    <div class="modal-thanks" id="modal-thanks">
-      <div class="modal-thanks__logo">
-        <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
-      </div>
-      <h3 class="modal-thanks__title">Вы&nbsp;успешно записались на&nbsp;serf-сессию.</h3>
-      <div class="modal-thanks__text">В&nbsp;ближайшее время мы&nbsp;свяжемся с&nbsp;вами указанным способом</div>
-    </div>
-
-    <!-- modal-oplata форма и выбор файла для транскрибатора -->
-    <div class="modal-oplata" id="modal-oplata">
-      <h3 class="modal-oplata__title">Транскрибация видео-аудио контента</h3>
-      <form class="modal-oplata__form" id="oplata-form" enctype="multipart/form-data">
-        <!-- Имя -->
-        <div class="modal-oplata__item">
-          <input class="modal-oplata__name" data-validate-field="name" name="Имя" type="text" placeholder="Представьтесь, пожалуйста" />
-        </div>
-
-        <!--  Телефон-->
-        <div class="modal-oplata__item">
-          <input class="modal-oplata__phone" data-validate-field="tel" name="Телефон" type="tel" placeholder="Телефон" />
-        </div>
-
-        <!-- email -->
-        <div class="modal-oplata__item">
-          <input class="modal-oplata__email" data-validate-field="email" name="email" type="email" placeholder="Электронная почта для отправки файла" />
-        </div>
-
-        <div class="modal-oplata__choice">
-          <div class="modal-oplata__left">Предпочтительный способ отправки файла:</div>
-          <div class="modal-oplata__right">
-            <!-- Telegram -->
-            <label class="modal-oplata__label">
-              <input class="modal-oplata__radio" type="radio" name="sent" value="Telegram" checked />
-              <span>Telegram</span>
-            </label>
-
-            <!--Электронная почта  -->
-            <label class="modal-oplata__label">
-              <input class="modal-oplata__radio" type="radio" name="sent" value="Электронная почта" />
-              <span>Электронная почта</span>
-            </label>
-          </div>
-        </div>
-        <div class="modal-oplata__choice">
-          <div class="modal-oplata__left">Выберете формат текстового файла:</div>
-          <div class="modal-oplata__right">
-            <!--  docx-->
-            <label class="modal-oplata__label">
-              <input class="modal-oplata__radio" type="radio" name="format" value=".docx" checked />
-              <span>.docx</span>
-            </label>
-
-            <!-- xlsx -->
-            <label class="modal-oplata__label"> <input class="modal-oplata__radio" type="radio" name="format" value=".xlsx" /><span>.xlsx</span> </label>
-
-            <!-- srt -->
-            <label class="modal-oplata__label"> <input class="modal-oplata__radio" type="radio" name="format" value=".srt" /><span>.srt</span> </label>
-
-            <!-- txt -->
-            <label class="modal-oplata__label"> <input class="modal-oplata__radio" type="radio" name="format" value=".txt" /><span>.txt</span> </label>
-          </div>
-        </div>
-        <form action="pay.php" method="post">
-          <button class="modal-oplata__btn" type="submit">к оплате</button>
-        </form>
-      </form>
-      <div class="modal-oplata__agree">
-        Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-        <a href="https://ai4g.ru/oferta.html">
-          <span>условиями договора-оферты</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- modal-pay для транскрибатора -->
-
-    <!-- 			<div class="modal-pay__agree">
-				Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-				<a href="https://ai4g.ru/oferta.html">
-					<span>условиями договора-оферты</span>
-				</a>
-			</div>
-		</div> -->
-
-    <!--оплата прошла успешно  -->
-    <div class="file-sent" id="file-sent">
-      <div class="file-sent__content">
-        <h3 class="file-sent__title file-sent__title_white">оплата успешно <br />проведена</h3>
-        <div class="file-sent__title">файл отправлен <br />на почту!</div>
-      </div>
-    </div>
 
   </div>
+  <script type="module" src="/pages/transcribator-page.js"></script>
+
 </body>
 
 </html>
