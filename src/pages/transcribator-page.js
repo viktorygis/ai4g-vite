@@ -389,6 +389,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (amount) {
           amount.textContent = (price / 100).toLocaleString("ru-RU");
         }
+
+        // Показать поля транскрибатора, скрыть стандартный способ связи
+        const contactChoice = paymentModal.querySelector("#contact-choice");
+        const sentChoice = paymentModal.querySelector("#sent-choice");
+        const formatChoice = paymentModal.querySelector("#format-choice");
+        const emailInput = paymentModal.querySelector(".payment__email");
+
+        if (contactChoice) contactChoice.style.display = "none";
+        if (sentChoice) sentChoice.style.display = "";
+        if (formatChoice) formatChoice.style.display = "";
+        if (emailInput) emailInput.placeholder = "Электронная почта для отправки файла";
       }, 100);
     } catch (error) {
       console.error("Ошибка загрузки:", error);

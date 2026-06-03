@@ -1,6 +1,74 @@
 // src/styles/base/_mixins.scss
+@use '../base/variables' as *;
+
 @mixin respond-to($breakpoint) {
   @media (max-width: $breakpoint) {
     @content;
+  }
+}
+
+@mixin agree-checkbox {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+  text-align: left;
+  align-items: center;
+
+  input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 35px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+
+    &::before {
+      display: inline-block;
+      margin-right: 20px;
+      content: url('../img/check-disabled.svg');
+      cursor: pointer;
+    }
+
+    &:checked {
+      display: inline-block;
+      margin-right: 10px;
+      margin-left: -10px;
+      content: url('../img/check.svg');
+    }
+  }
+
+  label {
+    cursor: pointer;
+
+    span {
+      font-family: $font-alt, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $color-bg;
+
+      a {
+        color: $color-link;
+        text-decoration: underline;
+
+        &:hover {
+          color: $color-link-hover;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    input[type="checkbox"] {
+      width: 40px;
+
+      &::before {
+        margin-left: -3px;
+      }
+    }
   }
 }

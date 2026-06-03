@@ -39,10 +39,18 @@
   </form>
 
   <div class="modal-request__agree">
-    Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-    <a href="https://ai4g.ru/oferta.html" target="_blank">
-      <span>условиями договора-оферты</span>
-    </a>
+    <div class="modal-request__check">
+      <input id="policy-read-req" type="checkbox" name="agreePolicy" required>
+      <label for="policy-read-req"><span>*С <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a> ознакомлен (-на).</span></label>
+    </div>
+    <div class="modal-request__check">
+      <input id="data-consent-req" type="checkbox" name="agreeData" required>
+      <label for="data-consent-req"><span>*Даю согласие на обработку своих персональных данных в соответствии с <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span></label>
+    </div>
+    <div class="modal-request__check">
+      <input id="marketing-consent-req" type="checkbox" name="agreeAds">
+      <label for="marketing-consent-req"><span>Даю <a href="agreement.html" target="_blank" rel="noopener noreferrer">Согласие на получение информационных и рекламных материалов</a>.</span></label>
+    </div>
   </div>
 </div>
 

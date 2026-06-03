@@ -1,4 +1,6 @@
 //src\scripts\modules\forms\payment-modal.js
+import Inputmask from "inputmask";
+
 let lastPaymentTrigger = null;
 
 function trackPaymentClicks() {
@@ -116,8 +118,16 @@ function initPaymentFormSubmit() {
   });
 }
 
+function initPhoneMask() {
+  const phoneInput = document.querySelector('#payment-form .payment__phone');
+  if (phoneInput) {
+    new Inputmask("+7 (999) 999-99-99").mask(phoneInput);
+  }
+}
+
 export function initPaymentModal() {
   trackPaymentClicks();
   bindPaymentFancybox();
   initPaymentFormSubmit();
+  initPhoneMask();
 }

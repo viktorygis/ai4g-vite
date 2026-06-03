@@ -15,11 +15,12 @@
 
     <!-- Блок для выбора цены, опциональный -->
     <div id="price-choices" style="display:none"></div>
-    <input class="payment__name" name="clientid" type="text" placeholder="Имя и Фамилия" required />
+    <input class="payment__name" name="clientid" type="text" placeholder="Представьтесь, пожалуйста" required />
     <input class="payment__phone" name="client_phone" type="tel" placeholder="Телефон" required />
     <input class="payment__email" name="client_email" type="email" placeholder="Электронная почта" required />
 
-    <div class="payment__choice">
+    <!-- Способ связи — для обычных страниц -->
+    <div class="payment__choice" id="contact-choice">
       <div class="payment__left">Предпочтительный способ связи:</div>
       <div class="payment__right">
         <label class="payment__label"><input class="payment__radio" type="radio" name="contact" value="Телефон" checked /><span>Телефон</span></label>
@@ -27,13 +28,42 @@
         <label class="payment__label"><input class="payment__radio" type="radio" name="contact" value="Telegram" /><span>Telegram</span></label>
       </div>
     </div>
+
+    <!-- Способ отправки файла — только для транскрибатора -->
+    <div class="payment__choice" id="sent-choice" style="display:none">
+      <div class="payment__left">Предпочтительный способ отправки файла:</div>
+      <div class="payment__right">
+        <label class="payment__label"><input class="payment__radio" type="radio" name="sent" value="Telegram" checked /><span>Telegram</span></label>
+        <label class="payment__label"><input class="payment__radio" type="radio" name="sent" value="Электронная почта" /><span>Электронная почта</span></label>
+      </div>
+    </div>
+
+    <!-- Формат файла — только для транскрибатора -->
+    <div class="payment__choice" id="format-choice" style="display:none">
+      <div class="payment__left">Выберите формат текстового файла:</div>
+      <div class="payment__right">
+        <label class="payment__label"><input class="payment__radio" type="radio" name="format" value=".docx" checked /><span>.docx</span></label>
+        <label class="payment__label"><input class="payment__radio" type="radio" name="format" value=".xlsx" /><span>.xlsx</span></label>
+        <label class="payment__label"><input class="payment__radio" type="radio" name="format" value=".srt" /><span>.srt</span></label>
+        <label class="payment__label"><input class="payment__radio" type="radio" name="format" value=".txt" /><span>.txt</span></label>
+      </div>
+    </div>
+
     <button class="payment__btn" type="submit">Оплатить</button>
   </form>
   <div class="payment__agree">
-    Отправляя форму, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных и&nbsp;
-    <a href="https://ai4g.ru/oferta.html" target="_blank">
-      <span>условиями договора-оферты</span>
-    </a>
+    <div class="payment__check">
+      <input id="policy-read" type="checkbox" name="agreePolicy" required>
+      <label for="policy-read"><span>*С <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a> ознакомлен (-на).</span></label>
+    </div>
+    <div class="payment__check">
+      <input id="data-consent" type="checkbox" name="agreeData" required>
+      <label for="data-consent"><span>*Даю согласие на обработку своих персональных данных в соответствии с <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</span></label>
+    </div>
+    <div class="payment__check">
+      <input id="marketing-consent" type="checkbox" name="agreeAds">
+      <label for="marketing-consent"><span>Даю <a href="agreement.html" target="_blank" rel="noopener noreferrer">Согласие на получение информационных и рекламных материалов</a>.</span></label>
+    </div>
   </div>
 </div>
 

@@ -14,6 +14,13 @@ npm run dev
 
 Откройте браузер по адресу `http://localhost:5173` (порт задан в `vite.config.js`).
 
+запуск php
+
+```bash
+F:\web\php\php.exe -S localhost:8000
+
+```
+
 ### Доступные команды
 
 | Команда           | Описание                         |

@@ -1,6 +1,7 @@
 // src/styles/blocks/_payment.scss
 
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
 /* ------------------- */
 /*   Оплата (Payment)  */
@@ -123,13 +124,12 @@
   }
 
   &__agree {
-    max-width: 430px;
+    max-width: 490px;
     margin: 0 auto;
     font-family: $font-alt;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
     color: $color-bg;
 
     span {
@@ -162,6 +162,10 @@
       margin-left: -10px;
       content: url('../img/check.svg');
     }
+  }
+
+  &__check {
+    @include agree-checkbox;
   }
 
   // --- Mobile ---

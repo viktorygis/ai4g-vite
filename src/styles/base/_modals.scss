@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
 
 
@@ -125,18 +126,21 @@
   }
 
   &__agree {
-    max-width: 430px;
+    max-width: 490px;
     margin: 0 auto;
     font-family: $font-alt, sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
     color: $color-bg;
 
     span {
       color: rgb(3, 89, 255);
     }
+  }
+
+  &__check {
+    @include agree-checkbox;
   }
 
   &__radio {
@@ -260,3 +264,4 @@ input:-webkit-autofill:focus {
     color: $color-accent;
   }
 }
+
