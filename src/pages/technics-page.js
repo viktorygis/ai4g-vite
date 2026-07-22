@@ -1,5 +1,5 @@
 // Файл: src/pages/technics-page.js
-
+import technics from "../data/technics.json";
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // ЭЛЕМЕНТЫ
@@ -145,56 +145,74 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // ЗАГРУЗКА JSON И ОТРИСОВКА КАРТОЧЕК
   // =========================
-  function loadAndRenderCards() {
-    cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
+function loadAndRenderCards() {
+  cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
 
-    fetch("/data/technics.json")
-      .then((response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      })
-      .then((data) => {
-        cardsContainer.innerHTML = "";
-        if (!data.length) {
-          cardsContainer.innerHTML = "<p>Нет данных</p>";
-          return;
-        }
+  try {
+    const data = technics;
 
-        data.forEach((item, index) => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.dataset.tag = item.tag || "";
-          card.dataset.time = getTimeRange(item.time);
-          card.dataset.index = index;
-          card.innerHTML = `
-            <div class="card__body">
-              <div class="card__top">
-                <div class="card__img">
-                  <img src="${item.image}" alt="${item.subtitle || ""}">
-                </div>
-                <h3 class="card__subtitle">${item.subtitle || ""}</h3>
-                <div class="card__description">${item.description || ""}</div>
-                <div class="card__category ${item.tag || ""}">${item.category || ""}</div>
-              </div>
-              <div class="card__time">${item.time || 0} мин</div>
-              <a href="technic.html?slug=${item.slug}" class="card__link">Подробнее</a>
+    cardsContainer.innerHTML = "";
+
+    if (!data.length) {
+      cardsContainer.innerHTML = "<p>Нет данных</p>";
+      return;
+    }
+
+    data.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.tag = item.tag || "";
+      card.dataset.time = getTimeRange(item.time);
+      card.dataset.index = index;
+
+      card.innerHTML = `
+        <div class="card__body">
+          <div class="card__top">
+            <div class="card__img">
+              <img src="${import.meta.env.BASE_URL}${item.image}" alt="${item.subtitle || ""}">
             </div>
-          `;
-          cardsContainer.appendChild(card);
-        });
 
-        // Синхронизация интерфейса после загрузки
-        refresh();
+            <h3 class="card__subtitle">${item.subtitle || ""}</h3>
 
-        // Активировать опцию сортировки в дропдауне
-        const defaultOption = sortDropdown.querySelector('.sort__option[data-value="default"]');
-        if (defaultOption) updateActiveClass(defaultOption, sortOptionElements);
-      })
-      .catch((error) => {
-        console.error("Ошибка загрузки:", error);
-        cardsContainer.innerHTML = '<div class="error">Ошибка загрузки данных</div>';
-      });
+            <div class="card__description">
+              ${item.description || ""}
+            </div>
+
+            <div class="card__category ${item.tag || ""}">
+              ${item.category || ""}
+            </div>
+          </div>
+
+          <div class="card__time">
+            ${item.time || 0} мин
+          </div>
+
+          <a href="${import.meta.env.BASE_URL}technic.html?slug=${item.slug}" class="card__link">
+            Подробнее
+          </a>
+        </div>
+      `;
+
+      cardsContainer.appendChild(card);
+    });
+
+    // Синхронизация интерфейса после загрузки
+    refresh();
+
+    const defaultOption = sortDropdown.querySelector(
+      '.sort__option[data-value="default"]'
+    );
+
+    if (defaultOption) {
+      updateActiveClass(defaultOption, sortOptionElements);
+    }
+
+  } catch (error) {
+    console.error("Ошибка загрузки:", error);
+    cardsContainer.innerHTML =
+      '<div class="error">Ошибка загрузки данных</div>';
   }
+}
 
   // =========================
   // СОБЫТИЯ

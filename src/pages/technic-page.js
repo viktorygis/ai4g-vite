@@ -1,4 +1,6 @@
-// technic-page.js
+// src/pages/technic-page.js
+
+import technics from "../data/technics.json";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const contentContainer = document.getElementById("technic-page");
@@ -15,15 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch("data/technics.json");
-
-    if (!response.ok) {
-      throw new Error(`Ошибка загрузки JSON: ${response.status}`);
-    }
-
-    const technics = await response.json();
-
-    // Ищем технику
     const technic = technics.find((item) => item.slug === slug);
 
     if (!technic) {
@@ -32,12 +25,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     renderTechnic(technic);
-
-  } catch (error) {
-    console.error(error);
-    renderError("Ошибка загрузки страницы");
+  } catch (err) {
+    console.error(err);
+    renderError("Ошибка загрузки данных");
   }
-
   // =========================
   // RENDER PAGE
   // =========================
@@ -53,15 +44,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!arr || !arr.length) return "";
 
       // Если строка → превращаем в массив
-      const list = Array.isArray(arr)
-        ? arr
-        : arr.split("\n").filter(Boolean);
+      const list = Array.isArray(arr) ? arr : arr.split("\n").filter(Boolean);
 
       return `
         <ul>
-          ${list
-            .map((line) => `<li>${line.trim()}</li>`)
-            .join("")}
+          ${list.map((line) => `<li>${line.trim()}</li>`).join("")}
         </ul>
       `;
     }
@@ -76,14 +63,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       return `
         <ol class="technics__steps">
 
-          ${steps.map((step) => `
+          ${steps
+            .map(
+              (step) => `
             <li>
 
               <div class="technics__step-text">
                 ${step.text}
               </div>
 
-              ${step.example ? `
+              ${
+                step.example
+                  ? `
                 <div class="technics__example">
                   <strong>Пример:</strong>
 
@@ -91,10 +82,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                     ${step.example}
                   </p>
                 </div>
-              ` : ""}
+              `
+                  : ""
+              }
 
             </li>
-          `).join("")}
+          `,
+            )
+            .join("")}
 
         </ol>
       `;
@@ -107,11 +102,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     function formatHashtags(arr) {
       if (!arr || !arr.length) return "";
 
-      return arr.map((tag) => `
+      return arr
+        .map(
+          (tag) => `
         <a href="/technics.html?search=${encodeURIComponent(tag)}">
           #${tag}
         </a>
-      `).join(" ");
+      `,
+        )
+        .join(" ");
     }
 
     // =========================
@@ -166,7 +165,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             <!-- Описание -->
 
-            ${item.description ? `
+            ${
+              item.description
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -178,11 +179,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </p>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Категория -->
 
-            ${item.category ? `
+            ${
+              item.category
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -194,11 +199,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </p>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Время -->
 
-            ${(item.time || item.duration) ? `
+            ${
+              item.time || item.duration
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -210,11 +219,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </p>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Зачем -->
 
-            ${item.why ? `
+            ${
+              item.why
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -228,11 +241,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Как работает -->
 
-            ${item.howWorks ? `
+            ${
+              item.howWorks
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -246,11 +263,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Шаги -->
 
-            ${item.steps ? `
+            ${
+              item.steps
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -260,11 +281,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ${renderSteps(item.steps)}
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Доп упражнения -->
 
-            ${item.extraExercises ? `
+            ${
+              item.extraExercises
+                ? `
               <div>
 
                 <h2 class="technics__label label">
@@ -276,11 +301,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Литература -->
 
-            ${item.literature ? `
+            ${
+              item.literature
+                ? `
               <div class="technics__catalog">
 
                 <div class="technics__label label">
@@ -290,11 +319,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ${formatList(item.literature)}
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Рекомендуем -->
 
-            ${item.recommendedReading ? `
+            ${
+              item.recommendedReading
+                ? `
               <div class="technics__catalog">
 
                 <div class="technics__label label">
@@ -304,17 +337,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ${formatList(item.recommendedReading)}
 
               </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <!-- Хештеги -->
 
             <div class="technics__links">
 
-              ${item.category ? `
+              ${
+                item.category
+                  ? `
                 <a href="/technics.html?category=${item.tag}">
                   #${item.category}
                 </a>
-              ` : ""}
+              `
+                  : ""
+              }
 
               ${formatHashtags(item.hashtags)}
 

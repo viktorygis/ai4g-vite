@@ -57,7 +57,9 @@ ai4g-vite/
 │   └── ...
 ├── src/                       # Главный каталог исходников
 │   ├── data/                  # JSON-данные (например, technics.json)
-│   │   └── technics.json
+│   │   ├── patterns.json      - JSON-данные по паттернам
+│   │   ├── technics.json      - JSON-данные по техникам
+│   │   └── vozmozhnosti.json  - JSON-данные по возможностям
 │   ├── img/                   # Картинки и все иллюстрации по подпапкам:
 │   │   ├── art-coaching/
 │   │   ├── career-advice/

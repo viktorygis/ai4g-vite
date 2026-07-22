@@ -2,7 +2,7 @@
 import Swiper from "swiper";
 import "swiper/css";
 import { Navigation, FreeMode, Mousewheel } from "swiper/modules";
-
+import patternsData from "../data/patterns.json";
 Swiper.use([Navigation, FreeMode, Mousewheel]);
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   patternsContainer.innerHTML = '<div class="patterns__loading">Загрузка…</div>';
 
   try {
-    const response = await fetch("/data/patterns.json");
-    if (!response.ok) throw new Error(`Статус ${response.status}`);
-    const patternsData = await response.json();
     renderPage(patternsData);
   } catch (err) {
     patternsContainer.innerHTML = '<div class="patterns__error">Не удалось загрузить данные</div>';
@@ -97,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     head.className = `patterns__head patterns__head_${cat.id}`;
 
     const icon = document.createElement("img");
-    icon.src = cat.icon;
+    icon.src = `${import.meta.env.BASE_URL}${cat.icon}`;
     icon.alt = "";
     head.appendChild(icon);
 
@@ -120,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .map(
         (item) => `
       <div class="patterns__item">
-        <img src="${item.img}" alt="${item.name}" loading="lazy" />
+        <img src="${import.meta.env.BASE_URL}${item.img}" alt="${item.name}" loading="lazy" />
         <h3 class="patterns__name">${item.name}</h3>
         <div class="patterns__description">${item.desc}</div>
       </div>
