@@ -1,9 +1,10 @@
-
-
-// _mentors.scss
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+@use 'sass:color';
 
+// ==============================
+// BODY MENTORS
+// ==============================
 .body-mentors {
   min-width: 320px;
   min-height: 100%;
@@ -12,26 +13,31 @@
   font-size: 12px;
   line-height: 17px;
   background: $color-text;
-  color: #000;
+  color: $color-mentors-text-primary;
   overflow-x: hidden;
 
-  @include respond-to(768px) {
+  @include respond-to($breakpoint-md) {
     font-size: 11px;
     line-height: 16px;
   }
 }
 
+// ==============================
+// CONTAINER MENTORS
+// ==============================
 .container-mentors {
   max-width: 946px;
   margin: 0 auto;
   padding: 0 28px;
 
-  @include respond-to(520px) {
+  @include respond-to($breakpoint-sm) {
     padding: 0 15px;
   }
 }
 
-
+// ==============================
+// ELENA SECTION
+// ==============================
 .elena {
   padding-top: 140px;
   position: relative;
@@ -40,10 +46,11 @@
     padding-top: 120px;
   }
 
-  @include respond-to(768px) {
+  @include respond-to($breakpoint-md) {
     padding-top: 100px;
   }
 
+  //.elena__square
   &__square {
     position: absolute;
     top: 62%;
@@ -54,6 +61,7 @@
     }
   }
 
+  //.elena__triangle
   &__triangle {
     position: absolute;
     top: 62%;
@@ -64,13 +72,14 @@
     }
   }
 
+  //.elena__title
   &__title {
     margin-bottom: 45px;
     font-weight: 800;
     font-size: 40px;
     line-height: 49px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin-bottom: 35px;
       font-size: 34px;
       line-height: 40px;
@@ -78,8 +87,8 @@
     }
   }
 
-  &__top,
-  .igor__top {
+  //.elena__top
+  &__top {
     margin-bottom: 20px;
     display: flex;
 
@@ -87,13 +96,13 @@
       flex-direction: column;
     }
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin-bottom: 15px;
     }
   }
 
-  &__top-left,
-  .igor__top-left {
+  //.elena__top-left
+  &__top-left {
     max-width: 476px;
     min-width: 476px;
     margin-right: 35px;
@@ -104,26 +113,27 @@
       margin-bottom: 20px;
     }
 
-    @include respond-to(520px) {
+    @include respond-to($breakpoint-sm) {
       min-width: auto;
       max-width: auto;
     }
   }
 
+  //.elena__top-left-left
   &__top-left-left {
     display: flex;
     flex-direction: column;
   }
 
-  &__top-left-left-img,
-  .igor__top-left-img {
+  //.elena__top-left-left-img
+  &__top-left-left-img {
     margin: 0 30px 65px 0;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin: 0 20px 44px 0;
     }
 
-    @include respond-to(520px) {
+    @include respond-to($breakpoint-sm) {
       margin: 0 20px 23px 0;
     }
 
@@ -131,19 +141,20 @@
       min-width: 115px;
       max-width: 115px;
       height: 138px;
-      border-radius: 9px;
+      border-radius: $color-mentors-border-radius;
     }
   }
 
+  //.elena__top-left-left-item
   &__top-left-left-item {
     margin-bottom: 18px;
     display: flex;
     font-weight: 500;
     font-size: 12px;
     line-height: 17px;
-    color: rgba(0, 0, 0, 0.75);
+    color: $color-mentors-text-secondary;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin-bottom: 21px;
       font-size: 11px;
       line-height: 11px;
@@ -154,101 +165,105 @@
     }
   }
 
+  //.elena__top-span1
   &__top-span1 {
     margin-right: 3px;
     font-weight: 500;
     font-size: 24px;
     line-height: 34px;
-    color: rgba(0, 0, 0, 0.5);
+    color: $color-mentors-text-muted;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       font-size: 20px;
       line-height: 28px;
     }
   }
 
+  //.elena__top-span2
   &__top-span2 {
     margin-right: 3px;
     font-weight: 800;
     font-size: 24px;
     line-height: 34px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       font-size: 20px;
       line-height: 28px;
     }
   }
 
+  //.elena__top-span3
   &__top-span3 {
     font-weight: 500;
     font-size: 24px;
     line-height: 34px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       font-size: 20px;
       line-height: 28px;
     }
   }
 
-  &__top-left-right-name,
-  .igor__top-left-right-name {
+  //.elena__top-left-right-name
+  &__top-left-right-name {
     margin-bottom: 6px;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
     text-transform: uppercase;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin-bottom: 5px;
       font-size: 20px;
       line-height: 24px;
     }
   }
 
-  &__top-left-right-suptitle,
-  .igor__top-left-right-text {
+  //.elena__top-left-right-suptitle
+  &__top-left-right-suptitle {
     margin-bottom: 18px;
     font-weight: 500;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin-bottom: 15px;
     }
   }
 
-  &__top-left-right-text,
-  .igor__top-left-right-bold {
+  //.elena__top-left-right-text
+  &__top-left-right-text {
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       font-size: 12px;
       line-height: 18px;
     }
 
-    @include respond-to(520px) {
+    @include respond-to($breakpoint-sm) {
       line-height: 14px;
     }
   }
 
+  //.elena__top-left-right-item
   &__top-left-right-item {
     margin-bottom: 5px;
   }
 
-  &__top-right-bold,
-  .igor__top-right-bold {
+  //.elena__top-right-bold
+  &__top-right-bold {
     font-weight: 700;
   }
 
-  &__top-right-text,
-  .igor__top-right-text {
+  //.elena__top-right-text
+  &__top-right-text {
     margin-bottom: 10px;
     font-weight: 500;
   }
 
-  &__bottom,
-  .igor__bottom {
+  //.elena__bottom
+  &__bottom {
     max-width: 744px;
     margin-left: auto;
 
@@ -258,28 +273,31 @@
     }
   }
 
+  //.elena__bottom-bold
   &__bottom-bold {
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       font-size: 13px;
       line-height: 15px;
     }
   }
 
-  &__bottom-text,
-  .igor__bottom-text {
+  //.elena__bottom-text
+  &__bottom-text {
     margin-bottom: 12px;
   }
 
+  //.elena__bottom-ul
   &__bottom-ul {
     margin-bottom: 12px;
     list-style: none;
   }
 
+  //.elena__bottom-li
   &__bottom-li {
     margin-left: 5px;
     padding-left: 12px;
@@ -292,34 +310,102 @@
       left: 1px;
       width: 3px;
       height: 3px;
-      background: #000;
+      background: $color-mentors-text-primary;
       border-radius: 50%;
     }
   }
 
+  //.elena__link
   &__link {
     margin: 55px auto 65px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin: 40px auto 40px;
     }
   }
 }
 
-
+// ==============================
+// IGOR SECTION
+// ==============================
 .igor {
+  //.igor__top
   &__top {
     padding-top: 70px;
+    margin-bottom: 20px;
+    display: flex;
 
-    @include respond-to(768px) {
+    @include respond-to(840px) {
+      flex-direction: column;
+    }
+
+    @include respond-to($breakpoint-md) {
       padding-top: 50px;
+      margin-bottom: 15px;
     }
   }
 
-  &__line img {
-    width: 100%;
+  //.igor__line
+  &__line {
+    img {
+      width: 100%;
+    }
   }
 
+  //.igor__top-left
+  &__top-left {
+    max-width: 476px;
+    min-width: 476px;
+    margin-right: 35px;
+    display: flex;
+
+    @include respond-to(840px) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    @include respond-to($breakpoint-sm) {
+      min-width: auto;
+      max-width: auto;
+    }
+  }
+
+  //.igor__top-left-img
+  &__top-left-img {
+    margin: 0 30px 65px 0;
+
+    @include respond-to($breakpoint-md) {
+      margin: 0 20px 44px 0;
+    }
+
+    @include respond-to($breakpoint-sm) {
+      margin: 0 20px 23px 0;
+    }
+
+    img {
+      min-width: 115px;
+      max-width: 115px;
+      height: 138px;
+      border-radius: $color-mentors-border-radius;
+    }
+  }
+
+  //.igor__top-left-right-name
+  &__top-left-right-name {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+
+    @include respond-to($breakpoint-md) {
+      margin-bottom: 5px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  //.igor__top-left-right-title
   &__top-left-right-title {
     margin-bottom: 6px;
     font-weight: 700;
@@ -328,10 +414,65 @@
     text-transform: uppercase;
   }
 
+  //.igor__top-left-right-text
+  &__top-left-right-text {
+    margin-bottom: 18px;
+    font-weight: 500;
+
+    @include respond-to($breakpoint-md) {
+      margin-bottom: 15px;
+    }
+  }
+
+  //.igor__top-left-right-bold
+  &__top-left-right-bold {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+
+    @include respond-to($breakpoint-md) {
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    @include respond-to($breakpoint-sm) {
+      line-height: 14px;
+    }
+  }
+
+  //.igor__top-right-bold
+  &__top-right-bold {
+    font-weight: 700;
+  }
+
+  //.igor__top-right-text
+  &__top-right-text {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  //.igor__bottom
+  &__bottom {
+    max-width: 744px;
+    margin-left: auto;
+
+    @include respond-to(840px) {
+      max-width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  //.igor__bottom-text
+  &__bottom-text {
+    margin-bottom: 12px;
+  }
+
+  //.igor__link
   &__link {
     margin: 50px auto 70px;
 
-    @include respond-to(768px) {
+    @include respond-to($breakpoint-md) {
       margin: 40px auto 40px;
     }
   }

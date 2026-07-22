@@ -17,7 +17,7 @@
   }
 
   &__text {
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -27,21 +27,40 @@
 }
 
 
-
+//.swiper-item
 .swiper-item {
   display: flex;
   justify-content: center;
 
+  //.swiper-item__left
   &__left {
     margin-right: 40px;
     display: flex;
 
+    @media (max-width: 768px) {
+      margin-right: 16px;
+
+    }
+
+    //.swiper-item__left img
     img {
       width: 72px;
       height: 87px;
+
+      @media (max-width: 768px) {
+        width: 55px;
+        height: 66px;
+
+      }
+
+      @media (max-width: 440px) {
+        display: none;
+      }
+
     }
   }
 
+  //.swiper-item__name
   &__name {
     margin-bottom: 15px;
     font-weight: 600;
@@ -49,20 +68,35 @@
     line-height: 21px;
     color: $color-text;
     font-family: $font-main;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
   }
 
+  //.swiper-item__text
   &__text {
     max-width: 442px;
     max-height: 162px;
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     color: rgba($color-text, 0.85); // или rgba(255,255,255,0.85)
     overflow-y: hidden;
+
+    @media (max-width: 768px) {
+      max-width: 330px;
+      font-size: 12px;
+      line-height: 16px;
+
+    }
   }
 
+  //.swiper-item__link
   &__link {
     margin-top: 10px;
     display: inline-block;
@@ -79,7 +113,8 @@
   }
 }
 
-
+//Стрелки слайдера
+//.swiper-button-prev,.swiper-button-next
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -94,10 +129,10 @@
     display: none;
   }
 
-  //для мобильной версии
-  @media (max-width: 767px) {
-    top: 80%;
+  @media (max-width: 600px) {
+    display: none;
   }
+
 }
 
 .swiper-button-prev {
@@ -121,4 +156,45 @@
 .swiper-button-prev svg,
 .swiper-button-next svg {
   display: none !important;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+  max-height: 250px;
+  margin: 30px 0;
+
+  @media (max-width: 768px) {
+    max-height: 200px;
+    margin: 10px 0;
+  }
+
+  @media (max-width: 600px) {
+    max-height: 280px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+//.swiper-arrows
+.swiper-arrows {
+  display: none;
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    position: absolute;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .swiper-arrows .swiper-button-next,
+  .swiper-arrows .swiper-button-prev {
+    display: block;
+    position: initial;
+  }
 }

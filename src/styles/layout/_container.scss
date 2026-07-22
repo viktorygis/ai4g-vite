@@ -15,6 +15,11 @@
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 28px;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+
 }
 
 .container-big {

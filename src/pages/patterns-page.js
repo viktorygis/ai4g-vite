@@ -5,12 +5,12 @@ import { Navigation, FreeMode, Mousewheel } from "swiper/modules";
 
 Swiper.use([Navigation, FreeMode, Mousewheel]);
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const filtersScroll = document.getElementById("filters-scroll");
   const patternsContainer = document.getElementById("patterns-container");
 
   if (!filtersScroll || !patternsContainer) {
-    console.warn('Не найдены контейнеры filters-scroll или patterns-container');
+    console.warn("Не найдены контейнеры filters-scroll или patterns-container");
     return;
   }
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderPage(patternsData);
   } catch (err) {
     patternsContainer.innerHTML = '<div class="patterns__error">Не удалось загрузить данные</div>';
-    console.error('Ошибка загрузки patterns.json:', err);
+    console.error("Ошибка загрузки patterns.json:", err);
   }
 
   function renderPage(patterns) {
@@ -81,8 +81,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  // Функция для создания секции паттернов
   function buildPatternSection(cat) {
-    const section = document.createElement("section");
+    const section = document.createElement("div");
     section.className = "patterns__section";
     section.setAttribute("aria-labelledby", `pattern-title-${cat.id}`);
 
@@ -103,8 +104,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const subtitle = document.createElement("h2");
     subtitle.className = "patterns__subtitle subtitle";
     subtitle.id = `pattern-title-${cat.id}`;
-    subtitle.innerHTML = `${cat.subtitle}<span>${cat.description}</span>`;
+    subtitle.textContent = cat.subtitle;
     head.appendChild(subtitle);
+
+    const description = document.createElement("p");
+    description.className = "patterns__head-text";
+    description.textContent = cat.description;
+    head.appendChild(description);
 
     // Контейнер с сеткой паттернов
     const content = document.createElement("div");
@@ -118,7 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h3 class="patterns__name">${item.name}</h3>
         <div class="patterns__description">${item.desc}</div>
       </div>
-    `
+    `,
       )
       .join("");
 
@@ -130,6 +136,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return section;
   }
 
+  // Функция для наблюдения за активной категорией и подсветки соответствующего чипа
   function observeActiveCategory() {
     const sections = document.querySelectorAll(".patterns__section");
     const allChips = document.querySelectorAll(".patterns__filter-chip");
@@ -149,9 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             const targetHref = `#${id}`;
-            const targetChip = Array.from(allChips).find(
-              (chip) => chip.getAttribute("href") === targetHref && !chip.classList.contains("swiper-slide-duplicate")
-            );
+            const targetChip = Array.from(allChips).find((chip) => chip.getAttribute("href") === targetHref && !chip.classList.contains("swiper-slide-duplicate"));
 
             if (targetChip) {
               targetChip.classList.add("active");
@@ -163,12 +168,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       {
         rootMargin: "-50% 0px -50% 0px",
         threshold: 0,
-      }
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
   }
 
+  // Функция для плавного скролла к секции при клике на чип
   function enhanceAnchorScrolling() {
     document.querySelectorAll(".patterns__filter-chip").forEach((chip) => {
       chip.addEventListener("click", function (e) {

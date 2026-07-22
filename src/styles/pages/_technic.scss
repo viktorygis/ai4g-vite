@@ -74,12 +74,11 @@
     margin-bottom: 14px;
   }
 
-
   //.technics__content
   &__content {
     padding: 20px 24px;
     border-radius: 16px;
-    background: rgb(220 220 220 / 10%);
+    background: rgba($color-gray, 0.15);
     line-height: 1.8;
 
     @include respond-to(768px) {
@@ -87,16 +86,19 @@
       line-height: 1.7;
     }
 
+    //.technics__content p
     p:last-child {
       margin-bottom: 0;
     }
 
+    //.technics__content ul, .technics__content ol
     ul,
     ol {
       margin: 0;
       padding-left: 24px;
     }
 
+    //.technics__content li
     li {
       line-height: 1.7;
 
@@ -113,18 +115,15 @@
     counter-reset: step-counter;
   }
 
-  ol>li {
+  ol > li {
     position: relative;
     list-style: none;
     counter-increment: step-counter;
-
     padding: 24px 24px 24px 28px;
     margin-bottom: 18px;
-
     border-radius: 14px;
-    background: rgb(220 220 220 / 8%);
+    background: rgba($color-gray, 0.1);
     border-left: 4px solid $color-link;
-
     line-height: 1.8;
 
     @include respond-to(768px) {
@@ -134,12 +133,9 @@
     &::before {
       content: 'Шаг ' counter(step-counter);
       display: block;
-
       margin-bottom: 10px;
-
       font-weight: 700;
       font-size: 18px;
-
       color: $color-link;
     }
   }
@@ -148,22 +144,23 @@
   &__catalog {
     padding: 24px;
     border-radius: 16px;
-    background: rgb(220 220 220 / 8%);
+    background: rgba($color-gray, 0.1);
 
     @include respond-to(768px) {
       padding: 16px;
     }
 
+    //technics__catalog ul
     ul {
       display: flex;
       flex-direction: column;
       gap: 10px;
-
       margin-top: 14px;
       padding-left: 0;
       list-style: none;
     }
 
+    //technics__catalog li
     li {
       position: relative;
       padding-left: 18px;
@@ -174,21 +171,20 @@
         position: absolute;
         top: 11px;
         left: 0;
-
         width: 6px;
         height: 6px;
-
         border-radius: 50%;
         background-color: $color-link;
       }
     }
 
+    //technics__catalog a
     a {
-      color: #045db1;
+      color: $color-link;
       transition: 0.3s;
 
       &:hover {
-        color: $color-link;
+        color: $color-link-hover;
         text-decoration: underline;
       }
     }
@@ -200,23 +196,19 @@
     flex-wrap: wrap;
     gap: 10px;
 
+    //technics__links a
     a {
       padding: 8px 14px;
-
       border-radius: 30px;
-
-      background: rgb(220 220 220 / 10%);
-
+      background: rgba($color-gray, 0.15);
       font-size: 14px;
       font-weight: 500;
-
       color: $color-link;
-
       transition: 0.3s;
 
       &:hover {
         background: $color-link;
-        color: #fff;
+        color: $color-text;
       }
     }
   }
@@ -226,41 +218,34 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-
     margin-bottom: 30px;
-
     font-size: 14px;
     font-family: $font-alt;
-
-    color: #fff;
+    color: $color-text;
 
     @include respond-to(768px) {
       margin-bottom: 20px;
     }
 
+    //technics__bread-crumbs li
     li {
       display: flex;
       align-items: center;
 
-      &:last-child {
-        //color: $color-bg;
-      }
-
       &:not(:last-child)::after {
         content: '∙';
-
         margin: 0 10px;
-
-        color: rgb(116, 122, 150);
+        color: $color-gray;
       }
     }
 
+    //technics__bread-crumbs a
     a {
       text-decoration: underline;
       transition: 0.3s;
 
       &:hover {
-        color: #05437d;
+        color: $color-link;
       }
     }
   }

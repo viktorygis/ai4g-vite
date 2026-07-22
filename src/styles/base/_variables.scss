@@ -1,6 +1,5 @@
-//  _variables.scss
-
 @use 'sass:map';
+@use 'sass:color';
 
 // ======= SCSS ПЕРЕМЕННЫЕ =======
 $color-bg: #150931;
@@ -24,7 +23,6 @@ $color-capability-gradient: #e2ddd6;
 $color-dark: #000;
 
 $color-headerSubtext: #a99ec2;
-$font-main: 'Montserrat', sans-serif;
 $font-alt: 'PT Sans', sans-serif;
 
 $slider-arrow-width: 48px;
@@ -41,6 +39,28 @@ $color-drop-list-gradient: #4a006c;
 $color-drop-list-divider: #71717a;
 $color-drop-list-accent: #2bf29f;
 
-$card-bg: #f8f9fa;        // светло-серый, не белый
+$card-bg: #f8f9fa;
 $filter-bg: #ffffff;
-$body-bg: #eef2f5;        // фон всей страницы
+$body-bg: #eef2f5;
+
+// ======= ЦВЕТА ДЛЯ ART-COACHING =======
+$color-art-bg: #bc03cc;
+$color-art-dark: #6d0077;
+$color-art-item-bg: #5c007b;
+$color-art-item-hover: #2e003e;
+$color-art-item-transparent: #5c007bba;
+$color-art-gradient: rgb(74, 0, 108);
+$color-art-gradient-transparent: rgba(44, 51, 75, 0);
+$color-art-price: #3ca1ff;
+
+// ======= ЦВЕТА ДЛЯ MENTORS PAGE (НОВОЕ!) =======
+$color-mentors-text-primary: #000;
+$color-mentors-text-secondary: rgba(0, 0, 0, 0.75);
+$color-mentors-text-muted: rgba(0, 0, 0, 0.5);
+$color-mentors-border-radius: 9px;
+
+// ======= BREAKPOINTS =======
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;

@@ -4,12 +4,19 @@
 
 
 // --- Модальное окно заявок ---
+//.modal-request
 .modal-request {
   display: none;
   width: 610px;
   padding: 68px 59px 35px;
   border-radius: 20px;
 
+  @media (max-width: 640px) {
+    padding: 40px 20px 25px;
+
+  }
+
+  //.modal-request__title
   &__title {
     margin-bottom: 47px;
     font-weight: 800;
@@ -19,50 +26,71 @@
     text-transform: uppercase;
     color: $color-bg;
     font-family: $font-main;
+
+    @media (max-width: 640px) {
+      margin-bottom: 28px;
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
+  //.modal-request__name,.modal-request__phone
   &__name,
   &__phone {
     width: 100%;
     margin-bottom: 45px;
     padding-bottom: 10px;
-
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
-
     color: $color-bg;
-
     outline: none;
     border: none;
     border-bottom: 1px solid $color-accent;
 
     &::placeholder {
-      font-family: $font-alt, sans-serif;
+      font-family: $font-alt;
       font-weight: 400;
       font-size: 16px;
       line-height: 21px;
       color: #737373;
       opacity: 1;
     }
+
+    @media (max-width: 640px) {
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
 
+  //.modal-request__choice
   &__choice {
     margin-bottom: 40px;
     display: flex;
   }
 
+  //.modal-request__left
   &__left {
     max-width: 140px;
     margin-right: 20px;
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-weight: 400;
     font-size: 16px;
     line-height: 21px;
     color: $color-bg;
+
+    @media (max-width: 640px) {
+      max-width: 115px;
+      margin-right: 10px;
+      font-size: 12px;
+      line-height: 16px;
+    }
   }
 
+  //.modal-request__item
   &__item {
     position: relative;
 
@@ -76,6 +104,7 @@
     }
   }
 
+  //.modal-request__captcha
   &__captcha {
     margin-bottom: 40px;
 
@@ -84,14 +113,16 @@
     }
   }
 
+  //.modal-request__label
   &__label {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;
 
+    //.modal-request__label span
     span {
-      font-family: $font-alt, sans-serif;
+      font-family: $font-alt;
       font-weight: 700;
       font-size: 16px;
       line-height: 21px;
@@ -99,6 +130,7 @@
     }
   }
 
+  //.modal-request__btn
   &__btn {
     width: 490px;
     height: 80px;
@@ -123,12 +155,21 @@
       pointer-events: all;
       cursor: pointer;
     }
+
+
+    @media (max-width: 640px) {
+      width: 100%;
+      height: 60px;
+      font-size: 20px;
+    }
+
   }
 
+  //.modal-request__agree
   &__agree {
     max-width: 490px;
     margin: 0 auto;
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
@@ -139,10 +180,12 @@
     }
   }
 
+  //.modal-request__check
   &__check {
     @include agree-checkbox;
   }
 
+  //.modal-request__radio
   &__radio {
     width: 45px;
     height: 25px;
@@ -170,6 +213,7 @@
 }
 
 // --- Сообщение об успешной заявке ---
+//.modal-thanks
 .modal-thanks {
   display: none;
   width: 610px;
@@ -178,12 +222,14 @@
   background: $color-text;
   border-radius: 20px;
 
+  //.modal-thanks__logo
   &__logo {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
   }
 
+  //.modal-thanks__title
   &__title {
     max-width: 410px;
     margin: 0 auto 20px;
@@ -197,10 +243,11 @@
     color: $color-bg;
   }
 
+  //.modal-thanks__text
   &__text {
     max-width: 308px;
     margin: 0 auto;
-    font-family: $font-alt, sans-serif;
+    font-family: $font-alt;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -213,11 +260,13 @@
 }
 
 // Валидация
+// .is-invalid - красная рамка и фон
 .is-invalid {
   border-color: #e24343 !important;
   background-color: #fff1f1;
 }
 
+// .is-valid - зеленая рамка и фон
 .is-valid {
   border-color: #44bb44 !important;
   background-color: #f1fff1;
@@ -264,4 +313,3 @@ input:-webkit-autofill:focus {
     color: $color-accent;
   }
 }
-

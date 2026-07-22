@@ -11,6 +11,7 @@
     margin-bottom: 33px;
   }
 
+  //.partners__title
   &__title {
     margin-bottom: 58px;
     font-family: $font-main;
@@ -27,6 +28,7 @@
     }
   }
 
+  //.partners__items
   &__items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -43,6 +45,7 @@
     }
   }
 
+  //partners__item
   &__item {
     opacity: 0;
 
@@ -51,6 +54,7 @@
       margin-bottom: 20px;
     }
 
+    //partners__item-title
     &-title {
       font-family: $font-main;
       font-weight: 600;
@@ -60,14 +64,16 @@
       color: $color-text;
     }
 
+    //partners__item-text
     &-text {
       font-family: $font-main;
       font-size: 14px;
-      line-height: 21px;
+      line-height: 22px;
       color: $color-text;
     }
   }
 
+  //
   &__link {
     margin: 75px 0;
   }

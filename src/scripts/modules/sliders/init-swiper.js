@@ -15,8 +15,8 @@ export function initSwiper() {
     allowTouchMove: false,
 
     navigation: {
-      nextEl: ".swiper-arrows .swiper-button-next",
-      prevEl: ".swiper-arrows .swiper-button-prev",
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 }
