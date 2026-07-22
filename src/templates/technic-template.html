@@ -1,17 +1,84 @@
 <!doctype html>
 <html lang="ru">
-  @@include('../partials/head.html', { "title": "Техника", "description": "Описание техники" })
+  @@include('../partials/head.html', { "title": "{{TITLE}}", "description": "{{DESCRIPTION}}" })
 
   <body class="body">
     <div class="wrapper">
       @@include('../partials/header.html', {})
 
-      <main id="technic-page"></main>
+      <main class="page">
+        <section class="technics">
+          <div class="technics__container">
+            <ul class="technics__bread-crumbs">
+              <li>
+                <a href="../index.html">Главная</a>
+              </li>
+
+              <li>
+                <a href="../technics.html">Техники</a>
+              </li>
+
+              <li>{{TITLE}}</li>
+            </ul>
+
+            <div class="technics__body">
+              <h1 class="technics__title">{{TITLE}}</h1>
+
+              <div class="technics__img">
+                <img src="../{{IMAGE}}" alt="{{TITLE}}" loading="lazy" />
+              </div>
+
+              <h2>Описание:</h2>
+
+              <p>{{DESCRIPTION}}</p>
+
+              <h2>Категория техники:</h2>
+
+              <p>{{CATEGORY}}</p>
+
+              <h2>Время:</h2>
+
+              <p>{{TIME}} минут</p>
+
+              <h2>Зачем:</h2>
+
+              <p>{{WHY}}</p>
+
+              <h2>Как это работает:</h2>
+
+              <p>{{HOWWORKS}}</p>
+
+              <h2>Алгоритм выполнения:</h2>
+
+              <ol class="technics__steps">
+                {{STEPS}}
+              </ol>
+
+              <h2>Дополнительные упражнения:</h2>
+
+              <ul>
+                {{EXTRA}}
+              </ul>
+
+              <h2>Почитать больше о технике:</h2>
+
+              <ul>
+                {{LITERATURE}}
+              </ul>
+
+              <h2>Рекомендуем прочитать:</h2>
+
+              <ul>
+                {{READING}}
+              </ul>
+
+              <div class="technics__tags">{{TAGS}}</div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
 
-    @@include('../partials/footer.html', {}) @@include('../partials/js.html', {})
-
-
-    <script type="module" src="../pages/technic-page.js"></script>
+    @@include('../partials/footer.html', {})
   </body>
 </html>

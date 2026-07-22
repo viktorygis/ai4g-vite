@@ -11,7 +11,7 @@ function collectHtmlInputs(dir, base = dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (entry.name === "partials") continue; // skip partials folder
+      if (entry.name === "partials" || entry.name === "templates") continue;
       Object.assign(inputs, collectHtmlInputs(fullPath, base));
     } else if (entry.name.endsWith(".html")) {
       // Use a slash-based key (works on Windows too)
