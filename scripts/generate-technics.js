@@ -1,6 +1,5 @@
 //ai4g-vite\src\scripts\generate-technics.js
 import fs from "node:fs";
-import path from "node:path";
 
 const data = JSON.parse(fs.readFileSync("src/data/technics.json", "utf8"));
 
@@ -8,37 +7,52 @@ const template = fs.readFileSync("src/templates/technic-template.html", "utf8");
 
 function toArray(value) {
   if (!value) return [];
-  return Array.isArray(value) ? value : [value];
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  // если в json строка с переносами
+  if (typeof value === "string") {
+    return value
+      .split("\n")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [value];
 }
 
 for (const item of data) {
   let html = template;
 
   html = html
-    .replaceAll("{{TITLE}}", item.subtitle)
-    .replaceAll("{{DESCRIPTION}}", item.description)
-    .replaceAll("{{IMAGE}}", item.image)
-    .replaceAll("{{CATEGORY}}", item.category)
-    .replaceAll("{{TIME}}", item.time)
-    .replaceAll("{{WHY}}", item.why)
-    .replaceAll("{{HOWWORKS}}", item.howWorks);
+    .replaceAll("{{TITLE}}", item.subtitle || "")
+    .replaceAll("{{DESCRIPTION}}", item.description || "")
+    .replaceAll("{{IMAGE}}", item.image || "")
+    .replaceAll("{{CATEGORY}}", item.category || "")
+    .replaceAll("{{TIME}}", item.time || "")
+    .replaceAll("{{WHY}}", item.why || "")
+    .replaceAll("{{HOWWORKS}}", item.howWorks || "");
 
+  // алгоритм
   const steps = toArray(item.steps)
-  .map((step) => {
+    .map((step) => {
+      if (typeof step === "string") {
+        return `<li>${step}</li>`;
+      }
+
       return `
 <li>
-
-<p>
-${step.text}
-</p>
+<p>${step.text || ""}</p>
 
 ${
   step.example
     ? `
-<div class="example">
-<strong>Пример:</strong>
-<p>${step.example}</p>
-</div>
+<p>
+<span class="example">Пример:</span>
+${step.example}
+</p>
 `
     : ""
 }
@@ -50,6 +64,7 @@ ${
 
   html = html.replace("{{STEPS}}", steps);
 
+  // дополнительные упражнения
   html = html.replace(
     "{{EXTRA}}",
     toArray(item.extraExercises)
@@ -57,6 +72,7 @@ ${
       .join(""),
   );
 
+  // литература
   html = html.replace(
     "{{LITERATURE}}",
     toArray(item.literature)
@@ -64,6 +80,7 @@ ${
       .join(""),
   );
 
+  // чтение
   html = html.replace(
     "{{READING}}",
     toArray(item.recommendedReading)
@@ -71,16 +88,17 @@ ${
       .join(""),
   );
 
+  // теги
   html = html.replace(
     "{{TAGS}}",
     toArray(item.hashtags)
-      .map((x) => `#${x}`)
-      .join(" "),
+      .map((x) => `<a href="">#${x}</a>`)
+      .join(""),
   );
 
   const file = `src/technics/${item.slug}.html`;
 
-  fs.writeFileSync(file, html);
+  fs.writeFileSync(file, html, "utf8");
 }
 
 console.log(`Создано страниц: ${data.length}`);

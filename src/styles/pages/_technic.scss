@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-
+ font-size: 16px;
     @include respond-to(768px) {
       gap: 24px;
       margin-top: 20px;
@@ -91,19 +91,42 @@
       margin-bottom: 0;
     }
 
-    //.technics__content ul, .technics__content ol
-    ul,
-    ol {
-      margin: 0;
-      padding-left: 24px;
+    //technics__content ul
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 0;
+      list-style: none;
     }
 
-    //.technics__content li
+    //technics__content li
     li {
+      position: relative;
+      padding-left: 18px;
       line-height: 1.7;
 
-      &:not(:last-child) {
-        margin-bottom: 12px;
+      &::before {
+        content: "-";
+        position: absolute;
+
+        color: rgb(230, 0, 118);
+        font-weight: 700;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+
+    //technics__catalog a
+    a {
+      color: $color-link;
+      transition: 0.3s;
+
+      &:hover {
+        color: $color-link-hover;
+        text-decoration: underline;
       }
     }
   }
@@ -115,7 +138,7 @@
     counter-reset: step-counter;
   }
 
-  ol > li {
+  ol>li {
     position: relative;
     list-style: none;
     counter-increment: step-counter;
@@ -135,7 +158,7 @@
       display: block;
       margin-bottom: 10px;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 16px;
       color: $color-link;
     }
   }

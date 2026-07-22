@@ -7,7 +7,7 @@
       @@include('../partials/header.html', {})
 
       <main class="page">
-        <section class="technics">
+        <section class="technics" id="top">
           <div class="technics__container">
             <ul class="technics__bread-crumbs">
               <li>
@@ -22,63 +22,111 @@
             </ul>
 
             <div class="technics__body">
-              <h1 class="technics__title">{{TITLE}}</h1>
+              <!-- Верх страницы -->
 
-              <div class="technics__img">
-                <img src="../{{IMAGE}}" alt="{{TITLE}}" loading="lazy" />
+              <div class="technics__top">
+                <h1 class="technics__title title">{{TITLE}}</h1>
+
+                <div class="technics__img">
+                  <img src="../{{IMAGE}}" alt="{{TITLE}}" loading="lazy" />
+                </div>
               </div>
 
-              <h2>Описание:</h2>
+              <!-- Описание -->
 
-              <p>{{DESCRIPTION}}</p>
+              <div>
+                <h2 class="technics__label label">Описание:</h2>
 
-              <h2>Категория техники:</h2>
+                <p>{{DESCRIPTION}}</p>
+              </div>
 
-              <p>{{CATEGORY}}</p>
+              <!-- Категория -->
 
-              <h2>Время:</h2>
+              <div>
+                <h2 class="technics__label label">Категория техники:</h2>
 
-              <p>{{TIME}} минут</p>
+                <p>{{CATEGORY}}</p>
+              </div>
 
-              <h2>Зачем:</h2>
+              <!-- Время -->
 
-              <p>{{WHY}}</p>
+              <div>
+                <h2 class="technics__label label">Время:</h2>
 
-              <h2>Как это работает:</h2>
+                <p>{{TIME}} минут</p>
+              </div>
 
-              <p>{{HOWWORKS}}</p>
+              <!-- Зачем -->
 
-              <h2>Алгоритм выполнения:</h2>
+              <div>
+                <h2 class="technics__label label">Зачем:</h2>
 
-              <ol class="technics__steps">
-                {{STEPS}}
-              </ol>
+                <div class="technics__content">
+                  <p>{{WHY}}</p>
+                </div>
+              </div>
 
-              <h2>Дополнительные упражнения:</h2>
+              <!-- Как работает -->
 
-              <ul>
-                {{EXTRA}}
-              </ul>
+              <div>
+                <h2 class="technics__label label">Как это работает:</h2>
 
-              <h2>Почитать больше о технике:</h2>
+                <div class="technics__content">
+                  <p>{{HOWWORKS}}</p>
+                </div>
+              </div>
 
-              <ul>
-                {{LITERATURE}}
-              </ul>
+              <!-- Алгоритм выполнения -->
 
-              <h2>Рекомендуем прочитать:</h2>
+              <div>
+                <h2 class="technics__label label">Алгоритм выполнения:</h2>
 
-              <ul>
-                {{READING}}
-              </ul>
+                <ol class="technics__list">
+                  {{STEPS}}
+                </ol>
+              </div>
 
-              <div class="technics__tags">{{TAGS}}</div>
+              <!-- Дополнительные упражнения -->
+
+              <div>
+                <h2 class="technics__label label">Дополнительные упражнения:</h2>
+
+                <div class="technics__content">
+                  <ul>
+                    {{EXTRA}}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Литература -->
+
+              <div class="technics__catalog">
+                <div class="technics__label label">Почитать больше о технике:</div>
+
+                <ul>
+                  {{LITERATURE}}
+                </ul>
+              </div>
+
+              <!-- Рекомендуем прочитать -->
+
+              <div class="technics__catalog">
+                <div class="technics__label label">Рекомендуем прочитать:</div>
+
+                <ul>
+                  {{READING}}
+                </ul>
+              </div>
+
+              <!-- Ссылки -->
+
+              <div class="technics__links">{{TAGS}}</div>
             </div>
           </div>
         </section>
       </main>
     </div>
 
-    @@include('../partials/footer.html', {})
+    @@include('../partials/footer.html', {}) @@include('../partials/js.html', {})
   </body>
 </html>

@@ -48,9 +48,7 @@
 // ==============================
 // ФОН СТРАНИЦЫ ТЕХНИК
 // ==============================
-.page-technics {
-  background: linear-gradient(145deg, #f0f4f8 0%, #d9e2ec 100%);
-}
+
 
 // ==============================
 // КОНТЕЙНЕР
@@ -94,7 +92,6 @@
       grid-template-columns: 1fr;
     }
   }
-
   &__title {
     margin-bottom: 20px;
     font-size: 30px;
