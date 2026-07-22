@@ -137,19 +137,19 @@
 
 .swiper-button-prev {
   left: 0;
-  background-image: url("../img/slider-active-left.svg");
+  background-image: url("/img/slider-active-left.svg");
 
   &.swiper-button-disabled {
-    background-image: url("../img/slider-disable-left.svg");
+    background-image: url("/img/slider-disable-left.svg");
   }
 }
 
 .swiper-button-next {
   right: 0;
-  background-image: url("../img/slider-active-right.svg");
+  background-image: url("/img/slider-active-right.svg");
 
   &.swiper-button-disabled {
-    background-image: url("../img/slider-disable-right.svg");
+    background-image: url("/img/slider-disable-right.svg");
   }
 }
 

@@ -1624,7 +1624,7 @@
     &:before {
       margin-right: 20px;
       display: inline-block;
-      content: url("../img/check-disabled.svg");
+      content: url("/img/check-disabled.svg");
       cursor: pointer;
     }
 
@@ -1632,7 +1632,7 @@
       margin-right: 10px;
       margin-left: -10px;
       display: inline-block;
-      content: url("../img/check.svg");
+      content: url("/img/check.svg");
     }
   }
 
@@ -1815,7 +1815,7 @@
     &:before {
       margin-right: 20px;
       display: inline-block;
-      content: url("../img/check-disabled.svg");
+      content: url("/img/check-disabled.svg");
       cursor: pointer;
     }
 
@@ -1823,7 +1823,7 @@
       margin-right: 10px;
       margin-left: -10px;
       display: inline-block;
-      content: url("../img/check.svg");
+      content: url("/img/check.svg");
     }
   }
 }

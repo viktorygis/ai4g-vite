@@ -83,7 +83,7 @@
     right: 0;
     width: 60%;
     height: 100%;
-    background-image: url("../img/art-coaching/coach.jpg");
+    background-image: url("/img/art-coaching/coach.jpg");
     background-size: cover;
     background-position: center;
 
@@ -759,19 +759,19 @@
     }
 
     &:nth-child(1) {
-      background-image: url("../img/art-coaching/metods/metod01.jpg");
+      background-image: url("/img/art-coaching/metods/metod01.jpg");
     }
 
     &:nth-child(2) {
-      background-image: url("../img/art-coaching/metods/metod02.jpg");
+      background-image: url("/img/art-coaching/metods/metod02.jpg");
     }
 
     &:nth-child(3) {
-      background-image: url("../img/art-coaching/metods/metod03.jpg");
+      background-image: url("/img/art-coaching/metods/metod03.jpg");
     }
 
     &:nth-child(4) {
-      background-image: url("../img/art-coaching/metods/metod04.jpg");
+      background-image: url("/img/art-coaching/metods/metod04.jpg");
     }
   }
 }

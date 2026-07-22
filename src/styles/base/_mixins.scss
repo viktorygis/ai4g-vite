@@ -29,13 +29,13 @@
     &::before {
       display: inline-block;
       // margin-right: 20px;
-      content: url('/@src/img/check-disabled.svg');
+      content: url('/img/check-disabled.svg');
       cursor: pointer;
     }
 
     &:checked {
       display: inline-block;
-      content: url('/@src/img/check.svg');
+      content: url('/img/check.svg');
     }
   }
 

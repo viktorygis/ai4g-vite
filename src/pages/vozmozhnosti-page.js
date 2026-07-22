@@ -2,10 +2,11 @@
 import Swiper from "swiper";
 import "swiper/css";
 import { Navigation, FreeMode, Mousewheel } from "swiper/modules";
+import categoriesData from "../data/vozmozhnosti.json";
 
 Swiper.use([Navigation, FreeMode, Mousewheel]);
 
-(async function () {
+(function () {
   const filtersScroll = document.getElementById("filters-scroll");
   const categoriesContainer = document.getElementById("categories-container");
 
@@ -14,9 +15,6 @@ Swiper.use([Navigation, FreeMode, Mousewheel]);
   categoriesContainer.innerHTML = '<div class="vozmozhnosti__loading">Загрузка…</div>';
 
   try {
-    const response = await fetch("/data/vozmozhnosti.json");
-    if (!response.ok) throw new Error("Ошибка загрузки");
-    const categoriesData = await response.json();
     renderPage(categoriesData);
   } catch (err) {
     categoriesContainer.innerHTML = '<div class="vozmozhnosti__error">Не удалось загрузить данные</div>';
@@ -98,7 +96,7 @@ Swiper.use([Navigation, FreeMode, Mousewheel]);
       .map(
         (item) => `
       <div class="vozmozhnosti__item">
-        <img src="${item.img}" alt="${item.name}" loading="lazy" />
+              <img src="${import.meta.env.BASE_URL}${item.img}" alt="${item.name}" loading="lazy" />
         <div class="vozmozhnosti__text">
           <h3 class="vozmozhnosti__name">${item.name}</h3>
           <div class="vozmozhnosti__item-desc">${item.desc}</div>

@@ -28,7 +28,7 @@ const srcDir = path.resolve(__dirname, "src");
 export default defineConfig({
   root: "src",
   publicDir: "../public",
-  //base: "/web-kitchen-vite-pages/", // ← имя твоего репозитория!
+  base: "/ai4g-vite-pages/",
 
   resolve: {
     alias: {
