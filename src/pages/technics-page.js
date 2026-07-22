@@ -145,27 +145,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // ЗАГРУЗКА JSON И ОТРИСОВКА КАРТОЧЕК
   // =========================
-function loadAndRenderCards() {
-  cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
+  function loadAndRenderCards() {
+    cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
 
-  try {
-    const data = technics;
+    try {
+      const data = technics;
 
-    cardsContainer.innerHTML = "";
+      cardsContainer.innerHTML = "";
 
-    if (!data.length) {
-      cardsContainer.innerHTML = "<p>Нет данных</p>";
-      return;
-    }
+      if (!data.length) {
+        cardsContainer.innerHTML = "<p>Нет данных</p>";
+        return;
+      }
 
-    data.forEach((item, index) => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.dataset.tag = item.tag || "";
-      card.dataset.time = getTimeRange(item.time);
-      card.dataset.index = index;
+      data.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.tag = item.tag || "";
+        card.dataset.time = getTimeRange(item.time);
+        card.dataset.index = index;
 
-      card.innerHTML = `
+        card.innerHTML = `
         <div class="card__body">
           <div class="card__top">
             <div class="card__img">
@@ -187,32 +187,28 @@ function loadAndRenderCards() {
             ${item.time || 0} мин
           </div>
 
-          <a href="${import.meta.env.BASE_URL}technic.html?slug=${item.slug}" class="card__link">
+         <a href="/technics/${item.slug}.html" class="card__link">
             Подробнее
           </a>
         </div>
       `;
 
-      cardsContainer.appendChild(card);
-    });
+        cardsContainer.appendChild(card);
+      });
 
-    // Синхронизация интерфейса после загрузки
-    refresh();
+      // Синхронизация интерфейса после загрузки
+      refresh();
 
-    const defaultOption = sortDropdown.querySelector(
-      '.sort__option[data-value="default"]'
-    );
+      const defaultOption = sortDropdown.querySelector('.sort__option[data-value="default"]');
 
-    if (defaultOption) {
-      updateActiveClass(defaultOption, sortOptionElements);
+      if (defaultOption) {
+        updateActiveClass(defaultOption, sortOptionElements);
+      }
+    } catch (error) {
+      console.error("Ошибка загрузки:", error);
+      cardsContainer.innerHTML = '<div class="error">Ошибка загрузки данных</div>';
     }
-
-  } catch (error) {
-    console.error("Ошибка загрузки:", error);
-    cardsContainer.innerHTML =
-      '<div class="error">Ошибка загрузки данных</div>';
   }
-}
 
   // =========================
   // СОБЫТИЯ

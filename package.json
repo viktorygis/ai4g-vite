@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Многостраничный сайт с упражнениями и техниками.   В проекте используются HTML, PHP, CSS, JavaScript.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run generate && vite",
+   "generate": "node scripts/generate-technics.js",
+    "build": "npm run generate && vite build",
     "preview": "vite preview",
     "test": "exit 0"
   },
@@ -16,7 +18,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/viktorygis/ai4g-vite/issues"
   },

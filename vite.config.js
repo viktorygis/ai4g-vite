@@ -28,7 +28,7 @@ const srcDir = path.resolve(__dirname, "src");
 export default defineConfig({
   root: "src",
   publicDir: "../public",
-  base: "/ai4g-vite-pages/",
+  //base: "/ai4g-vite-pages/",
 
   resolve: {
     alias: {

@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!contentContainer) return;
 
   // Получаем slug из URL
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  const slug = window.location.pathname.split("/").filter(Boolean).pop().replace(".html", "");
 
   if (!slug) {
     renderError("Техника не найдена");
@@ -156,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
               <div class="technics__img">
                 <img
-                  src="${item.image}"
+                  src="${import.meta.env.BASE_URL}${item.image}"
                   alt="${item.title || item.subtitle || ""}"
                 >
               </div>
