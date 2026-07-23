@@ -147,11 +147,11 @@
       z-index: 10;
 
       &_01 {
-        background: url(../img/serf-session/download01.png) 0 0 no-repeat;
+        background: url("/img/serf-session/download01.png") 0 0 no-repeat;
       }
 
       &_02 {
-        background: url(../img/serf-session/download02.png) 0 0 no-repeat;
+        background: url("/img/serf-session/download02.png") 0 0 no-repeat;
       }
 
       background-size: 40px 70px;
@@ -163,12 +163,12 @@
     }
 
     .session-download__item:hover &__img_01 {
-      background: url(../img/serf-session/download-hover01.png) 0 0 no-repeat;
+      background: url("/img/serf-session/download-hover01.png") 0 0 no-repeat;
       background-size: 40px 70px;
     }
 
     .session-download__item:hover &__img_02 {
-      background: url(../img/serf-session/download-hover02.png) 0 0 no-repeat;
+      background: url("/img/serf-session/download-hover02.png") 0 0 no-repeat;
       background-size: 40px 70px;
     }
 

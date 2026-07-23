@@ -1,5 +1,4 @@
 //variables.scss
-
 @use 'sass:map';
 @use 'sass:color';
 
@@ -54,6 +53,9 @@ $color-art-item-transparent: #5c007bba;
 $color-art-gradient: rgb(74, 0, 108);
 $color-art-gradient-transparent: rgba(44, 51, 75, 0);
 $color-art-price: #3ca1ff;
+$color-art-grey: #737373; // серый именно для art-coaching, отличается от $color-gray (#71717a)
+$color-art-cream: #ffdca8; // акцентный кремовый текст в hero, аналога в системе нет
+$color-art-line: #e7e6ee; // цвет рамок карточек, аналога в системе нет
 
 // ======= ЦВЕТА ДЛЯ MENTORS PAGE (НОВОЕ!) =======
 $color-mentors-text-primary: #000;
@@ -66,3 +68,4 @@ $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;
 $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
+$breakpoint-art: 840px; // локальный брейкпоинт вёрстки art-coaching, не совпадает со стандартной сеткой sm/md/lg/xl
