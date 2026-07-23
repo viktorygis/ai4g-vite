@@ -5,392 +5,197 @@
 
 <body class="body page-art">
   <div class="wrapper">
-    @@include('partials/header.html', {})
+
 
 
     <main class="page">
-      <section class="art">
-        <div class="art__container art-container">
-          <div class="art__content">
-            <div class="art__block">
-              <h1 class="art__title art-title">Арт-коучинг</h1>
-              <h2 class="art__subtitle art-subtitle">
-                Запишитесь на курс из 5 сессий <br />
-                «Мы должны быть воображаемы»
-              </h2>
-              <div class="art__text art__text_black">
-                Прокачайте свой творческий потенциал <br />
-                и найдите свою персональную стратегию через искусство
-              </div>
 
-              <div class="art__btn-block">
-                <p>
-                  Присоединяйтесь к нам <br />
-                  и начните свое творческое путешествие
-                </p>
-                <a href="#art-text" class="art__link art-link link">Подробнее</a>
-              </div>
+
+      <!-- ==================== hero-art ==================== -->
+      <section class="hero-art">
+        <div class="wrap hero-art__grid">
+          <div>
+            <span class="kicker">Продукт AI4G · арт-коучинг</span>
+            <h1>Арт-коучинг для <em>лидеров и команд</em></h1>
+            <p class="hero-art__lead">Программа развития идентичности на стыке современного искусства и коучинга. Очно, малой группой — на вашей площадке.</p>
+            <p class="hero-art__slogan">Искусство проявляет. Коучинг раскрывает. Вы&nbsp;открываете автора своей жизни.</p>
+            <div class="hero-art__cta">
+              <a class="btn-art btn--green" href="guide.pdf" target="_blank" rel="noopener">Скачать гид для команд (PDF)</a>
             </div>
           </div>
+          <video class="hero-art__img" src="/img/art-coaching/hero.mp4" poster="/img/art-coaching/hero-poster.jpg" autoplay muted loop playsinline></video>
+
         </div>
-        <div class="art__coach"></div>
       </section>
 
-      <div id="art-text"></div>
+      <!-- ==================== ЧТО ЭТО + B2B КЕЙСЫ ==================== -->
+      <section class="block block--tint">
+        <div class="wrap">
+          <span class="kicker">О программе</span>
+          <h2 class="h2">Что такое арт-коучинг и когда он нужен бизнесу</h2>
+          <p class="lead">Арт-коучинг — это развитие идентичности и мышления команды через художественную практику. Участники руками создают работу, а групповой коучинг превращает увиденное в стратегию и решения. Это инструмент, которого нет ни у классического тренинга, ни у фасилитации. Команды буксуют не от нехватки навыков, а от потери образа будущего — и это задачи воображения и идентичности, с которыми мы работаем.</p>
 
-      <!-- Программа арт-коучинга -->
-      <section class="art-details">
-        <div class="art__container">
-          <h2 class="art-details__title art-subtitle">Программа арт-коучинга</h2>
-          <div class="art-details__text art__text">
-            <p><span>Программа состоит из 5 сессий</span></p>
-            <p>Продолжительность занятия 3 часа</p>
-          </div>
-
-          <ol class="art-details__list">
-            <li class="art-details__item">
-              <img src="img/art-coaching/art-details/art-details01.jpg" alt="" />
-              <div>
-                <h3 class="art-details__item-title">Импровизационный рисунок цветом</h3>
-                <p>
-                  Участники будут рисовать пальцами, отпуская контроль и позволяя эмоциям направлять процесс. Используя акрил, гуашь или краски для сенсорного
-                  самовыражения, они будут следовать внутренним состояниям, создавая яркие абстрактные композиции. В конце сессии мы проанализируем
-                  доминирующие цвета и их символику, что поможет выявить подсознательные желания и направления для дальнейшего самовыражения.
-                </p>
-              </div>
-            </li>
-            <li class="art-details__item">
-              <img src="img/art-coaching/art-details/art-details02.jpg" alt="" />
-              <div>
-                <h3 class="art-details__item-title">Абстракции</h3>
-                <p>
-                  Участники будут создавать абстрактные картины, используя деконструкцию существующих образов. Будут исследовать новые способы самовыражения.
-                  Это процесс открытия и конструирования нового через взаимодействие цветов и форм.
-                </p>
-              </div>
-            </li>
-            <li class="art-details__item">
-              <img src="img/art-coaching/art-details/art-details03.jpg" alt="" />
-              <div>
-                <h3 class="art-details__item-title">Коллажи</h3>
-                <p>
-                  В ходе сессии участники будут собирать коллажи из изображений, текстов и материалов, которые ассоциируются с их желаниями и целями. Каждый
-                  элемент коллажа будет символизировать конкретное намерение или мечту, а размещение этих элементов поможет выявить текущий фокус. В конечном
-                  итоге участники создадут карту маршрутов с визуальными «точками роста» для достижения своих целей.
-                </p>
-              </div>
-            </li>
-            <li class="art-details__item">
-              <img src="img/art-coaching/art-details/art-details04.jpg" alt="" />
-              <div>
-                <h3 class="art-details__item-title">Реди-мейд</h3>
-                <p>
-                  В этой сессии участники будут использовать найденные объекты из повседневной жизни для создания арт-объектов. Они будут исследовать, как
-                  обычные вещи могут стать источником креативности и переосмысления ресурсов в их жизни. Завершится сессия рефлексией над тем, как "сломанные"
-                  аспекты жизни можно трансформировать в новые возможности.
-                </p>
-              </div>
-            </li>
-            <li class="art-details__item">
-              <img src="img/art-coaching/art-details/art-details05.jpg" alt="" />
-              <div>
-                <h3 class="art-details__item-title">Автопортреты</h3>
-                <p>
-                  Создание автопортрета через смешанную технику. Каждый элемент будет символизировать различные аспекты идентичности и стремлений участников.
-                  Сессия завершится презентацией, где участники поделятся своими визуальными стратегиями на ближайшие пять лет.
-                </p>
-              </div>
-            </li>
-          </ol>
-
-          <div class="art-details__text art__text art-details__text--small">
-            <div>
-              <p>Материалы на каждой сессии разные — от акрила до найденных объектов.</p>
-              <p>
-                <span> Групповой коучинг:</span> рефлексия через восприятие своей творческой работы и через вопросы: «Какие черты проявляются через цвета?»
-              </p>
+          <div class="cases">
+            <div class="case">
+              <div class="case__tag">Нужно мышление вне шаблонов</div>
+              <p>Дизрапт-трек: практики деконструкции и реди-мейда — увидеть продукт и рынок вне привычной рамки руками, а не декларацией.</p>
+            </div>
+            <div class="case">
+              <div class="case__tag">Нужна общая картина будущего</div>
+              <p>Форсайт-сессия: команда руками создаёт визуальную стратегию — образ будущего, с которым согласны все, потому что делали вместе.</p>
+            </div>
+            <div class="case">
+              <div class="case__tag">Команда буксует: усталость, разобщённость</div>
+              <p>Командная сессия: диагностика паттернов команды и их разворот через арт-коучинг — увидеть, как команда думает и действует, и пересобрать.</p>
+            </div>
+            <div class="case">
+              <div class="case__tag">Развивать лидеров глубже тренингов</div>
+              <p>Трек идентичности: полная программа «5 граней Я» — с галереей работ и личной визуальной стратегией.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- На кого рассчитан курс -->
-      <section class="art-text">
-        <div class="art-text__container">
-          <div class="art-text__block">
-            <h2 class="art-text__title art-subtitle">На кого рассчитан курс</h2>
+      <!-- ==================== МЕТОД ==================== -->
+      <section class="block">
+        <div class="wrap">
+          <span class="kicker">Метод</span>
+          <h2 class="h2">Почему мы обращаемся к искусству?</h2>
+          <p class="lead">Участники руками создают работу — и художественная практика проявляет то, что не проговаривается словами. Дальше групповой коучинг превращает увиденное в решения. Уметь рисовать не нужно: методика выстроена так, что работа получается у&nbsp;каждого. Под капотом — строгая методология, а не эзотерика: каждая сессия спроектирована по циклу Колба, с проективными методиками, психологией восприятия и искусствоведением.</p>
 
-            <div class="art__list art-list art-list_01">
-              <!-- 2 -->
-              <div class="art-list__item">
-                <p>Те, кто строит жизнь осознанно</p>
-                <ul>
-                  <li>Целеустремленные профессионалы, мечтающие совместить карьерный рост с внутренней гармонией.</li>
-                  <li>Люди в поиске баланса между работой, личной жизнью и самореализацией.</li>
-                  <li>Сторонники визуального мышления — те, кто лучше воспринимает информацию через образы, а не списки.</li>
-                </ul>
-              </div>
+          <img class="method__feature" src="/img/art-coaching/method-process.jpg" alt="Руки участников собирают коллаж — практика арт-коуч сессии">
 
-              <!-- 3 -->
-              <div class="art-list__item">
-                <p>«Застрявшие» на пути к мечте</p>
-                <ul>
-                  <li>Те, кто устал от прокрастинации и хочет превратить абстрактные желания в конкретный план.</li>
-
-                  <li>Люди с «синдромом самозванца», сомневающиеся в своих силах и нуждающиеся в поддержке через метафоры искусства.</li>
-
-                  <li>Перфекционисты, которые боятся начать действовать из-за страха ошибки.</li>
-                  <li>Те, кто хочет прокачать уверенность в себе.</li>
-                </ul>
-              </div>
-
-              <!-- 4 -->
-              <div class="art-list__item">
-                <p>Любители экспериментов</p>
-                <ul>
-                  <li>Поклонники арт-подходов и майндфулнесс, ищущие глубокую рефлексию через тактильные практики (рисование пальцами, коллажи).</li>
-                  <li>Скептики, которые хотят проверить, как «краски и хаос» помогут в решении бытовых задач.</li>
-                  <li>
-                    Поклонники современного искусства, которые хотят не только понимать, но и применять его принципы (абстракция, реди-мейд) в личной
-                    стратегии.
-                  </li>
-                </ul>
-              </div>
+          <div class="method__quotes">
+            <div class="method__quote">
+              Стивен Тейлор называет рисование «исследовательским, преобразующим и генеративным инструментом»: создавая образ, человек осознаёт скрытое, переводит внутренний опыт во внешнюю форму и рождает новый смысл.
+              <cite>— Стивен Тейлор</cite>
             </div>
-            <div class="art__list art-list art-list_02">
-              <!-- 1 -->
-              <div class="art-list__item">
-                <p>Искатели вдохновения</p>
-                <ul>
-                  <li>Люди в творческом кризисе, которые хотят перезагрузить вдохновение через новые техники.</li>
-                  <li>Новички в искусстве, желающие раскрыть свой потенциал без страха «неправильно нарисовать».</li>
-                </ul>
-              </div>
-
-              <!-- 5 -->
-              <div class="art-list__item">
-                <p>Те, кто хочет понять себя</p>
-                <ul>
-                  <li>Люди 30–50 лет, пережившие выгорание или кризис идентичности, которые видят в искусстве способ вернуть вкус жизни.</li>
-                </ul>
-              </div>
-
-              <!-- 6 -->
-              <div class="art-list__item">
-                <p>«Инвесторы в себя»</p>
-                <ul>
-                  <li>Профессионалы, для которых творчество — способ снять стресс и найти баланс.</li>
-                  <li>
-                    Люди, инвестирующие в хобби с глубоким смыслом: для них программа станет не просто курсом, а «арт-объектом», который изменит их жизнь.
-                  </li>
-                </ul>
-              </div>
-
-              <!-- 7 -->
-              <div class="art-list__item">
-                <p>Корпоративные клиенты</p>
-                <ul>
-                  <li>Команды творческих и продуктовых компаний, где креативность — ключевой ресурс.</li>
-                  <li>HR, внедряющие программы soft skills и нестандартного мышления для сотрудников.</li>
-                </ul>
-              </div>
+            <div class="method__quote">
+              «В визуальном всё присутствует одновременно, и его содержание представлено не линейно, а в сложной взаимосвязи, открывающей возможности для понимания».
+              <cite>— Рудольф Арнхейм</cite>
             </div>
           </div>
         </div>
       </section>
 
-      <!--  Методы -->
-      <section class="art-details">
-        <div class="art__container">
-          <h2 class="art-details__title art-subtitle">Методы</h2>
-
-          <ul class="art-metod__list">
-            <li class="art-metod__item">
-              <p>Арт-коучинг</p>
-            </li>
-            <li class="art-metod__item">
-              <p>Нейропсихология</p>
-            </li>
-            <li class="art-metod__item">
-              <p>Персонология</p>
-            </li>
-            <li class="art-metod__item">
-              <p>Современное искусство</p>
-            </li>
-          </ul>
+      <!-- ==================== B2B ФОРМАТЫ ==================== -->
+      <section class="block block--tint">
+        <div class="wrap">
+          <span class="kicker">Для бизнеса</span>
+          <h2 class="h2">Форматы для лидеров и команд</h2>
+          <p class="lead">Без «списка на всех». Начать можно с бесплатного тест-драйва или коротких «дверей» — «Цвет вместо слов» и «Портрет лидера». Дальше — модуль под задачу или полная программа. Группа до 12, на вашей площадке.</p>
+          <div class="cards-art">
+            <div class="card-art">
+              <div class="card-art__num">Тест-драйв</div>
+              <h3>«Химическая сессия»</h3>
+              <p>Короткое демо перед корпоративным запуском — попробовать метод на себе и понять, как это работает для команды.</p>
+              <span class="card-art__price"><span>Бесплатно</span></span>
+            </div>
+            <div class="card-art">
+              <div class="card-art__num">Модуль</div>
+              <h3>Сессия под задачу</h3>
+              <p>Одна сессия 3,5 часа, которая встраивается в ваш формат — стратегическую сессию, тимбилдинг, выезд, программу обучения. Усиливает уже запланированное событие и даёт команде опыт, которого нет в вашей программе.</p>
+              <span class="card-art__price">150 000 ₽</span>
+              <div class="card-art__meta">3,5 часа · до 12 человек</div>
+            </div>
+            <div class="card-art">
+              <div class="card-art__num">Программа</div>
+              <h3>«5 граней Я»</h3>
+              <p>Полный трек из 5 сессий по 3,5 часа. Ритм подбираем под вас: обычно раз в неделю. Развитие идентичности и нестандартного мышления как ресурс команды.</p>
+              <span class="card-art__price">650 000 ₽</span>
+              <div class="card-art__meta">5 сессий · ритм под вас</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Что вы получите от программы? -->
-      <section class="art-details">
-        <div class="art__container">
-          <h2 class="art-details__title art-subtitle">Что вы получите от программы?</h2>
+      <!-- ==================== ВЕДУЩИЕ + РЕГАЛИИ ==================== -->
+      <section class="block" id="leaders">
+        <div class="wrap">
+          <span class="kicker">Кто ведёт</span>
+          <h2 class="h2">Двое — коуч и художник</h2>
+          <p class="lead">Программа существует на стыке. Поэтому ведут её двое.</p>
+          <div class="leads">
 
-          <div class="art-results">
-            <ul class="art-results__list">
+            <div class="lead-card">
+              <img class="lead-card__img" src="/img/art-coaching/elena.jpg" alt="Елена Семёнова">
+              <div class="lead-card__body">
+                <div class="lead-card__name">Елена Семёнова</div>
+                <div class="lead-card__role">Коуч лидеров и команд</div>
+                <p class="lead-card__short">25+ лет развивает лидеров и команды. Преподаёт в МШУ Сколково, РАНХиГС, МГИМО. Основатель ed-tech компании AI4G.</p>
+                <a class="lead-card__more" href="https://ai4g.ru/mentors.html" target="_blank" rel="noopener">Подробнее о Елене →</a>
+              </div>
+            </div>
 
+            <div class="lead-card">
+              <img class="lead-card__img" src="/img/art-coaching/yanita.jpg" alt="Янита Войт">
 
-              <li class="art-results__item">
-                <div class="art-results__image"><img src="img/art-coaching/art-item/art-item01.svg" alt="" /></div>
-                <p>Галерея работ, отражающих их внутренний мир и цели</p>
-              </li>
+              <div class="lead-card__body">
+                <div class="lead-card__name">Янита Войт</div>
+                <div class="lead-card__role">Художник · L&amp;D-методолог</div>
+                <p class="lead-card__short">Магистр изящных искусств (НИУ ВШЭ), сооснователь галереи современного искусства. 15+ лет в корпоративном обучении.</p>
+                <a class="lead-card__more" href="https://ai4g.ru/mentors.html" target="_blank" rel="noopener">Подробнее о Яните →</a>
+              </div>
+            </div>
 
-              <li class="art-results__item">
-                <div class="art-results__image"><img src="img/art-coaching/art-item/art-item04.svg" alt="" /></div>
-                <p>Четкий визуальный план (можно оформить в рамку или цифровой формат)</p>
-              </li>
-
-              <li class="art-results__item">
-                <div class="art-results__image"><img src="img/art-coaching/art-item/art-item05.svg" alt="" /></div>
-                <p>Навыки творческого подхода к решению любых задач</p>
-              </li>
-
-              <li class="art-results__item">
-                <div class="art-results__image"><img src="img/art-coaching/art-item/art-item02.svg" alt="" /></div>
-                <p>Рекомендации по «домашним заданиям» (например, ежедневный скетч-дневник)</p>
-              </li>
-
-              <li class="art-results__item">
-                <div class="art-results__image"><img src="img/art-coaching/art-item/art-item06.svg" alt="" /></div>
-                <p>Чек-лист «Как внедрять стратегию через арт-практики»</p>
-              </li>
-            </ul>
           </div>
+        </div>
+      </section>
 
-          <div class="art__btn-block">
-            <p class="art-results__text">Записаться на Арт-коучинг</p>
-
-
-
-            <a href="#modal-request" class="art-link link" data-fancybox data-modal-title="Запись на арт-коучинг">
-              Записаться
+      <!-- ==================== ПОДРОБНЕЕ -> voobrazhaemy ==================== -->
+      <section class="block block--tint">
+        <div class="wrap">
+          <span class="kicker">Смотреть детальнее</span>
+          <h2 class="h2">Полностью о проекте — на сайте программы</h2>
+          <p class="lead">Метод, истории художников, визуальные практики, ролики и запись на открытые сессии живут на сайте проекта «Мы должны быть воображаемы».</p>
+          <div class="more">
+            <a href="https://voobrazhaemy.ru/journal/dver-kak-metafora.html" target="_blank" rel="noopener">
+              <img class="more__img" src="/img/art-coaching/more1.jpg" alt="Девять дверей — метафора проекта">
+              <div class="more__body">
+                <div class="more__k">Метод</div>
+                <h4>Дверь как метафора</h4>
+                <p>Почему дверь стала главным образом проекта и что означают девять предметов.</p>
+                <div class="more__arrow">Читать →</div>
+              </div>
             </a>
-
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Ведущие -->
-      <section class="art-leading" id="leading">
-        <div class="art__container">
-          <h2 class="art-leading__title art-subtitle">Ведущие</h2>
-
-          <div class="art-leading__images">
-            <div class="art__image-block lead">
-              <div class="lead__image">
-                <img src="img/art-coaching/leading01.jpg" alt="" />
+            <a href="https://voobrazhaemy.ru/journal.html" target="_blank" rel="noopener">
+              <img class="more__img" src="/img/art-coaching/more2.jpg" alt="Работы Яниты Войт — журнал проекта">
+              <div class="more__body">
+                <div class="more__k">Журнал</div>
+                <h4>Статьи и видео о программе</h4>
+                <p>Как устроен арт-коучинг, визуальные практики и истории художников.</p>
+                <div class="more__arrow">Смотреть →</div>
               </div>
-
-              <div class="lead__info">
-                <div class="lead__top">
-                  <h4 class="lead__title">Янита Войт</h4>
-                  <p class="lead__label">художник</p>
-                  <p class="lead__text">
-                    Эксперт в управлении талантами <br />
-                    Сооснователь галереи современного искусства, <br />
-                    организатор и куратор резиденций, <br />
-                    культурных событий для арт-мира
-                  </p>
-                </div>
-                <div class="lead__contacts lead-contacts">
-                  <a href="https://t.me/ianitavoit" target="_blank" class="lead-contacts__item">
-                    <img src="img/art-coaching/telegram.svg" alt="telegram" loading="lazy" />
-
-                    <span>@ianitavoit</span>
-                  </a>
-
-                  <a href="tel:+79267939365" class="lead-contacts__item">
-                    <img src="img/art-coaching/phone.svg" alt="phone" loading="lazy" />
-                    <span>+7 926 793-93-65</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="art__image-block lead">
-              <div class="lead__image">
-                <img src="img/art-coaching/leading02.jpg" alt="" />
-              </div>
-              <div class="lead__info">
-                <div class="lead__top">
-                  <h4 class="lead__title">Елена Семенова</h4>
-                  <p class="lead__label">коуч</p>
-                  <p class="lead__text">
-                    Полимодальный психолог <br />
-                    Автор программ лидерского развития <br />
-                    через изменение паттернов <br />Executive и командный коуч лидеров и команд
-                  </p>
-                </div>
-                <div class="lead__contacts lead-contacts">
-                  <a href="https://t.me/SemenovaElena" target="_blank" class="lead-contacts__item">
-                    <img src="img/art-coaching/telegram.svg" alt="telegram" loading="lazy" />
-                    <span>@SemenovaElena</span>
-                  </a>
-                  <a href="tel:+79169601863" class="lead-contacts__item">
-                    <img src="img/art-coaching/phone.svg" alt="phone" loading="lazy" />
-                    <span>+7 916 960-18-63</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Расписание и место -->
-      <section class="art-schedule" id="schedule">
-        <div class="art__container">
-          <h2 class="art-schedule__title art-subtitle">Расписание и место</h2>
-
-          <p class="art__label art-label">Когда? Где? Как пройти?</p>
-
-          <ul class="art-schedule__list">
-            <li class="art-schedule__item"><strong>Время:</strong> Субботы, 11:00–14:00.</li>
-            <li class="art-schedule__item"><strong>Место:</strong> Мастерская «Да-да!» Успенский пер., д. 5 (м. Тверская, Чеховская, сад Эрмитаж).</li>
-          </ul>
-        </div>
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A68571494becdaa6faba23025b0eca5303331ab7265e648ce042b0b318ca6728b&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>
-      </section>
-
-      <!-- Цена -->
-      <section class="art-cost" id="cost">
-        <div class="art__container">
-          <h2 class="art-cost__title art-subtitle">Цена участия</h2>
-          <div class="art-cost__content">
-            <img class="art-cost__decor" src="img/art-coaching/cost.png" alt="" />
-            <div class="art-cost__items">
-              <div class="art-cost__item">
-                <img src="img/career-advice/cost.png" alt="" class="art-cost__img" />
-                <div class="art-cost__block">
-                  <div class="art-cost__label">1 сессия:</div>
-                  <div class="art-cost__text">15 000 ₽</div>
-                </div>
-              </div>
-              <div class="art-cost__item">
-                <img src="img/career-advice/cost.png" alt="" class="art-cost__img" />
-                <div class="art-cost__block">
-                  <div class="art-cost__label">5 сессий:</div>
-                  <div class="art-cost__text">50 000 ₽</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- =====art-coaching.html====================================== -->
-          <div class="art__btn-block">
-
-
-            <a href="#payment" class="art-cost__link art-link link" data-fancybox data-modal-title="Оплата арт-коучинга" data-sum="15000" data-service="Арт-коучинг" data-price-choices="15000:Одно занятие,50000:Все занятия">
-              Оплатить участие
             </a>
+            <a href="https://voobrazhaemy.ru/" target="_blank" rel="noopener">
+              <img class="more__img" src="/img/art-coaching/more3.jpg" alt="Проект «Мы должны быть воображаемы»">
+              <div class="more__body">
+                <div class="more__k">Запись</div>
+                <h4>Открытые сессии и даты</h4>
+                <p>Актуальное расписание и онлайн-запись — на сайте проекта.</p>
+                <div class="more__arrow">Записаться →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
 
-
+      <!-- ==================== ФИНАЛ ==================== -->
+      <section class="final">
+        <div class="wrap">
+          <h2>Обсудить арт-коучинг для вашей команды</h2>
+          <p>Короткий разговор о задаче — без обязательств.</p>
+          <div class="final__contacts">
+            <a href="mailto:salmonberrry@gmail.com">salmonberrry@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+79267939365">+7&nbsp;926&nbsp;793-93-65</a>
+          </div>
+          <div class="final__cta">
+            <a class="btn-art btn--out" href="https://voobrazhaemy.ru/" target="_blank" rel="noopener">Сайт проекта →</a>
           </div>
         </div>
       </section>
     </main>
 
-    @@include('partials/footer.html', {})
+
     @@include('partials/js.html', {})
     @@include('partials/request-form.html', {})
     @@include('partials/payment-form.html', {})

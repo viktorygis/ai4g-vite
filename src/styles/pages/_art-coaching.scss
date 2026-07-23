@@ -1,962 +1,522 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:color';
+:root {
+  --ink: #150931; // тёмно-синий ai4g
+  --green: #06ea6f; // неоновый акцент
+  --pink: #ff008a; // маджента-акцент
+  --grey: #737373;
+  --line: #e7e6ee;
+  --cream: #ffdca8;
+  --sans: 'PT Sans', -apple-system, sans-serif;
+  --head: 'Montserrat', var(--sans);
+}
 
-// ==============================
-// ART COACHING PAGE
-// ==============================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-// ==============================
-// ART LINK
-// ==============================
-.art-link {
-  background: $color-link;
-  color: $color-text;
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.6;
+  font-size: 17px;
+}
 
-  @include respond-to($breakpoint-md) {
-    text-align: center;
-    font-size: 14px;
-  }
+h1,
+h2,
+h3,
+h4,
+.kicker,
+.btn-art {
+  font-family: var(--head);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn-art {
+  display: inline-block;
+  padding: 16px 30px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: .02em;
+  transition: .2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--green {
+  background: var(--pink);
+  color: #fff;
 
   &:hover {
-    background: $color-secondary;
-  }
-
-  //.art-link_green
-  &_green {
-    background: $color-secondary;
-    color: $color-bg;
-
-    &:hover {
-      background: $color-link;
-      color: $color-text;
-    }
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 0, 138, .30);
   }
 }
 
-// ==============================
-// ART SECTION
-// ==============================
-.art {
-  padding: 80px 0 0 0;
-  background-color: $color-art-bg;
+.btn--out {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .4);
+
+  &:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--pink);
+}
+
+// HERO
+.hero-art {
+  background: var(--ink);
+  color: #fff;
+  padding: 110px 0 90px;
   position: relative;
   overflow: hidden;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 10;
 
-  //.art__container
-  &__container {
-    max-width: 1200px;
-    position: relative;
-    z-index: 10;
-  }
-
-  //.art__content
-  &__content {
-    padding: 30px 0;
-
-    @include respond-to($breakpoint-sm) {
-      padding: 60px 0;
-    }
-  }
-
-  //.art__block
-  &__block {
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-    position: relative;
-    max-width: 600px;
-    background-color: $color-text;
-    padding: 20px;
-    color: $color-dark;
-    border-radius: 9px;
-  }
-
-  //.art__coach
-  &__coach {
+  &::after {
+    content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background-image: url("/img/art-coaching/coach.jpg");
-    background-size: cover;
-    background-position: center;
+    right: -120px;
+    top: -120px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(255, 0, 138, .35), transparent 70%);
+    pointer-events: none;
+  }
 
-    @include respond-to($breakpoint-sm) {
-      width: 100%;
+  &__grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.32fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 840px) {
+      grid-template-columns: 1fr;
     }
   }
 
-  //.art__btn-block
-  &__btn-block {
-    p {
-      font-weight: 500;
-      padding-bottom: 10px;
-      font-size: 20px;
-      line-height: 140%;
+  h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    font-weight: 800;
+    margin: 16px 0 18px;
 
-      @include respond-to($breakpoint-lg) {
-        font-size: 18px;
-        font-weight: 400;
-      }
+    em {
+      font-style: normal;
+      color: var(--cream);
     }
   }
 
-  //.art__text
-  &__text {
-    font-weight: 500;
-    color: $color-text;
-    max-width: 680px;
-    padding-bottom: 40px;
-    font-size: 24px;
-    line-height: 140%;
-
-    @include respond-to($breakpoint-lg) {
-      padding-bottom: 20px;
-      font-size: 20px;
-      max-width: none;
-      line-height: 120%;
-    }
-
-    &_black {
-      color: $color-dark;
-    }
+  &__lead {
+    font-size: 20px;
+    color: rgba(255, 255, 255, .85);
+    max-width: 520px;
   }
 
-  //.art__link
-  &__link {
-    width: 200px;
-    height: 50px;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 20px 0 0 0;
-    text-transform: none;
-    background: $color-art-bg;
+  &__slogan {
+    margin-top: 18px;
+    font-family: var(--head);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--cream);
+  }
+
+  &__cta {
+    margin-top: 34px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+    display: block;
+  }
+}
+
+.lead-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+
+  &__body {
+    padding: 22px 24px;
+  }
+
+  &__name {
+    font-family: var(--head);
+    font-weight: 800;
+    font-size: 22px;
+  }
+
+  &__role {
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin: 6px 0 12px;
+    font-family: var(--head);
+  }
+
+  &__short {
+    font-size: 15px;
+    color: #3f3956;
+    margin-bottom: 14px;
+  }
+
+  &__more {
+    display: inline-block;
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--pink);
+    text-decoration: none;
 
     &:hover {
-      background: $color-art-dark;
+      text-decoration: underline;
     }
   }
 }
 
-// ==============================
-// ART TITLE COMPONENTS
-// ==============================
-.art-title {
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 120%;
-  margin: 0 0 20px 0;
+.method {
+  &__feature {
+    width: 100%;
+    aspect-ratio: 16/7;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 18px 44px rgba(21, 9, 49, .18);
+    display: block;
+    margin-top: 26px;
+  }
 
-  @include respond-to($breakpoint-md) {
-    font-size: 30px;
+  &__quotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 26px;
+
+    .method__quote {
+      margin: 0;
+    }
+
+    @media (max-width: 840px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__quote {
+    margin: 34px 0;
+    padding: 22px 26px;
+    border-left: 4px solid var(--pink);
+    background: #fff;
+    border-radius: 0 12px 12px 0;
+    font-family: var(--head);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.4;
+
+    cite {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 14px;
+      color: var(--grey);
+      font-family: var(--sans);
+    }
+  }
+}
+
+// Секции
+section.block {
+  padding: 76px 0;
+}
+
+.block {
+  &--tint {
+    background: #faf9fc;
+  }
+}
+
+.h2 {
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 10px;
+}
+
+.lead {
+  font-size: 19px;
+  color: #3a3350;
+  max-width: 720px;
+  margin-top: 14px;
+}
+
+// Что это + B2B кейсы
+.cases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 26px;
+  transition: .2s;
+
+  &:hover {
+    border-color: var(--pink);
+    box-shadow: 0 12px 30px rgba(21, 9, 49, .07);
+  }
+
+  &__tag {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+  }
+
+  p {
+    font-size: 15px;
+    color: #4a4460;
+  }
+}
+
+// B2B форматы
+.cards-art {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 34px;
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-art {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px 22px;
+  transition: .2s;
+  background: #fff;
+
+  &:hover {
+    border-color: var(--pink);
+    box-shadow: 0 12px 30px rgba(21, 9, 49, 0.08);
+    transform: translateY(-3px);
+  }
+
+  &__num {
+    font-family: var(--head);
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--pink);
+  }
+
+  h3 {
+    font-family: var(--head);
+    font-size: 20px;
+    margin: 10px 0 8px;
     font-weight: 700;
   }
-}
 
-.art-subtitle {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 120%;
-  margin: 0 0 20px 0;
-  text-align: left;
-
-  @include respond-to($breakpoint-md) {
-    font-size: 24px;
-    font-weight: 600;
+  p {
+    font-size: 15px;
+    color: #4a4460;
   }
 
-  p:not(:last-child) {
-    margin: 0 0 5px 0;
+  &__price {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--head);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+
+    span {
+      color: var(--pink);
+    }
   }
-}
 
-.art-label {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 130%;
-  margin: 0 0 20px 0;
-  text-align: left;
-
-  @include respond-to($breakpoint-md) {
-    font-size: 20px;
-    font-weight: 500;
+  &__meta {
+    font-size: 12.5px;
+    color: var(--grey);
+    margin-top: 4px;
   }
 }
 
-// ==============================
-// ART LIST
-// ==============================
-.art-list {
+// Ведущие + регалии
+.leads {
   display: grid;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 36px;
 
-  @include respond-to($breakpoint-md) {
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Подробнее → материалы проекта
+.more {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+
+  @media (max-width: 840px) {
     grid-template-columns: 1fr;
   }
 
-  //.art-list_01
-  &_01 {
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 0 40px 0;
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-columns: 1fr;
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-list_02
-  &_02 {
-    grid-template-columns: repeat(4, 1fr);
-
-    @include respond-to($breakpoint-xl) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  //.art-list__item
-  &__item {
-    font-size: 16px;
-    line-height: 120%;
-    color: $color-text;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    background-color: $color-art-item-bg;
-    border-radius: 9px;
-    transition: all 0.3s ease;
-
-    @include respond-to($breakpoint-md) {
-      padding: 10px;
-    }
-
-    &:hover {
-      background-color: $color-art-item-hover;
-    }
-
-    p {
-      font-weight: 600;
-      font-size: 20px;
-    }
-
-    ul {
-      text-align: left;
-
-      li {
-        margin: 0 0 10px 0;
-        position: relative;
-        padding-left: 20px;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 8px;
-          left: 0;
-          width: 8px;
-          height: 8px;
-          background-color: $color-text;
-          border-radius: 50%;
-        }
-      }
-    }
-  }
-}
-
-// ==============================
-// ART TEXT SECTION
-// ==============================
-#art-text {
-  position: relative;
-  top: -80px;
-}
-
-.art-text {
-  padding: 50px 0;
-  text-align: center;
-  position: relative;
-
-  @include respond-to($breakpoint-lg) {
-    padding: 30px 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: linear-gradient(180deg, $color-art-gradient, $color-art-gradient-transparent 100%);
-    width: 100%;
-    height: 473px;
-    top: 0;
-    left: 0;
-  }
-
-  //.art-text__container
-  &__container {
-    max-width: 1200px;
-  }
-
-  //.art-text__block
-  &__block {
-    position: relative;
-    z-index: 2;
-  }
-
-  //.art-text__title
-  &__title {
-    text-align: center;
-  }
-}
-
-// ==============================
-// ART DETAILS SECTION
-// ==============================
-.art-details {
-  padding: 50px 0;
-  position: relative;
-  background-color: $color-art-bg;
-
-  @include respond-to($breakpoint-lg) {
-    padding: 30px 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: linear-gradient(180deg, $color-art-gradient, $color-art-gradient-transparent 100%);
-    width: 100%;
-    height: 473px;
-    top: 0;
-    left: 0;
-  }
-
-  //.art-details__title
-  &__title {
-    margin: 0 0 40px 0;
-    text-align: center;
-
-    @include respond-to($breakpoint-sm) {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-details__text
-  &__text {
-    font-weight: 500;
-    color: $color-text;
-    max-width: none;
-    font-size: 24px;
-    line-height: 140%;
-    text-align: center;
-    margin: 0 auto;
-
-    @include respond-to($breakpoint-lg) {
-      font-size: 18px;
-      line-height: 120%;
-    }
-
-    &--small {
-      text-align: left;
-      font-size: 20px;
-
-      @include respond-to($breakpoint-sm) {
-        font-size: 18px;
-        font-weight: 400;
-      }
-    }
-  }
-
-  //.art-details__list
-  &__list {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 20px;
-    padding: 0;
-    counter-reset: item;
-    margin: 0 0 40px 0;
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-rows: auto;
-      gap: 30px;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  //.art-details__item
-  &__item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-    background-color: $color-art-item-transparent;
-    border-radius: 9px;
-    transition: all 0.3s ease;
-    position: relative;
-    align-items: center;
-    line-height: 120%;
-    font-weight: 400;
-    color: $color-text;
-
-    @include respond-to($breakpoint-lg) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @include respond-to($breakpoint-md) {
-      flex-direction: column-reverse;
-    }
-
-    @include respond-to($breakpoint-sm) {
-      gap: 15px;
-    }
-
-    &:hover {
-      background-color: $color-art-item-hover;
-    }
-
-    &::before {
-      content: counter(item);
-      counter-increment: item;
-      position: absolute;
-      top: -12px;
-      left: -10px;
-      background-color: $color-text;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      color: $color-art-item-bg;
-      font-size: 15px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 140%;
-      padding: 10px;
-
-      @include respond-to($breakpoint-sm) {
-        padding: 0 10px;
-      }
-    }
-
-    img {
-      max-width: 230px;
-      border-radius: 9px;
-      overflow: hidden;
-
-      @include respond-to($breakpoint-lg) {
-        max-width: none;
-        width: 100%;
-      }
-
-      @include respond-to($breakpoint-md) {
-        max-height: 260px;
-        object-position: bottom;
-      }
-    }
-  }
-
-  //.art-details__item-title
-  &__item-title {
-    font-weight: 600;
-    font-size: 20px;
-    padding: 10px;
-    margin: 0 0 10px 0;
-    line-height: 120%;
-
-    @include respond-to($breakpoint-md) {
-      text-align: center;
-    }
-
-    @include respond-to($breakpoint-sm) {
-      padding: 10px 10px 0 10px;
-    }
-  }
-}
-
-// ==============================
-// ART LEADING SECTION
-// ==============================
-.art-leading {
-  padding: 30px 0;
-  position: relative;
-  background-color: $color-art-bg;
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: linear-gradient(180deg, $color-art-gradient, $color-art-gradient-transparent 100%);
-    width: 100%;
-    height: 473px;
-    top: 0;
-    left: 0;
-  }
-
-  //.art-leading__title
-  &__title {
-    margin: 0 0 40px 0;
-    text-align: center;
-
-    @include respond-to($breakpoint-sm) {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-leading__images
-  &__images {
-    display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(2, 1fr);
-
-    @include respond-to($breakpoint-xl) {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-  }
-}
-
-// ==============================
-// LEAD COMPONENT
-// ==============================
-.lead {
-  display: flex;
-  gap: 20px;
-  line-height: 140%;
-  color: $color-text;
-  justify-items: center;
-
-  @include respond-to($breakpoint-xl) {
-    justify-content: center;
-  }
-
-  @include respond-to($breakpoint-sm) {
-    flex-direction: column;
-  }
-
-  //.lead__image
-  &__image {
-    max-width: 300px;
-    border-radius: 9px;
+  a {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 14px;
     overflow: hidden;
-
-    @include respond-to($breakpoint-xl) {
-      max-width: 200px;
-    }
-
-    @include respond-to($breakpoint-sm) {
-      max-width: 60%;
-      align-self: center;
-    }
-  }
-
-  //.lead__info
-  &__info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  //.lead__title
-  &__title {
-    font-size: 24px;
-    line-height: 100%;
-    font-weight: 600;
-    margin-bottom: 5px;
-
-    @include respond-to($breakpoint-sm) {
-      text-align: center;
-    }
-  }
-
-  //.lead__label
-  &__label {
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0 0 20px 0;
-
-    @include respond-to($breakpoint-sm) {
-      text-align: center;
-    }
-  }
-
-  //.lead__text
-  &__text {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 120%;
-    margin: 0 0 20px 0;
-
-    @include respond-to($breakpoint-sm) {
-      text-align: center;
-    }
-  }
-}
-
-// ==============================
-// LEAD CONTACTS
-// ==============================
-.lead-contacts {
-  font-size: 18px;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  @include respond-to($breakpoint-sm) {
-    margin: 0 auto;
-    font-size: 16px;
-  }
-
-  //.lead-contacts__item
-  &__item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    img {
-      width: 40px;
-      height: 40px;
-
-      @include respond-to($breakpoint-sm) {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-}
-
-// ==============================
-// ART SCHEDULE SECTION
-// ==============================
-.art-schedule {
-  padding: 30px 0 0 0;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    background: linear-gradient(180deg, $color-art-gradient, $color-art-gradient-transparent 100%);
-    width: 100%;
-    height: 473px;
-    top: 0;
-    left: 0;
-  }
-
-  //.art-schedule__title
-  &__title {
-    margin: 0 0 40px 0;
-    text-align: center;
-
-    @include respond-to($breakpoint-sm) {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-schedule__list
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
-    margin: 0 0 40px 0;
-
-    @include respond-to($breakpoint-lg) {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-schedule__item
-  &__item {
-    font-size: 20px;
-    line-height: 150%;
-    font-weight: 500;
-    color: $color-text;
-  }
-}
-
-// ==============================
-// ART METOD SECTION
-// ==============================
-.art-metod {
-
-  //.art-metod__list
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    padding: 0;
-    gap: 20px;
-
-    @include respond-to($breakpoint-lg) {
-      margin: 0 0 20px 0;
-    }
-
-    @include respond-to($breakpoint-sm) {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr);
-      gap: 10px;
-    }
-  }
-
-  //.art-metod__item
-  &__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1;
-    background-size: cover;
-    background-position: center;
-    color: $color-text;
-    font-size: 26px;
-    font-weight: 600;
-    width: 100%;
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 9px;
-
-    @include respond-to($breakpoint-sm) {
-      height: 170px;
-      font-size: 22px;
-    }
-
-    // Затемняющий слой
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba($color-dark, 0.5);
-      z-index: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    &:hover::after {
-      opacity: 0;
-    }
-
-    p {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    &:nth-child(1) {
-      background-image: url("/img/art-coaching/metods/metod01.jpg");
-    }
-
-    &:nth-child(2) {
-      background-image: url("/img/art-coaching/metods/metod02.jpg");
-    }
-
-    &:nth-child(3) {
-      background-image: url("/img/art-coaching/metods/metod03.jpg");
-    }
-
-    &:nth-child(4) {
-      background-image: url("/img/art-coaching/metods/metod04.jpg");
-    }
-  }
-}
-
-// ==============================
-// ART RESULTS SECTION
-// ==============================
-.art-results {
-
-  //.art-results__list
-  &__list {
-    display: flex;
-    gap: 10px;
-    padding: 0;
-    margin: 0 0 40px 0;
-
-    @include respond-to($breakpoint-lg) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include respond-to($breakpoint-sm) {
-      margin: 0 0 20px 0;
-      grid-template-columns: 1fr;
-    }
-  }
-
-  //.art-results__item
-  &__item {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 20%;
-    font-size: 16px;
-    line-height: 120%;
-    color: $color-text;
-    padding: 20px;
-    background-color: $color-art-item-bg;
-    border-radius: 9px;
-    transition: all 0.3s ease;
-
-    @include respond-to($breakpoint-lg) {
-      width: 100%;
-      padding: 10px;
-    }
+    text-decoration: none;
+    transition: .2s;
+    background: #fff;
 
     &:hover {
-      background-color: $color-art-item-hover;
-    }
-
-    img {
-      width: 40px;
-      height: 40px;
-
-      @include respond-to($breakpoint-lg) {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    p {
-      @include respond-to($breakpoint-lg) {
-        max-width: 300px;
-      }
+      border-color: var(--pink);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(21, 9, 49, .1);
     }
   }
 
-  //.art-results__text
-  &__text {
-    font-weight: 700;
-    color: $color-text;
-    margin: 0 auto;
-    max-width: 680px;
-    padding-bottom: 30px;
-    font-size: 28px;
-    line-height: 140%;
-    text-align: center;
-
-    @include respond-to($breakpoint-md) {
-      padding-bottom: 20px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-  }
-}
-
-// ==============================
-// ART COST SECTION
-// ==============================
-.art-cost {
-  padding: 30px 0;
-
-  //.art-cost__title
-  &__title {
-    margin: 0 0 40px 0;
-    text-align: center;
-
-    @include respond-to($breakpoint-sm) {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  //.art-cost__content
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0 60px 0;
-    gap: 80px;
-
-    @include respond-to($breakpoint-lg) {
-      margin: 0 0 40px 0;
-    }
-
-    @include respond-to($breakpoint-md) {
-      gap: 40px;
-    }
-  }
-
-  //.art-cost__decor
-  &__decor {
-    max-height: 300px;
-
-    @include respond-to($breakpoint-md) {
-      max-height: 150px;
-    }
-
-    @include respond-to($breakpoint-sm) {
-      display: none;
-    }
-  }
-
-  //.art-cost__items
-  &__items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  //.art-cost__item
-  &__item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  //.art-cost__img
   &__img {
-    height: 50px;
-    margin: 10px 0 0 0;
-
-    @include respond-to($breakpoint-md) {
-      height: 45px;
-    }
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    display: block;
   }
 
-  //.art-cost__block
-  &__block {
-    font-weight: 900;
-    font-size: 40px;
-    line-height: 120%;
-
-    @include respond-to($breakpoint-md) {
-      font-weight: 700;
-      font-size: 30px;
-    }
+  &__body {
+    padding: 20px;
   }
 
-  //.art-cost__label
-  &__label {
-    color: $color-text;
-    margin: 0 0 10px 0;
+  &__k {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--pink);
   }
 
-  //.art-cost__text
-  &__text {
-    color: $color-art-price;
+  h4 {
+    font-family: var(--head);
+    font-size: 18px;
+    margin: 8px 0 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #4a4460;
+  }
+
+  &__arrow {
+    margin-top: 10px;
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 14px;
   }
 }
 
-// ==============================
-// SHARED STYLES
-// ==============================
-.art-container {
-  width: 100%;
+// Финальный CTA
+.final {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  padding: 70px 0;
+
+  h2 {
+    font-family: var(--head);
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+  }
+
+  p {
+    color: rgba(255, 255, 255, .8);
+    margin-top: 12px;
+    font-size: 18px;
+  }
+
+  &__cta {
+    margin-top: 28px;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__contacts {
+    margin-top: 24px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, .6);
+
+    a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+  }
 }
