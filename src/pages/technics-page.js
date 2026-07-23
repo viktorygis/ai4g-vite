@@ -1,5 +1,4 @@
 // Файл: src/pages/technics-page.js
-import technics from "../data/technics.json";
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // ЭЛЕМЕНТЫ
@@ -17,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortSelectedArrow = sortDropdown.querySelector(".sort__selected-arrow");
   const sortOptions = sortDropdown.querySelector(".sort__options");
   const sortOptionElements = sortDropdown.querySelectorAll(".sort__option");
+
+  if (!sortSelected || !sortOptions) {
+    console.warn("Не найдены элементы дропдауна сортировки");
+    return;
+  }
 
   // =========================
   // СОСТОЯНИЕ
@@ -58,9 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getTimeRange(minutes) {
     const mins = parseInt(minutes, 10);
+    if (Number.isNaN(mins)) return "unknown";
     if (mins < 10) return "lt10";
-    if (mins >= 10 && mins < 30) return "10-30";
-    if (mins >= 30 && mins < 60) return "30-60";
+    if (mins < 30) return "10-30";
+    if (mins < 60) return "30-60";
     return "60+";
   }
 
@@ -143,13 +148,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================
-  // ЗАГРУЗКА JSON И ОТРИСОВКА КАРТОЧЕК
+  // ЗАГРУЗКА ДАННЫХ И ОТРИСОВКА КАРТОЧЕК
   // =========================
-  function loadAndRenderCards() {
+  async function loadAndRenderCards() {
     cardsContainer.innerHTML = '<div class="loading">Загрузка...</div>';
 
     try {
-      const data = technics;
+      const response = await fetch(`${import.meta.env.BASE_URL}data/technics-cards.json`);
+
+      if (!response.ok) {
+        throw new Error(`Не удалось загрузить данные: ${response.status}`);
+      }
+
+      const data = await response.json();
 
       cardsContainer.innerHTML = "";
 
@@ -187,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${item.time || 0} мин
           </div>
 
-         <a href="/technics/${item.slug}.html" class="card__link">
+         <a href="${import.meta.env.BASE_URL}technics/${item.slug}.html" class="card__link">
             Подробнее
           </a>
         </div>
@@ -272,8 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (defaultOption) updateActiveClass(defaultOption, sortOptionElements);
 
       refresh();
-
-      // Дополнительно убрать активные классы с кнопок фильтров (refresh уже делает это через filterCards)
     });
   }
 

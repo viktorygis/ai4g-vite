@@ -28,9 +28,9 @@
 }
 
 .example {
-  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: $color-accent;
   font-weight: 500;
-  color: $color-bg;
 }
 
 .item-title {

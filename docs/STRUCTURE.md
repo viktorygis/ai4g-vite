@@ -58,8 +58,7 @@ ai4g-vite/
 │   │   ├── personal-strategy-page.js
 │   │   ├── serf-session-page.js
 │   │   ├── session-animations.js
-│   │   ├── technic-page.js
-│   │   ├── technics-page.js
+│   │   ├── technics-page.js        # JS-логика для страницы technics.html (каталог техник)
 │   │   ├── transcribator-page.js
 │   │   └── vozmozhnosti-page.js
 │   │
@@ -132,7 +131,6 @@ ai4g-vite/
 │   ├── requisites.html
 │   ├── serf-session.html
 │   ├── services.html
-│   ├── technic.html        # Детальная страница техники (динамическая, slug-based) - нужна ли?
 │   ├── technics.html
 │   ├── vozmozhnosti.html
 ├── .gitignore                      # Файлы и папки, игнорируемые Git
