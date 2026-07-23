@@ -1,8 +1,7 @@
 //src\scripts\modules\forms\form-validation.js
 
-import Inputmask from "inputmask";
 import JustValidate from "just-validate";
-
+import InputmaskModule from "inputmask";
 // ============ ГЛОБАЛЬНАЯ ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ПОСЛЕДНЕГО ТРИГГЕРА ============
 let lastModalTrigger = null;
 
@@ -35,25 +34,18 @@ function updateModalContent() {
   const trigger = lastModalTrigger;
   if (!trigger) return;
 
-  const newTitle =
-    trigger.getAttribute("data-modal-title") ||
-    trigger.textContent.trim();
+  const newTitle = trigger.getAttribute("data-modal-title") || trigger.textContent.trim();
 
   if (!newTitle) return;
 
   // Ищем заголовок внутри открытого fancybox слайда
-  const titleEl = document.querySelector(
-    ".fancybox-slide--current .modal-request__title"
-  );
+  const titleEl = document.querySelector(".fancybox-slide--current .modal-request__title");
 
   if (titleEl) {
     titleEl.textContent = newTitle;
-
   } else {
     // Если не найден, попробуем найти внутри любого видимого слайда
-    const visibleTitle = document.querySelector(
-      ".fancybox-slide:not([style*='display: none']) .modal-request__title"
-    );
+    const visibleTitle = document.querySelector(".fancybox-slide:not([style*='display: none']) .modal-request__title");
     if (visibleTitle) {
       visibleTitle.textContent = newTitle;
     }
@@ -82,12 +74,16 @@ function bindFancyboxHandler() {
 
 // ============ ЗАПОМИНАНИЕ ТРИГГЕРА ПРИ КЛИКЕ ============
 function trackTriggerClicks() {
-  document.addEventListener('click', function(e) {
-    const link = e.target.closest('a[data-fancybox][href="#modal-request"]');
-    if (link) {
-      lastModalTrigger = link;
-    }
-  }, true); // true – фаза захвата, чтобы перехватить до fancybox
+  document.addEventListener(
+    "click",
+    function (e) {
+      const link = e.target.closest('a[data-fancybox][href="#modal-request"]');
+      if (link) {
+        lastModalTrigger = link;
+      }
+    },
+    true,
+  ); // true – фаза захвата, чтобы перехватить до fancybox
 }
 
 // ============ ОСНОВНАЯ ФУНКЦИЯ ============
@@ -105,8 +101,12 @@ export function formValidation() {
 
   const telSelector = form.querySelector(".modal-request__phone");
   if (telSelector) {
-    const inputMask = new Inputmask("+7 (999) 999-99-99");
-    inputMask.mask(telSelector);
+    const Inputmask = InputmaskModule.default || InputmaskModule;
+    const telSelector = form.querySelector(".modal-request__phone");
+    if (telSelector) {
+      const inputMask = new Inputmask("+7 (999) 999-99-99");
+      inputMask.mask(telSelector);
+    }
   }
 
   const validation = new JustValidate(".modal-request__form", {

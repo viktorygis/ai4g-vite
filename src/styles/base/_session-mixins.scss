@@ -94,7 +94,7 @@
 // ==============================
 @mixin service-item-styles() {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: clamp(1.25rem, 0.5306rem + 3.5971vw, 2.5rem);
 }
 
@@ -156,9 +156,7 @@
 @mixin service-title-styles() {
   color: $color-text;
 
-  &:not(:last-child) {
-    margin: 0 0 20px;
-  }
+
 }
 
 // ==============================

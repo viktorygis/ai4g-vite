@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const uploadUrl = getUploadUrl();
-  console.log("URL для загрузки:", uploadUrl);
 
   const myDropzone = new Dropzone("#my-dropzone", {
     url: uploadUrl,

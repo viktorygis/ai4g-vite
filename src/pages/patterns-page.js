@@ -188,4 +188,4 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
-})();
+});

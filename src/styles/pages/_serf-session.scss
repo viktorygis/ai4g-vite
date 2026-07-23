@@ -59,16 +59,25 @@
       gap: 20px;
     }
 
+    //.session-list__item
     &__item {
       display: flex;
       gap: 40px;
-      @include fade-in-animation(0s, 0.8s);
 
       @include respond-to(768px) {
         gap: 20px;
       }
+
+      &_01 {
+        @include fade-in-animation(0s, 0.8s);
+      }
+
+      &_02 {
+        @include fade-in-animation(0.2s, 0.8s);
+      }
     }
 
+    //.session-list__num
     &__num {
       font-size: 128px;
       line-height: 100%;
@@ -83,6 +92,7 @@
       }
     }
 
+    //.session-list__text
     &__text {
       font-size: 28px;
       line-height: 127%;
@@ -126,6 +136,7 @@
       align-items: center;
     }
 
+    //.session-download__item
     &__item {
       display: flex;
       gap: 30px;
@@ -222,6 +233,7 @@
       margin: 30px 0;
     }
 
+    //.serf-session__items
     &__items {
       position: relative;
       display: flex;
@@ -234,43 +246,79 @@
       }
     }
 
-    &__item {
-      @include service-item-styles();
-    }
+    //.serf-session__item
+&__item {
+  @include service-item-styles();
 
-    &__img {
-      @include service-image-styles();
+  // задержка растёт от карточки к карточке — эффект "по очереди"
+  &_01 {
+    .serf-session__img {
+      @include fade-in-animation(0s, 0.8s);
     }
-
-    &__block {
-      @include service-block-styles();
+    .serf-session__block {
+      @include fade-in-animation(0.1s, 0.8s);
     }
+  }
 
+  &_02 {
+    .serf-session__img {
+      @include fade-in-animation(0.3s, 0.8s);
+    }
+    .serf-session__block {
+      @include fade-in-animation(0.4s, 0.8s);
+    }
+  }
+
+  &_03 {
+    .serf-session__img {
+      @include fade-in-animation(0.6s, 0.8s);
+    }
+    .serf-session__block {
+      @include fade-in-animation(0.7s, 0.8s);
+    }
+  }
+}
+
+//.serf-session__img
+&__img {
+  @include service-image-styles();
+  // анимация теперь задаётся выше, персонально для каждого _01/_02/_03
+}
+
+//.serf-session__block
+&__block {
+  @include service-block-styles();
+  // анимация теперь задаётся выше, персонально для каждого _01/_02/_03
+}
+
+    //.serf-session__title
     &__title {
       @include service-title-styles();
     }
 
+    //.serf-session__subtitle
     &__subtitle {
       font-weight: 700;
       font-size: 28px;
       line-height: 128%;
       color: $color-text;
-      margin-top: 10px;
 
       @include respond-to(768px) {
         font-size: clamp(1rem, 0.5683rem + 2.1583vw, 1.75rem);
       }
     }
 
+    //.serf-session__text
     &__text {
       color: $color-bg;
-      font-weight: 700;
+
 
       &:not(:last-child) {
         margin: 0 0 20px;
       }
     }
 
+    //.serf-session__decor-img
     &__decor-img {
       position: absolute;
       top: -123px;

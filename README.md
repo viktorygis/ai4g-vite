@@ -101,14 +101,19 @@ F:\web\php\php.exe -S localhost:8000
 npm run generate
 npm run build
 ```
-
 После выполнения сборки создаётся папка:
 
 ```
 dist/
 ```
-
 На сервер переносится содержимое папки `dist`.
+
+## Git хостинг
+Если на git хостинге (например, GitHub Pages), то в `vite.config.js` нужно указать:
+
+```js
+base: "/ai4g-vite-pages/",
+```
 
 ---
 

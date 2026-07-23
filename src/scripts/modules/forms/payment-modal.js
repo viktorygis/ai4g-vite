@@ -1,6 +1,6 @@
 //src\scripts\modules\forms\payment-modal.js
-import Inputmask from "inputmask";
-
+import InputmaskModule from "inputmask";
+const Inputmask = InputmaskModule.default || InputmaskModule;
 let lastPaymentTrigger = null;
 
 function trackPaymentClicks() {
