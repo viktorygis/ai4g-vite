@@ -10,6 +10,7 @@
   background-position: left bottom;
 
 
+  //.fairway__wrapper
   &__wrapper {
     overflow: hidden;
     background-image: url("/img/fairway-bg-2.svg");
@@ -18,12 +19,14 @@
     background-position: 1083px 1383px;
   }
 
+  //.fairway__container
   &__container {
     max-width: 1146px;
     margin: 0 auto;
     padding: 0 20px;
   }
 
+  //.fairway__row
   &__row {
     margin-bottom: 60px;
     position: relative;
@@ -38,6 +41,7 @@
     }
   }
 
+  //.fairway__row-back
   &__row-back {
     position: absolute;
     content: "";
@@ -48,6 +52,7 @@
     background: $color-bg;
   }
 
+  //.fairway__title
   &__title {
     max-width: 660px;
     margin: 0 auto;
@@ -89,6 +94,7 @@
     }
   }
 
+  //.fairway__item
   &__item {
     margin-bottom: 60px;
     display: flex;
@@ -128,6 +134,7 @@
     }
   }
 
+  //.fairway__item-arrow
   &__item-arrow {
     display: flex;
     position: absolute;
@@ -146,6 +153,7 @@
       line-height: 12px;
     }
 
+    //.fairway__item-arrow-svg
     &-svg {
       margin-right: 25px;
 
@@ -169,6 +177,7 @@
       }
     }
 
+    //.fairway__item-arrow-text
     &-text {
       max-width: 140px;
       font-weight: 700;
@@ -187,15 +196,18 @@
       }
     }
 
+    //.fairway__item-arrow:hover .fairway__item-arrow-text
     &:hover .fairway__item-arrow-text {
       color: $color-link-hover;
     }
 
+    //.fairway__item-arrow:hover .fairway__item-arrow-svg svg
     &:hover .fairway__item-arrow-svg svg {
       fill: $color-link-hover;
     }
   }
 
+  //.fairway__item-left
   &__item-left {
     width: 38px;
     margin-right: 44px;
@@ -246,6 +258,7 @@
     }
   }
 
+  //.fairway__item-title
   &__item-title {
     margin-bottom: 8px;
     font-weight: 900;
@@ -272,6 +285,7 @@
     }
   }
 
+  //.fairway__item-suptitle
   &__item-suptitle {
     margin-bottom: 20px;
     font-weight: 500;
@@ -285,6 +299,7 @@
     }
   }
 
+  //.fairway__item-li
   &__item-li {
     font-size: 16px;
     line-height: 24px;
@@ -295,6 +310,7 @@
     }
   }
 
+  //.fairway__item-bold
   &__item-bold {
     max-width: 610px;
     font-weight: 700;
@@ -312,6 +328,7 @@
     }
   }
 
+  //.fairway
   &__item-purple-bold {
     margin: 15px 0 28px 0;
     font-weight: 700;
@@ -331,6 +348,7 @@
     }
   }
 
+  //.fairway__footer
   &__footer {
     margin: 70px 0 83px;
     position: relative;
@@ -340,6 +358,7 @@
     }
   }
 
+  //.fairway__link
   &__link {
     margin-top: -7px;
     z-index: 11;
