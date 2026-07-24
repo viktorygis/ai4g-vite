@@ -64,10 +64,8 @@ function getUploadUrl() {
   const currentPath = window.location.pathname;
   const isInSubfolder = currentPath.includes("/transcribator-page");
 
-  if (isInSubfolder) {
-    return "../upload.php";
-  }
-  return "./upload.php";
+  //если upload.php находится в папке php
+  return isInSubfolder ? "/php/upload.php" : "/upload.php";
 }
 
 let uploadedFiles = [];

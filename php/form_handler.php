@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Отображение кнопки оплаты
     echo '<h3>Спасибо за регистрацию!</h3>';
-    echo '<form action="payment.php" method="POST">';
+    echo '<form action="/php/payment.php" method="POST">';
     echo '<button type="submit">Оплатить</button>';
     echo '</form>';
 }
