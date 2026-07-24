@@ -49,29 +49,21 @@
       </div>
     </div>
 
+    <div class="payment__agree">
+      <div class="payment__check">
+        <input id="policy-read" type="checkbox" name="agreePolicy" required>
+        <label for="policy-read"><p><span>* </span>С <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a> ознакомлен (-на).</p></label>
+      </div>
+      <div class="payment__check">
+        <input id="data-consent" type="checkbox" name="agreeData" required>
+        <label for="data-consent"><p><span>* </span>Даю согласие на обработку своих персональных данных в соответствии с <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</p></label>
+      </div>
+      <div class="payment__check">
+        <input id="marketing-consent" type="checkbox" name="agreeAds">
+        <label for="marketing-consent"><p>Даю <a href="agreement.html" target="_blank" rel="noopener noreferrer">Согласие на получение информационных и рекламных материалов</a>.</p></label>
+      </div>
+    </div>
+
     <button class="payment__btn" type="submit">Оплатить</button>
   </form>
-  <div class="payment__agree">
-    <div class="payment__check">
-      <input id="policy-read" type="checkbox" name="agreePolicy" required>
-      <label for="policy-read"><p><span>* </span>С <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a> ознакомлен (-на).</p></label>
-    </div>
-    <div class="payment__check">
-      <input id="data-consent" type="checkbox" name="agreeData" required>
-      <label for="data-consent"><p><span>* </span>Даю согласие на обработку своих персональных данных в соответствии с <a href="personal.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>.</p></label>
-    </div>
-    <div class="payment__check">
-      <input id="marketing-consent" type="checkbox" name="agreeAds">
-      <label for="marketing-consent"><p>Даю <a href="agreement.html" target="_blank" rel="noopener noreferrer">Согласие на получение информационных и рекламных материалов</a>.</p></label>
-    </div>
-  </div>
-</div>
-
-<!-- Универсальный попап “Спасибо” -->
-<div class="modal-thanks" id="successful-payment-modal" style="display:none">
-  <div class="modal-thanks__logo">
-    <img src="img/modal-thanks-logo.svg" alt="Ai4G" loading="lazy" />
-  </div>
-  <h3 class="modal-thanks__title" id="thanks-title"></h3>
-  <div class="modal-thanks__text" id="thanks-text"></div>
 </div>

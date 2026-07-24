@@ -61,11 +61,7 @@ function showAlert(message) {
 }
 
 function getUploadUrl() {
-  const currentPath = window.location.pathname;
-  const isInSubfolder = currentPath.includes("/transcribator-page");
-
-  //если upload.php находится в папке php
-  return isInSubfolder ? "/php/upload.php" : "/upload.php";
+  return "/js/php/upload.php";
 }
 
 let uploadedFiles = [];
@@ -405,12 +401,5 @@ document.addEventListener("DOMContentLoaded", () => {
       isProcessing = false;
       processButton.disabled = false;
     }
-  });
-
-  document.addEventListener("payment-success", () => {
-    uploadedFiles = [];
-    totalDuration = 0;
-    updateTotalPrice();
-    myDropzone.removeAllFiles(true);
   });
 });

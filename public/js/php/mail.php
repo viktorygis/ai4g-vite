@@ -30,9 +30,17 @@ if (!empty($_POST['hidden_field'])) {
   exit;
 }
 
-require 'phpmailer/PHPMailer.php';
-require 'phpmailer/SMTP.php';
-require 'phpmailer/Exception.php';
+// Согласие на обработку персональных данных обязательно (152-ФЗ), проверяем и на сервере —
+// клиентскую JS-валидацию можно обойти прямым запросом.
+if (empty($_POST['agreePolicy']) || empty($_POST['agreeData'])) {
+  http_response_code(400);
+  echo json_encode(['status' => 'error', 'message' => 'Consent checkboxes are required']);
+  exit;
+}
+
+require __DIR__ . '/../PHPMailer/PHPMailer.php';
+require __DIR__ . '/../PHPMailer/SMTP.php';
+require __DIR__ . '/../PHPMailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

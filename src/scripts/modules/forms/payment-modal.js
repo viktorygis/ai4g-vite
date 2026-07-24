@@ -109,15 +109,6 @@ function bindPaymentFancybox() {
   }
 }
 
-function initPaymentFormSubmit() {
-  document.addEventListener('submit', function(e) {
-    const form = e.target.closest('#payment-form');
-    if (!form) return;
-    // e.preventDefault();  // только для теста!
-    // Покажите спасибо или редирект как нужно
-  });
-}
-
 function initPhoneMask() {
   const phoneInput = document.querySelector('#payment-form .payment__phone');
   if (phoneInput) {
@@ -128,6 +119,5 @@ function initPhoneMask() {
 export function initPaymentModal() {
   trackPaymentClicks();
   bindPaymentFancybox();
-  initPaymentFormSubmit();
   initPhoneMask();
 }

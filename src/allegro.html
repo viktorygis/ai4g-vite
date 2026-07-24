@@ -3,7 +3,7 @@
 @@include('partials/head.html', {"title": "Транскрибатор «Аллегро» - расшифровка аудио и видео с помощью ИИ - Ai4G", "description": "Используйте транскрибатор «Аллегро» для быстрой и точной расшифровки аудио и видеофайлов с помощью технологий искусственного интеллекта.🔹 Нейросервис Ai4G"})
 
 
-<body class="body page-transcribator">
+<body class="body page-allegro">
   <div class="wrapper">
     @@include('partials/header.html', {})
 
@@ -25,8 +25,8 @@
               <div class="servise">
                 <div class="servise__item _anim-items _anim-no-hide">
                   <picture>
-                    <source srcset="img/transcribator/cost.webp" type="image/webp" />
-                    <img src="img/transcribator/cost.png" alt="" class="servise__img" />
+                    <source srcset="img/allegro/cost.webp" type="image/webp" />
+                    <img src="img/allegro/cost.png" alt="" class="servise__img" />
                   </picture>
                   <div class="servise__block">
                     <div class="servise__title">Стоимость продукта</div>
@@ -38,8 +38,8 @@
                 </div>
                 <div class="servise__item _anim-items _anim-no-hide">
                   <picture>
-                    <source srcset="img/transcribator/time.webp" type="image/webp" />
-                    <img src="img/transcribator/time.png" alt="" class="servise__img" />
+                    <source srcset="img/allegro/time.webp" type="image/webp" />
+                    <img src="img/allegro/time.png" alt="" class="servise__img" />
                   </picture>
                   <div class="servise__block">
                     <div class="servise__title">Объем файла</div>
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="offer-trans__image _anim-items _anim-no-hide">
-              <img src="img/transcribator/allegro.png" alt="" />
+              <img src="img/allegro/allegro.png" alt="" />
             </div>
           </div>
         </div>
@@ -85,9 +85,9 @@
       <div class="trancrib _anim-items _anim-no-hide" id="drop-area">
         <div class="trancrib__container">
           <div class="trancrib__body">
-            <form action="/php/upload.php" class="trancrib__form dropzone" id="my-dropzone">
+            <form action="/js/php/upload.php" class="trancrib__form dropzone" id="my-dropzone">
               <div class="trancrib__img">
-                <img src="img/transcribator/download.png" alt="" />
+                <img src="img/allegro/download.png" alt="" />
               </div>
               <div class="trancrib__text trancrib-text"></div>
             </form>
@@ -95,12 +95,12 @@
             <button type="button" class="trancrib__link" id="upload-button">Загрузить файл</button>
             <div class="trancrib__bottom">
               <button type="button" class="trancrib__link trancrib__link_add" id="button-add">
-                <img src="img/transcribator/plus.svg" alt="" />
+                <img src="img/allegro/plus.svg" alt="" />
                 Добавить еще файлы
               </button>
               <button type="button" class="trancrib__link trancrib__link_proccess" id="button-proccess">
                 Конвертировать
-                <img src="img/transcribator/arrow-right.svg" alt="" />
+                <img src="img/allegro/arrow-right.svg" alt="" />
               </button>
             </div>
             <div id="alert-info" class="alert-info"></div>
@@ -378,7 +378,7 @@
         <div class="offered__container">
           <div class="offered__body">
             <div class="offered__image _anim-items _anim-no-hide">
-              <img src="img/transcribator/allegro-offered.png" alt="Транскрибатор Allegro" />
+              <img src="img/allegro/allegro-offered.png" alt="Транскрибатор Allegro" />
             </div>
             <div class="offered__content">
               <div class="offered__overhead overhead _anim-items _anim-no-hide">Попробуйте наш продукт</div>
@@ -406,7 +406,7 @@
 
 
   </div>
-  <script type="module" src="./pages/transcribator-page.js"></script>
+  <script type="module" src="./pages/allegro-page.js"></script>
 
 </body>
 

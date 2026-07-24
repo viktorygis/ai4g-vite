@@ -8,26 +8,31 @@ ai4g-vite/
 ├── .well-known/               # SSL- и доменные проверки (например, LetsEncrypt)
 ├── dist/                      # Продакшн-сборка (результат `npm run build`)
 ├── node_modules/              # Зависимости npm
-├── php/                       # Серверные скрипты для обработки форм (mail, оплаты)
-│   ├── download.php           # Скрипт для скачивания файлов (например, картинок техник)
-│   ├── env.php                # Файл с настройками окружения (например, SMTP)
-│   ├── form_handler.php       # Скрипт для обработки форм (отправка писем)
-│   ├── info.php               # Скрипт для вывода информации о сервере (phpinfo)
-│   ├── mail.php               # Скрипт для отправки писем через PHPMailer
-│   ├── pay.php                # Скрипт для обработки платежей (например, через платежный шлюз)
-│   ├── payment-success.php    # Скрипт для обработки успешной оплаты
-│   └── payment.php            # Скрипт для обработки платежей (например, через платежный шлюз)
-├── PHPMailer/                 # Библиотека PHPMailer (отправка писем)
-│   ├── language/
-│   └── src/
-├── public/                    # Необрабатываемые статики: favicon, robots.txt, иконки
+├── public/                    # Всё отсюда копируется в dist/ как есть (без обработки Vite)
 │   ├── favicon.ico
 │   ├── robots.txt
 │   ├── js/
 │   │   ├── manifest.json      - манифест для PWA
 │   │   ├── offline.html       - Логика offline-страницы
-│   │   └── sw.js              - service worker для PWA
+│   │   ├── sw.js              - service worker для PWA
+│   │   ├── php/               # Серверные скрипты для обработки форм (mail, загрузка, оплата) — см. docs/PHP.md.
+│   │   │                      #   На хостинге доступны только по /js/php/... — /php/... уходит на другой бэкенд, см. README
+│   │   │   ├── .env                   # Секреты (SMTP/DB/PayKeeper/reCAPTCHA), не коммитится в git
+│   │   │   ├── download.php           # Отдаёт файл из uploads/ по ?file= (не используется фронтендом)
+│   │   │   ├── env.php                # Загружает .env в $_ENV/putenv()
+│   │   │   ├── form_handler.php       # Старая CSRF-форма регистрации → payment.php (не используется фронтендом)
+│   │   │   ├── mail.php               # Отправка писем через PHPMailer — форма записи (request-form.html)
+│   │   │   ├── pay.php                # Запись заказа в БД + создание счёта PayKeeper (не подключено к фронтенду)
+│   │   │   ├── payment_success.php    # Вебхук PayKeeper: подтверждение оплаты (не подключено к фронтенду)
+│   │   │   └── payment.php            # Старый вариант оплаты через PayKeeper order/inline/ (не используется фронтендом)
+│   │   └── PHPMailer/         # Библиотека PHPMailer, подключается из php/mail.php
+│   │       ├── PHPMailer.php  # Используется mail.php (require __DIR__ . '/../PHPMailer/...')
+│   │       ├── SMTP.php
+│   │       ├── Exception.php
+│   │       ├── language/
+│   │       └── src/           # Composer-версия той же библиотеки (для справки/автозагрузки)
 │   ├── img/                   # Картинки и все иллюстрации по подпапкам:
+│   │   ├── allegro/
 │   │   ├── art-coaching/
 │   │   ├── career-advice/
 │   │   ├── coaching-session/
@@ -60,7 +65,7 @@ ai4g-vite/
 │   │   ├── serf-session-page.js
 │   │   ├── session-animations.js
 │   │   ├── technics-page.js        # JS-логика для страницы technics.html (каталог техник)
-│   │   ├── transcribator-page.js
+│   │   ├── allegro-page.js
 │   │   └── vozmozhnosti-page.js
 │   │
 │   ├── partials/                     # HTML-фрагменты (header, footer, формы, подключение js)
@@ -138,7 +143,6 @@ ai4g-vite/
 ├── package.json                    # Описания npm-зависимостей и скриптов
 ├── README.md                       # Этот файл
 ├── technics.xlsx                   # Таблица с техниками для массового импорта/обновления
-├── upload.php                      # Скрипт для загрузки файлов на сервер (например, картинок техник)
 └── vite.config.js                  # Главный конфиг Vite
 
 ```

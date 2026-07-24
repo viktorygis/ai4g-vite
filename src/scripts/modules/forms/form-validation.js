@@ -125,6 +125,12 @@ export function formValidation() {
       { rule: "required", value: true, errorMessage: "Введите электронную почту" },
       { rule: "email", value: true, errorMessage: "Введите корректную электронную почту" },
     ])
+    .addField("#policy-read-req", [
+      { rule: "required", value: true, errorMessage: "Необходимо ознакомиться с политикой обработки персональных данных" },
+    ])
+    .addField("#data-consent-req", [
+      { rule: "required", value: true, errorMessage: "Необходимо согласие на обработку персональных данных" },
+    ])
     .onValidate(() => {
       const recaptchaError = document.getElementById("recaptchaError");
       if (typeof grecaptcha !== "undefined") {
@@ -161,6 +167,7 @@ export function formValidation() {
                 }
                 if (typeof grecaptcha !== "undefined") grecaptcha.reset();
                 event.target.reset();
+                validation.clearErrors();
                 const resetPageTitleField = event.target.querySelector('[name="page_title"]');
                 if (resetPageTitleField) {
                   resetPageTitleField.value = document.title;
@@ -179,7 +186,7 @@ export function formValidation() {
         }
       };
 
-      xhr.open("POST", "/php/mail.php", true);
+      xhr.open("POST", "/js/php/mail.php", true);
       xhr.send(formData);
     });
 

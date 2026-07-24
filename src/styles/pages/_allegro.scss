@@ -1,14 +1,14 @@
-// transcribator.scss
+// _allegro.scss
 @use '../base/variables' as *;
 
 // ==============================
 // ГЛОБАЛЬНЫЕ КОРРЕКТИРОВКИ ДЛЯ СТРАНИЦЫ
 // ==============================
-.body.page-transcribator {
+.body.page-allegro {
   background-color: $color-secondary; // #2bf29f
 }
 
-.page-transcribator {
+.page-allegro {
   .footer {
     background-color: $color-secondary;
     background: linear-gradient(180deg, rgb(0, 169, 159), rgba(44, 51, 75, 0) 100%);

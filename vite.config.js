@@ -50,6 +50,9 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    // На хостинге прокси пускает на Apache только /js/, /img/, /css/ — остальные
+    // префиксы (в т.ч. дефолтный /assets/) уходят на другой бэкенд и отдают 404.
+    assetsDir: "js",
     rollupOptions: {
       input: collectHtmlInputs(srcDir),
     },
